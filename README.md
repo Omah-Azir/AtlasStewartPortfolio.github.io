@@ -1,6 +1,6 @@
 # Atlas Stewart · Portfolio
 
-Game UI/UX portfolio for Atlas Stewart. Live at https://omah-azir.github.io/atlasstewartportfolio.github.io/
+Game UI/UX portfolio for Atlas Stewart. Live at https://omah-azir.github.io/AtlasStewartPortfolio.github.io/
 
 Hand-built static site. No build step, no framework.
 
