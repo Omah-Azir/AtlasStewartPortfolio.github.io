@@ -161,6 +161,18 @@ p{margin:0;max-width:65ch}
 .cover-en{background:radial-gradient(circle at 30% 70%,var(--en-accent) 0 9%,transparent 9.5%),radial-gradient(circle at 30% 70%,transparent 0 18%,color-mix(in srgb,var(--en-accent) 45%,transparent) 18.5% 19.5%,transparent 20%),radial-gradient(circle at 30% 70%,transparent 0 30%,color-mix(in srgb,var(--en-accent) 25%,transparent) 30.5% 31.5%,transparent 32%),var(--en-panel)}
 .cover-mc{background:linear-gradient(var(--mc-rule) 1px,transparent 1px) 0 0/22px 22px,linear-gradient(90deg,var(--mc-rule) 1px,transparent 1px) 0 0/22px 22px,var(--mc-bg)}
 
+
+/* Overlapping deck: files sit over each other a bit, fan out slightly as the deck scrolls in */
+.deck{--spread:1}
+@media (min-width:861px){
+  .deck{gap:0}
+  .file{transform:rotate(calc(var(--tilt,0deg) * (1 - var(--spread)))) translateY(calc(14px * (1 - var(--spread))));
+    transition:flex-grow .55s var(--ease),transform .35s var(--ease)}
+  .file + .file{margin-left:calc(-46px + 34px * var(--spread))}
+  .file-face{box-shadow:-16px 0 30px -18px rgba(0,0,0,.85)}
+  .file:hover,.file:focus-visible{z-index:20;transform:translateY(-4px)}
+  .file:hover .file-face{box-shadow:-16px 0 30px -18px rgba(0,0,0,.85),0 24px 48px -24px rgba(0,0,0,.9)}
+}
 @media (max-width:860px){
   .deck{flex-direction:column;height:auto;gap:44px}
   .file{flex:none}
@@ -1073,6 +1085,22 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
   }
   addEventListener('scroll', onScroll, {passive:true});
   views.addEventListener('scroll', onScroll, {passive:true});
+
+
+  /* ---------- deck fans out slightly as it scrolls into view ---------- */
+  const deck = document.querySelector('.deck');
+  const tilts = ['-1.4deg','1deg','-.7deg','1.2deg','-1deg','.8deg'];
+  document.querySelectorAll('.file').forEach((f, i) => f.style.setProperty('--tilt', tilts[i % tilts.length]));
+  function spread(){
+    if (!deck) return;
+    if (reduce.matches){ deck.style.setProperty('--spread', 1); return; }
+    const r = deck.getBoundingClientRect(), vh = innerHeight;
+    const t = Math.min(1, Math.max(0, (vh - r.top) / (vh * 0.65)));
+    deck.style.setProperty('--spread', t.toFixed(3));
+  }
+  spread();
+  addEventListener('scroll', () => requestAnimationFrame(spread), {passive:true});
+  addEventListener('resize', spread);
 
   /* ---------- case-study table of contents ---------- */
   const tocIO = new IntersectionObserver(entries => entries.forEach(en => {
