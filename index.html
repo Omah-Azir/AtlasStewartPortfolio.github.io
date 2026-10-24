@@ -25,8 +25,8 @@ html,body{margin:0}
 
   /* Project palettes (each one is a single deliberate look) */
   --coj-bg:#281E12; --coj-panel:#3A2E22; --coj-tab:#514741; --coj-ink:#E9DFCC; --coj-ink2:#BBA88D; --coj-rule:#5A4B3A; --coj-accent:#E1B45A;
-  --ng-bg:#F7F7F5; --ng-panel:#EBEBE7; --ng-tab:#DCDCD6; --ng-ink:#121212; --ng-ink2:#4A4A46; --ng-rule:#D1D1CB; --ng-accent:#C42E12;
-  --liv-1:#C42E12; --liv-2:#1F5FD1; --liv-3:#E8B10C; --liv-4:#17996A;
+  --ng-bg:#F5F5F4; --ng-panel:#EDEBF3; --ng-tab:#DEDAEA; --ng-ink:#16132A; --ng-ink2:#4C4766; --ng-rule:#D6D1E4; --ng-accent:#5A45B8;
+  --liv-1:#F77FB0; --liv-2:#F5D547; --liv-3:#7FD3E8; --liv-4:#806DBB;
   --noc-bg:#06100A; --noc-panel:#0C1E14; --noc-tab:#123222; --noc-ink:#D3F2DB; --noc-ink2:#8CC9A0; --noc-rule:#1C4A31; --noc-accent:#62E893;
   --en-bg:#1C2230; --en-panel:#262E40; --en-tab:#323C52; --en-ink:#EAEFF7; --en-ink2:#AEB9CF; --en-rule:#3A4560; --en-accent:#F59A7A;
   --mc-bg:#EDF1EA; --mc-panel:#E0E7DC; --mc-tab:#C9D4C3; --mc-ink:#17201A; --mc-ink2:#46554A; --mc-rule:#BFCBB9; --mc-accent:#2D7A3D;
@@ -48,7 +48,7 @@ html,body{margin:0}
 }
 /* Opened project re-skins everything (declared last so it wins) */
 :root[data-project="chain-of-jewels"]{--desk:#1A130B;--sheet:var(--coj-bg);--tab:var(--coj-tab);--panel:var(--coj-panel);--ink:var(--coj-ink);--ink-2:var(--coj-ink2);--rule:var(--coj-rule);--accent:var(--coj-accent);--accent-ink:#281E12;--font-display:"Alegreya",Georgia,serif;--display-stretch:100%;--display-weight:800;color-scheme:dark}
-:root[data-project="nitro-guzzler"]{--desk:#E6E6E1;--sheet:var(--ng-bg);--tab:var(--ng-tab);--panel:var(--ng-panel);--ink:var(--ng-ink);--ink-2:var(--ng-ink2);--rule:var(--ng-rule);--accent:var(--ng-accent);--accent-ink:#FFFFFF;--display-stretch:68%;--display-weight:900;--display-style:italic;color-scheme:light}
+:root[data-project="nitro-guzzler"]{--desk:#E7E5EE;--sheet:var(--ng-bg);--tab:var(--ng-tab);--panel:var(--ng-panel);--ink:var(--ng-ink);--ink-2:var(--ng-ink2);--rule:var(--ng-rule);--accent:var(--ng-accent);--accent-ink:#FFFFFF;--display-stretch:68%;--display-weight:900;--display-style:italic;color-scheme:light}
 :root[data-project="noc-6000"]{--desk:#020604;--sheet:var(--noc-bg);--tab:var(--noc-tab);--panel:var(--noc-panel);--ink:var(--noc-ink);--ink-2:var(--noc-ink2);--rule:var(--noc-rule);--accent:var(--noc-accent);--accent-ink:#03140A;--font-display:var(--font-mono);--display-stretch:100%;--display-weight:600;color-scheme:dark}
 :root[data-project="enshahtenti"]{--desk:#141925;--sheet:var(--en-bg);--tab:var(--en-tab);--panel:var(--en-panel);--ink:var(--en-ink);--ink-2:var(--en-ink2);--rule:var(--en-rule);--accent:var(--en-accent);--accent-ink:#2A1209;color-scheme:dark}
 :root[data-project="minecraft-project"]{--desk:#DCE4D7;--sheet:var(--mc-bg);--tab:var(--mc-tab);--panel:var(--mc-panel);--ink:var(--mc-ink);--ink-2:var(--mc-ink2);--rule:var(--mc-rule);--accent:var(--mc-accent);--accent-ink:#FFFFFF;color-scheme:light}
@@ -171,7 +171,7 @@ p{margin:0;max-width:65ch}
   .file-line{-webkit-line-clamp:unset}
 }
 .h-touch{display:none}
-@media (hover:none){.file-more{opacity:1;transform:none}.h-mouse{display:none}.h-touch{display:inline}}
+@media (hover:none){.case-bar .hint{display:none}.file-more{opacity:1;transform:none}.h-mouse{display:none}.h-touch{display:inline}}
 
 /* ---------- About ---------- */
 .about-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(2rem,5vw,4.5rem);align-items:start}
@@ -291,6 +291,33 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
 .toast[hidden]{display:block!important;opacity:0;pointer-events:none}
 
 
+
+/* Nitro Guzzler splash: the title loop runs behind the hero in a tilted screen */
+.file-media .hover-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .4s var(--ease)}
+.file:hover .file-media .hover-vid.on,.file:focus-visible .file-media .hover-vid.on{opacity:1}
+.ng-hero{position:relative;isolation:isolate;min-height:clamp(420px,52vw,640px)}
+.ng-hero > :not(.ng-splash){position:relative;z-index:1}
+.ng-hero .glance{background:color-mix(in srgb,var(--sheet) 82%,transparent);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.ng-splash{position:absolute;z-index:0;top:0;right:-2%;width:70%;height:100%;perspective:1400px;pointer-events:none}
+.ng-screen{position:absolute;inset:4% 0 18% 0;transform:rotateY(-14deg) rotateX(6deg);transform-origin:right center;border-radius:14px;overflow:hidden;
+  box-shadow:0 40px 80px -40px color-mix(in srgb,var(--liv-4) 70%,transparent),0 0 0 1px color-mix(in srgb,var(--liv-4) 30%,transparent);
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 38%);mask-image:linear-gradient(90deg,transparent 0,#000 38%)}
+.ng-screen video{width:100%;height:100%;object-fit:cover;display:block}
+.ng-screen::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(90,69,184,.07) 0 1px,transparent 1px 4px);mix-blend-mode:multiply}
+.hud{position:absolute;width:26px;height:26px;border:2px solid var(--accent);z-index:2}
+.hud.tl{top:12px;left:40%;border-right:0;border-bottom:0}.hud.tr{top:12px;right:12px;border-left:0;border-bottom:0}
+.hud.bl{bottom:12px;left:40%;border-right:0;border-top:0}.hud.br{bottom:12px;right:12px;border-left:0;border-top:0}
+.hud-label{position:absolute;right:46px;top:16px;z-index:2;display:flex;align-items:center;gap:.45rem;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent);background:color-mix(in srgb,var(--sheet) 80%,transparent);padding:.25rem .5rem;border-radius:4px}
+.hud-label i{width:.5rem;height:.5rem;border-radius:50%;background:var(--liv-1)}
+@media (prefers-reduced-motion: no-preference){.hud-label i{animation:blink 1.4s steps(2,start) infinite}@keyframes blink{to{visibility:hidden}}}
+@media (max-width:860px){
+  .ng-hero{min-height:0}
+  .ng-splash{position:relative;width:auto;right:auto;height:auto;aspect-ratio:16/9;margin-bottom:1.25rem;perspective:none}
+  .ng-screen{inset:0;transform:none;-webkit-mask-image:none;mask-image:none}
+  .hud.tl,.hud.bl{left:12px}
+}
+
 /* Nitro Guzzler components */
 .stripes{display:grid;gap:6px;margin-top:2rem;max-width:520px}
 .stripes i{display:block;height:8px;border-radius:4px;transform:skewX(-30deg)}
@@ -370,7 +397,7 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
         <a role="listitem" class="file" data-p="nitro-guzzler" href="#nitro-guzzler" aria-label="Nitro Guzzler. Creative Director and UI/UX designer on a 31-person racing game whose main menu is a 3D world. Open case study.">
           <span class="file-tab" aria-hidden="true">01 · Shipping</span>
           <span class="file-face">
-            <span class="file-media cover-ng" aria-hidden="true"></span>
+            <span class="file-media cover-ng" aria-hidden="true"><img src="img/ng-title-poster.webp" alt="" width="1280" height="720" loading="lazy"><video class="hover-vid" src="media/ng-title-loop.mp4" muted loop playsinline preload="none" poster="img/ng-title-poster.webp"></video></span>
             <span class="file-body">
               <span class="chip">Steam · Dec 2026</span>
               <span class="file-title">Nitro Guzzler</span>
@@ -623,7 +650,14 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
     <div class="wrap">
       <div class="inner">
         <div class="case-bar"><a class="btn ghost close" href="#projects">← Back to projects</a><span class="hint"><kbd>Esc</kbd> closes the file</span></div>
-        <header class="case-hero morph-target">
+        <header class="case-hero morph-target ng-hero">
+          <div class="ng-splash" aria-hidden="true">
+            <div class="ng-screen">
+              <video id="ng-loop" src="media/ng-title-loop.mp4" poster="img/ng-title-poster.webp" muted loop playsinline autoplay preload="metadata"></video>
+              <span class="hud tl"></span><span class="hud tr"></span><span class="hud bl"></span><span class="hud br"></span>
+              <span class="hud-label"><i></i>Main menu · title loop</span>
+            </div>
+          </div>
           <p class="eyebrow">Case study · Shipping on Steam, December 2026</p>
           <h1 id="ng-title" tabindex="-1">Nitro Guzzler</h1>
           <p class="lede">A Redline-inspired portal racing game where the main menu is a 3D world, not a screen. As Creative Director and UI/UX designer, I created or directed all of the game's UI, from concept to implementation.</p>
@@ -828,6 +862,7 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
   const toast = document.getElementById('toast');
   const ids = [...document.querySelectorAll('.case')].map(a => a.dataset.id);
   let current = null, lastCard = null, toastTimer;
+  const ngLoopEl = () => document.getElementById('ng-loop');
 
   /* ---------- open / close a project file ---------- */
   function apply(id){
@@ -840,6 +875,8 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
     document.querySelectorAll('.nav .tab').forEach(t => t.setAttribute('aria-current', t.dataset.sec === 'projects' ? 'true' : 'false'));
     cueT.textContent = 'Esc or Back closes this file'; cue.classList.remove('gone');
     setTimeout(() => cue.classList.add('gone'), 2600);
+    const ngLoop = ngLoopEl();
+    if (ngLoop){ if (id === 'nitro-guzzler' && !reduce.matches) ngLoop.play().catch(()=>{}); else ngLoop.pause(); }
     const h = document.querySelector('#case-' + id + ' h1'); h && h.focus({preventScroll:true});
   }
   function open(id, card){
@@ -855,7 +892,7 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
   function close(target){
     if (!current) return;
     const done = () => {
-      views.hidden = true; delete root.dataset.project;
+      views.hidden = true; delete root.dataset.project; const nl = ngLoopEl(); nl && nl.pause();
       document.body.classList.remove('case-open'); page.inert = false; current = null;
       if (target){ const el = document.getElementById(target); el && el.scrollIntoView({behavior:'instant'}); }
       lastCard && lastCard.focus({preventScroll:true});
@@ -892,8 +929,9 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
     entries.forEach(en => seen.set(en.target.id, en.isIntersecting ? en.intersectionRatio : 0));
     let best = 'home', r = -1;
     for (const [k,v] of seen) if (v > r){ r = v; best = k; }
+    if (current) return;
     tabs.forEach(t => t.setAttribute('aria-current', t.dataset.sec === best ? 'true' : 'false'));
-    if (!current){ cueT.textContent = cues[best]; }
+    cueT.textContent = cues[best];
   }, {threshold:[0,.15,.3,.5,.75,1], rootMargin:'-20% 0px -30% 0px'});
   ['home','projects','about','contact'].forEach(id => io.observe(document.getElementById(id)));
   const bar = document.getElementById('progress');
@@ -952,6 +990,19 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
     document.getElementById('cp-name').textContent = d[1];
     document.getElementById('cp-text').textContent = d[2];
   }));
+
+
+  /* ---------- video loops: respect reduced motion, hover-play on cards ---------- */
+  const ngLoop = document.getElementById('ng-loop');
+  const syncMotion = () => { if (!ngLoop) return; if (reduce.matches){ ngLoop.pause(); ngLoop.removeAttribute('autoplay'); } else if (current === 'nitro-guzzler') ngLoop.play().catch(()=>{}); };
+  reduce.addEventListener ? reduce.addEventListener('change', syncMotion) : null;
+  document.querySelectorAll('.file').forEach(card => {
+    const v = card.querySelector('.hover-vid'); if (!v) return;
+    const on = () => { if (reduce.matches) return; v.play().then(() => v.classList.add('on')).catch(()=>{}); };
+    const off = () => { v.classList.remove('on'); v.pause(); };
+    card.addEventListener('mouseenter', on); card.addEventListener('focus', on);
+    card.addEventListener('mouseleave', off); card.addEventListener('blur', off);
+  });
 
   /* ---------- copy helpers ---------- */
   function say(msg){ toast.textContent = msg; toast.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.hidden = true, 1600); }
