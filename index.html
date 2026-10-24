@@ -7,7 +7,7 @@
 <meta name="description" content="Atlas Stewart is a game UI/UX designer. See how he designed Nitro Guzzler's main menu, the Chain of Jewels UI, a Minecraft inventory redesign and more.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martian+Mono:wdth,wght@75..112.5,100..800&family=Hanken+Grotesk:ital,wght@0,300..800;1,300..800&family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&family=Alegreya:wght@500;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martian+Mono:wdth,wght@75..112.5,100..800&family=Hanken+Grotesk:ital,wght@0,300..800;1,300..800&family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&family=Alegreya:wght@500;700;800&family=Kalam:wght@400;700&display=swap">
 <style>
 html,body{margin:0}
 [hidden]{display:none!important}
@@ -34,7 +34,7 @@ html,body{margin:0}
   --ng-bg:#F5F5F4; --ng-panel:#EDEBF3; --ng-tab:#DEDAEA; --ng-ink:#16132A; --ng-ink2:#4C4766; --ng-rule:#D6D1E4; --ng-accent:#5A45B8;
   --liv-1:#F77FB0; --liv-2:#F5D547; --liv-3:#7FD3E8; --liv-4:#806DBB;
   --noc-bg:#06100A; --noc-panel:#0C1E14; --noc-tab:#123222; --noc-ink:#D3F2DB; --noc-ink2:#8CC9A0; --noc-rule:#1C4A31; --noc-accent:#62E893;
-  --en-bg:#1C2230; --en-panel:#262E40; --en-tab:#323C52; --en-ink:#EAEFF7; --en-ink2:#AEB9CF; --en-rule:#3A4560; --en-accent:#F59A7A;
+  --en-bg:#2D3A4B; --en-panel:#38495C; --en-tab:#52677F; --en-ink:#FEFCFB; --en-ink2:#C8DCEB; --en-rule:#4A5D73; --en-accent:#E3FBFF;
   --mc-bg:#EDF1EA; --mc-panel:#E0E7DC; --mc-tab:#C9D4C3; --mc-ink:#17201A; --mc-ink2:#46554A; --mc-rule:#BFCBB9; --mc-accent:#2D7A3D;
 
   --tabs-h:58px;
@@ -43,11 +43,12 @@ html,body{margin:0}
 
 /* Opened project re-skins everything (declared last so it wins) */
 :root[data-project]{--glow:none}
+:root[data-project="enshahtenti"]{--glow:0 0 18px rgba(227,251,255,.35)}
 :root[data-project="this-portfolio"]{--glow:0 0 14px rgba(99,217,217,.45)}
 :root[data-project="chain-of-jewels"]{--desk:#1A130B;--sheet:var(--coj-bg);--tab:var(--coj-tab);--panel:var(--coj-panel);--ink:var(--coj-ink);--ink-2:var(--coj-ink2);--rule:var(--coj-rule);--accent:var(--coj-accent);--accent-ink:#281E12;--font-display:"Alegreya",Georgia,serif;--display-stretch:100%;--display-weight:800;color-scheme:dark}
 :root[data-project="nitro-guzzler"]{--font-display:var(--font-wide);--desk:#E7E5EE;--sheet:var(--ng-bg);--tab:var(--ng-tab);--panel:var(--ng-panel);--ink:var(--ng-ink);--ink-2:var(--ng-ink2);--rule:var(--ng-rule);--accent:var(--ng-accent);--accent-ink:#FFFFFF;--display-stretch:68%;--display-weight:900;--display-style:italic;color-scheme:light}
 :root[data-project="noc-6000"]{--desk:#020604;--sheet:var(--noc-bg);--tab:var(--noc-tab);--panel:var(--noc-panel);--ink:var(--noc-ink);--ink-2:var(--noc-ink2);--rule:var(--noc-rule);--accent:var(--noc-accent);--accent-ink:#03140A;--font-display:var(--font-mono);--display-stretch:100%;--display-weight:600;color-scheme:dark}
-:root[data-project="enshahtenti"]{--font-display:var(--font-wide);--display-weight:800;--desk:#141925;--sheet:var(--en-bg);--tab:var(--en-tab);--panel:var(--en-panel);--ink:var(--en-ink);--ink-2:var(--en-ink2);--rule:var(--en-rule);--accent:var(--en-accent);--accent-ink:#2A1209;color-scheme:dark}
+:root[data-project="enshahtenti"]{--font-display:var(--font-wide);--display-weight:700;--display-stretch:100%;--glow:0 0 18px rgba(227,251,255,.35);--desk:#222D3B;--sheet:var(--en-bg);--tab:var(--en-tab);--panel:var(--en-panel);--ink:var(--en-ink);--ink-2:var(--en-ink2);--rule:var(--en-rule);--accent:var(--en-accent);--accent-ink:#2D3A4B;color-scheme:dark}
 :root[data-project="minecraft-project"]{--font-display:var(--font-wide);--display-weight:800;--display-stretch:110%;--desk:#DCE4D7;--sheet:var(--mc-bg);--tab:var(--mc-tab);--panel:var(--mc-panel);--ink:var(--mc-ink);--ink-2:var(--mc-ink2);--rule:var(--mc-rule);--accent:var(--mc-accent);--accent-ink:#FFFFFF;color-scheme:light}
 
 *{box-sizing:border-box}
@@ -152,7 +153,7 @@ p{margin:0;max-width:65ch}
 .file[data-p="chain-of-jewels"]{--f-bg:var(--coj-bg);--f-ink:var(--coj-ink);--f-ink2:var(--coj-ink2);--f-acc:var(--coj-accent);--fx-font:"Alegreya",Georgia,serif;--fx-stretch:100%}
 .file[data-p="nitro-guzzler"]{--fx-font:var(--font-wide);--f-bg:var(--ng-bg);--f-ink:var(--ng-ink);--f-ink2:var(--ng-ink2);--f-acc:var(--ng-accent);--fx-stretch:68%;--fx-weight:900;--fx-style:italic}
 .file[data-p="noc-6000"]{--f-bg:var(--noc-bg);--f-ink:var(--noc-ink);--f-ink2:var(--noc-ink2);--f-acc:var(--noc-accent);--fx-font:var(--font-mono);--fx-stretch:87.5%;--fx-weight:500}
-.file[data-p="enshahtenti"]{--fx-font:var(--font-wide);--f-bg:var(--en-bg);--f-ink:var(--en-ink);--f-ink2:var(--en-ink2);--f-acc:var(--en-accent)}
+.file[data-p="enshahtenti"]{--f-bg:#2D3A4B;--f-ink:#FEFCFB;--f-ink2:#C8DCEB;--f-acc:#E3FBFF;--fx-font:var(--font-wide);--f-bg:var(--en-bg);--f-ink:var(--en-ink);--f-ink2:var(--en-ink2);--f-acc:var(--en-accent)}
 .file[data-p="this-portfolio"]{--f-bg:#0B2424;--f-ink:#B4EDED;--f-ink2:#9AD3D3;--f-acc:#63D9D9;--fx-font:var(--font-mono);--fx-stretch:100%;--fx-weight:600}
 .file[data-p="minecraft-project"]{--fx-font:var(--font-wide);--f-bg:var(--mc-panel);--f-ink:var(--mc-ink);--f-ink2:var(--mc-ink2);--f-acc:var(--mc-accent)}
 /* generated covers for projects still waiting on media */
@@ -369,6 +370,62 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
 .compass-panel .eyebrow{margin:0}
 @media (max-width:700px){.compass-wrap{grid-template-columns:1fr}.compass{max-width:340px}}
 
+
+/* Contributions + story */
+.contrib{list-style:none;margin:0;padding:0;display:grid;gap:.6rem;max-width:70ch}
+.contrib li{position:relative;padding:.75rem 1rem .75rem 2.4rem;background:var(--panel);border-radius:10px}
+.contrib li::before{content:"";position:absolute;left:1rem;top:1.15rem;width:.55rem;height:.55rem;border-radius:2px;background:var(--accent);transform:rotate(45deg)}
+.story{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:.75rem;counter-reset:st}
+.story-card{counter-increment:st;background:var(--panel);border-radius:12px;padding:1.1rem 1.15rem 1.2rem;display:grid;gap:.5rem;align-content:start;border-top:3px solid var(--accent)}
+.story-card b{font-family:var(--font-display);font-stretch:var(--display-stretch);font-style:var(--display-style);font-size:1.05rem;line-height:1.2}
+.story-card b::before{content:"0" counter(st) "  ";font-family:var(--font-mono);font-size:.72rem;letter-spacing:.06em;color:var(--accent);font-style:normal;vertical-align:.12em}
+.story-card p{font-size:.98rem}
+
+/* Drawovers: notes drawn right on top of the work */
+.draw{--mark:var(--accent)}
+.draw-stage{position:relative;border-radius:10px;overflow:hidden;cursor:zoom-in;container-type:inline-size}
+.draw-stage > img{border-radius:0;width:100%}
+.draw-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.draw-lines line{stroke:var(--mark);stroke-width:2;vector-effect:non-scaling-stroke}
+.draw-lines line.halo{stroke:rgba(0,0,0,.55);stroke-width:4.5}
+.d-box{position:absolute;border:2px dashed var(--mark);border-radius:6px;box-shadow:0 0 0 1px rgba(0,0,0,.45),inset 0 0 0 1px rgba(0,0,0,.35);pointer-events:none}
+.d-num{position:absolute;top:4px;left:4px;width:1.55rem;height:1.55rem;border-radius:50%;display:grid;place-items:center;background:var(--mark);color:#111;
+  font-family:var(--font-mono);font-size:.72rem;font-weight:700;box-shadow:0 0 0 2px rgba(0,0,0,.5)}
+.d-label{position:absolute;max-width:min(27%,250px);padding:.45rem .6rem .5rem;border-radius:8px;background:rgba(8,12,14,.86);color:#F2F5F5;
+  font-size:clamp(.68rem,1.35cqi,.9rem);line-height:1.35;box-shadow:0 0 0 1.5px var(--mark),0 10px 24px -10px rgba(0,0,0,.8);pointer-events:none}
+.d-label b{display:block;font-family:"Kalam","Comic Sans MS",cursive;font-weight:700;font-size:1.18em;line-height:1.1;color:var(--mark);margin-bottom:.15rem}
+.d-label .d-n{font-family:var(--font-mono);font-size:.8em;opacity:.8;margin-right:.3rem}
+.draw.clean .d-box,.draw.clean .d-label,.draw.clean .draw-lines{opacity:0}
+.d-box,.d-label,.draw-lines{transition:opacity .3s var(--ease)}
+.draw.armed:not(.in) .d-box,.draw.armed:not(.in) .d-label,.draw.armed:not(.in) .draw-lines{opacity:0}
+.draw.in .d-label{transition-delay:calc(var(--i,0) * 120ms + 200ms)}
+.draw.in .d-box{transition-delay:calc(var(--i,0) * 120ms)}
+.draw figcaption{display:flex;flex-wrap:wrap;gap:.5rem 1rem;justify-content:space-between;align-items:center}
+.draw-toggle{font:inherit;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);background:transparent;border:1.5px solid var(--rule);border-radius:999px;padding:.3rem .75rem;cursor:pointer}
+.draw-toggle[aria-pressed="false"]{color:var(--ink-2)}
+.draw-notes{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+@media (max-width:700px){
+  .d-label,.draw-lines{display:none}
+  .draw-notes{position:static;width:auto;height:auto;overflow:visible;clip:auto;white-space:normal;margin:0;padding:0 0 0 1.9rem;display:grid;gap:.4rem;font-size:.95rem}
+  .draw-notes li::marker{font-family:var(--font-mono);color:var(--accent)}
+  .draw-notes b{color:var(--ink)}
+}
+.zoomable{cursor:zoom-in}
+
+/* Lightbox */
+.lightbox{border:0;padding:0;background:transparent;max-width:none;max-height:none;width:100vw;height:100vh;margin:0;overflow:hidden}
+.lightbox::backdrop{background:rgba(3,8,8,.9)}
+.lightbox[open]{display:grid;place-items:center}
+.lb-inner{position:relative;display:grid;gap:.6rem;justify-items:center;padding:16px}
+.lb-inner .draw-stage{cursor:default;box-shadow:0 30px 80px -30px rgba(0,0,0,.9)}
+.lb-inner > img{max-width:94vw;max-height:84vh;width:auto;height:auto;border-radius:10px}
+.lb-cap{font-family:var(--font-mono);font-size:.8rem;color:#C9D6D6;max-width:80ch;text-align:center}
+.lb-close{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));right:calc(14px + env(safe-area-inset-right,0px));font:inherit;font-family:var(--font-mono);font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;
+  background:#E8F4F4;color:#051313;border:0;border-radius:999px;padding:.55rem .95rem;cursor:pointer;z-index:2}
+
+/* Drafts: placeholders only show off the live site, or with ?draft */
+.public .pending,.public .todo,.public .media-slot{display:none!important}
+
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
@@ -443,7 +500,7 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
               <span class="file-title">Chain of Jewels</span>
               <span class="file-line">A moodboard that became a style guide, and then a full dark fantasy game UI.</span>
               <span class="file-more">
-                <dl><dt>Role</dt><dd>UI/UX designer</dd><dt>Built</dt><dd>Moodboard, palette, 5 screens</dd><dt>Tools</dt><dd>Figma</dd></dl>
+                <dl><dt>Role</dt><dd>UI/UX designer</dd><dt>Team</dt><dd>5</dd><dt>Tools</dt><dd>Figma</dd></dl>
                 <span class="open">Open file →</span>
               </span>
             </span>
@@ -464,15 +521,15 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
             </span>
           </span>
         </a>
-        <a role="listitem" class="file" data-p="enshahtenti" href="#enshahtenti" aria-label="Enshahtenti. Game feel project. Case study coming soon.">
+        <a role="listitem" class="file" data-p="enshahtenti" href="#enshahtenti" aria-label="Enshahtenti. A solo game feel deep dive into making attacks, damage and health feel different at every level. Open case study.">
           <span class="file-tab" aria-hidden="true">04 · Game feel</span>
           <span class="file-face">
-            <span class="file-media cover-en" aria-hidden="true"></span>
+            <span class="file-media"><img src="img/en-moodboards.webp" alt="" width="2000" height="1500" loading="lazy" style="object-position:30% 30%"></span>
             <span class="file-body">
-              <span class="chip">Coming soon</span>
+              <span class="chip">Solo</span>
               <span class="file-title">Enshahtenti</span>
-              <span class="file-line">A game feel project. Write-up coming soon.</span>
-              <span class="file-more"><dl><dt>Focus</dt><dd>Game feel</dd></dl><span class="open">Open file →</span></span>
+              <span class="file-line">A solo deep dive into making every level of attack and health feel different.</span>
+              <span class="file-more"><dl><dt>Team</dt><dd>Solo</dd><dt>Focus</dt><dd>Attack levels, damage, health</dd></dl><span class="open">Open file →</span></span>
             </span>
           </span>
         </a>
@@ -496,7 +553,7 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
               <span class="chip">Color system</span>
               <span class="file-title">This portfolio</span>
               <span class="file-line">The colors you're looking at, and how I tested them for color blindness.</span>
-              <span class="file-more"><dl><dt>Focus</dt><dd>Color, contrast</dd><dt>Tools</dt><dd>Coolors, ColorHexa, HTML</dd></dl><span class="open">Open file →</span></span>
+              <span class="file-more"><dl><dt>Team</dt><dd>Solo</dd><dt>Focus</dt><dd>Color, contrast</dd><dt>Tools</dt><dd>Coolors, ColorHexa</dd></dl><span class="open">Open file →</span></span>
             </span>
           </span>
         </a>
@@ -572,16 +629,27 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
           <p class="lede">I built a style guide from a moodboard. Then I used it to design a full working UI for a dark fantasy jewel game. That meant a main menu, a shop, crafting and combat.</p>
           <dl class="glance">
             <div><dt>Role</dt><dd>UI/UX designer</dd></div>
+            <div><dt>Team</dt><dd>5</dd></div>
             <div><dt>Course</dt><dd>DES 360</dd></div>
             <div><dt>Tools</dt><dd>Figma</dd></div>
             <div><dt>Deliverables</dt><dd>Moodboard, palette, frame, 5 screens</dd></div>
           </dl>
         </header>
         <div class="case-layout">
-          <nav class="toc" aria-label="Chain of Jewels sections">
-            <a href="#coj-board">Moodboard</a><a href="#coj-palette">Palette</a><a href="#coj-frame">One frame</a><a href="#coj-menu">Main menu</a><a href="#coj-screens">Screens</a><a href="#coj-next">Next</a>
-          </nav>
+          <nav class="toc" aria-label="Chain of Jewels sections"><a href="#coj-part">My part</a>
+            <a href="#coj-board">Moodboard</a><a href="#coj-palette">Palette</a><a href="#coj-frame">One frame</a><a href="#coj-menu">Main menu</a><a href="#coj-screens">Screens</a>
+          <a href="#coj-story">My story</a></nav>
           <div class="chapters">
+            <section class="chapter" id="coj-part" aria-labelledby="coj-part-h">
+              <p class="eyebrow">My part</p>
+              <h2 id="coj-part-h">My contributions</h2>
+              <ul class="contrib reveal">
+                <li>Built the moodboard and pulled the style guide out of it.</li>
+                <li>Set the palette and the one frame every screen sits in.</li>
+                <li>Designed the UI in Figma, from greybox to art pass.</li>
+              </ul>
+              <p class="todo">Who else was on the team of 5 and what did each of you own? Name the roles you handed work to or got work from.</p>
+            </section>
             <section class="chapter" id="coj-board" aria-labelledby="coj-board-h">
               <p class="eyebrow">Step 1 · Research</p>
               <h2 id="coj-board-h">It started as a wall of references</h2>
@@ -626,9 +694,25 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
                 </div>
                 <div class="compare-labels"><span>Art pass</span><span>Greybox frame</span></div>
               </div>
-              <figure class="reveal">
-                <img src="img/coj-skill-forge.webp" width="1600" height="736" loading="lazy" alt="Skill Forge first pass inside the greyscale frame: a large Skill Forge label on the left and a brown panel on the right with an upward triangle labeled Evolve, two buttons labeled Reforge and Craft, and a downward triangle labeled Scrap.">
-                <figcaption>Skill Forge, first pass. The shapes carry meaning. Evolve points up, Scrap points down, and Reforge and Craft sit level in between.</figcaption>
+              <figure class="draw reveal">
+                <div class="draw-stage"><img src="img/coj-frame-greybox.webp" width="1600" height="736" loading="lazy" alt="Greyscale frame: profile and level/XP top left, energy top right, Main Menu bottom left, Back bottom right, empty center."></div>
+                <ol class="draw-notes">
+                  <li data-box="0,0,24,20" data-at="28,5"><b>Who you are</b> Portrait, level and XP. Same corner on every screen.</li>
+                  <li data-box="87,2,13,12" data-at="63,5"><b>What you have</b> Energy and coins, always in view.</li>
+                  <li data-box="0,84,7,15" data-at="10,62"><b>Way home</b> Main Menu is always bottom left.</li>
+                  <li data-box="91,82,9,15" data-at="70,62"><b>Way back</b> Back is always bottom right.</li>
+                  <li data-box="9,25,77,52" data-at="36,38"><b>The screen's job</b> The middle belongs to whatever this screen is for.</li>
+                </ol>
+                <figcaption><span>The frame with my notes. Every screen in the game is built inside it.</span><button class="draw-toggle" type="button" aria-pressed="true">Hide notes</button></figcaption>
+              </figure>
+              <figure class="draw reveal">
+                <div class="draw-stage"><img src="img/coj-skill-forge.webp" width="1600" height="736" loading="lazy" alt="Skill Forge first pass inside the greyscale frame: a large Skill Forge label on the left and a brown panel on the right with an upward triangle labeled Evolve, two buttons labeled Reforge and Craft, and a downward triangle labeled Scrap."></div>
+                <ol class="draw-notes">
+                  <li data-box="55,7,27,30" data-at="20,8"><b>Up is better</b> Evolve is a triangle pointing up.</li>
+                  <li data-box="55,38,28,21" data-at="20,28"><b>Level is sideways</b> Reforge and Craft sit flat in the middle.</li>
+                  <li data-box="55,60,27,32" data-at="84,40"><b>Down is gone</b> Scrap points down.</li>
+                </ol>
+                <figcaption><span>Skill Forge, first pass. I let the shapes carry the meaning.</span><button class="draw-toggle" type="button" aria-pressed="true">Hide notes</button></figcaption>
               </figure>
             </section>
 
@@ -656,20 +740,34 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
             <section class="chapter" id="coj-screens" aria-labelledby="coj-screens-h">
               <p class="eyebrow">Step 5 · Screens</p>
               <h2 id="coj-screens-h">The same frame, different jobs</h2>
-              <figure class="reveal">
-                <img src="img/coj-jewel-shop.webp" width="1600" height="736" loading="lazy" alt="Jewel Shop screen: a hanging wooden sign reading Jewel Shop, four jewel cards each with Type, Effect and Cost tags above, and one green Purchase button below. Main Menu and Back sit in the bottom corners.">
-                <figcaption>Jewel Shop. Every item shows Type, Effect and Cost in the same order. There's only one action, Purchase.</figcaption>
+              <figure class="draw reveal">
+                <div class="draw-stage"><img src="img/coj-jewel-shop.webp" width="1600" height="736" loading="lazy" alt="Jewel Shop screen: a hanging wooden sign reading Jewel Shop, four jewel cards each with Type, Effect and Cost tags above, and one green Purchase button below. Main Menu and Back sit in the bottom corners."></div>
+                <ol class="draw-notes">
+                  <li data-box="13,32,73,19" data-at="67,4"><b>Same order every time</b> Type, Effect and Cost stack the same way on every jewel.</li>
+                  <li data-box="39,82,21,15" data-at="62,82"><b>One button</b> Purchase is the only action on the screen.</li>
+                </ol>
+                <figcaption><span>Jewel Shop. Easy to compare, one thing to do.</span><button class="draw-toggle" type="button" aria-pressed="true">Hide notes</button></figcaption>
               </figure>
-              <figure class="reveal">
-                <img src="img/coj-battle.webp" width="1600" height="736" loading="lazy" alt="Battle screen: a Player Turn banner at the top, two armored knights facing each other with a green health bar on the left and a red one on the right, four Attack buttons and a glowing orange Ultimate button at the bottom, Pause bottom right.">
-                <figcaption>Battle. A turn banner, two mirrored health bars, four attacks and an Ultimate. The Ultimate glows so it reads as special.</figcaption>
+              <figure class="draw reveal">
+                <div class="draw-stage"><img src="img/coj-battle.webp" width="1600" height="736" loading="lazy" alt="Battle screen: a Player Turn banner at the top, two armored knights facing each other with a green health bar on the left and a red one on the right, four Attack buttons and a glowing orange Ultimate button at the bottom, Pause bottom right."></div>
+                <ol class="draw-notes">
+                  <li data-box="28,2,64,9" data-at="33,13"><b>Whose turn</b> A banner across the top says who acts.</li>
+                  <li data-box="8,19,82,11" data-at="36,34"><b>Mirrored health</b> You on the left, them on the right.</li>
+                  <li data-box="58,68,14,29" data-at="40,52"><b>Save it for later</b> The Ultimate glows, so it reads as special.</li>
+                </ol>
+                <figcaption><span>Battle. Everything you need for one turn.</span><button class="draw-toggle" type="button" aria-pressed="true">Hide notes</button></figcaption>
               </figure>
             </section>
 
-            <section class="chapter" id="coj-next" aria-labelledby="coj-next-h">
-              <p class="eyebrow">Reflection</p>
-              <h2 id="coj-next-h">What I'd do next</h2>
-              <p class="todo">Two or three sentences in your voice: what playtests or critique told you, and what you would change in a second pass.</p>
+            <section class="chapter pending" id="coj-story" aria-labelledby="coj-story-h">
+              <p class="eyebrow">My story</p>
+              <h2 id="coj-story-h">How it went</h2>
+              <ol class="story reveal">
+                <li class="story-card pending"><b>What went well</b><p class="todo">What went well, in your words.</p></li>
+                <li class="story-card pending"><b>What was tricky</b><p class="todo">What was tricky or slowed you down.</p></li>
+                <li class="story-card pending"><b>How I worked through it</b><p class="todo">How you worked through it in the moment, and which other departments or teammates you worked with.</p></li>
+                <li class="story-card pending"><b>What I'll carry forward</b><p class="todo">How you will use what you learned on the next project.</p></li>
+              </ol>
             </section>
           </div>
         </div>
@@ -702,8 +800,20 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
           <div class="stripes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
         </header>
         <div class="case-layout">
-          <nav class="toc" aria-label="Nitro Guzzler sections"><a href="#ng-goal">Goal</a><a href="#ng-void">White void</a><a href="#ng-compass">Menu map</a><a href="#ng-garage">Garage</a><a href="#ng-build">How it's built</a><a href="#ng-trailer">Trailer</a><a href="#ng-team">Team</a></nav>
+          <nav class="toc" aria-label="Nitro Guzzler sections"><a href="#ng-part">My part</a><a href="#ng-goal">Goal</a><a href="#ng-void">White void</a><a href="#ng-compass">Menu map</a><a href="#ng-garage">Garage</a><a href="#ng-build">How it's built</a><a href="#ng-trailer">Trailer</a><a href="#ng-story">My story</a></nav>
           <div class="chapters">
+            <section class="chapter" id="ng-part" aria-labelledby="ng-part-h">
+              <p class="eyebrow">My part</p>
+              <h2 id="ng-part-h">My contributions</h2>
+              <ul class="contrib reveal">
+                <li>Created or directed all of the game's UI, from concept to the build in engine.</li>
+                <li>Designed the main menu and intro as one space, and wrote the game plan and shot list for it.</li>
+                <li>Built the menu's camera director in Blueprints and wrote an Unreal Engine 5.5 implementation guide for the team.</li>
+                <li>Planned the trailer and wrote its shot lists.</li>
+                <li>Directed artists from my shot lists, for the trailer shots and the etched settings decals.</li>
+                <li>Worked with the design lead on team management.</li>
+              </ul>
+            </section>
             <section class="chapter" id="ng-goal" aria-labelledby="ng-goal-h">
               <p class="eyebrow">The goal</p>
               <h2 id="ng-goal-h">Make the menu part of the world</h2>
@@ -783,11 +893,15 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
               <div class="media-slot reveal">Trailer goes here: W-Dawg drifts through Nitro Guzzler's main menu and intro</div>
             </section>
 
-            <section class="chapter" id="ng-team" aria-labelledby="ng-team-h">
-              <p class="eyebrow">Leadership</p>
-              <h2 id="ng-team-h">Directing a 31-person team</h2>
-              <p>I turned the menu and intro concept into a written game plan, a shot list and an Unreal Engine 5.5 implementation guide for the team. I direct artists from my shot lists and work closely with the design lead on team management.</p>
-              <p class="todo">Captures of the old and new menu, the UI's real colors and fonts, and any playtest feedback.</p>
+            <section class="chapter" id="ng-story" aria-labelledby="ng-story-h">
+              <p class="eyebrow">My story</p>
+              <h2 id="ng-story-h">How it went</h2>
+              <ol class="story reveal">
+                <li class="story-card"><b>What went well</b><p>The Sequencer intro and the hand off into the attract loop are done in engine. And one data setup runs every menu destination. Back works the same way everywhere, with no special cases.</p></li>
+                <li class="story-card"><b>What was tricky</b><p>My first plan was built for a smooth, blended camera and a flat stack of 2D menus. Once the design settled into hard cuts and buttons on 3D surfaces, that plan didn't fit anymore. Data Tables also kept fighting with references to things placed in the level.</p></li>
+                <li class="story-card"><b>How I worked through it</b><p>I rewrote the implementation plan around hard cuts and buttons on surfaces. I swapped the Data Table for arrays of structs. And I turned the look into shot lists, so the artists making the trailer and the settings decals had something clear to work from.</p></li>
+                <li class="story-card pending"><b>What I'll carry forward</b><p class="todo">How you will use what you learned on the next project.</p></li>
+              </ol>
             </section>
           </div>
         </div>
@@ -806,13 +920,23 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
           <p class="lede">The player is a robot. So the HUD is part of the robot. It's a hologram that floats out in the 3D world.</p>
           <dl class="glance">
             <div><dt>Focus</dt><dd>Diegetic HUD</dd></div>
+            <div class="pending"><dt>Team</dt><dd>(to add)</dd></div>
             <div><dt>Engine</dt><dd>Unreal Engine</dd></div>
             <div><dt>References</dt><dd>Radar, aviation, green phosphor CRT</dd></div>
           </dl>
         </header>
         <div class="case-layout">
-          <nav class="toc" aria-label="NOC-6000 sections"><a href="#noc-layout">Layout</a><a href="#noc-behavior">Behavior</a><a href="#noc-build">Build</a></nav>
+          <nav class="toc" aria-label="NOC-6000 sections"><a href="#noc-part">My part</a><a href="#noc-layout">Layout</a><a href="#noc-behavior">Behavior</a><a href="#noc-build">Build</a><a href="#noc-story">My story</a></nav>
           <div class="chapters">
+            <section class="chapter" id="noc-part" aria-labelledby="noc-part-h">
+              <p class="eyebrow">My part</p>
+              <h2 id="noc-part-h">My contributions</h2>
+              <ul class="contrib reveal">
+                <li>Sketched the HUD's module layout.</li>
+                <li>Built the master hologram material in Unreal, with ring masks, radial ticks and layered opacity.</li>
+                <li>Built the HUD rig Blueprint, with four anchors parented to the camera.</li>
+              </ul>
+            </section>
             <section class="chapter" id="noc-layout" aria-labelledby="noc-layout-h">
               <p class="eyebrow">Module layout</p>
               <h2 id="noc-layout-h">A HUD built from modules, like an OS</h2>
@@ -836,6 +960,16 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
               <h2 id="noc-build-h">In engine</h2>
               <p>One master hologram material drives ring masks, radial ticks and layered opacity. A HUD rig Blueprint with four anchors is parented to the camera.</p>
             </section>
+            <section class="chapter" id="noc-story" aria-labelledby="noc-story-h">
+              <p class="eyebrow">My story</p>
+              <h2 id="noc-story-h">How it went</h2>
+              <ol class="story reveal">
+                <li class="story-card"><b>What went well</b><p>In the first build session the master hologram material came together, and the HUD rig was hooked up to the camera.</p></li>
+                <li class="story-card"><b>What was tricky</b><p>Getting flat hologram planes to face the right way took some trial and error.</p></li>
+                <li class="story-card"><b>How I worked through it</b><p>I found the rotation that works for vertical bars and the one that works for horizontal bars.</p></li>
+                <li class="story-card pending"><b>What I'll carry forward</b><p class="todo">How you will use what you learned on the next project.</p></li>
+              </ol>
+            </section>
           </div>
         </div>
         <div class="next"><span class="eyebrow" style="margin:0">Next file</span><a href="#enshahtenti" class="big">Enshahtenti →</a></div>
@@ -844,16 +978,94 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
   </article>
 
   <article class="case" id="case-enshahtenti" data-id="enshahtenti" aria-labelledby="en-title" hidden>
-    <div class="wrap"><div class="inner">
-      <div class="case-bar"><a class="btn ghost close" href="#projects">← Back to projects</a></div>
-      <header class="case-hero morph-target">
-        <p class="eyebrow">Case study · Coming soon</p>
-        <h1 id="en-title" tabindex="-1">Enshahtenti</h1>
-        <p class="lede">A game feel project. The write-up and captures are coming soon.</p>
-      </header>
-      <div class="chapters" style="padding-bottom:3rem"><div class="media-slot">Game feel GIFs go here</div><p class="todo">Role, timeframe, tools, and the two or three feel changes you are proudest of, each with a before/after GIF.</p></div>
-      <div class="next"><span class="eyebrow" style="margin:0">Next file</span><a href="#minecraft-project" class="big">Minecraft project →</a></div>
-    </div></div>
+    <div class="wrap">
+      <div class="inner">
+        <div class="case-bar"><a class="btn ghost close" href="#projects">← Back to projects</a></div>
+        <header class="case-hero morph-target">
+          <p class="eyebrow">Case study · Game feel deep dive</p>
+          <h1 id="en-title" tabindex="-1">Enshahtenti</h1>
+          <p class="lede">A solo deep dive into game feel. I wanted every level of attack to feel different from the next. And I wanted the amount of damage and your health state to feel different too.</p>
+          <dl class="glance">
+            <div><dt>Role</dt><dd>Everything</dd></div>
+            <div><dt>Team</dt><dd>Solo</dd></div>
+            <div><dt>Focus</dt><dd>Attack levels, damage, health state</dd></div>
+          </dl>
+        </header>
+        <div class="case-layout">
+          <nav class="toc" aria-label="Enshahtenti sections"><a href="#en-part">My part</a><a href="#en-goal">The goal</a><a href="#en-boards">Mood boards</a><a href="#en-health">Health tests</a><a href="#en-color">UI vs world</a><a href="#en-story">My story</a></nav>
+          <div class="chapters">
+            <section class="chapter" id="en-part" aria-labelledby="en-part-h">
+              <p class="eyebrow">My part</p>
+              <h2 id="en-part-h">My contributions</h2>
+              <ul class="contrib reveal">
+                <li>Ran the whole deep dive on my own.</li>
+                <li>Made three mood boards for style, weapons and power.</li>
+                <li>Tested health ideas over a UI greybox.</li>
+                <li>Built a UI color scheme and tested it against the environment colors.</li>
+              </ul>
+            </section>
+            <section class="chapter" id="en-goal" aria-labelledby="en-goal-h">
+              <p class="eyebrow">The goal</p>
+              <h2 id="en-goal-h">Every level should feel different</h2>
+              <p>A light hit and a heavy hit shouldn't feel the same. And being a little hurt shouldn't feel like being almost dead. I wanted to find what makes each level read as its own thing to the player.</p>
+            </section>
+            <section class="chapter" id="en-boards" aria-labelledby="en-boards-h">
+              <p class="eyebrow">Research</p>
+              <h2 id="en-boards-h">Three mood boards</h2>
+              <p>The Style board leans on the Animus from the first Assassin's Creed. The Physical Weapon board, Hunter's Bow and Wahjawe:e, is bows and tomahawks. The Power board, Call of the Murder, is crows.</p>
+              <figure class="reveal">
+                <img src="img/en-moodboards.webp" width="2000" height="1500" loading="lazy" alt="Three mood boards on a misty blue grey background. The Style board holds misty white and blue grey game screenshots with a palette strip. The Physical Weapon board holds photos and sketches of bows, arrows and tomahawks. The Power board holds images of crows and dark figures.">
+                <figcaption>Style, Physical Weapon and Power. Click to see them bigger.</figcaption>
+              </figure>
+            </section>
+            <section class="chapter" id="en-health" aria-labelledby="en-health-h">
+              <p class="eyebrow">Health</p>
+              <h2 id="en-health-h">Health tests over a greybox</h2>
+              <p>I tried a bunch of health ideas right over a UI greybox, so I could judge them in place.</p>
+              <figure class="reveal">
+                <img src="img/en-health-tests.webp" width="1600" height="896" loading="lazy" alt="Health test sketch on black. Blue arrows point to four ideas: the top left screen edge, a small white winged emblem in the center, a cluster of white arrows with grey tips at the bottom left, and smudged white text at the bottom right beside a grey blade held in a hand.">
+                <figcaption>Health ideas, tested in place.</figcaption>
+              </figure>
+              <figure class="reveal" style="max-width:620px">
+                <img src="img/en-feather.webp" width="1000" height="600" loading="lazy" alt="Sketch of a blue grey fan of feathers shaped like an open collar, with a small dark star shape above it.">
+                <figcaption>A feather fan sketch.</figcaption>
+              </figure>
+              <p class="todo">What each health idea shows, and which one you picked and why.</p>
+            </section>
+            <section class="chapter" id="en-color" aria-labelledby="en-color-h">
+              <p class="eyebrow">Color</p>
+              <h2 id="en-color-h">UI colors against the world</h2>
+              <p>I pulled the UI palette from the Animus. Then I put the UI's values side by side with the environment's colors, so I could see where the UI would hold up.</p>
+              <ul class="swatches reveal" aria-label="Enshahtenti UI palette. Activate a swatch to copy its hex code.">
+                <li><button class="swatch" type="button" data-hex="#FEFCFB"><i style="background:#FEFCFB"></i><span>#FEFCFB</span></button></li>
+                <li><button class="swatch" type="button" data-hex="#E3FBFF"><i style="background:#E3FBFF"></i><span>#E3FBFF</span></button></li>
+                <li><button class="swatch" type="button" data-hex="#A4AFC3"><i style="background:#A4AFC3"></i><span>#A4AFC3</span></button></li>
+                <li><button class="swatch" type="button" data-hex="#C8DCEB"><i style="background:#C8DCEB"></i><span>#C8DCEB</span></button></li>
+                <li><button class="swatch" type="button" data-hex="#9CB7CC"><i style="background:#9CB7CC"></i><span>#9CB7CC</span></button></li>
+                <li><button class="swatch" type="button" data-hex="#52677F"><i style="background:#52677F"></i><span>#52677F</span></button></li>
+                <li><button class="swatch" type="button" data-hex="#38495C"><i style="background:#38495C"></i><span>#38495C</span></button></li>
+                <li><button class="swatch" type="button" data-hex="#2D3A4B"><i style="background:#2D3A4B"></i><span>#2D3A4B</span></button></li>
+              </ul>
+              <figure class="reveal">
+                <img src="img/en-boards.webp" width="1262" height="594" loading="lazy" alt="Six Figma frames. Top row: In-Game UI Health Ideas, various health tests with a UI greybox; In-Game UI Wireframe 2, the UI color scheme beside the environment color scheme; In-Game UI With Color 2, UI test values against the environment colors. Bottom row: the Physical Weapon, Style and Power mood boards.">
+                <figcaption>The whole board in Figma, from health tests to color.</figcaption>
+              </figure>
+            </section>
+            <section class="chapter pending" id="en-story" aria-labelledby="en-story-h">
+              <p class="eyebrow">My story</p>
+              <h2 id="en-story-h">How it went</h2>
+              <ol class="story reveal">
+                <li class="story-card pending"><b>What went well</b><p class="todo">What went well, in your words.</p></li>
+                <li class="story-card pending"><b>What was tricky</b><p class="todo">What was tricky or slowed you down.</p></li>
+                <li class="story-card pending"><b>How I worked through it</b><p class="todo">How you worked through it in the moment, and which other departments or teammates you worked with.</p></li>
+                <li class="story-card pending"><b>What I'll carry forward</b><p class="todo">How you will use what you learned on the next project.</p></li>
+              </ol>
+            </section>
+          </div>
+        </div>
+        <div class="next"><span class="eyebrow" style="margin:0">Next file</span><a href="#minecraft-project" class="big">Minecraft project →</a></div>
+      </div>
+    </div>
   </article>
 
   <article class="case" id="case-minecraft-project" data-id="minecraft-project" aria-labelledby="mc-title" hidden>
@@ -866,19 +1078,33 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
           <p class="lede">A redesign of the Minecraft inventory screen. I wireframed it flat first. Then I laid it over the live game.</p>
           <dl class="glance">
             <div><dt>Focus</dt><dd>Inventory layout</dd></div>
+            <div class="pending"><dt>Team</dt><dd>(to add)</dd></div>
             <div><dt>Built</dt><dd>Flat wireframe, in-game overlay</dd></div>
           </dl>
         </header>
         <div class="case-layout">
-          <nav class="toc" aria-label="Minecraft project sections"><a href="#mc-flat">Wireframe</a><a href="#mc-live">In the game</a><a href="#mc-why">My thinking</a></nav>
+          <nav class="toc" aria-label="Minecraft project sections"><a href="#mc-part">My part</a><a href="#mc-flat">Wireframe</a><a href="#mc-live">In the game</a><a href="#mc-why">My thinking</a><a href="#mc-story">My story</a></nav>
           <div class="chapters">
+            <section class="chapter" id="mc-part" aria-labelledby="mc-part-h">
+              <p class="eyebrow">My part</p>
+              <h2 id="mc-part-h">My contributions</h2>
+              <ul class="contrib reveal">
+                <li>Wireframed a new inventory layout.</li>
+                <li>Laid the wireframe over the live game to check it in context.</li>
+              </ul>
+            </section>
             <section class="chapter" id="mc-flat" aria-labelledby="mc-flat-h">
               <p class="eyebrow">Step 1 · Wireframe</p>
               <h2 id="mc-flat-h">The layout, flat</h2>
-              <figure class="reveal" style="max-width:640px">
-                <img src="img/mc-wireframe.webp" width="1100" height="1045" loading="lazy" alt="Greyscale inventory wireframe. Top left, a column of four armor slots beside a large dark character preview. Top right, a two by two crafting grid joined by a line to one output slot. Below, a row of four buttons: a blank slot, a green recipe book, an ABC text icon and a salmon colored square. Then three rows of ten storage slots, a row of nine, and a lighter bottom row of nine. Diamond markers on four slots in the third row connect by vertical lines to the first four slots of the bottom row. A small node icon sits at the bottom right.">
-                <figcaption>The flat wireframe.</figcaption>
-              </figure>
+<div style="max-width:720px">              <figure class="draw reveal">
+                <div class="draw-stage"><img src="img/mc-wireframe.webp" width="1100" height="1045" loading="lazy" alt="Greyscale inventory wireframe. Top left, a column of four armor slots beside a large dark character preview. Top right, a two by two crafting grid joined by a line to one output slot. Below, a row of four buttons: a blank slot, a green recipe book, an ABC text icon and a salmon colored square. Then three rows of ten storage slots, a row of nine, and a lighter bottom row of nine. Diamond markers on four slots in the third row connect by vertical lines to the first four slots of the bottom row. A small node icon sits at the bottom right."></div>
+                <ol class="draw-notes">
+                  <li data-box="4,4,10,40" data-at="17,8"><b>Armor</b> Four slots, stacked by the character.</li>
+                  <li data-box="51,9,40,21" data-at="76,30"><b>Craft to the right</b> The 2x2 grid feeds one result slot.</li>
+                  <li data-box="4,55,37,43" data-at="45,58"><b>Linked slots</b> Diamonds tie four slots to the bottom row.</li>
+                </ol>
+                <figcaption><span>The flat wireframe with my notes.</span><button class="draw-toggle" type="button" aria-pressed="true">Hide notes</button></figcaption>
+              </figure></div>
             </section>
             <section class="chapter" id="mc-live" aria-labelledby="mc-live-h">
               <p class="eyebrow">Step 2 · In context</p>
@@ -888,10 +1114,20 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
                 <figcaption>The wireframe as a see-through panel over the world.</figcaption>
               </figure>
             </section>
-            <section class="chapter" id="mc-why" aria-labelledby="mc-why-h">
+            <section class="chapter pending" id="mc-why" aria-labelledby="mc-why-h">
               <p class="eyebrow">My thinking</p>
               <h2 id="mc-why-h">Why it's laid out this way</h2>
               <p class="todo">What problem you were solving with the default inventory, what the diamond links and the ABC button do, why the panel is see-through, and what you'd change next.</p>
+            </section>
+            <section class="chapter pending" id="mc-story" aria-labelledby="mc-story-h">
+              <p class="eyebrow">My story</p>
+              <h2 id="mc-story-h">How it went</h2>
+              <ol class="story reveal">
+                <li class="story-card pending"><b>What went well</b><p class="todo">What went well, in your words.</p></li>
+                <li class="story-card pending"><b>What was tricky</b><p class="todo">What was tricky or slowed you down.</p></li>
+                <li class="story-card pending"><b>How I worked through it</b><p class="todo">How you worked through it in the moment, and which other departments or teammates you worked with.</p></li>
+                <li class="story-card pending"><b>What I'll carry forward</b><p class="todo">How you will use what you learned on the next project.</p></li>
+              </ol>
             </section>
           </div>
         </div>
@@ -909,14 +1145,25 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
           <h1 id="pf-title" tabindex="-1">This portfolio</h1>
           <p class="lede">I built this site's colors from one red. Then I ran every color through color blindness simulations before I used any of them.</p>
           <dl class="glance">
-            <div><dt>Role</dt><dd>Designer and builder</dd></div>
+            <div><dt>Role</dt><dd>Designer</dd></div>
+            <div><dt>Team</dt><dd>Solo</dd></div>
             <div><dt>Tools</dt><dd>Coolors, ColorHexa, HTML</dd></div>
             <div><dt>Focus</dt><dd>Color and contrast</dd></div>
           </dl>
         </header>
         <div class="case-layout">
-          <nav class="toc" aria-label="This portfolio sections"><a href="#pf-five">Five colors</a><a href="#pf-test">Testing</a><a href="#pf-process">Process</a><a href="#pf-here">On this site</a></nav>
+          <nav class="toc" aria-label="This portfolio sections"><a href="#pf-part">My part</a><a href="#pf-five">Five colors</a><a href="#pf-test">Testing</a><a href="#pf-process">Process</a><a href="#pf-here">On this site</a><a href="#pf-story">My story</a></nav>
           <div class="chapters">
+            <section class="chapter" id="pf-part" aria-labelledby="pf-part-h">
+              <p class="eyebrow">My part</p>
+              <h2 id="pf-part-h">My contributions</h2>
+              <ul class="contrib reveal">
+                <li>Built the five color palette in Coolors.</li>
+                <li>Ran every color through ColorHexa's color blindness simulations.</li>
+                <li>Made the chart in four passes and lined it up with my style guide.</li>
+                <li>Set the direction for the site itself. Folder tabs, the project deck, and files that re-theme the site when you open them.</li>
+              </ul>
+            </section>
             <section class="chapter" id="pf-five" aria-labelledby="pf-five-h">
               <p class="eyebrow">The system</p>
               <h2 id="pf-five-h">Five colors, one job each</h2>
@@ -933,6 +1180,15 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
               <p class="eyebrow">Testing</p>
               <h2 id="pf-test-h">Where red fails</h2>
               <p>I made the scheme in Coolors. Then I ran every color through ColorHexa's color blindness simulations and screenshotted the results. For a lot of people, the red falls apart. The turquoise holds up. So turquoise carries all the text here, and red only shows up as decoration.</p>
+              <figure class="draw reveal">
+                <div class="draw-stage"><img src="img/pf-cvd-path.webp" width="1600" height="1227" loading="lazy" alt="Color blindness simulation chart. The top block, showing the red under each simulation, and the bottom block, showing the ink black, are both highlighted and joined by a turquoise path. The plain palette with hex codes runs down the right side."></div>
+                <ol class="draw-notes">
+                  <li data-box="0,0,46,20" data-at="60,22"><b>Red, simulated</b> Under most simulations my red goes dark brown and olive.</li>
+                  <li data-box="0,79,46,20" data-at="60,75"><b>Black, simulated</b> These barely change at all.</li>
+                  <li data-box="4,28,12,46" data-at="60,44"><b>The point of the line</b> Once red goes dark it's almost as dark as my black. So red can't carry text.</li>
+                </ol>
+                <figcaption><span>The chart that made the call for me.</span><button class="draw-toggle" type="button" aria-pressed="true">Hide notes</button></figcaption>
+              </figure>
               <p class="lede">Drag to compare my first pass with the final chart.</p>
               <div class="reveal" style="display:grid;gap:.5rem">
                 <div class="compare">
@@ -964,6 +1220,16 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
                 <li><b>Red</b>The red only shows up as a thread. It's in the scroll bar under the tabs and the edge of the open tab.</li>
               </ul>
             </section>
+            <section class="chapter" id="pf-story" aria-labelledby="pf-story-h">
+              <p class="eyebrow">My story</p>
+              <h2 id="pf-story-h">How it went</h2>
+              <ol class="story reveal">
+                <li class="story-card"><b>What went well</b><p>The turquoise held up in every simulation. So I could trust it with all of the text.</p></li>
+                <li class="story-card"><b>What was tricky</b><p>My base red, the color I started from, fell apart in most simulations. It went brown and olive, and ended up almost as dark as my black.</p></li>
+                <li class="story-card"><b>How I worked through it</b><p>I kept the red but changed its job. It's decoration now, a thread through the site. All of the text went to the turquoise.</p></li>
+                <li class="story-card pending"><b>What I'll carry forward</b><p class="todo">How you will use what you learned on the next project.</p></li>
+              </ol>
+            </section>
           </div>
         </div>
         <div class="next"><span class="eyebrow" style="margin:0">Next file</span><a href="#nitro-guzzler" class="big">Nitro Guzzler →</a></div>
@@ -980,9 +1246,9 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
  {"@type":"Person","@id":"#atlas","name":"Atlas Stewart","jobTitle":"UI/UX Designer (Games)","email":"mailto:atlasgamedeveloper@gmail.com","telephone":"+1-425-620-8472","sameAs":["https://www.linkedin.com/in/atlas-stewart-3a333a33a","https://linktr.ee/atlasgamedeveloper"],"affiliation":{"@type":"CollegeOrUniversity","name":"DigiPen Institute of Technology"},
   "award":"Award for a Steam game released in his sophomore year","knowsAbout":["Game UI design","UX design","HUD design","Diegetic UI","Style guides","Level design","Unreal Engine Blueprints","Figma","Unity","Maya","Krita"]},
  {"@type":"CreativeWork","name":"Nitro Guzzler","creator":{"@id":"#atlas"},"description":"Redline-inspired portal racing game built in Unreal Engine 5.5 by a 31-person student team, the Grease Monkeys. Atlas Stewart is Creative Director and UI/UX designer and designed a diegetic main menu: an attract-loop camera director, settings etched onto the car, and compass-style spray-painted menu arrows. Releasing on Steam in December 2026."},
- {"@type":"CreativeWork","name":"Chain of Jewels","creator":{"@id":"#atlas"},"description":"DES 360 project: a style guide built from a moodboard, then a complete game UI in Figma (main menu, jewel shop, skill forge, battle)."},
+ {"@type":"CreativeWork","name":"Chain of Jewels","creator":{"@id":"#atlas"},"description":"DES 360 team project (team of 5): a style guide built from a moodboard, then a complete game UI in Figma (main menu, jewel shop, skill forge, battle)."},
  {"@type":"CreativeWork","name":"NOC-6000","creator":{"@id":"#atlas"},"description":"Unreal Engine game with a robot protagonist and a diegetic holographic HUD in 3D world space."},
- {"@type":"CreativeWork","name":"Enshahtenti","creator":{"@id":"#atlas"},"description":"Game feel project."},
+ {"@type":"CreativeWork","name":"Enshahtenti","creator":{"@id":"#atlas"},"description":"Solo game feel deep dive into making each level of attack, the amount of damage and the player's health state feel different. Includes style, weapon and power mood boards, health UI tests over a greybox, and an Animus-inspired UI palette tested against environment colors."},
  {"@type":"CreativeWork","name":"Minecraft inventory redesign","creator":{"@id":"#atlas"},"description":"A redesign of the Minecraft inventory screen, wireframed flat and then overlaid on the live game."},
  {"@type":"CreativeWork","name":"Portfolio color system","creator":{"@id":"#atlas"},"description":"Five-color oxblood and turquoise system for this site, tested with color blindness simulations. Turquoise carries all text; red is decoration only."}
 ]}
@@ -1050,7 +1316,7 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
     const a = e.target.closest('a[href^="#"]'); if (!a || !current) return;
     e.preventDefault(); close(a.getAttribute('href').slice(1));
   });
-  addEventListener('keydown', e => { if (e.key === 'Escape' && current) close('projects'); });
+  addEventListener('keydown', e => { if (e.key === 'Escape' && current && !document.querySelector('dialog[open]')) close('projects'); });
   function route(){ const id = location.hash.slice(1); if (ids.includes(id)) { if (id !== current) apply(id); } else if (current) close(id || 'projects'); }
   addEventListener('popstate', route);
   addEventListener('hashchange', route);
@@ -1152,6 +1418,77 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
     const off = () => { v.classList.remove('on'); v.pause(); };
     card.addEventListener('mouseenter', on); card.addEventListener('focus', on);
     card.addEventListener('mouseleave', off); card.addEventListener('blur', off);
+  });
+
+
+  /* ---------- drafts: placeholders stay off the live site unless ?draft ---------- */
+  if (/github\.io$/.test(location.hostname) && !/draft/.test(location.search)) {
+    root.classList.add('public');
+    document.querySelectorAll('.toc a').forEach(a => { const t = document.querySelector(a.getAttribute('href')); if (t && t.classList.contains('pending')) a.remove(); });
+  }
+
+  /* ---------- drawovers ---------- */
+  const SVGNS = 'http://www.w3.org/2000/svg';
+  document.querySelectorAll('.draw').forEach(fig => {
+    const stage = fig.querySelector('.draw-stage');
+    const svg = document.createElementNS(SVGNS, 'svg');
+    svg.setAttribute('class', 'draw-lines'); svg.setAttribute('viewBox', '0 0 100 100'); svg.setAttribute('preserveAspectRatio', 'none'); svg.setAttribute('aria-hidden', 'true');
+    stage.appendChild(svg);
+    fig.querySelectorAll('.draw-notes li').forEach((li, i) => {
+      const [x, y, w, h] = li.dataset.box.split(',').map(Number);
+      const [lx, ly] = li.dataset.at.split(',').map(Number);
+      const box = document.createElement('span'); box.className = 'd-box'; box.setAttribute('aria-hidden', 'true');
+      Object.assign(box.style, {left: x + '%', top: y + '%', width: w + '%', height: h + '%'}); box.style.setProperty('--i', i);
+      box.innerHTML = '<span class="d-num">' + (i + 1) + '</span>';
+      const lab = document.createElement('span'); lab.className = 'd-label'; lab.setAttribute('aria-hidden', 'true');
+      Object.assign(lab.style, {left: lx + '%', top: ly + '%'}); lab.style.setProperty('--i', i);
+      lab.innerHTML = li.innerHTML.replace('<b>', '<b><span class="d-n">' + (i + 1) + '</span>');
+      stage.appendChild(box); stage.appendChild(lab);
+      const ax = lx + 1, ay = ly + 3;
+      const px = Math.min(Math.max(ax, x), x + w), py = Math.min(Math.max(ay, y), y + h);
+      if (Math.hypot(ax - px, ay - py) > 2) {
+        ['halo', ''].forEach(c => { const l = document.createElementNS(SVGNS, 'line'); if (c) l.setAttribute('class', c);
+          l.setAttribute('x1', px); l.setAttribute('y1', py); l.setAttribute('x2', ax); l.setAttribute('y2', ay); svg.appendChild(l); });
+      }
+    });
+    const t = fig.querySelector('.draw-toggle');
+    t.addEventListener('click', () => { const on = t.getAttribute('aria-pressed') !== 'true'; t.setAttribute('aria-pressed', on); t.textContent = on ? 'Hide notes' : 'Show notes'; fig.classList.toggle('clean', !on); });
+  });
+  const drawIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); drawIO.unobserve(e.target); } }), {threshold: .35});
+  document.querySelectorAll('.draw').forEach(f => { if (!reduce.matches){ f.classList.add('armed'); drawIO.observe(f); } });
+
+  /* ---------- click any image in a file to see it big ---------- */
+  const lb = document.createElement('dialog'); lb.className = 'lightbox'; lb.setAttribute('aria-label', 'Image, enlarged');
+  lb.innerHTML = '<button class="lb-close" type="button">Close</button><div class="lb-inner"></div>';
+  document.body.appendChild(lb);
+  const lbInner = lb.querySelector('.lb-inner');
+  const closeLb = () => { if (lb.open) lb.close(); };
+  lb.querySelector('.lb-close').addEventListener('click', closeLb);
+  lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+  lb.addEventListener('close', () => { lbInner.innerHTML = ''; });
+  function openLb(fig){
+    lbInner.innerHTML = '';
+    lbInner.className = 'lb-inner draw in' + (fig.classList.contains('clean') ? ' clean' : '');
+    const stage = fig.querySelector('.draw-stage');
+    const img = fig.querySelector('img');
+    const cap = fig.querySelector('figcaption span, figcaption');
+    if (stage){
+      const c = stage.cloneNode(true);
+      const ar = img.naturalWidth / img.naturalHeight || 16/9;
+      c.style.width = 'min(94vw, ' + (84 * ar).toFixed(2) + 'vh)';
+      lbInner.appendChild(c);
+    } else {
+      const c = img.cloneNode(); c.removeAttribute('loading'); lbInner.appendChild(c);
+    }
+    if (cap){ const p = document.createElement('p'); p.className = 'lb-cap'; p.textContent = cap.textContent.replace(/Hide notes|Show notes/, '').trim(); lbInner.appendChild(p); }
+    lb.showModal();
+  }
+  document.querySelectorAll('.case figure').forEach(fig => {
+    if (fig.classList.contains('hot') || fig.querySelector('.compare')) return;
+    const target = fig.querySelector('.draw-stage') || fig.querySelector('img');
+    if (!target) return;
+    target.classList.add('zoomable');
+    target.addEventListener('click', () => openLb(fig));
   });
 
   /* ---------- copy helpers ---------- */
