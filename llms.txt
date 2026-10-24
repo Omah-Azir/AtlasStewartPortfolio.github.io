@@ -1,6 +1,6 @@
 # Atlas Stewart
 
-> Game UI/UX designer at DigiPen Institute of Technology, specializing in UI/UX and level design. Former Treyarch intern and game design instructor for DigiPen Open World. Creative Director and UI/UX designer on Nitro Guzzler, a 31-person student racing game shipping on Steam in December 2026. Deep Unreal Engine Blueprint experience.
+> Game UI/UX designer at DigiPen Institute of Technology, specializing in UI/UX and level design. Game design instructor for DigiPen Open World. Won an award for a Steam game he released in his sophomore year. Creative Director and UI/UX designer on Nitro Guzzler, a 31-person student racing game shipping on Steam in December 2026. Deep Unreal Engine Blueprint experience.
 
 All case studies are on one page. Each project opens at its own anchor.
 
@@ -10,7 +10,8 @@ All case studies are on one page. Each project opens at its own anchor.
 - [Chain of Jewels](https://omah-azir.github.io/AtlasStewartPortfolio.github.io/#chain-of-jewels): DES 360 project. A moodboard turned into a style guide and palette, then a complete dark-fantasy game UI in Figma: a shared frame (player state in top corners, navigation in bottom corners), main menu, Jewel Shop, Skill Forge and battle screens.
 - [NOC-6000](https://omah-azir.github.io/AtlasStewartPortfolio.github.io/#noc-6000): Unreal Engine game with a robot protagonist and a diegetic holographic HUD in 3D world space, built from modules (sunrise tracker for six moons, mission clock, 3D crosshair, laser rangefinder, status and spear modules) that fade in and out with context.
 - [Enshahtenti](https://omah-azir.github.io/AtlasStewartPortfolio.github.io/#enshahtenti): Game feel project. Write-up coming soon.
-- [Minecraft project](https://omah-azir.github.io/AtlasStewartPortfolio.github.io/#minecraft-project): Write-up coming soon.
+- [Minecraft project](https://omah-azir.github.io/AtlasStewartPortfolio.github.io/#minecraft-project): A redesign of the Minecraft inventory screen, wireframed flat and then overlaid on the live game.
+- [This portfolio](https://omah-azir.github.io/AtlasStewartPortfolio.github.io/#this-portfolio): The site's five-color oxblood and turquoise system, tested with color blindness simulations. Turquoise carries all text; the red is decoration only because it fails for many kinds of color blindness.
 
 ## About
 

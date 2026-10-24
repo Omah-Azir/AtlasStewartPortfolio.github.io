@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Atlas Stewart Portfolio</title>
-<meta name="description" content="Atlas Stewart, UI/UX designer for games. Case studies: Nitro Guzzler, Chain of Jewels, NOC-6000, Enshahtenti and more.">
+<meta name="description" content="Atlas Stewart is a game UI/UX designer. See how he designed Nitro Guzzler's main menu, the Chain of Jewels UI, a Minecraft inventory redesign and more.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;0,700;1,400&family=Atkinson+Hyperlegible+Mono:wght@400;600&family=Alegreya:wght@500;700;800&display=swap">
@@ -12,16 +12,22 @@
 html,body{margin:0}
 [hidden]{display:none!important}
 /* Layout: a file cabinet. Folder tabs pinned on top, one long sheet below
-   (Home → Projects deck → About → Contact). Opening a project pulls that file
-   out full-screen and the whole cabinet re-skins to the project's palette. */
+   (Home > Projects deck > About > Contact). Opening a project pulls that file
+   out full-screen and the whole cabinet re-skins to the project's palette.
+   Base palette is Atlas's own portfolio system: turquoise carries all text,
+   oxblood is decoration only (it fails for many kinds of color blindness). */
 :root{
-  --desk:#E3E6E0; --sheet:#F8F9F6; --tab:#CED4CB; --panel:#ECEFE9;
-  --ink:#15181A; --ink-2:#48504B; --rule:#C6CCC3;
-  --accent:#2A41C4; --accent-ink:#FFFFFF;
-  --font-display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --desk:#051313; --sheet:#081C1C; --tab:#0F3434; --panel:#145353;
+  --ink:#B4EDED; --ink-2:#9AD3D3; --rule:#1D4848;
+  --accent:#63D9D9; --accent-ink:#051313;
+  --red:#660000; --red-hi:#8E1212;
+  --glow:0 0 14px rgba(99,217,217,.45);
+  --font-display:"Atkinson Hyperlegible Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --font-wide:"Archivo","Arial Narrow",Arial,sans-serif;
   --font-body:"Atkinson Hyperlegible Next","Atkinson Hyperlegible",Verdana,system-ui,sans-serif;
   --font-mono:"Atkinson Hyperlegible Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
-  --display-stretch:118%; --display-weight:800; --display-style:normal;
+  --display-stretch:100%; --display-weight:600; --display-style:normal;
+  color-scheme:dark;
 
   /* Project palettes (each one is a single deliberate look) */
   --coj-bg:#281E12; --coj-panel:#3A2E22; --coj-tab:#514741; --coj-ink:#E9DFCC; --coj-ink2:#BBA88D; --coj-rule:#5A4B3A; --coj-accent:#E1B45A;
@@ -34,24 +40,15 @@ html,body{margin:0}
   --tabs-h:58px;
   --ease:cubic-bezier(.2,.8,.2,1);
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --desk:#0E100F; --sheet:#161917; --tab:#252A26; --panel:#1E221F;
-    --ink:#E8EBE6; --ink-2:#A6AEA8; --rule:#303632;
-    --accent:#9DAAFF; --accent-ink:#0E1030; color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --desk:#0E100F; --sheet:#161917; --tab:#252A26; --panel:#1E221F;
-  --ink:#E8EBE6; --ink-2:#A6AEA8; --rule:#303632;
-  --accent:#9DAAFF; --accent-ink:#0E1030; color-scheme:dark;
-}
+
 /* Opened project re-skins everything (declared last so it wins) */
+:root[data-project]{--glow:none}
+:root[data-project="this-portfolio"]{--glow:0 0 14px rgba(99,217,217,.45)}
 :root[data-project="chain-of-jewels"]{--desk:#1A130B;--sheet:var(--coj-bg);--tab:var(--coj-tab);--panel:var(--coj-panel);--ink:var(--coj-ink);--ink-2:var(--coj-ink2);--rule:var(--coj-rule);--accent:var(--coj-accent);--accent-ink:#281E12;--font-display:"Alegreya",Georgia,serif;--display-stretch:100%;--display-weight:800;color-scheme:dark}
-:root[data-project="nitro-guzzler"]{--desk:#E7E5EE;--sheet:var(--ng-bg);--tab:var(--ng-tab);--panel:var(--ng-panel);--ink:var(--ng-ink);--ink-2:var(--ng-ink2);--rule:var(--ng-rule);--accent:var(--ng-accent);--accent-ink:#FFFFFF;--display-stretch:68%;--display-weight:900;--display-style:italic;color-scheme:light}
+:root[data-project="nitro-guzzler"]{--font-display:var(--font-wide);--desk:#E7E5EE;--sheet:var(--ng-bg);--tab:var(--ng-tab);--panel:var(--ng-panel);--ink:var(--ng-ink);--ink-2:var(--ng-ink2);--rule:var(--ng-rule);--accent:var(--ng-accent);--accent-ink:#FFFFFF;--display-stretch:68%;--display-weight:900;--display-style:italic;color-scheme:light}
 :root[data-project="noc-6000"]{--desk:#020604;--sheet:var(--noc-bg);--tab:var(--noc-tab);--panel:var(--noc-panel);--ink:var(--noc-ink);--ink-2:var(--noc-ink2);--rule:var(--noc-rule);--accent:var(--noc-accent);--accent-ink:#03140A;--font-display:var(--font-mono);--display-stretch:100%;--display-weight:600;color-scheme:dark}
-:root[data-project="enshahtenti"]{--desk:#141925;--sheet:var(--en-bg);--tab:var(--en-tab);--panel:var(--en-panel);--ink:var(--en-ink);--ink-2:var(--en-ink2);--rule:var(--en-rule);--accent:var(--en-accent);--accent-ink:#2A1209;color-scheme:dark}
-:root[data-project="minecraft-project"]{--desk:#DCE4D7;--sheet:var(--mc-bg);--tab:var(--mc-tab);--panel:var(--mc-panel);--ink:var(--mc-ink);--ink-2:var(--mc-ink2);--rule:var(--mc-rule);--accent:var(--mc-accent);--accent-ink:#FFFFFF;color-scheme:light}
+:root[data-project="enshahtenti"]{--font-display:var(--font-wide);--display-weight:800;--desk:#141925;--sheet:var(--en-bg);--tab:var(--en-tab);--panel:var(--en-panel);--ink:var(--en-ink);--ink-2:var(--en-ink2);--rule:var(--en-rule);--accent:var(--en-accent);--accent-ink:#2A1209;color-scheme:dark}
+:root[data-project="minecraft-project"]{--font-display:var(--font-wide);--display-weight:800;--display-stretch:110%;--desk:#DCE4D7;--sheet:var(--mc-bg);--tab:var(--mc-tab);--panel:var(--mc-panel);--ink:var(--mc-ink);--ink-2:var(--mc-ink2);--rule:var(--mc-rule);--accent:var(--mc-accent);--accent-ink:#FFFFFF;color-scheme:light}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:calc(var(--tabs-h) + env(safe-area-inset-top,0px) + 12px)}
@@ -77,14 +74,14 @@ a{color:inherit}
   transform:perspective(60px) rotateX(5deg);transform-origin:bottom;transition:background-color .3s var(--ease)}
 .tab:hover{color:var(--ink)}
 .tab[aria-current="true"]{color:var(--ink);height:48px}
-.tab[aria-current="true"]::before{background:var(--sheet)}
+.tab[aria-current="true"]::before{background:var(--sheet);box-shadow:inset 0 2px 0 var(--red-hi)}
 .tab-name{font-family:var(--font-display);font-stretch:var(--display-stretch);font-weight:var(--display-weight);font-style:var(--display-style);
   text-transform:none;letter-spacing:0;font-size:1.02rem;color:var(--ink);margin-right:auto;padding-left:.9rem}
 .tab-name small{font-family:var(--font-mono);font-weight:400;font-style:normal;font-stretch:100%;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
 .nav{display:flex;align-items:flex-end;gap:2px;min-width:0;overflow-x:auto;scrollbar-width:none}
 .nav::-webkit-scrollbar{display:none}
 @media (max-width:560px){.tab{padding:0 .65rem;font-size:.7rem;letter-spacing:.04em}.tab-name{font-size:.92rem;padding-left:.7rem}.tab-name small,.nav .tab[data-sec="home"]{display:none}}
-.progress{position:absolute;left:0;bottom:0;height:3px;width:100%;transform-origin:left;transform:scaleX(var(--p,0));background:var(--accent);z-index:2;pointer-events:none}
+.progress{position:absolute;left:0;bottom:0;height:3px;width:100%;transform-origin:left;transform:scaleX(var(--p,0));background:linear-gradient(90deg,var(--red),var(--red-hi) 40%,var(--accent));z-index:2;pointer-events:none}
 
 /* ---------- The sheet ---------- */
 .sheet{background:var(--sheet);max-width:1240px;margin:0 auto;border-radius:0 14px 0 0;min-height:100vh;
@@ -93,6 +90,7 @@ a{color:inherit}
 .inner{max-width:1120px;margin:0 auto}
 section.band{padding-block:clamp(3rem,7vw,6rem)}
 .eyebrow{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);margin:0 0 .9rem}
+h1,h2{text-shadow:var(--glow)}
 h1,h2,h3{font-family:var(--font-display);font-stretch:var(--display-stretch);font-weight:var(--display-weight);font-style:var(--display-style);line-height:1.02;text-wrap:balance;margin:0;letter-spacing:-.01em}
 h2{font-size:clamp(2rem,4.6vw,3.6rem)}
 h3{font-size:clamp(1.35rem,2.2vw,1.8rem);line-height:1.1}
@@ -125,7 +123,8 @@ p{margin:0;max-width:65ch}
 .file{--f-bg:var(--panel);--f-ink:var(--ink);--f-ink2:var(--ink-2);--f-acc:var(--accent);
   position:relative;flex:1 1 0;min-width:0;display:block;text-decoration:none;color:var(--f-ink);
   transition:flex-grow .55s var(--ease)}
-.file:hover,.file:focus-visible{flex-grow:3.1}
+.file{container-type:inline-size}
+.file:hover,.file:focus-visible{flex-grow:2.4}
 .file:focus-visible{outline:none}
 .file:focus-visible .file-face{outline:3px solid var(--accent);outline-offset:3px}
 .file-tab{position:absolute;left:0;top:-28px;height:30px;max-width:calc(100% - 18px);padding:0 .8rem;display:flex;align-items:center;
@@ -138,10 +137,10 @@ p{margin:0;max-width:65ch}
 .file-media img{width:100%;height:100%;object-fit:cover;object-position:center 30%;transition:transform .8s var(--ease)}
 .file:hover .file-media img{transform:scale(1.04)}
 .file-body{flex:1;display:flex;flex-direction:column;gap:.55rem;padding:1rem 1.1rem 1.1rem;min-width:0}
-.chip{align-self:flex-start;max-width:100%;overflow:hidden;text-overflow:ellipsis;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;padding:.2rem .5rem;border-radius:999px;
+.chip{align-self:flex-start;max-width:100%;overflow:hidden;text-overflow:ellipsis;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.04em;text-transform:uppercase;padding:.2rem .5rem;border-radius:999px;
   border:1px solid currentColor;color:var(--f-acc);white-space:nowrap}
 .file-title{font-family:var(--fx-font,var(--font-display));font-stretch:var(--fx-stretch,var(--display-stretch));font-weight:var(--fx-weight,800);font-style:var(--fx-style,normal);
-  font-size:clamp(1.2rem,1.75vw,1.75rem);line-height:1.02;text-wrap:balance;overflow-wrap:break-word;hyphens:auto}
+  font-size:clamp(.95rem,11cqi,1.6rem);line-height:1.05;text-wrap:balance;overflow-wrap:break-word;hyphens:auto}
 .file-line{font-size:.92rem;line-height:1.45;color:var(--f-ink2);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .file-more{width:min(360px,72vw);margin-top:auto;display:grid;gap:.35rem;opacity:0;transform:translateY(8px);transition:opacity .35s var(--ease) .1s,transform .35s var(--ease) .1s}
 .file:hover .file-more,.file:focus-visible .file-more{opacity:1;transform:none}
@@ -151,10 +150,11 @@ p{margin:0;max-width:65ch}
 .open{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--f-acc);margin-top:.35rem}
 /* deck palettes */
 .file[data-p="chain-of-jewels"]{--f-bg:var(--coj-bg);--f-ink:var(--coj-ink);--f-ink2:var(--coj-ink2);--f-acc:var(--coj-accent);--fx-font:"Alegreya",Georgia,serif;--fx-stretch:100%}
-.file[data-p="nitro-guzzler"]{--f-bg:var(--ng-bg);--f-ink:var(--ng-ink);--f-ink2:var(--ng-ink2);--f-acc:var(--ng-accent);--fx-stretch:68%;--fx-weight:900;--fx-style:italic}
+.file[data-p="nitro-guzzler"]{--fx-font:var(--font-wide);--f-bg:var(--ng-bg);--f-ink:var(--ng-ink);--f-ink2:var(--ng-ink2);--f-acc:var(--ng-accent);--fx-stretch:68%;--fx-weight:900;--fx-style:italic}
 .file[data-p="noc-6000"]{--f-bg:var(--noc-bg);--f-ink:var(--noc-ink);--f-ink2:var(--noc-ink2);--f-acc:var(--noc-accent);--fx-font:var(--font-mono);--fx-stretch:100%;--fx-weight:600}
-.file[data-p="enshahtenti"]{--f-bg:var(--en-bg);--f-ink:var(--en-ink);--f-ink2:var(--en-ink2);--f-acc:var(--en-accent)}
-.file[data-p="minecraft-project"]{--f-bg:var(--mc-panel);--f-ink:var(--mc-ink);--f-ink2:var(--mc-ink2);--f-acc:var(--mc-accent)}
+.file[data-p="enshahtenti"]{--fx-font:var(--font-wide);--f-bg:var(--en-bg);--f-ink:var(--en-ink);--f-ink2:var(--en-ink2);--f-acc:var(--en-accent)}
+.file[data-p="this-portfolio"]{--f-bg:#0B2424;--f-ink:#B4EDED;--f-ink2:#9AD3D3;--f-acc:#63D9D9;--fx-font:var(--font-mono);--fx-stretch:100%;--fx-weight:600}
+.file[data-p="minecraft-project"]{--fx-font:var(--font-wide);--f-bg:var(--mc-panel);--f-ink:var(--mc-ink);--f-ink2:var(--mc-ink2);--f-acc:var(--mc-accent)}
 /* generated covers for projects still waiting on media */
 .cover-ng{background:linear-gradient(-58deg,transparent 0 30%,var(--liv-1) 30% 34%,transparent 34% 41%,var(--liv-2) 41% 45%,transparent 45% 52%,var(--liv-3) 52% 56%,transparent 56% 63%,var(--liv-4) 63% 67%,transparent 67%),repeating-linear-gradient(-58deg,transparent 0 6px,rgba(0,0,0,.05) 6px 7px),var(--ng-bg)}
 .cover-noc{background:repeating-radial-gradient(circle at 72% 60%,transparent 0 16px,color-mix(in srgb,var(--noc-accent) 55%,transparent) 16px 17px),radial-gradient(circle at 72% 60%,#12402A,var(--noc-bg) 70%)}
@@ -182,8 +182,19 @@ p{margin:0;max-width:65ch}
 .resume{position:relative;background:var(--panel);border-radius:0 12px 12px 12px;padding:1.5rem 1.5rem 1.6rem;display:grid;gap:.9rem}
 .resume::before{content:"RÉSUMÉ.PDF";position:absolute;left:0;top:-26px;height:26px;padding:0 .8rem;display:flex;align-items:center;background:var(--panel);border-radius:8px 8px 0 0;
   font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;color:var(--ink-2)}
-.resume-page{background:var(--sheet);border:1px solid var(--rule);border-radius:6px;padding:1.1rem 1.2rem;display:grid;gap:.45rem}
-.resume-page .bar{height:.5rem;border-radius:3px;background:var(--rule)}
+.resume-view{position:relative;display:block;aspect-ratio:8.5/11;max-width:100%;border-radius:8px;overflow:hidden;background:#FFFFFF;text-decoration:none;
+  box-shadow:0 18px 40px -24px rgba(0,0,0,.7)}
+.resume-view iframe{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none;background:#FFFFFF}
+.resume-cover{position:absolute;inset:0;background:rgba(5,19,19,0);transition:background-color .35s var(--ease)}
+.open-pill{position:absolute;right:14px;bottom:14px;display:flex;align-items:center;height:3rem;min-width:3rem;padding:0 .95rem;border-radius:999px;
+  background:var(--accent);color:var(--accent-ink);font-family:var(--font-mono);font-weight:600;font-size:.85rem;letter-spacing:.04em;gap:0;
+  box-shadow:0 8px 24px -8px rgba(0,0,0,.6);transition:transform .35s var(--ease),gap .35s var(--ease)}
+.open-pill svg{width:1.1rem;height:1.1rem;flex:none}
+.open-pill span{max-width:0;overflow:hidden;white-space:nowrap;transition:max-width .4s var(--ease)}
+.resume-view:hover .resume-cover,.resume-view:focus-visible .resume-cover{background:rgba(5,19,19,.62)}
+.resume-view:hover .open-pill,.resume-view:focus-visible .open-pill{gap:.55rem;transform:scale(1.08);transform-origin:right bottom}
+.resume-view:hover .open-pill span,.resume-view:focus-visible .open-pill span{max-width:12rem}
+.resume-view:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.8rem 1.15rem;border-radius:8px;background:var(--accent);color:var(--accent-ink);
   font-weight:700;text-decoration:none;border:0;font:inherit;font-weight:700;cursor:pointer;transition:transform .2s var(--ease)}
 .btn:hover{transform:translateY(-2px)}
@@ -378,10 +389,10 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
 <main class="sheet" id="page">
   <section class="wrap hero" id="home" aria-labelledby="hero-title">
     <div class="inner">
-      <p class="eyebrow">Atlas Stewart · Game UI/UX designer · DigiPen Institute of Technology</p>
+      <p class="eyebrow">Atlas Stewart · Game UI/UX designer · DigiPen</p>
       <h1 id="hero-title">Interfaces players read <em>at a glance.</em></h1>
       <div class="hero-row">
-        <p class="lede">I design menus, HUDs and the systems behind them, from moodboard and style guide to a working build in engine. Five files below. Open any of them.</p>
+        <p class="lede">I design menus and HUDs, and the systems underneath them. I usually start with a moodboard and finish with a working build in engine. Every file below shows how I got there.</p>
         <p class="now"><span class="dot" aria-hidden="true"></span><span>Now: <b>Creative Director + UI/UX, Nitro Guzzler</b>. Steam, Dec 2026</span></p>
       </div>
     </div>
@@ -394,14 +405,14 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
         <p class="hint"><span class="h-mouse">Hover or <kbd>Tab</kbd> to a file to peek. Click to open it.</span><span class="h-touch">Tap a file to open it.</span></p>
       </div>
       <div class="deck" role="list">
-        <a role="listitem" class="file" data-p="nitro-guzzler" href="#nitro-guzzler" aria-label="Nitro Guzzler. Creative Director and UI/UX designer on a 31-person racing game whose main menu is a 3D world. Open case study.">
+        <a role="listitem" class="file" data-p="nitro-guzzler" href="#nitro-guzzler" aria-label="Nitro Guzzler. I'm Creative Director and UI/UX designer on this 31-person racing game. Open case study.">
           <span class="file-tab" aria-hidden="true">01 · Shipping</span>
           <span class="file-face">
             <span class="file-media cover-ng" aria-hidden="true"><img src="img/ng-title-poster.webp" alt="" width="1280" height="720" loading="lazy"><video class="hover-vid" src="media/ng-title-loop.mp4" muted loop playsinline preload="none" poster="img/ng-title-poster.webp"></video></span>
             <span class="file-body">
-              <span class="chip">Steam · Dec 2026</span>
+              <span class="chip">Dec 2026</span>
               <span class="file-title">Nitro Guzzler</span>
-              <span class="file-line">A Redline-inspired portal racing game where the main menu is a 3D world, not a screen.</span>
+              <span class="file-line">A Redline-inspired racing game. The main menu lives inside the game world.</span>
               <span class="file-more">
                 <dl><dt>Role</dt><dd>Creative Director, UI/UX</dd><dt>Team</dt><dd>31 · the Grease Monkeys</dd><dt>Tools</dt><dd>UE 5.5, Blueprints, Sequencer, UMG</dd></dl>
                 <span class="open">Open file →</span>
@@ -416,7 +427,7 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
             <span class="file-body">
               <span class="chip">DES 360</span>
               <span class="file-title">Chain of Jewels</span>
-              <span class="file-line">A moodboard turned into a style guide, then a complete dark-fantasy game UI.</span>
+              <span class="file-line">A moodboard that became a style guide, and then a full dark fantasy game UI.</span>
               <span class="file-more">
                 <dl><dt>Role</dt><dd>UI/UX designer</dd><dt>Built</dt><dd>Moodboard, palette, 5 screens</dd><dt>Tools</dt><dd>Figma</dd></dl>
                 <span class="open">Open file →</span>
@@ -431,7 +442,7 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
             <span class="file-body">
               <span class="chip">In progress</span>
               <span class="file-title">NOC-6000</span>
-              <span class="file-line">A robot's HUD projected as a hologram in world space instead of flat on the screen.</span>
+              <span class="file-line">A robot's HUD, built as a hologram that floats out in the world.</span>
               <span class="file-more">
                 <dl><dt>Focus</dt><dd>Diegetic HUD</dd><dt>Tools</dt><dd>Unreal Engine, materials, Blueprints</dd></dl>
                 <span class="open">Open file →</span>
@@ -446,20 +457,32 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
             <span class="file-body">
               <span class="chip">Coming soon</span>
               <span class="file-title">Enshahtenti</span>
-              <span class="file-line">A game feel project: making every input land.</span>
+              <span class="file-line">A game feel project. Write-up coming soon.</span>
               <span class="file-more"><dl><dt>Focus</dt><dd>Game feel</dd></dl><span class="open">Open file →</span></span>
             </span>
           </span>
         </a>
-        <a role="listitem" class="file" data-p="minecraft-project" href="#minecraft-project" aria-label="Minecraft project. Case study coming soon.">
+        <a role="listitem" class="file" data-p="minecraft-project" href="#minecraft-project" aria-label="Minecraft project. An inventory screen redesign, wireframed over the live game. Open case study.">
           <span class="file-tab" aria-hidden="true">05 · Minecraft</span>
           <span class="file-face">
-            <span class="file-media cover-mc" aria-hidden="true"></span>
+            <span class="file-media"><img src="img/mc-ingame.webp" alt="" width="1600" height="900" loading="lazy" style="object-position:center"></span>
             <span class="file-body">
-              <span class="chip">Coming soon</span>
+              <span class="chip">UI redesign</span>
               <span class="file-title">Minecraft project</span>
-              <span class="file-line">Write-up on the way.</span>
-              <span class="file-more"><dl><dt>Status</dt><dd>Assets being gathered</dd></dl><span class="open">Open file →</span></span>
+              <span class="file-line">An inventory screen redesign, wireframed right over the live game.</span>
+              <span class="file-more"><dl><dt>Focus</dt><dd>Inventory layout</dd><dt>Built</dt><dd>Wireframe, in-game overlay</dd></dl><span class="open">Open file →</span></span>
+            </span>
+          </span>
+        </a>
+        <a role="listitem" class="file" data-p="this-portfolio" href="#this-portfolio" aria-label="This portfolio. The color system behind this site, tested for color blindness. Open case study.">
+          <span class="file-tab" aria-hidden="true">06 · This site</span>
+          <span class="file-face">
+            <span class="file-media"><img src="img/pf-palette.webp" alt="" width="1200" height="900" loading="lazy" style="object-position:center 30%"></span>
+            <span class="file-body">
+              <span class="chip">Color system</span>
+              <span class="file-title">This portfolio</span>
+              <span class="file-line">The colors you're looking at, and how I tested them for color blindness.</span>
+              <span class="file-more"><dl><dt>Focus</dt><dd>Color, contrast</dd><dt>Tools</dt><dd>Coolors, ColorHexa, HTML</dd></dl><span class="open">Open file →</span></span>
             </span>
           </span>
         </a>
@@ -473,26 +496,23 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
         <div class="about-copy reveal">
           <p class="eyebrow">About</p>
           <h2 id="about-title">Hi, I'm Atlas.</h2>
-          <p class="lede">I'm a game designer at DigiPen specializing in UI/UX and level design. I care about the moment a player looks at a screen and simply knows what to do.</p>
-          <p>I've interned at Treyarch, I bring deep Unreal Blueprint knowledge to teams of C++ programmers, and I've led student teams as a producer. Right now I'm Creative Director and UI/UX designer on Nitro Guzzler, a 31-person racing game shipping on Steam in December 2026.</p>
+          <p class="lede">I'm a game designer at DigiPen. I focus on UI/UX and level design. I care about that one second when a player looks at a screen and just knows what to do.</p>
+          <p>I know Unreal Blueprints really well, and I bring that to teams of C++ programmers. I've led student teams as a producer. One of my games, released on Steam in my sophomore year, won an award. Right now I'm Creative Director and UI/UX designer on Nitro Guzzler. It's a 31-person racing game shipping on Steam in December 2026.</p>
           <ul class="facts">
             <li><span>Focus</span>Game UI/UX, HUDs, menus, style guides</li>
-            <li><span>Also</span>Level design, team leadership</li>
-            <li><span>Experience</span>Treyarch internship · Nitro Guzzler (CD, UI/UX) · Game design instructor, DigiPen Open World</li>
+            <li><span>Also</span>Level design, leading teams</li>
+            <li><span>Experience</span>Nitro Guzzler (Creative Director, UI/UX) · Game design instructor, DigiPen Open World</li>
+            <li><span>Award</span>Won an award for a Steam game I released sophomore year</li>
             <li><span>School</span>DigiPen Institute of Technology</li>
           </ul>
         </div>
         <aside class="resume reveal" aria-labelledby="resume-title" style="margin-top:28px">
           <h3 id="resume-title">My résumé</h3>
-          <div class="resume-page" aria-hidden="true">
-            <div class="bar" style="width:46%;height:.8rem;background:var(--ink)"></div>
-            <div class="bar" style="width:30%"></div>
-            <div class="bar" style="width:92%;margin-top:.5rem"></div><div class="bar" style="width:84%"></div><div class="bar" style="width:88%"></div>
-            <div class="bar" style="width:38%;margin-top:.5rem;background:var(--accent)"></div>
-            <div class="bar" style="width:90%"></div><div class="bar" style="width:72%"></div>
-          </div>
-          <p class="small">This link always opens my current résumé. I update the file itself, so the link never goes stale.</p>
-          <div><a class="btn" href="https://drive.google.com/file/d/1YiB4TUytKC5HxxYsFp5sX9tJaJlAxgy4/view?usp=sharing" target="_blank" rel="noopener">Open résumé <span aria-hidden="true">↗</span></a></div>
+          <a class="resume-view" href="https://drive.google.com/file/d/1YiB4TUytKC5HxxYsFp5sX9tJaJlAxgy4/view?usp=sharing" target="_blank" rel="noopener" aria-label="Open my résumé in a new tab">
+            <iframe src="https://drive.google.com/file/d/1YiB4TUytKC5HxxYsFp5sX9tJaJlAxgy4/preview" title="Atlas Stewart résumé" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
+            <span class="resume-cover" aria-hidden="true"><span class="open-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg><span>Open résumé</span></span></span>
+          </a>
+          <p class="small">This is always my current résumé. It opens in a new tab, so you won't lose your place here.</p>
         </aside>
       </div>
 
@@ -513,7 +533,7 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
     <div class="inner">
       <p class="eyebrow">Contact</p>
       <h2 id="contact-title" class="reveal">Let's make something readable.</h2>
-      <p class="lede" style="margin-top:1.1rem">Hiring for UI/UX, or want to talk menus and HUDs? I answer email fastest.</p>
+      <p class="lede" style="margin-top:1.1rem">Hiring for UI/UX? Or just want to talk menus and HUDs? Email is the fastest way to reach me.</p>
       <ul class="contact-list">
         <li><span class="k">Email</span><a class="v" id="email-v" href="mailto:atlasgamedeveloper@gmail.com">atlasgamedeveloper@gmail.com</a><button class="copy" type="button" data-copy="#email-v">Copy</button></li>
         <li><span class="k">Phone</span><a class="v" id="phone-v" href="tel:+14256208472">(425) 620-8472</a><button class="copy" type="button" data-copy="#phone-v">Copy</button></li>
@@ -523,7 +543,7 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
       </ul>
     </div>
   </section>
-  <footer class="wrap"><div class="inner">© 2026 Atlas Stewart · Built by hand: semantic HTML, keyboard friendly, respects reduced motion.</div></footer>
+  <footer class="wrap"><div class="inner">© 2026 Atlas Stewart · Built by hand in plain HTML. Works with a keyboard and respects reduced motion.</div></footer>
 </main>
 
 <!-- ======== Case studies: full content lives in the HTML so people, screen readers and AI tools can all read it ======== -->
@@ -536,7 +556,7 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
         <header class="case-hero morph-target">
           <p class="eyebrow">Case study · DES 360</p>
           <h1 id="coj-title" tabindex="-1">Chain of Jewels</h1>
-          <p class="lede">I built a style guide from a moodboard, then used it to design a complete, working UI for a dark-fantasy jewel game: main menu, shop, crafting and combat.</p>
+          <p class="lede">I built a style guide from a moodboard. Then I used it to design a full working UI for a dark fantasy jewel game. That meant a main menu, a shop, crafting and combat.</p>
           <dl class="glance">
             <div><dt>Role</dt><dd>UI/UX designer</dd></div>
             <div><dt>Course</dt><dd>DES 360</dd></div>
@@ -552,17 +572,17 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
             <section class="chapter" id="coj-board" aria-labelledby="coj-board-h">
               <p class="eyebrow">Step 1 · Research</p>
               <h2 id="coj-board-h">It started as a wall of references</h2>
-              <p>I collected inventory and armory screens from dark-fantasy RPGs, a medieval strategy game's ledger UI, a jewel-matching puzzler, Gothic cathedral stonework and a medieval illuminated-manuscript ink palette, all laid over a woven tapestry.</p>
+              <p>I pulled inventory and armory screens from dark fantasy RPGs. I added a ledger style menu from a medieval strategy game, a jewel matching puzzle game, Gothic cathedral stonework and a chart of medieval manuscript inks. Then I laid it all over a scan of an old woven wall hanging.</p>
               <figure class="reveal">
-                <img src="img/coj-moodboard.webp" width="2000" height="1318" loading="lazy" alt="Moodboard collage on a tapestry background: dark RPG inventory and skill-tree screens, a gilded medieval inventory UI, a jewel-matching puzzle grid, a Gothic cathedral photo, a medieval illuminated-manuscript color chart, and several extracted palettes of greys, umbers, olives and jewel tones.">
-                <figcaption>The moodboard. Dark game menus set the structure; the manuscript inks and tapestry set the color.</figcaption>
+                <img src="img/coj-moodboard.webp" width="2000" height="1318" loading="lazy" alt="Moodboard collage on a woven wall-hanging background: dark RPG inventory and skill-tree screens, a gilded medieval inventory UI, a jewel-matching puzzle grid, a Gothic cathedral photo, a medieval illuminated-manuscript color chart, and several extracted palettes of greys, umbers, olives and jewel tones.">
+                <figcaption>The moodboard. The game menus gave me structure. The manuscript inks and the weaving gave me color.</figcaption>
               </figure>
             </section>
 
             <section class="chapter" id="coj-palette" aria-labelledby="coj-palette-h">
               <p class="eyebrow">Step 2 · Style guide</p>
               <h2 id="coj-palette-h">A palette pulled straight from the board</h2>
-              <p>Every color in the UI comes from the moodboard: a warm grey ramp for structure, earth tones for surfaces and type, and manuscript jewel tones held back for the jewels themselves.</p>
+              <p>Every color in the UI comes off the moodboard. Warm greys handle structure. Earth tones handle surfaces and type. The bright jewel tones are saved for the jewels.</p>
               <ul class="swatches reveal" aria-label="Chain of Jewels core palette. Activate a swatch to copy its hex code.">
                 <li><button class="swatch" type="button" data-hex="#281E12"><i style="background:#281E12"></i><span>#281E12<em>Background</em></span></button></li>
                 <li><button class="swatch" type="button" data-hex="#BBA88D"><i style="background:#BBA88D"></i><span>#BBA88D<em>Display type</em></span></button></li>
@@ -583,7 +603,7 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
             <section class="chapter" id="coj-frame" aria-labelledby="coj-frame-h">
               <p class="eyebrow">Step 3 · Greybox</p>
               <h2 id="coj-frame-h">One frame for every screen</h2>
-              <p>Before any art, I locked a shared frame. Player state sits in the top corners, navigation sits in the bottom corners, and the center belongs to whatever the screen is for. Every later screen is built inside this frame, so players never relearn where things are.</p>
+              <p>Before any art, I locked one frame for every screen. Player info sits in the top corners. Navigation sits in the bottom corners. The middle is for whatever that screen is about. So players never have to relearn where things are.</p>
               <div class="reveal" style="display:grid;gap:.5rem">
                 <div class="compare" id="compare">
                   <img src="img/coj-main-menu.webp" width="1600" height="736" loading="lazy" alt="Main menu art pass inside the shared frame.">
@@ -596,7 +616,7 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
               </div>
               <figure class="reveal">
                 <img src="img/coj-skill-forge.webp" width="1600" height="736" loading="lazy" alt="Skill Forge first pass inside the greyscale frame: a large Skill Forge label on the left and a brown panel on the right with an upward triangle labeled Evolve, two buttons labeled Reforge and Craft, and a downward triangle labeled Scrap.">
-                <figcaption>Skill Forge first pass. Shape carries meaning: Evolve points up, Scrap points down, and Reforge and Craft sit level between them.</figcaption>
+                <figcaption>Skill Forge, first pass. The shapes carry meaning. Evolve points up, Scrap points down, and Reforge and Craft sit level in between.</figcaption>
               </figure>
             </section>
 
@@ -614,10 +634,10 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
               </figure>
               <ol class="notes" aria-label="Main menu notes">
                 <li id="note-1"><span class="n">01</span><b>Who you are</b>Portrait, level and XP stay pinned top left on every screen.</li>
-                <li id="note-2"><span class="n">02</span><b>What you have</b>Energy and coins stay top right, so spending decisions are always informed.</li>
-                <li id="note-3"><span class="n">03</span><b>One obvious next step</b>Campaign is the only large button, framed by its own panel.</li>
+                <li id="note-2"><span class="n">02</span><b>What you have</b>Energy and coins stay top right. So you always know what you can spend.</li>
+                <li id="note-3"><span class="n">03</span><b>One obvious next step</b>Campaign is the only big button, and it gets its own panel.</li>
                 <li id="note-4"><span class="n">04</span><b>Everything else, equal</b>Shops, Crafting, Book of Chains, Rewards and Quit share one row and one size.</li>
-                <li id="note-5"><span class="n">05</span><b>Out of the way</b>Audio and settings live in the corners, reachable but never competing.</li>
+                <li id="note-5"><span class="n">05</span><b>Out of the way</b>Audio and settings sit in the corners. Easy to reach and easy to ignore.</li>
               </ol>
             </section>
 
@@ -626,11 +646,11 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
               <h2 id="coj-screens-h">The same frame, different jobs</h2>
               <figure class="reveal">
                 <img src="img/coj-jewel-shop.webp" width="1600" height="736" loading="lazy" alt="Jewel Shop screen: a hanging wooden sign reading Jewel Shop, four jewel cards each with Type, Effect and Cost tags above, and one green Purchase button below. Main Menu and Back sit in the bottom corners.">
-                <figcaption>Jewel Shop. Each item shows Type, Effect and Cost in the same order, and there is a single Purchase action.</figcaption>
+                <figcaption>Jewel Shop. Every item shows Type, Effect and Cost in the same order. There's only one action, Purchase.</figcaption>
               </figure>
               <figure class="reveal">
                 <img src="img/coj-battle.webp" width="1600" height="736" loading="lazy" alt="Battle screen: a Player Turn banner at the top, two armored knights facing each other with a green health bar on the left and a red one on the right, four Attack buttons and a glowing orange Ultimate button at the bottom, Pause bottom right.">
-                <figcaption>Battle. A turn banner, mirrored health bars, four attacks and an Ultimate that glows so it reads as special.</figcaption>
+                <figcaption>Battle. A turn banner, two mirrored health bars, four attacks and an Ultimate. The Ultimate glows so it reads as special.</figcaption>
               </figure>
             </section>
 
@@ -660,7 +680,7 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
           </div>
           <p class="eyebrow">Case study · Shipping on Steam, December 2026</p>
           <h1 id="ng-title" tabindex="-1">Nitro Guzzler</h1>
-          <p class="lede">A Redline-inspired portal racing game where the main menu is a 3D world, not a screen. As Creative Director and UI/UX designer, I created or directed all of the game's UI, from concept to implementation.</p>
+          <p class="lede">A Redline-inspired portal racing game. The main menu lives inside the game world. I'm Creative Director and UI/UX designer, and I created or directed all of the game's UI from concept to build.</p>
           <dl class="glance">
             <div><dt>Role</dt><dd>Creative Director, UI/UX</dd></div>
             <div><dt>Team</dt><dd>31 · the Grease Monkeys</dd></div>
@@ -675,18 +695,18 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
             <section class="chapter" id="ng-goal" aria-labelledby="ng-goal-h">
               <p class="eyebrow">The goal</p>
               <h2 id="ng-goal-h">Make the menu part of the world</h2>
-              <p>Most menus are a layer on top of the game. I wanted ours to be the game. I took the approach of the Batman: Arkham menus: the camera cycles through shots on its own, pulls the player in and introduces the characters before the first race.</p>
+              <p>I wanted the menu to feel like you're already in the game. So I borrowed from the Batman Arkham menus. The camera cycles through shots on its own. It pulls you in and shows you the characters before your first race.</p>
               <ul class="notes reveal">
-                <li><b>Racers up front</b>The racers are the main reason players get invested, so the menu is built around them.</li>
-                <li><b>The menu is the attract loop</b>A camera director hard cuts between sequences. The camera never blends. Only the content moves.</li>
-                <li><b>Names that fit the world</b>Every destination has a garage-culture name instead of a generic one.</li>
+                <li><b>Racers up front</b>Players get invested in the racers, so I built the menu around them.</li>
+                <li><b>The menu is the attract loop</b>A camera director hard cuts between sequences. The camera never blends. Only the stuff in the shot moves.</li>
+                <li><b>Names that fit the world</b>Every destination gets a name from garage culture. Settings is the Garage. Credits is Monkey Business.</li>
               </ul>
             </section>
 
             <section class="chapter" id="ng-void" aria-labelledby="ng-void-h">
               <p class="eyebrow">Intro</p>
               <h2 id="ng-void-h">One white void for everything</h2>
-              <p>The intro and the menu share the same white space, with no separate garage hub level. Cars race through it in their livery colors and leave colored tire stripes. They smash through a glass pane carrying the logo and switch to their in-game textures, then the camera falls to show the team name written in tire tracks.</p>
+              <p>The intro and the menu share one white space. There's no separate garage level. Cars race through it in their livery colors and leave colored tire stripes. Then they smash through a glass pane with the logo on it and switch to their in-game textures. The camera falls, and you see the team name written in tire tracks.</p>
               <ol class="flow reveal" aria-label="Startup flow">
                 <li><span class="n">01</span><b>Intro</b>Plays once. Hold a button to skip.</li>
                 <li><span class="n">02</span><b>Ready loop</b>Waits for the player.</li>
@@ -698,8 +718,8 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
 
             <section class="chapter" id="ng-compass" aria-labelledby="ng-compass-h">
               <p class="eyebrow">Menu map</p>
-              <h2 id="ng-compass-h">Spray-painted arrows instead of a button list</h2>
-              <p class="lede">The root options are arrows painted on the ground in a compass layout. Pick a direction to see where it leads.</p>
+              <h2 id="ng-compass-h">A menu you read off the ground</h2>
+              <p class="lede">The main options are arrows spray painted on the ground, laid out like a compass. Pick a direction to see where it goes.</p>
               <div class="compass-wrap reveal">
                 <div class="compass" role="group" aria-label="Main menu compass">
                   <button type="button" class="dir n" data-dir="garage" aria-pressed="false"><small>North</small>Garage</button>
@@ -711,22 +731,22 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
                 <div class="compass-panel" id="compass-panel" aria-live="polite">
                   <p class="eyebrow" id="cp-std">Play</p>
                   <h3 id="cp-name">Prep Ride</h3>
-                  <p id="cp-text">A splash panel with high scores, a highlight clip, the game name and team name. Then Racer Select, then two flash transitions: one into the track intro and one into the race start.</p>
+                  <p id="cp-text">A splash panel with high scores, a highlight clip, the game name and team name. Then Racer Select. Then two flash transitions, one into the track intro and one into the race start.</p>
                 </div>
               </div>
-              <p class="small">Quitting is themed too. It opens a "Racer Retiring" confirmation instead of a generic quit dialog.</p>
+              <p class="small">Quitting is themed too. Leaving the game brings up a "Racer Retiring" confirmation.</p>
             </section>
 
             <section class="chapter" id="ng-garage" aria-labelledby="ng-garage-h">
               <p class="eyebrow">Settings</p>
               <h2 id="ng-garage-h">Settings scratched into the paint</h2>
-              <p>In the Garage, settings are physical hotspots on W-Dawg's car. One Return button sits on the ground, visible as the camera whips around the car. A dedicated artist is making the etched decal art.</p>
+              <p>In the Garage, settings are hotspots right on W-Dawg's car. One Return button sits on the ground, so you can see it as the camera whips around. An artist on the team is making the etched decal art.</p>
               <ul class="notes reveal">
                 <li><span class="n">Hood</span><b>Visual</b>Display settings such as monitor size.</li>
                 <li><span class="n">Side</span><b>Accessibility + gameplay</b>Toggles like turning the HUD on or off.</li>
                 <li><span class="n">Open trunk</span><b>Audio</b>Volume for each type of sound.</li>
               </ul>
-              <p>The other destinations use a second interaction type: flat holographic overlays you step through with Next and Return. Racer Select shows the racer's face, info, track record and a lore bit, and adds Confirm to lock them in. Pit Crew is a looping character sheet that cycles through every racer.</p>
+              <p>The other destinations work differently. They're flat holographic overlays you step through with Next and Return. Racer Select shows the racer's face, info, track record and a bit of lore, and Confirm locks them in. Pit Crew is a looping character sheet that cycles through every racer.</p>
               <div class="media-slot reveal">Before/after goes here: W-Dawg's bare hood vs. the hood with Visual settings etched in</div>
             </section>
 
@@ -734,20 +754,20 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
               <p class="eyebrow">Implementation</p>
               <h2 id="ng-build-h">How it's built</h2>
               <ul class="notes reveal">
-                <li><b>One camera director</b>A single Blueprint holds every menu destination as a row of data. Each row stores where Back goes, so there's no special-case back logic.</li>
+                <li><b>One camera director</b>One Blueprint holds every menu destination as a row of data. Each row stores where Back goes. So there's no special case logic for Back.</li>
                 <li><b>Structs over a Data Table</b>Data Tables fight with references to actors placed in the level, so destinations are an array of structs.</li>
                 <li><b>Hierarchy by tag</b>Each destination has a parent tag. Garage's three hotspots are just three more rows tagged Garage.</li>
                 <li><b>Widgets on surfaces</b>UMG widgets sit on 3D surfaces as Widget Components. They're physically separate but navigate as one screen.</li>
                 <li><b>One activation path</b>Mouse clicks hit the UI through a raycast. Gamepad and keyboard step through an ordered list. Both call the same function.</li>
                 <li><b>Back plays in reverse</b>Each destination sequence plays once and holds its last frame. Back plays it in reverse, reusing the game's rewind component.</li>
               </ul>
-              <p>I originally planned a blended moving camera and a 2D widget stack. Once the real design was clear, with hard-cut sequences and buttons on 3D surfaces, I rewrote the implementation plan around it. The Sequencer intro and the hand-off into the attract loop are done in engine.</p>
+              <p>I first planned a blended moving camera and a 2D widget stack. Once the real design was clear, I rewrote the plan around hard cut sequences and buttons on 3D surfaces. The Sequencer intro and the hand off into the attract loop are done in engine.</p>
             </section>
 
             <section class="chapter" id="ng-trailer" aria-labelledby="ng-trailer-h">
               <p class="eyebrow">Trailer</p>
               <h2 id="ng-trailer-h">The trailer</h2>
-              <p>I planned the trailer around the structure of the Need for Speed: Most Wanted trailer, but swapped its car showcase for W-Dawg drifting through our menus and intro. I wrote the shot lists and an artist produced the shots.</p>
+              <p>I based the trailer's structure on the Need for Speed Most Wanted trailer. Instead of showing off cars, ours follows W-Dawg drifting through our menus and intro. I wrote the shot lists and an artist made the shots.</p>
               <div class="media-slot reveal">Trailer goes here: W-Dawg drifts through Nitro Guzzler's main menu and intro</div>
             </section>
 
@@ -771,7 +791,7 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
         <header class="case-hero morph-target">
           <p class="eyebrow">Case study · In progress</p>
           <h1 id="noc-title" tabindex="-1">NOC-6000</h1>
-          <p class="lede">The player is a robot, so the HUD is part of the robot: a hologram projected into 3D world space, not a flat overlay on the screen.</p>
+          <p class="lede">The player is a robot. So the HUD is part of the robot. It's a hologram that floats out in the 3D world.</p>
           <dl class="glance">
             <div><dt>Focus</dt><dd>Diegetic HUD</dd></div>
             <div><dt>Engine</dt><dd>Unreal Engine</dd></div>
@@ -797,7 +817,7 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
             <section class="chapter" id="noc-behavior" aria-labelledby="noc-behavior-h">
               <p class="eyebrow">Behavior</p>
               <h2 id="noc-behavior-h">A HUD that breathes</h2>
-              <p>The crosshair widens after a miss and tightens when ready, with a slight throb that humanizes the robot. Modules fade in and out with context instead of staying on all the time, and the hologram shifts between light and dark green.</p>
+              <p>The crosshair widens after a miss and tightens when it's ready. It throbs a little, which makes the robot feel alive. Modules fade in when they matter and fade out when they don't. The hologram shifts between light and dark green.</p>
             </section>
             <section class="chapter" id="noc-build" aria-labelledby="noc-build-h">
               <p class="eyebrow">Build</p>
@@ -817,7 +837,7 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
       <header class="case-hero morph-target">
         <p class="eyebrow">Case study · Coming soon</p>
         <h1 id="en-title" tabindex="-1">Enshahtenti</h1>
-        <p class="lede">A game feel project. The full write-up and captures are on the way.</p>
+        <p class="lede">A game feel project. The write-up and captures are coming soon.</p>
       </header>
       <div class="chapters" style="padding-bottom:3rem"><div class="media-slot">Game feel GIFs go here</div><p class="todo">Role, timeframe, tools, and the two or three feel changes you are proudest of, each with a before/after GIF.</p></div>
       <div class="next"><span class="eyebrow" style="margin:0">Next file</span><a href="#minecraft-project" class="big">Minecraft project →</a></div>
@@ -825,16 +845,119 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
   </article>
 
   <article class="case" id="case-minecraft-project" data-id="minecraft-project" aria-labelledby="mc-title" hidden>
-    <div class="wrap"><div class="inner">
-      <div class="case-bar"><a class="btn ghost close" href="#projects">← Back to projects</a><span class="hint"><kbd>Esc</kbd> closes the file</span></div>
-      <header class="case-hero morph-target">
-        <p class="eyebrow">Case study · Coming soon</p>
-        <h1 id="mc-title" tabindex="-1">Minecraft project</h1>
-        <p class="lede">The write-up is on the way.</p>
-      </header>
-      <div class="chapters" style="padding-bottom:3rem"><div class="media-slot">Captures go here</div><p class="todo">What you built, your role, and two or three images or GIFs.</p></div>
-      <div class="next"><span class="eyebrow" style="margin:0">Next file</span><a href="#nitro-guzzler" class="big">Nitro Guzzler →</a></div>
-    </div></div>
+    <div class="wrap">
+      <div class="inner">
+        <div class="case-bar"><a class="btn ghost close" href="#projects">← Back to projects</a><span class="hint"><kbd>Esc</kbd> closes the file</span></div>
+        <header class="case-hero morph-target">
+          <p class="eyebrow">Case study · Inventory redesign</p>
+          <h1 id="mc-title" tabindex="-1">Minecraft project</h1>
+          <p class="lede">A redesign of the Minecraft inventory screen. I wireframed it flat first. Then I laid it over the live game.</p>
+          <dl class="glance">
+            <div><dt>Focus</dt><dd>Inventory layout</dd></div>
+            <div><dt>Built</dt><dd>Flat wireframe, in-game overlay</dd></div>
+          </dl>
+        </header>
+        <div class="case-layout">
+          <nav class="toc" aria-label="Minecraft project sections"><a href="#mc-flat">Wireframe</a><a href="#mc-live">In the game</a><a href="#mc-why">My thinking</a></nav>
+          <div class="chapters">
+            <section class="chapter" id="mc-flat" aria-labelledby="mc-flat-h">
+              <p class="eyebrow">Step 1 · Wireframe</p>
+              <h2 id="mc-flat-h">The layout, flat</h2>
+              <figure class="reveal" style="max-width:640px">
+                <img src="img/mc-wireframe.webp" width="1100" height="1045" loading="lazy" alt="Greyscale inventory wireframe. Top left, a column of four armor slots beside a large dark character preview. Top right, a two by two crafting grid joined by a line to one output slot. Below, a row of four buttons: a blank slot, a green recipe book, an ABC text icon and a salmon colored square. Then three rows of ten storage slots, a row of nine, and a lighter bottom row of nine. Diamond markers on four slots in the third row connect by vertical lines to the first four slots of the bottom row. A small node icon sits at the bottom right.">
+                <figcaption>The flat wireframe.</figcaption>
+              </figure>
+            </section>
+            <section class="chapter" id="mc-live" aria-labelledby="mc-live-h">
+              <p class="eyebrow">Step 2 · In context</p>
+              <h2 id="mc-live-h">Over the live game</h2>
+              <figure class="reveal">
+                <img src="img/mc-ingame.webp" width="1600" height="900" loading="lazy" alt="The same inventory wireframe shown as a see-through panel over a Minecraft world with trees, hills and a lake. The health and hunger bars and the hotbar sit below it.">
+                <figcaption>The wireframe as a see-through panel over the world.</figcaption>
+              </figure>
+            </section>
+            <section class="chapter" id="mc-why" aria-labelledby="mc-why-h">
+              <p class="eyebrow">My thinking</p>
+              <h2 id="mc-why-h">Why it's laid out this way</h2>
+              <p class="todo">What problem you were solving with the default inventory, what the diamond links and the ABC button do, why the panel is see-through, and what you'd change next.</p>
+            </section>
+          </div>
+        </div>
+        <div class="next"><span class="eyebrow" style="margin:0">Next file</span><a href="#this-portfolio" class="big">This portfolio →</a></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="case" id="case-this-portfolio" data-id="this-portfolio" aria-labelledby="pf-title" hidden>
+    <div class="wrap">
+      <div class="inner">
+        <div class="case-bar"><a class="btn ghost close" href="#projects">← Back to projects</a><span class="hint"><kbd>Esc</kbd> closes the file</span></div>
+        <header class="case-hero morph-target">
+          <p class="eyebrow">Case study · The site you're on</p>
+          <h1 id="pf-title" tabindex="-1">This portfolio</h1>
+          <p class="lede">I built this site's colors from one red. Then I ran every color through color blindness simulations before I used any of them.</p>
+          <dl class="glance">
+            <div><dt>Role</dt><dd>Designer and builder</dd></div>
+            <div><dt>Tools</dt><dd>Coolors, ColorHexa, HTML</dd></div>
+            <div><dt>Focus</dt><dd>Color, contrast, accessibility</dd></div>
+          </dl>
+        </header>
+        <div class="case-layout">
+          <nav class="toc" aria-label="This portfolio sections"><a href="#pf-five">Five colors</a><a href="#pf-test">Testing</a><a href="#pf-process">Process</a><a href="#pf-here">On this site</a></nav>
+          <div class="chapters">
+            <section class="chapter" id="pf-five" aria-labelledby="pf-five-h">
+              <p class="eyebrow">The system</p>
+              <h2 id="pf-five-h">Five colors, one job each</h2>
+              <p>Every color here has a single job. That keeps the site easy to read, and it keeps me from guessing.</p>
+              <ul class="swatches reveal" aria-label="Portfolio palette. Activate a swatch to copy its hex code.">
+                <li><button class="swatch" type="button" data-hex="#660000"><i style="background:#660000"></i><span>#660000<em>My base red. Decoration only</em></span></button></li>
+                <li><button class="swatch" type="button" data-hex="#B4EDED"><i style="background:#B4EDED"></i><span>#B4EDED<em>Text that always contrasts</em></span></button></li>
+                <li><button class="swatch" type="button" data-hex="#63D9D9"><i style="background:#63D9D9"></i><span>#63D9D9<em>Text glow, links</em></span></button></li>
+                <li><button class="swatch" type="button" data-hex="#145353"><i style="background:#145353"></i><span>#145353<em>Panels, popups, hovers</em></span></button></li>
+                <li><button class="swatch" type="button" data-hex="#051313"><i style="background:#051313"></i><span>#051313<em>Ink black background</em></span></button></li>
+              </ul>
+              <p class="hint">Click a swatch to copy its hex code.</p>
+            </section>
+            <section class="chapter" id="pf-test" aria-labelledby="pf-test-h">
+              <p class="eyebrow">Testing</p>
+              <h2 id="pf-test-h">Where red fails</h2>
+              <p>I made the scheme in Coolors. Then I ran every color through ColorHexa's color blindness simulations and screenshotted the results. For a lot of people, the red falls apart. The turquoise holds up. So turquoise carries all the text here, and red only shows up as decoration.</p>
+              <p class="lede">Drag to compare my first pass with the final chart.</p>
+              <div class="reveal" style="display:grid;gap:.5rem">
+                <div class="compare">
+                  <img src="img/pf-cvd-final.webp" width="1600" height="1227" loading="lazy" alt="Final chart. Each palette color is labeled with its role: My Base Red, Lighter Opposite for text that always contrasts even where red fails, Opposite Base for text glow, Darker Opposite for panels, popups and hovers, and Ink Black or Off Black. A red line runs down the right side and bends where red fails.">
+                  <div class="top"><img src="img/pf-cvd-first.webp" width="1600" height="1227" loading="lazy" alt="First pass. Color blindness simulation swatches for each color beside the plain palette with hex codes, and a turquoise arrow linking the top and bottom rows."></div>
+                  <div class="handle" aria-hidden="true"></div>
+                  <label class="sr-only" for="pf-range">Drag to compare the first pass with the final chart</label>
+                  <input type="range" id="pf-range" min="0" max="100" value="50">
+                </div>
+                <div class="compare-labels"><span>Final</span><span>First pass</span></div>
+              </div>
+            </section>
+            <section class="chapter" id="pf-process" aria-labelledby="pf-process-h">
+              <p class="eyebrow">Process</p>
+              <h2 id="pf-process-h">Showing my work</h2>
+              <p>I didn't need a greybox for this one, since the palette itself was the job. I started by showing how close the darks were to each other. Then I added some rough flair so both halves of the chart were worth looking at. I wrote a note on every color so I could reuse the chart later. And I had some fun with the red failing. Last, I lined it all up with my style guide.</p>
+              <figure class="reveal">
+                <img src="img/pf-process.webp" width="2000" height="1500" loading="lazy" alt="Process diagram on a dark background. Boxes for Step 1 Research and Concepting, Step 2 Design Passes with sub-steps 2A to 2D, Step 3 Pitch and Step 4 Implement, linked by turquoise lines to each version of the color chart.">
+                <figcaption>Every pass of the chart, from research to the version this site uses.</figcaption>
+              </figure>
+            </section>
+            <section class="chapter" id="pf-here" aria-labelledby="pf-here-h">
+              <p class="eyebrow">On this site</p>
+              <h2 id="pf-here-h">Where you can see it</h2>
+              <ul class="notes reveal">
+                <li><b>Text</b>All of the text is the light turquoise. It reads on every background in the system.</li>
+                <li><b>Glow</b>Headings get a soft turquoise glow, the same one from the chart.</li>
+                <li><b>Panels</b>Cards, notes and hovers sit on the darker teal.</li>
+                <li><b>Red</b>The red only shows up as a thread. It's in the scroll bar under the tabs and the edge of the open tab.</li>
+              </ul>
+            </section>
+          </div>
+        </div>
+        <div class="next"><span class="eyebrow" style="margin:0">Next file</span><a href="#nitro-guzzler" class="big">Nitro Guzzler →</a></div>
+      </div>
+    </div>
   </article>
 </div>
 
@@ -844,11 +967,13 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
  {"@type":"Person","@id":"#atlas","name":"Atlas Stewart","jobTitle":"UI/UX Designer (Games)","email":"mailto:atlasgamedeveloper@gmail.com","telephone":"+1-425-620-8472","sameAs":["https://www.linkedin.com/in/atlas-stewart-3a333a33a","https://linktr.ee/atlasgamedeveloper"],"affiliation":{"@type":"CollegeOrUniversity","name":"DigiPen Institute of Technology"},
-  "knowsAbout":["Game UI design","UX design","HUD design","Diegetic UI","Style guides","Level design","Unreal Engine Blueprints","Figma","Unity","Maya","Krita"]},
+  "award":"Award for a Steam game released in his sophomore year","knowsAbout":["Game UI design","UX design","HUD design","Diegetic UI","Style guides","Level design","Unreal Engine Blueprints","Figma","Unity","Maya","Krita"]},
  {"@type":"CreativeWork","name":"Nitro Guzzler","creator":{"@id":"#atlas"},"description":"Redline-inspired portal racing game built in Unreal Engine 5.5 by a 31-person student team, the Grease Monkeys. Atlas Stewart is Creative Director and UI/UX designer and designed a diegetic main menu: an attract-loop camera director, settings etched onto the car, and compass-style spray-painted menu arrows. Releasing on Steam in December 2026."},
  {"@type":"CreativeWork","name":"Chain of Jewels","creator":{"@id":"#atlas"},"description":"DES 360 project: a style guide built from a moodboard, then a complete game UI in Figma (main menu, jewel shop, skill forge, battle)."},
  {"@type":"CreativeWork","name":"NOC-6000","creator":{"@id":"#atlas"},"description":"Unreal Engine game with a robot protagonist and a diegetic holographic HUD in 3D world space."},
- {"@type":"CreativeWork","name":"Enshahtenti","creator":{"@id":"#atlas"},"description":"Game feel project."}
+ {"@type":"CreativeWork","name":"Enshahtenti","creator":{"@id":"#atlas"},"description":"Game feel project."},
+ {"@type":"CreativeWork","name":"Minecraft inventory redesign","creator":{"@id":"#atlas"},"description":"A redesign of the Minecraft inventory screen, wireframed flat and then overlaid on the live game."},
+ {"@type":"CreativeWork","name":"Portfolio color system","creator":{"@id":"#atlas"},"description":"Five-color oxblood and turquoise system for this site, tested with color blindness simulations. Turquoise carries all text; red is decoration only."}
 ]}
 </script>
 
@@ -909,7 +1034,7 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
     const t = a.getAttribute('href').slice(1);
     if (a.classList.contains('close')){ e.preventDefault(); close('projects'); }
     else if (ids.includes(t)){ e.preventDefault(); history.pushState(null,'','#'+t); apply(t); }
-    else if (t.startsWith('ng-')||t.startsWith('coj-')||t.startsWith('ng-')||t.startsWith('noc-')){ e.preventDefault(); const el=document.getElementById(t); el && el.scrollIntoView({behavior: reduce.matches?'instant':'smooth'}); }
+    else { const el = views.querySelector('#' + CSS.escape(t)); if (el){ e.preventDefault(); el.scrollIntoView({behavior: reduce.matches ? 'instant' : 'smooth'}); } }
   });
   document.querySelector('.tabs').addEventListener('click', e => {
     const a = e.target.closest('a[href^="#"]'); if (!a || !current) return;
@@ -972,14 +1097,13 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
   });
 
   /* ---------- before / after ---------- */
-  const cmp = document.getElementById('compare'), rng = document.getElementById('compare-range');
-  rng.addEventListener('input', () => cmp.style.setProperty('--pos', rng.value + '%'));
+  document.querySelectorAll('.compare').forEach(c => { const r = c.querySelector('input[type=range]'); r.addEventListener('input', () => c.style.setProperty('--pos', r.value + '%')); });
 
 
   /* ---------- Nitro Guzzler compass ---------- */
   const dests = {
-    garage:['Settings','Garage','Settings live on W-Dawg\'s car as physical hotspots: Visual on the hood, Accessibility on the side, Audio in the open trunk.'],
-    prep:['Play','Prep Ride','A splash panel with high scores, a highlight clip, the game name and team name. Then Racer Select, then two flash transitions: one into the track intro and one into the race start.'],
+    garage:['Settings','Garage','Settings live right on W-Dawg\'s car. Visual is on the hood, Accessibility is on the side and Audio is in the open trunk.'],
+    prep:['Play','Prep Ride','A splash panel with high scores, a highlight clip, the game name and team name. Then Racer Select. Then two flash transitions, one into the track intro and one into the race start.'],
     monkey:['Credits','Monkey Business','The team credits. After a win, a duplicate of this area in the same spot becomes the win screen.'],
     pit:['Lore bible','Pit Crew','A looping character sheet. Each racer does something in the white world while panels cover territory, origin, relations and a lore tidbit. A big arrow names the next racer.']
   };
