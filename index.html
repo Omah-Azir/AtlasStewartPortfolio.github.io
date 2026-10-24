@@ -1,0 +1,966 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Atlas Stewart Portfolio</title>
+<meta name="description" content="Atlas Stewart, UI/UX designer for games. Case studies: Nitro Guzzler, Chain of Jewels, NOC-6000, Enshahtenti and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;0,700;1,400&family=Atkinson+Hyperlegible+Mono:wght@400;600&family=Alegreya:wght@500;700;800&display=swap">
+<style>
+html,body{margin:0}
+[hidden]{display:none!important}
+/* Layout: a file cabinet. Folder tabs pinned on top, one long sheet below
+   (Home → Projects deck → About → Contact). Opening a project pulls that file
+   out full-screen and the whole cabinet re-skins to the project's palette. */
+:root{
+  --desk:#E3E6E0; --sheet:#F8F9F6; --tab:#CED4CB; --panel:#ECEFE9;
+  --ink:#15181A; --ink-2:#48504B; --rule:#C6CCC3;
+  --accent:#2A41C4; --accent-ink:#FFFFFF;
+  --font-display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --font-body:"Atkinson Hyperlegible Next","Atkinson Hyperlegible",Verdana,system-ui,sans-serif;
+  --font-mono:"Atkinson Hyperlegible Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --display-stretch:118%; --display-weight:800; --display-style:normal;
+
+  /* Project palettes (each one is a single deliberate look) */
+  --coj-bg:#281E12; --coj-panel:#3A2E22; --coj-tab:#514741; --coj-ink:#E9DFCC; --coj-ink2:#BBA88D; --coj-rule:#5A4B3A; --coj-accent:#E1B45A;
+  --ng-bg:#F7F7F5; --ng-panel:#EBEBE7; --ng-tab:#DCDCD6; --ng-ink:#121212; --ng-ink2:#4A4A46; --ng-rule:#D1D1CB; --ng-accent:#C42E12;
+  --liv-1:#C42E12; --liv-2:#1F5FD1; --liv-3:#E8B10C; --liv-4:#17996A;
+  --noc-bg:#06100A; --noc-panel:#0C1E14; --noc-tab:#123222; --noc-ink:#D3F2DB; --noc-ink2:#8CC9A0; --noc-rule:#1C4A31; --noc-accent:#62E893;
+  --en-bg:#1C2230; --en-panel:#262E40; --en-tab:#323C52; --en-ink:#EAEFF7; --en-ink2:#AEB9CF; --en-rule:#3A4560; --en-accent:#F59A7A;
+  --mc-bg:#EDF1EA; --mc-panel:#E0E7DC; --mc-tab:#C9D4C3; --mc-ink:#17201A; --mc-ink2:#46554A; --mc-rule:#BFCBB9; --mc-accent:#2D7A3D;
+
+  --tabs-h:58px;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --desk:#0E100F; --sheet:#161917; --tab:#252A26; --panel:#1E221F;
+    --ink:#E8EBE6; --ink-2:#A6AEA8; --rule:#303632;
+    --accent:#9DAAFF; --accent-ink:#0E1030; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --desk:#0E100F; --sheet:#161917; --tab:#252A26; --panel:#1E221F;
+  --ink:#E8EBE6; --ink-2:#A6AEA8; --rule:#303632;
+  --accent:#9DAAFF; --accent-ink:#0E1030; color-scheme:dark;
+}
+/* Opened project re-skins everything (declared last so it wins) */
+:root[data-project="chain-of-jewels"]{--desk:#1A130B;--sheet:var(--coj-bg);--tab:var(--coj-tab);--panel:var(--coj-panel);--ink:var(--coj-ink);--ink-2:var(--coj-ink2);--rule:var(--coj-rule);--accent:var(--coj-accent);--accent-ink:#281E12;--font-display:"Alegreya",Georgia,serif;--display-stretch:100%;--display-weight:800;color-scheme:dark}
+:root[data-project="nitro-guzzler"]{--desk:#E6E6E1;--sheet:var(--ng-bg);--tab:var(--ng-tab);--panel:var(--ng-panel);--ink:var(--ng-ink);--ink-2:var(--ng-ink2);--rule:var(--ng-rule);--accent:var(--ng-accent);--accent-ink:#FFFFFF;--display-stretch:68%;--display-weight:900;--display-style:italic;color-scheme:light}
+:root[data-project="noc-6000"]{--desk:#020604;--sheet:var(--noc-bg);--tab:var(--noc-tab);--panel:var(--noc-panel);--ink:var(--noc-ink);--ink-2:var(--noc-ink2);--rule:var(--noc-rule);--accent:var(--noc-accent);--accent-ink:#03140A;--font-display:var(--font-mono);--display-stretch:100%;--display-weight:600;color-scheme:dark}
+:root[data-project="enshahtenti"]{--desk:#141925;--sheet:var(--en-bg);--tab:var(--en-tab);--panel:var(--en-panel);--ink:var(--en-ink);--ink-2:var(--en-ink2);--rule:var(--en-rule);--accent:var(--en-accent);--accent-ink:#2A1209;color-scheme:dark}
+:root[data-project="minecraft-project"]{--desk:#DCE4D7;--sheet:var(--mc-bg);--tab:var(--mc-tab);--panel:var(--mc-panel);--ink:var(--mc-ink);--ink-2:var(--mc-ink2);--rule:var(--mc-rule);--accent:var(--mc-accent);--accent-ink:#FFFFFF;color-scheme:light}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--tabs-h) + env(safe-area-inset-top,0px) + 12px)}
+body{background:var(--desk);color:var(--ink);font-family:var(--font-body);font-size:1.0625rem;line-height:1.6;transition:background-color .5s var(--ease),color .5s var(--ease)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--desk)}
+body.case-open{overflow:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+[tabindex="-1"]:focus{outline:none}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:fixed;left:max(16px,env(safe-area-inset-left,0px));top:calc(env(safe-area-inset-top,0px) + 8px);z-index:100;background:var(--accent);color:var(--accent-ink);padding:.5rem .9rem;border-radius:6px;transform:translateY(-200%);text-decoration:none;font-weight:700}
+.skip:focus{transform:none}
+
+/* ---------- Folder tabs ---------- */
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--desk);height:var(--tabs-h);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  display:flex;align-items:flex-end;gap:2px;transition:background-color .5s var(--ease)}
+.tabs-inner{display:flex;align-items:flex-end;gap:2px;width:100%;max-width:1240px;margin:0 auto;min-width:0}
+.tab{position:relative;isolation:isolate;display:flex;align-items:center;gap:.55rem;height:44px;padding:0 1.15rem;
+  font-family:var(--font-mono);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--ink-2);white-space:nowrap}
+.tab::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--tab);border-radius:10px 10px 0 0;
+  transform:perspective(60px) rotateX(5deg);transform-origin:bottom;transition:background-color .3s var(--ease)}
+.tab:hover{color:var(--ink)}
+.tab[aria-current="true"]{color:var(--ink);height:48px}
+.tab[aria-current="true"]::before{background:var(--sheet)}
+.tab-name{font-family:var(--font-display);font-stretch:var(--display-stretch);font-weight:var(--display-weight);font-style:var(--display-style);
+  text-transform:none;letter-spacing:0;font-size:1.02rem;color:var(--ink);margin-right:auto;padding-left:.9rem}
+.tab-name small{font-family:var(--font-mono);font-weight:400;font-style:normal;font-stretch:100%;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.nav{display:flex;align-items:flex-end;gap:2px;min-width:0;overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+@media (max-width:560px){.tab{padding:0 .65rem;font-size:.7rem;letter-spacing:.04em}.tab-name{font-size:.92rem;padding-left:.7rem}.tab-name small,.nav .tab[data-sec="home"]{display:none}}
+.progress{position:absolute;left:0;bottom:0;height:3px;width:100%;transform-origin:left;transform:scaleX(var(--p,0));background:var(--accent);z-index:2;pointer-events:none}
+
+/* ---------- The sheet ---------- */
+.sheet{background:var(--sheet);max-width:1240px;margin:0 auto;border-radius:0 14px 0 0;min-height:100vh;
+  box-shadow:0 -1px 0 var(--rule);transition:background-color .5s var(--ease)}
+.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.inner{max-width:1120px;margin:0 auto}
+section.band{padding-block:clamp(3rem,7vw,6rem)}
+.eyebrow{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);margin:0 0 .9rem}
+h1,h2,h3{font-family:var(--font-display);font-stretch:var(--display-stretch);font-weight:var(--display-weight);font-style:var(--display-style);line-height:1.02;text-wrap:balance;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(2rem,4.6vw,3.6rem)}
+h3{font-size:clamp(1.35rem,2.2vw,1.8rem);line-height:1.1}
+p{margin:0;max-width:65ch}
+.lede{font-size:clamp(1.1rem,1.6vw,1.3rem);color:var(--ink-2)}
+
+/* Scroll-linked reveal from a visible resting state */
+@supports (animation-timeline: view()){
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 28%}
+    @keyframes rise{from{opacity:.25;transform:translateY(28px)}to{opacity:1;transform:none}}
+  }
+}
+
+/* ---------- Hero ---------- */
+.hero{padding-block:clamp(2.75rem,7vw,5.5rem) clamp(1.5rem,3vw,2.5rem)}
+.hero h1{font-size:clamp(2.6rem,7vw,5.6rem);max-width:17ch}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero-row{display:flex;flex-wrap:wrap;gap:1.25rem 3rem;align-items:flex-end;justify-content:space-between;margin-top:1.75rem}
+.hero-row p{max-width:52ch}
+.now{display:flex;gap:.75rem;align-items:center;font-family:var(--font-mono);font-size:.8rem;letter-spacing:.04em;color:var(--ink-2)}
+.now b{color:var(--ink);font-weight:600}
+.dot{width:.6rem;height:.6rem;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 22%,transparent)}
+
+/* ---------- Project deck ---------- */
+.deck-head{display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:space-between;align-items:flex-end;margin-bottom:2.6rem}
+.hint{font-family:var(--font-mono);font-size:.8rem;letter-spacing:.04em;color:var(--ink-2);display:flex;gap:.5rem;align-items:center}
+.hint kbd{font-family:inherit;border:1px solid var(--rule);border-bottom-width:2px;border-radius:5px;padding:.05rem .4rem;color:var(--ink)}
+.deck{display:flex;gap:10px;height:470px;padding-top:28px}
+.file{--f-bg:var(--panel);--f-ink:var(--ink);--f-ink2:var(--ink-2);--f-acc:var(--accent);
+  position:relative;flex:1 1 0;min-width:0;display:block;text-decoration:none;color:var(--f-ink);
+  transition:flex-grow .55s var(--ease)}
+.file:hover,.file:focus-visible{flex-grow:3.1}
+.file:focus-visible{outline:none}
+.file:focus-visible .file-face{outline:3px solid var(--accent);outline-offset:3px}
+.file-tab{position:absolute;left:0;top:-28px;height:30px;max-width:calc(100% - 18px);padding:0 .8rem;display:flex;align-items:center;
+  background:var(--f-bg);border-radius:8px 8px 0 0;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--f-ink2);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.file-face{position:absolute;inset:0;background:var(--f-bg);border-radius:0 12px 12px 12px;overflow:hidden;display:flex;flex-direction:column;
+  transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.file:hover .file-face{transform:translateY(-6px);box-shadow:0 18px 40px -22px rgba(0,0,0,.55)}
+.file-media{height:44%;flex:none;position:relative;overflow:hidden;background:var(--f-bg)}
+.file-media img{width:100%;height:100%;object-fit:cover;object-position:center 30%;transition:transform .8s var(--ease)}
+.file:hover .file-media img{transform:scale(1.04)}
+.file-body{flex:1;display:flex;flex-direction:column;gap:.55rem;padding:1rem 1.1rem 1.1rem;min-width:0}
+.chip{align-self:flex-start;max-width:100%;overflow:hidden;text-overflow:ellipsis;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;padding:.2rem .5rem;border-radius:999px;
+  border:1px solid currentColor;color:var(--f-acc);white-space:nowrap}
+.file-title{font-family:var(--fx-font,var(--font-display));font-stretch:var(--fx-stretch,var(--display-stretch));font-weight:var(--fx-weight,800);font-style:var(--fx-style,normal);
+  font-size:clamp(1.2rem,1.75vw,1.75rem);line-height:1.02;text-wrap:balance;overflow-wrap:break-word;hyphens:auto}
+.file-line{font-size:.92rem;line-height:1.45;color:var(--f-ink2);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.file-more{width:min(360px,72vw);margin-top:auto;display:grid;gap:.35rem;opacity:0;transform:translateY(8px);transition:opacity .35s var(--ease) .1s,transform .35s var(--ease) .1s}
+.file:hover .file-more,.file:focus-visible .file-more{opacity:1;transform:none}
+.file-more dl{margin:0;display:grid;grid-template-columns:5.5rem 1fr;gap:.15rem .75rem;font-size:.85rem}
+.file-more dt{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--f-ink2);padding-top:.12rem}
+.file-more dd{margin:0}
+.open{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--f-acc);margin-top:.35rem}
+/* deck palettes */
+.file[data-p="chain-of-jewels"]{--f-bg:var(--coj-bg);--f-ink:var(--coj-ink);--f-ink2:var(--coj-ink2);--f-acc:var(--coj-accent);--fx-font:"Alegreya",Georgia,serif;--fx-stretch:100%}
+.file[data-p="nitro-guzzler"]{--f-bg:var(--ng-bg);--f-ink:var(--ng-ink);--f-ink2:var(--ng-ink2);--f-acc:var(--ng-accent);--fx-stretch:68%;--fx-weight:900;--fx-style:italic}
+.file[data-p="noc-6000"]{--f-bg:var(--noc-bg);--f-ink:var(--noc-ink);--f-ink2:var(--noc-ink2);--f-acc:var(--noc-accent);--fx-font:var(--font-mono);--fx-stretch:100%;--fx-weight:600}
+.file[data-p="enshahtenti"]{--f-bg:var(--en-bg);--f-ink:var(--en-ink);--f-ink2:var(--en-ink2);--f-acc:var(--en-accent)}
+.file[data-p="minecraft-project"]{--f-bg:var(--mc-panel);--f-ink:var(--mc-ink);--f-ink2:var(--mc-ink2);--f-acc:var(--mc-accent)}
+/* generated covers for projects still waiting on media */
+.cover-ng{background:linear-gradient(-58deg,transparent 0 30%,var(--liv-1) 30% 34%,transparent 34% 41%,var(--liv-2) 41% 45%,transparent 45% 52%,var(--liv-3) 52% 56%,transparent 56% 63%,var(--liv-4) 63% 67%,transparent 67%),repeating-linear-gradient(-58deg,transparent 0 6px,rgba(0,0,0,.05) 6px 7px),var(--ng-bg)}
+.cover-noc{background:repeating-radial-gradient(circle at 72% 60%,transparent 0 16px,color-mix(in srgb,var(--noc-accent) 55%,transparent) 16px 17px),radial-gradient(circle at 72% 60%,#12402A,var(--noc-bg) 70%)}
+.cover-en{background:radial-gradient(circle at 30% 70%,var(--en-accent) 0 9%,transparent 9.5%),radial-gradient(circle at 30% 70%,transparent 0 18%,color-mix(in srgb,var(--en-accent) 45%,transparent) 18.5% 19.5%,transparent 20%),radial-gradient(circle at 30% 70%,transparent 0 30%,color-mix(in srgb,var(--en-accent) 25%,transparent) 30.5% 31.5%,transparent 32%),var(--en-panel)}
+.cover-mc{background:linear-gradient(var(--mc-rule) 1px,transparent 1px) 0 0/22px 22px,linear-gradient(90deg,var(--mc-rule) 1px,transparent 1px) 0 0/22px 22px,var(--mc-bg)}
+
+@media (max-width:860px){
+  .deck{flex-direction:column;height:auto;gap:44px}
+  .file{flex:none}
+  .file:hover .file-face{transform:none}
+  .file-face{position:relative}
+  .file-media{height:auto;aspect-ratio:16/8}
+  .file-more{opacity:1;transform:none;width:auto}
+  .file-line{-webkit-line-clamp:unset}
+}
+.h-touch{display:none}
+@media (hover:none){.file-more{opacity:1;transform:none}.h-mouse{display:none}.h-touch{display:inline}}
+
+/* ---------- About ---------- */
+.about-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(2rem,5vw,4.5rem);align-items:start}
+.about-copy{display:grid;gap:1.1rem}
+.facts{list-style:none;margin:.6rem 0 0;padding:0;display:grid;gap:.5rem}
+.facts li{display:grid;grid-template-columns:7.5rem 1fr;gap:.75rem;border-top:1px solid var(--rule);padding-top:.5rem;font-size:.98rem}
+.facts span{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-2);padding-top:.2rem}
+.resume{position:relative;background:var(--panel);border-radius:0 12px 12px 12px;padding:1.5rem 1.5rem 1.6rem;display:grid;gap:.9rem}
+.resume::before{content:"RÉSUMÉ.PDF";position:absolute;left:0;top:-26px;height:26px;padding:0 .8rem;display:flex;align-items:center;background:var(--panel);border-radius:8px 8px 0 0;
+  font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;color:var(--ink-2)}
+.resume-page{background:var(--sheet);border:1px solid var(--rule);border-radius:6px;padding:1.1rem 1.2rem;display:grid;gap:.45rem}
+.resume-page .bar{height:.5rem;border-radius:3px;background:var(--rule)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.8rem 1.15rem;border-radius:8px;background:var(--accent);color:var(--accent-ink);
+  font-weight:700;text-decoration:none;border:0;font:inherit;font-weight:700;cursor:pointer;transition:transform .2s var(--ease)}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--rule)}
+.small{font-size:.88rem;color:var(--ink-2)}
+.tools{margin-top:clamp(2.5rem,5vw,4rem)}
+.tool-grid{list-style:none;margin:1.25rem 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.tool{background:var(--panel);border-radius:10px;padding:1rem;display:grid;gap:.9rem;transition:transform .3s var(--ease)}
+.tool:hover{transform:translateY(-4px)}
+.mono-mark{width:2.6rem;height:2.6rem;border-radius:8px;display:grid;place-items:center;background:var(--sheet);border:1px solid var(--rule);
+  font-family:var(--font-mono);font-weight:600;font-size:.95rem;color:var(--accent)}
+.tool b{display:block;font-size:1rem}
+.tool div span{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+@media (max-width:860px){.about-grid{grid-template-columns:1fr}.tool-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* ---------- Contact ---------- */
+.contact{border-top:1px solid var(--rule)}
+.contact h2{font-size:clamp(2.4rem,7vw,5.6rem);max-width:12ch}
+.contact-list{list-style:none;margin:2rem 0 0;padding:0;display:grid;gap:0;max-width:760px}
+.contact-list li{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1.25rem;justify-content:space-between;border-top:1px solid var(--rule);padding-block:1rem}
+.contact-list li:last-child{border-bottom:1px solid var(--rule)}
+.contact-list .k{font-family:var(--font-mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);width:7rem}
+.contact-list .v{flex:1;min-width:0;font-size:1.15rem;overflow-wrap:anywhere}
+.contact-list a.v{text-decoration-thickness:1px;text-underline-offset:4px}
+.copy{font-family:var(--font-mono);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;background:transparent;color:var(--ink);border:1.5px solid var(--rule);border-radius:6px;padding:.4rem .7rem;cursor:pointer}
+footer{padding-block:2rem 3rem;font-family:var(--font-mono);font-size:.75rem;letter-spacing:.04em;color:var(--ink-2)}
+
+/* Note left for Atlas: delete the element when the content is filled in */
+.todo{border:1.5px dashed var(--accent);border-radius:8px;padding:.7rem .9rem;font-family:var(--font-mono);font-size:.8rem;line-height:1.5;color:var(--ink-2);max-width:65ch}
+.todo::before{content:"TO ADD · ";color:var(--accent);font-weight:600;letter-spacing:.06em}
+
+/* ---------- Scroll cue ---------- */
+.cue{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:40;
+  font-family:var(--font-mono);font-size:.75rem;letter-spacing:.05em;background:var(--ink);color:var(--sheet);padding:.55rem .95rem;border-radius:999px;
+  display:flex;align-items:center;gap:.55rem;box-shadow:0 10px 30px -12px rgba(0,0,0,.5);white-space:nowrap;max-width:calc(100% - 32px);overflow:hidden;text-overflow:ellipsis;
+  transition:opacity .3s var(--ease),transform .3s var(--ease)}
+.cue.gone{opacity:0;transform:translate(-50%,12px)}
+.cue i{font-style:normal;display:inline-block}
+@media (prefers-reduced-motion: no-preference){.cue i{animation:nudge 1.6s var(--ease) infinite}@keyframes nudge{50%{transform:translateY(3px)}}}
+
+/* ---------- Case studies ---------- */
+.views{position:fixed;inset:calc(var(--tabs-h) + env(safe-area-inset-top,0px)) 0 0 0;z-index:45;overflow-y:auto;overscroll-behavior:contain;background:var(--desk)}
+.views[hidden]{display:none!important}
+.case{background:var(--sheet);max-width:1240px;margin:0 auto;min-height:100%;border-radius:14px 14px 0 0}
+.case-bar{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:space-between;align-items:center;padding-block:1rem}
+.case-hero{padding-block:clamp(1.5rem,4vw,3rem) clamp(2rem,4vw,3rem)}
+.case-hero h1{font-size:clamp(2.8rem,8vw,6.8rem);max-width:16ch}
+.case-hero .lede{margin-top:1.1rem;max-width:58ch}
+.glance{margin:2.25rem 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0;border-top:1px solid var(--rule)}
+.glance div{padding:.8rem 1rem .9rem 0;border-bottom:1px solid var(--rule)}
+.glance dt{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.glance dd{margin:.2rem 0 0;font-size:1rem}
+.case-layout{display:grid;grid-template-columns:200px minmax(0,1fr);gap:clamp(1.5rem,4vw,3.5rem);padding-bottom:4rem}
+.toc{position:sticky;top:1.5rem;align-self:start;display:grid;gap:.15rem;font-family:var(--font-mono);font-size:.76rem;letter-spacing:.04em}
+.toc a{text-decoration:none;color:var(--ink-2);padding:.35rem .6rem;border-left:2px solid var(--rule)}
+.toc a:hover,.toc a[aria-current="true"]{color:var(--ink);border-left-color:var(--accent)}
+.chapters{display:grid;gap:clamp(3.5rem,7vw,6rem);min-width:0}
+.chapter{display:grid;gap:1.25rem;min-width:0}
+.chapter .eyebrow{margin:0}
+.chapter p{color:var(--ink)}
+.chapter p.lede{color:var(--ink-2)}
+figure{margin:0;display:grid;gap:.6rem;min-width:0}
+figure img{border-radius:10px;width:100%}
+figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;line-height:1.5;color:var(--ink-2);max-width:80ch}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.notes{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.75rem}
+.notes li{background:var(--panel);border-radius:10px;padding:.9rem 1rem;display:grid;gap:.3rem;font-size:.95rem;border:1.5px solid transparent;transition:border-color .2s}
+.notes li.lit{border-color:var(--accent)}
+.notes b{font-family:var(--font-display);font-stretch:var(--display-stretch);font-style:var(--display-style);font-size:1.1rem;line-height:1.15}
+.n{font-family:var(--font-mono);font-size:.72rem;color:var(--accent);letter-spacing:.06em}
+.media-slot{aspect-ratio:16/9;max-width:100%;border:1.5px dashed var(--rule);border-radius:10px;display:grid;place-items:center;text-align:center;padding:1rem;
+  font-family:var(--font-mono);font-size:.8rem;color:var(--ink-2);background:color-mix(in srgb,var(--panel) 60%,transparent)}
+.next{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;border-top:1px solid var(--rule);padding-block:2rem 3rem}
+.next a{text-decoration:none}
+.next .big{font-family:var(--font-display);font-stretch:var(--display-stretch);font-weight:var(--display-weight);font-style:var(--display-style);font-size:clamp(1.6rem,3.4vw,2.6rem);line-height:1}
+@media (max-width:860px){.case-layout{grid-template-columns:1fr}.toc{display:none}.two{grid-template-columns:1fr}}
+
+/* Hotspot figure */
+.hot{position:relative}
+.pin{position:absolute;transform:translate(-50%,-50%);width:2.1rem;height:2.1rem;border-radius:50%;border:2px solid var(--accent-ink);
+  background:var(--accent);color:var(--accent-ink);font-family:var(--font-mono);font-weight:600;font-size:.85rem;cursor:pointer;display:grid;place-items:center;
+  box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 60%,transparent)}
+@media (prefers-reduced-motion: no-preference){.pin{animation:ping 2.4s var(--ease) infinite}@keyframes ping{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 55%,transparent)}70%,100%{box-shadow:0 0 0 14px transparent}}}
+.pin[aria-pressed="true"]{animation:none;transform:translate(-50%,-50%) scale(1.15)}
+@media (max-width:560px){.pin{width:1.6rem;height:1.6rem;font-size:.72rem}}
+
+/* Before/after compare */
+.compare{position:relative;border-radius:10px;overflow:hidden;--pos:50%}
+.compare img{border-radius:0}
+.compare .top{position:absolute;inset:0;clip-path:inset(0 0 0 var(--pos))}
+.compare .top img{width:100%;height:100%;object-fit:cover}
+.compare .handle{position:absolute;top:0;bottom:0;left:var(--pos);width:3px;background:var(--accent);transform:translateX(-50%);pointer-events:none}
+.compare .handle::after{content:"⇆";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:2.4rem;height:2.4rem;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-size:1rem}
+.compare input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.compare-labels{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-2)}
+
+/* Swatches */
+.swatches{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:8px}
+.swatch{display:grid;width:100%;border:1px solid var(--rule);border-radius:10px;overflow:hidden;cursor:pointer;background:var(--panel);color:var(--ink);font:inherit;text-align:left;padding:0}
+.swatch i{display:block;height:68px}
+.swatch span{padding:.45rem .6rem .55rem;font-family:var(--font-mono);font-size:.72rem;line-height:1.35}
+.swatch span em{display:block;font-style:normal;color:var(--ink-2)}
+.toast{position:fixed;left:50%;top:calc(var(--tabs-h) + env(safe-area-inset-top,0px) + 14px);transform:translateX(-50%);z-index:80;background:var(--accent);color:var(--accent-ink);
+  font-family:var(--font-mono);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;transition:opacity .25s}
+.toast[hidden]{display:block!important;opacity:0;pointer-events:none}
+
+
+/* Nitro Guzzler components */
+.stripes{display:grid;gap:6px;margin-top:2rem;max-width:520px}
+.stripes i{display:block;height:8px;border-radius:4px;transform:skewX(-30deg)}
+.stripes i:nth-child(1){background:var(--liv-1);width:100%}.stripes i:nth-child(2){background:var(--liv-2);width:86%}
+.stripes i:nth-child(3){background:var(--liv-3);width:72%}.stripes i:nth-child(4){background:var(--liv-4);width:58%}
+@media (prefers-reduced-motion: no-preference){.stripes i{animation:skid .9s var(--ease) both}.stripes i:nth-child(2){animation-delay:.08s}.stripes i:nth-child(3){animation-delay:.16s}.stripes i:nth-child(4){animation-delay:.24s}@keyframes skid{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}}
+.flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.flow li{background:var(--panel);border-radius:10px;padding:.85rem 1rem;display:grid;gap:.25rem;font-size:.92rem;position:relative}
+.flow b{font-family:var(--font-display);font-stretch:var(--display-stretch);font-style:var(--display-style);font-size:1.15rem}
+@media (max-width:700px){.flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.compass-wrap{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:clamp(1.25rem,4vw,3rem);align-items:center}
+.compass{position:relative;aspect-ratio:1;max-width:100%;display:grid;grid-template:1fr 1fr 1fr/1fr 1fr 1fr;gap:6px}
+.compass::before{content:"";position:absolute;inset:16%;border:2px dashed var(--rule);border-radius:50%}
+.dir{position:relative;font:inherit;font-family:var(--font-display);font-stretch:var(--display-stretch);font-style:var(--display-style);font-weight:800;font-size:1rem;line-height:1.05;
+  border:0;border-radius:10px;background:var(--panel);color:var(--ink);cursor:pointer;display:grid;place-content:center;gap:.2rem;padding:.4rem;text-align:center;transition:transform .2s var(--ease),background-color .2s}
+.dir small{font-family:var(--font-mono);font-style:normal;font-stretch:100%;font-weight:400;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.dir:hover{transform:scale(1.04)}
+.dir[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.dir[aria-pressed="true"] small{color:inherit}
+.dir.n{grid-area:1/2}.dir.e{grid-area:2/3}.dir.s{grid-area:3/2}.dir.w{grid-area:2/1}
+.hub{grid-area:2/2;display:grid;place-items:center;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);position:relative}
+.compass-panel{display:grid;gap:.6rem;min-width:0}
+.compass-panel .eyebrow{margin:0}
+@media (max-width:700px){.compass-wrap{grid-template-columns:1fr}.compass{max-width:340px}}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
+}
+::view-transition-group(morph){animation-duration:.55s;animation-timing-function:cubic-bezier(.2,.8,.2,1)}
+</style>
+<link rel="canonical" href="https://omah-azir.github.io/atlasstewartportfolio.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M3 9a2 2 0 0 1 2-2h8l3 3h11a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z' fill='%232A41C4'/%3E%3C/svg%3E">
+<link rel="alternate" type="text/plain" href="llms.txt" title="Plain-text summary for AI tools">
+<meta name="theme-color" content="#E3E6E0">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Atlas Stewart · Game UI/UX Designer">
+<meta property="og:description" content="Case studies in game UI/UX: Nitro Guzzler's diegetic main menu, the Chain of Jewels style guide and UI, NOC-6000's holographic HUD.">
+<meta property="og:url" content="https://omah-azir.github.io/atlasstewartportfolio.github.io/">
+<meta name="twitter:card" content="summary">
+</head>
+<body>
+<a class="skip" href="#projects">Skip to projects</a>
+
+<header class="tabs" id="tabs">
+  <div class="tabs-inner">
+    <a class="tab tab-name" href="#home">Atlas Stewart <small>UI/UX Design</small></a>
+    <nav class="nav" aria-label="Primary">
+      <a class="tab" href="#home" data-sec="home">Home</a>
+      <a class="tab" href="#projects" data-sec="projects">Projects</a>
+      <a class="tab" href="#about" data-sec="about">About</a>
+      <a class="tab" href="#contact" data-sec="contact">Contact</a>
+    </nav>
+  </div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+</header>
+
+<main class="sheet" id="page">
+  <section class="wrap hero" id="home" aria-labelledby="hero-title">
+    <div class="inner">
+      <p class="eyebrow">Atlas Stewart · Game UI/UX designer · DigiPen Institute of Technology</p>
+      <h1 id="hero-title">Interfaces players read <em>at a glance.</em></h1>
+      <div class="hero-row">
+        <p class="lede">I design menus, HUDs and the systems behind them, from moodboard and style guide to a working build in engine. Five files below. Open any of them.</p>
+        <p class="now"><span class="dot" aria-hidden="true"></span><span>Now: <b>Creative Director + UI/UX, Nitro Guzzler</b>. Steam, Dec 2026</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap band" id="projects" aria-labelledby="projects-title" style="padding-top:clamp(1.5rem,3vw,2.5rem)">
+    <div class="inner">
+      <div class="deck-head">
+        <h2 id="projects-title">Projects</h2>
+        <p class="hint"><span class="h-mouse">Hover or <kbd>Tab</kbd> to a file to peek. Click to open it.</span><span class="h-touch">Tap a file to open it.</span></p>
+      </div>
+      <div class="deck" role="list">
+        <a role="listitem" class="file" data-p="nitro-guzzler" href="#nitro-guzzler" aria-label="Nitro Guzzler. Creative Director and UI/UX designer on a 31-person racing game whose main menu is a 3D world. Open case study.">
+          <span class="file-tab" aria-hidden="true">01 · Shipping</span>
+          <span class="file-face">
+            <span class="file-media cover-ng" aria-hidden="true"></span>
+            <span class="file-body">
+              <span class="chip">Steam · Dec 2026</span>
+              <span class="file-title">Nitro Guzzler</span>
+              <span class="file-line">A Redline-inspired portal racing game where the main menu is a 3D world, not a screen.</span>
+              <span class="file-more">
+                <dl><dt>Role</dt><dd>Creative Director, UI/UX</dd><dt>Team</dt><dd>31 · the Grease Monkeys</dd><dt>Tools</dt><dd>UE 5.5, Blueprints, Sequencer, UMG</dd></dl>
+                <span class="open">Open file →</span>
+              </span>
+            </span>
+          </span>
+        </a>
+        <a role="listitem" class="file" data-p="chain-of-jewels" href="#chain-of-jewels" aria-label="Chain of Jewels. Style guide built from a moodboard, then a full game UI in Figma. Open case study.">
+          <span class="file-tab" aria-hidden="true">02 · Case study</span>
+          <span class="file-face">
+            <span class="file-media"><img src="img/coj-main-menu.webp" alt="" width="1600" height="736" loading="lazy"></span>
+            <span class="file-body">
+              <span class="chip">DES 360</span>
+              <span class="file-title">Chain of Jewels</span>
+              <span class="file-line">A moodboard turned into a style guide, then a complete dark-fantasy game UI.</span>
+              <span class="file-more">
+                <dl><dt>Role</dt><dd>UI/UX designer</dd><dt>Built</dt><dd>Moodboard, palette, 5 screens</dd><dt>Tools</dt><dd>Figma</dd></dl>
+                <span class="open">Open file →</span>
+              </span>
+            </span>
+          </span>
+        </a>
+        <a role="listitem" class="file" data-p="noc-6000" href="#noc-6000" aria-label="NOC-6000. Diegetic holographic HUD for a robot protagonist in Unreal Engine. Open case study.">
+          <span class="file-tab" aria-hidden="true">03 · In progress</span>
+          <span class="file-face">
+            <span class="file-media cover-noc" aria-hidden="true"></span>
+            <span class="file-body">
+              <span class="chip">In progress</span>
+              <span class="file-title">NOC-6000</span>
+              <span class="file-line">A robot's HUD projected as a hologram in world space instead of flat on the screen.</span>
+              <span class="file-more">
+                <dl><dt>Focus</dt><dd>Diegetic HUD</dd><dt>Tools</dt><dd>Unreal Engine, materials, Blueprints</dd></dl>
+                <span class="open">Open file →</span>
+              </span>
+            </span>
+          </span>
+        </a>
+        <a role="listitem" class="file" data-p="enshahtenti" href="#enshahtenti" aria-label="Enshahtenti. Game feel project. Case study coming soon.">
+          <span class="file-tab" aria-hidden="true">04 · Game feel</span>
+          <span class="file-face">
+            <span class="file-media cover-en" aria-hidden="true"></span>
+            <span class="file-body">
+              <span class="chip">Coming soon</span>
+              <span class="file-title">Enshahtenti</span>
+              <span class="file-line">A game feel project: making every input land.</span>
+              <span class="file-more"><dl><dt>Focus</dt><dd>Game feel</dd></dl><span class="open">Open file →</span></span>
+            </span>
+          </span>
+        </a>
+        <a role="listitem" class="file" data-p="minecraft-project" href="#minecraft-project" aria-label="Minecraft project. Case study coming soon.">
+          <span class="file-tab" aria-hidden="true">05 · Minecraft</span>
+          <span class="file-face">
+            <span class="file-media cover-mc" aria-hidden="true"></span>
+            <span class="file-body">
+              <span class="chip">Coming soon</span>
+              <span class="file-title">Minecraft project</span>
+              <span class="file-line">Write-up on the way.</span>
+              <span class="file-more"><dl><dt>Status</dt><dd>Assets being gathered</dd></dl><span class="open">Open file →</span></span>
+            </span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap band" id="about" aria-labelledby="about-title">
+    <div class="inner">
+      <div class="about-grid">
+        <div class="about-copy reveal">
+          <p class="eyebrow">About</p>
+          <h2 id="about-title">Hi, I'm Atlas.</h2>
+          <p class="lede">I'm a game designer at DigiPen specializing in UI/UX and level design. I care about the moment a player looks at a screen and simply knows what to do.</p>
+          <p>I've interned at Treyarch, I bring deep Unreal Blueprint knowledge to teams of C++ programmers, and I've led student teams as a producer. Right now I'm Creative Director and UI/UX designer on Nitro Guzzler, a 31-person racing game shipping on Steam in December 2026.</p>
+          <ul class="facts">
+            <li><span>Focus</span>Game UI/UX, HUDs, menus, style guides</li>
+            <li><span>Also</span>Level design, team leadership</li>
+            <li><span>Experience</span>Treyarch internship · Nitro Guzzler (CD, UI/UX)</li>
+            <li><span>School</span>DigiPen Institute of Technology</li>
+          </ul>
+        </div>
+        <aside class="resume reveal" aria-labelledby="resume-title" style="margin-top:28px">
+          <h3 id="resume-title">My résumé</h3>
+          <div class="resume-page" aria-hidden="true">
+            <div class="bar" style="width:46%;height:.8rem;background:var(--ink)"></div>
+            <div class="bar" style="width:30%"></div>
+            <div class="bar" style="width:92%;margin-top:.5rem"></div><div class="bar" style="width:84%"></div><div class="bar" style="width:88%"></div>
+            <div class="bar" style="width:38%;margin-top:.5rem;background:var(--accent)"></div>
+            <div class="bar" style="width:90%"></div><div class="bar" style="width:72%"></div>
+          </div>
+          <p class="small">This link always opens my current résumé. I update the file itself, so the link never goes stale.</p>
+          <div><a class="btn" href="https://drive.google.com/file/d/1YiB4TUytKC5HxxYsFp5sX9tJaJlAxgy4/view?usp=sharing" target="_blank" rel="noopener">Open résumé <span aria-hidden="true">↗</span></a></div>
+        </aside>
+      </div>
+
+      <div class="tools reveal">
+        <p class="eyebrow">Software I'm proficient in</p>
+        <ul class="tool-grid">
+          <li class="tool"><span class="mono-mark" aria-hidden="true">Fi</span><div><b>Figma</b><span>UI design</span></div></li>
+          <li class="tool"><span class="mono-mark" aria-hidden="true">Ue</span><div><b>Unreal Engine</b><span>Engine · Blueprints</span></div></li>
+          <li class="tool"><span class="mono-mark" aria-hidden="true">Un</span><div><b>Unity</b><span>Engine</span></div></li>
+          <li class="tool"><span class="mono-mark" aria-hidden="true">Ma</span><div><b>Maya</b><span>3D</span></div></li>
+          <li class="tool"><span class="mono-mark" aria-hidden="true">Kr</span><div><b>Krita</b><span>2D art</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap band contact" id="contact" aria-labelledby="contact-title">
+    <div class="inner">
+      <p class="eyebrow">Contact</p>
+      <h2 id="contact-title" class="reveal">Let's make something readable.</h2>
+      <p class="lede" style="margin-top:1.1rem">Hiring for UI/UX, or want to talk menus and HUDs? I answer email fastest.</p>
+      <ul class="contact-list">
+        <li><span class="k">Email</span><span class="v" id="email-v">your.email@example.com</span><button class="copy" type="button" data-copy="#email-v">Copy</button></li>
+        <li><span class="k">LinkedIn</span><a class="v" href="#contact">Add your LinkedIn URL</a></li>
+        <li><span class="k">Résumé</span><a class="v" href="https://drive.google.com/file/d/1YiB4TUytKC5HxxYsFp5sX9tJaJlAxgy4/view?usp=sharing" target="_blank" rel="noopener">Current résumé (PDF) ↗</a></li>
+      </ul>
+      <p class="todo" style="margin-top:1.25rem">Confirm the email you want public and add your LinkedIn link.</p>
+    </div>
+  </section>
+  <footer class="wrap"><div class="inner">© 2026 Atlas Stewart · Built by hand: semantic HTML, keyboard friendly, respects reduced motion.</div></footer>
+</main>
+
+<!-- ======== Case studies: full content lives in the HTML so people, screen readers and AI tools can all read it ======== -->
+<div class="views" id="views" hidden>
+
+  <article class="case" id="case-chain-of-jewels" data-id="chain-of-jewels" aria-labelledby="coj-title" hidden>
+    <div class="wrap">
+      <div class="inner">
+        <div class="case-bar"><a class="btn ghost close" href="#projects">← Back to projects</a><span class="hint"><kbd>Esc</kbd> closes the file</span></div>
+        <header class="case-hero morph-target">
+          <p class="eyebrow">Case study · DES 360</p>
+          <h1 id="coj-title" tabindex="-1">Chain of Jewels</h1>
+          <p class="lede">I built a style guide from a moodboard, then used it to design a complete, working UI for a dark-fantasy jewel game: main menu, shop, crafting and combat.</p>
+          <dl class="glance">
+            <div><dt>Role</dt><dd>UI/UX designer</dd></div>
+            <div><dt>Course</dt><dd>DES 360</dd></div>
+            <div><dt>Tools</dt><dd>Figma</dd></div>
+            <div><dt>Deliverables</dt><dd>Moodboard, palette, frame, 5 screens</dd></div>
+          </dl>
+        </header>
+        <div class="case-layout">
+          <nav class="toc" aria-label="Chain of Jewels sections">
+            <a href="#coj-board">Moodboard</a><a href="#coj-palette">Palette</a><a href="#coj-frame">One frame</a><a href="#coj-menu">Main menu</a><a href="#coj-screens">Screens</a><a href="#coj-next">Next</a>
+          </nav>
+          <div class="chapters">
+            <section class="chapter" id="coj-board" aria-labelledby="coj-board-h">
+              <p class="eyebrow">Step 1 · Research</p>
+              <h2 id="coj-board-h">It started as a wall of references</h2>
+              <p>I collected inventory and armory screens from dark-fantasy RPGs, a medieval strategy game's ledger UI, a jewel-matching puzzler, Gothic cathedral stonework and a medieval illuminated-manuscript ink palette, all laid over a woven tapestry.</p>
+              <figure class="reveal">
+                <img src="img/coj-moodboard.webp" width="2000" height="1318" loading="lazy" alt="Moodboard collage on a tapestry background: dark RPG inventory and skill-tree screens, a gilded medieval inventory UI, a jewel-matching puzzle grid, a Gothic cathedral photo, a medieval illuminated-manuscript color chart, and several extracted palettes of greys, umbers, olives and jewel tones.">
+                <figcaption>The moodboard. Dark game menus set the structure; the manuscript inks and tapestry set the color.</figcaption>
+              </figure>
+            </section>
+
+            <section class="chapter" id="coj-palette" aria-labelledby="coj-palette-h">
+              <p class="eyebrow">Step 2 · Style guide</p>
+              <h2 id="coj-palette-h">A palette pulled straight from the board</h2>
+              <p>Every color in the UI comes from the moodboard: a warm grey ramp for structure, earth tones for surfaces and type, and manuscript jewel tones held back for the jewels themselves.</p>
+              <ul class="swatches reveal" aria-label="Chain of Jewels core palette. Activate a swatch to copy its hex code.">
+                <li><button class="swatch" type="button" data-hex="#281E12"><i style="background:#281E12"></i><span>#281E12<em>Background</em></span></button></li>
+                <li><button class="swatch" type="button" data-hex="#BBA88D"><i style="background:#BBA88D"></i><span>#BBA88D<em>Display type</em></span></button></li>
+                <li><button class="swatch" type="button" data-hex="#514741"><i style="background:#514741"></i><span>#514741<em>Panels</em></span></button></li>
+                <li><button class="swatch" type="button" data-hex="#36383A"><i style="background:#36383A"></i><span>#36383A<em>Buttons</em></span></button></li>
+                <li><button class="swatch" type="button" data-hex="#946440"><i style="background:#946440"></i><span>#946440<em>Forge surface</em></span></button></li>
+                <li><button class="swatch" type="button" data-hex="#5D542B"><i style="background:#5D542B"></i><span>#5D542B<em>Earth</em></span></button></li>
+                <li><button class="swatch" type="button" data-hex="#6E6C34"><i style="background:#6E6C34"></i><span>#6E6C34<em>Earth</em></span></button></li>
+                <li><button class="swatch" type="button" data-hex="#BEB3A2"><i style="background:#BEB3A2"></i><span>#BEB3A2<em>Frame stone</em></span></button></li>
+              </ul>
+              <p class="hint">Click a swatch to copy its hex code.</p>
+              <figure class="reveal" style="max-width:420px">
+                <img src="img/coj-palette.webp" width="900" height="1226" loading="lazy" alt="Full palette sheet: a ten-step warm grey ramp, five earth tones, six muted neutrals, and two rows of manuscript-inspired jewel and accent colors.">
+                <figcaption>The full palette sheet from the style guide.</figcaption>
+              </figure>
+            </section>
+
+            <section class="chapter" id="coj-frame" aria-labelledby="coj-frame-h">
+              <p class="eyebrow">Step 3 · Greybox</p>
+              <h2 id="coj-frame-h">One frame for every screen</h2>
+              <p>Before any art, I locked a shared frame. Player state sits in the top corners, navigation sits in the bottom corners, and the center belongs to whatever the screen is for. Every later screen is built inside this frame, so players never relearn where things are.</p>
+              <div class="reveal" style="display:grid;gap:.5rem">
+                <div class="compare" id="compare">
+                  <img src="img/coj-main-menu.webp" width="1600" height="736" loading="lazy" alt="Main menu art pass inside the shared frame.">
+                  <div class="top"><img src="img/coj-frame-greybox.webp" width="1600" height="736" loading="lazy" alt="Greyscale frame: profile and level/XP top left, energy top right, Main Menu bottom left, Back bottom right, empty center."></div>
+                  <div class="handle" aria-hidden="true"></div>
+                  <label class="sr-only" for="compare-range">Drag to compare the greybox frame with the final main menu</label>
+                  <input type="range" id="compare-range" min="0" max="100" value="50">
+                </div>
+                <div class="compare-labels"><span>Art pass</span><span>Greybox frame</span></div>
+              </div>
+              <figure class="reveal">
+                <img src="img/coj-skill-forge.webp" width="1600" height="736" loading="lazy" alt="Skill Forge first pass inside the greyscale frame: a large Skill Forge label on the left and a brown panel on the right with an upward triangle labeled Evolve, two buttons labeled Reforge and Craft, and a downward triangle labeled Scrap.">
+                <figcaption>Skill Forge first pass. Shape carries meaning: Evolve points up, Scrap points down, and Reforge and Craft sit level between them.</figcaption>
+              </figure>
+            </section>
+
+            <section class="chapter" id="coj-menu" aria-labelledby="coj-menu-h">
+              <p class="eyebrow">Step 4 · Art pass</p>
+              <h2 id="coj-menu-h">Reading the main menu</h2>
+              <p class="lede">Tap the numbered pins to see why each part sits where it does.</p>
+              <figure class="hot reveal" id="hot">
+                <img src="img/coj-main-menu.webp" width="1600" height="736" loading="lazy" alt="Chain of Jewels main menu: the title over four large jewel shapes, a single large Campaign button in the center, a row of five buttons below (Shops, Crafting, Book of Chains, Rewards, Quit), player portrait with level and XP top left, energy 65 of 100 and coin count top right, audio and settings buttons in the bottom corners.">
+                <button class="pin" type="button" style="left:24%;top:23%" data-note="1" aria-pressed="false" aria-label="Note 1: player state">1</button>
+                <button class="pin" type="button" style="left:84%;top:25%" data-note="2" aria-pressed="false" aria-label="Note 2: resources">2</button>
+                <button class="pin" type="button" style="left:66%;top:59%" data-note="3" aria-pressed="false" aria-label="Note 3: primary action">3</button>
+                <button class="pin" type="button" style="left:6%;top:76%" data-note="4" aria-pressed="false" aria-label="Note 4: secondary destinations">4</button>
+                <button class="pin" type="button" style="left:93%;top:86%" data-note="5" aria-pressed="false" aria-label="Note 5: utilities">5</button>
+              </figure>
+              <ol class="notes" aria-label="Main menu notes">
+                <li id="note-1"><span class="n">01</span><b>Who you are</b>Portrait, level and XP stay pinned top left on every screen.</li>
+                <li id="note-2"><span class="n">02</span><b>What you have</b>Energy and coins stay top right, so spending decisions are always informed.</li>
+                <li id="note-3"><span class="n">03</span><b>One obvious next step</b>Campaign is the only large button, framed by its own panel.</li>
+                <li id="note-4"><span class="n">04</span><b>Everything else, equal</b>Shops, Crafting, Book of Chains, Rewards and Quit share one row and one size.</li>
+                <li id="note-5"><span class="n">05</span><b>Out of the way</b>Audio and settings live in the corners, reachable but never competing.</li>
+              </ol>
+            </section>
+
+            <section class="chapter" id="coj-screens" aria-labelledby="coj-screens-h">
+              <p class="eyebrow">Step 5 · Screens</p>
+              <h2 id="coj-screens-h">The same frame, different jobs</h2>
+              <figure class="reveal">
+                <img src="img/coj-jewel-shop.webp" width="1600" height="736" loading="lazy" alt="Jewel Shop screen: a hanging wooden sign reading Jewel Shop, four jewel cards each with Type, Effect and Cost tags above, and one green Purchase button below. Main Menu and Back sit in the bottom corners.">
+                <figcaption>Jewel Shop. Each item shows Type, Effect and Cost in the same order, and there is a single Purchase action.</figcaption>
+              </figure>
+              <figure class="reveal">
+                <img src="img/coj-battle.webp" width="1600" height="736" loading="lazy" alt="Battle screen: a Player Turn banner at the top, two armored knights facing each other with a green health bar on the left and a red one on the right, four Attack buttons and a glowing orange Ultimate button at the bottom, Pause bottom right.">
+                <figcaption>Battle. A turn banner, mirrored health bars, four attacks and an Ultimate that glows so it reads as special.</figcaption>
+              </figure>
+            </section>
+
+            <section class="chapter" id="coj-next" aria-labelledby="coj-next-h">
+              <p class="eyebrow">Reflection</p>
+              <h2 id="coj-next-h">What I'd do next</h2>
+              <p class="todo">Two or three sentences in your voice: what playtests or critique told you, and what you would change in a second pass.</p>
+            </section>
+          </div>
+        </div>
+        <div class="next"><span class="eyebrow" style="margin:0">Next file</span><a href="#noc-6000" class="big">NOC-6000 →</a></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="case" id="case-nitro-guzzler" data-id="nitro-guzzler" aria-labelledby="ng-title" hidden>
+    <div class="wrap">
+      <div class="inner">
+        <div class="case-bar"><a class="btn ghost close" href="#projects">← Back to projects</a><span class="hint"><kbd>Esc</kbd> closes the file</span></div>
+        <header class="case-hero morph-target">
+          <p class="eyebrow">Case study · Shipping on Steam, December 2026</p>
+          <h1 id="ng-title" tabindex="-1">Nitro Guzzler</h1>
+          <p class="lede">A Redline-inspired portal racing game where the main menu is a 3D world, not a screen. As Creative Director and UI/UX designer, I created or directed all of the game's UI, from concept to implementation.</p>
+          <dl class="glance">
+            <div><dt>Role</dt><dd>Creative Director, UI/UX</dd></div>
+            <div><dt>Team</dt><dd>31 · the Grease Monkeys</dd></div>
+            <div><dt>Engine</dt><dd>Unreal Engine 5.5</dd></div>
+            <div><dt>Release</dt><dd>Steam, Dec 2026</dd></div>
+          </dl>
+          <div class="stripes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        </header>
+        <div class="case-layout">
+          <nav class="toc" aria-label="Nitro Guzzler sections"><a href="#ng-goal">Goal</a><a href="#ng-void">White void</a><a href="#ng-compass">Menu map</a><a href="#ng-garage">Garage</a><a href="#ng-build">How it's built</a><a href="#ng-trailer">Trailer</a><a href="#ng-team">Team</a></nav>
+          <div class="chapters">
+            <section class="chapter" id="ng-goal" aria-labelledby="ng-goal-h">
+              <p class="eyebrow">The goal</p>
+              <h2 id="ng-goal-h">Make the menu part of the world</h2>
+              <p>Most menus are a layer on top of the game. I wanted ours to be the game. I took the approach of the Batman: Arkham menus: the camera cycles through shots on its own, pulls the player in and introduces the characters before the first race.</p>
+              <ul class="notes reveal">
+                <li><b>Racers up front</b>The racers are the main reason players get invested, so the menu is built around them.</li>
+                <li><b>The menu is the attract loop</b>A camera director hard cuts between sequences. The camera never blends. Only the content moves.</li>
+                <li><b>Names that fit the world</b>Every destination has a garage-culture name instead of a generic one.</li>
+              </ul>
+            </section>
+
+            <section class="chapter" id="ng-void" aria-labelledby="ng-void-h">
+              <p class="eyebrow">Intro</p>
+              <h2 id="ng-void-h">One white void for everything</h2>
+              <p>The intro and the menu share the same white space, with no separate garage hub level. Cars race through it in their livery colors and leave colored tire stripes. They smash through a glass pane carrying the logo and switch to their in-game textures, then the camera falls to show the team name written in tire tracks.</p>
+              <ol class="flow reveal" aria-label="Startup flow">
+                <li><span class="n">01</span><b>Intro</b>Plays once. Hold a button to skip.</li>
+                <li><span class="n">02</span><b>Ready loop</b>Waits for the player.</li>
+                <li><span class="n">03</span><b>Any key</b>Wakes the menu.</li>
+                <li><span class="n">04</span><b>Main menu loop</b>The attract loop takes over.</li>
+              </ol>
+              <div class="media-slot reveal">Intro capture goes here: livery-colored cars before the glass pane, in-game textures after</div>
+            </section>
+
+            <section class="chapter" id="ng-compass" aria-labelledby="ng-compass-h">
+              <p class="eyebrow">Menu map</p>
+              <h2 id="ng-compass-h">Spray-painted arrows instead of a button list</h2>
+              <p class="lede">The root options are arrows painted on the ground in a compass layout. Pick a direction to see where it leads.</p>
+              <div class="compass-wrap reveal">
+                <div class="compass" role="group" aria-label="Main menu compass">
+                  <button type="button" class="dir n" data-dir="garage" aria-pressed="false"><small>North</small>Garage</button>
+                  <button type="button" class="dir e" data-dir="prep" aria-pressed="true"><small>East</small>Prep Ride</button>
+                  <button type="button" class="dir s" data-dir="monkey" aria-pressed="false"><small>South</small>Monkey Business</button>
+                  <button type="button" class="dir w" data-dir="pit" aria-pressed="false"><small>West</small>Pit Crew</button>
+                  <span class="hub" aria-hidden="true">W-Dawg</span>
+                </div>
+                <div class="compass-panel" id="compass-panel" aria-live="polite">
+                  <p class="eyebrow" id="cp-std">Play</p>
+                  <h3 id="cp-name">Prep Ride</h3>
+                  <p id="cp-text">A splash panel with high scores, a highlight clip, the game name and team name. Then Racer Select, then two flash transitions: one into the track intro and one into the race start.</p>
+                </div>
+              </div>
+              <p class="small">Quitting is themed too. It opens a "Racer Retiring" confirmation instead of a generic quit dialog.</p>
+            </section>
+
+            <section class="chapter" id="ng-garage" aria-labelledby="ng-garage-h">
+              <p class="eyebrow">Settings</p>
+              <h2 id="ng-garage-h">Settings scratched into the paint</h2>
+              <p>In the Garage, settings are physical hotspots on W-Dawg's car. One Return button sits on the ground, visible as the camera whips around the car. A dedicated artist is making the etched decal art.</p>
+              <ul class="notes reveal">
+                <li><span class="n">Hood</span><b>Visual</b>Display settings such as monitor size.</li>
+                <li><span class="n">Side</span><b>Accessibility + gameplay</b>Toggles like turning the HUD on or off.</li>
+                <li><span class="n">Open trunk</span><b>Audio</b>Volume for each type of sound.</li>
+              </ul>
+              <p>The other destinations use a second interaction type: flat holographic overlays you step through with Next and Return. Racer Select shows the racer's face, info, track record and a lore bit, and adds Confirm to lock them in. Pit Crew is a looping character sheet that cycles through every racer.</p>
+              <div class="media-slot reveal">Before/after goes here: W-Dawg's bare hood vs. the hood with Visual settings etched in</div>
+            </section>
+
+            <section class="chapter" id="ng-build" aria-labelledby="ng-build-h">
+              <p class="eyebrow">Implementation</p>
+              <h2 id="ng-build-h">How it's built</h2>
+              <ul class="notes reveal">
+                <li><b>One camera director</b>A single Blueprint holds every menu destination as a row of data. Each row stores where Back goes, so there's no special-case back logic.</li>
+                <li><b>Structs over a Data Table</b>Data Tables fight with references to actors placed in the level, so destinations are an array of structs.</li>
+                <li><b>Hierarchy by tag</b>Each destination has a parent tag. Garage's three hotspots are just three more rows tagged Garage.</li>
+                <li><b>Widgets on surfaces</b>UMG widgets sit on 3D surfaces as Widget Components. They're physically separate but navigate as one screen.</li>
+                <li><b>One activation path</b>Mouse clicks hit the UI through a raycast. Gamepad and keyboard step through an ordered list. Both call the same function.</li>
+                <li><b>Back plays in reverse</b>Each destination sequence plays once and holds its last frame. Back plays it in reverse, reusing the game's rewind component.</li>
+              </ul>
+              <p>I originally planned a blended moving camera and a 2D widget stack. Once the real design was clear, with hard-cut sequences and buttons on 3D surfaces, I rewrote the implementation plan around it. The Sequencer intro and the hand-off into the attract loop are done in engine.</p>
+            </section>
+
+            <section class="chapter" id="ng-trailer" aria-labelledby="ng-trailer-h">
+              <p class="eyebrow">Trailer</p>
+              <h2 id="ng-trailer-h">The trailer</h2>
+              <p>I planned the trailer around the structure of the Need for Speed: Most Wanted trailer, but swapped its car showcase for W-Dawg drifting through our menus and intro. I wrote the shot lists and an artist produced the shots.</p>
+              <div class="media-slot reveal">Trailer goes here: W-Dawg drifts through Nitro Guzzler's main menu and intro</div>
+            </section>
+
+            <section class="chapter" id="ng-team" aria-labelledby="ng-team-h">
+              <p class="eyebrow">Leadership</p>
+              <h2 id="ng-team-h">Directing a 31-person team</h2>
+              <p>I turned the menu and intro concept into a written game plan, a shot list and an Unreal Engine 5.5 implementation guide for the team. I direct artists from my shot lists and work closely with the design lead on team management.</p>
+              <p class="todo">Captures of the old and new menu, the UI's real colors and fonts, and any playtest feedback.</p>
+            </section>
+          </div>
+        </div>
+        <div class="next"><span class="eyebrow" style="margin:0">Next file</span><a href="#chain-of-jewels" class="big">Chain of Jewels →</a></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="case" id="case-noc-6000" data-id="noc-6000" aria-labelledby="noc-title" hidden>
+    <div class="wrap">
+      <div class="inner">
+        <div class="case-bar"><a class="btn ghost close" href="#projects">← Back to projects</a><span class="hint"><kbd>Esc</kbd> closes the file</span></div>
+        <header class="case-hero morph-target">
+          <p class="eyebrow">Case study · In progress</p>
+          <h1 id="noc-title" tabindex="-1">NOC-6000</h1>
+          <p class="lede">The player is a robot, so the HUD is part of the robot: a hologram projected into 3D world space, not a flat overlay on the screen.</p>
+          <dl class="glance">
+            <div><dt>Focus</dt><dd>Diegetic HUD</dd></div>
+            <div><dt>Engine</dt><dd>Unreal Engine</dd></div>
+            <div><dt>References</dt><dd>Radar, aviation, green phosphor CRT</dd></div>
+          </dl>
+        </header>
+        <div class="case-layout">
+          <nav class="toc" aria-label="NOC-6000 sections"><a href="#noc-layout">Layout</a><a href="#noc-behavior">Behavior</a><a href="#noc-build">Build</a></nav>
+          <div class="chapters">
+            <section class="chapter" id="noc-layout" aria-labelledby="noc-layout-h">
+              <p class="eyebrow">Module layout</p>
+              <h2 id="noc-layout-h">A HUD built from modules, like an OS</h2>
+              <ul class="notes reveal">
+                <li><b>Sunrise module</b>Upper left. Tracks the six moons as they rise.</li>
+                <li><b>Hunt banner</b>Top center. Time since the last hunt.</li>
+                <li><b>Clock + view direction</b>Upper right. Mission clock and heading.</li>
+                <li><b>3D crosshair</b>Center, with a floating distance readout.</li>
+                <li><b>Laser rangefinder</b>Center right. Ticks at 5, 10, 15, 25 and 50 m, intersecting the world like a construction laser.</li>
+                <li><b>Status + spear</b>Lower left and lower right.</li>
+              </ul>
+              <div class="media-slot reveal">HUD capture or sketch goes here</div>
+            </section>
+            <section class="chapter" id="noc-behavior" aria-labelledby="noc-behavior-h">
+              <p class="eyebrow">Behavior</p>
+              <h2 id="noc-behavior-h">A HUD that breathes</h2>
+              <p>The crosshair widens after a miss and tightens when ready, with a slight throb that humanizes the robot. Modules fade in and out with context instead of staying on all the time, and the hologram shifts between light and dark green.</p>
+            </section>
+            <section class="chapter" id="noc-build" aria-labelledby="noc-build-h">
+              <p class="eyebrow">Build</p>
+              <h2 id="noc-build-h">In engine</h2>
+              <p>One master hologram material drives ring masks, radial ticks and layered opacity. A HUD rig Blueprint with four anchors is parented to the camera.</p>
+            </section>
+          </div>
+        </div>
+        <div class="next"><span class="eyebrow" style="margin:0">Next file</span><a href="#enshahtenti" class="big">Enshahtenti →</a></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="case" id="case-enshahtenti" data-id="enshahtenti" aria-labelledby="en-title" hidden>
+    <div class="wrap"><div class="inner">
+      <div class="case-bar"><a class="btn ghost close" href="#projects">← Back to projects</a><span class="hint"><kbd>Esc</kbd> closes the file</span></div>
+      <header class="case-hero morph-target">
+        <p class="eyebrow">Case study · Coming soon</p>
+        <h1 id="en-title" tabindex="-1">Enshahtenti</h1>
+        <p class="lede">A game feel project. The full write-up and captures are on the way.</p>
+      </header>
+      <div class="chapters" style="padding-bottom:3rem"><div class="media-slot">Game feel GIFs go here</div><p class="todo">Role, timeframe, tools, and the two or three feel changes you are proudest of, each with a before/after GIF.</p></div>
+      <div class="next"><span class="eyebrow" style="margin:0">Next file</span><a href="#minecraft-project" class="big">Minecraft project →</a></div>
+    </div></div>
+  </article>
+
+  <article class="case" id="case-minecraft-project" data-id="minecraft-project" aria-labelledby="mc-title" hidden>
+    <div class="wrap"><div class="inner">
+      <div class="case-bar"><a class="btn ghost close" href="#projects">← Back to projects</a><span class="hint"><kbd>Esc</kbd> closes the file</span></div>
+      <header class="case-hero morph-target">
+        <p class="eyebrow">Case study · Coming soon</p>
+        <h1 id="mc-title" tabindex="-1">Minecraft project</h1>
+        <p class="lede">The write-up is on the way.</p>
+      </header>
+      <div class="chapters" style="padding-bottom:3rem"><div class="media-slot">Captures go here</div><p class="todo">What you built, your role, and two or three images or GIFs.</p></div>
+      <div class="next"><span class="eyebrow" style="margin:0">Next file</span><a href="#nitro-guzzler" class="big">Nitro Guzzler →</a></div>
+    </div></div>
+  </article>
+</div>
+
+<div class="cue" id="cue" aria-hidden="true"><span id="cue-t">Scroll to open the files</span><i>↓</i></div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"Person","@id":"#atlas","name":"Atlas Stewart","jobTitle":"UI/UX Designer (Games)","affiliation":{"@type":"CollegeOrUniversity","name":"DigiPen Institute of Technology"},
+  "knowsAbout":["Game UI design","UX design","HUD design","Diegetic UI","Style guides","Level design","Unreal Engine Blueprints","Figma","Unity","Maya","Krita"]},
+ {"@type":"CreativeWork","name":"Nitro Guzzler","creator":{"@id":"#atlas"},"description":"Redline-inspired portal racing game built in Unreal Engine 5.5 by a 31-person student team, the Grease Monkeys. Atlas Stewart is Creative Director and UI/UX designer and designed a diegetic main menu: an attract-loop camera director, settings etched onto the car, and compass-style spray-painted menu arrows. Releasing on Steam in December 2026."},
+ {"@type":"CreativeWork","name":"Chain of Jewels","creator":{"@id":"#atlas"},"description":"DES 360 project: a style guide built from a moodboard, then a complete game UI in Figma (main menu, jewel shop, skill forge, battle)."},
+ {"@type":"CreativeWork","name":"NOC-6000","creator":{"@id":"#atlas"},"description":"Unreal Engine game with a robot protagonist and a diegetic holographic HUD in 3D world space."},
+ {"@type":"CreativeWork","name":"Enshahtenti","creator":{"@id":"#atlas"},"description":"Game feel project."}
+]}
+</script>
+
+<script>
+(() => {
+  const root = document.documentElement;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const views = document.getElementById('views');
+  const page = document.getElementById('page');
+  const cue = document.getElementById('cue'), cueT = document.getElementById('cue-t');
+  const toast = document.getElementById('toast');
+  const ids = [...document.querySelectorAll('.case')].map(a => a.dataset.id);
+  let current = null, lastCard = null, toastTimer;
+
+  /* ---------- open / close a project file ---------- */
+  function apply(id){
+    document.querySelectorAll('.case').forEach(a => a.hidden = a.dataset.id !== id);
+    root.dataset.project = id;
+    views.hidden = false; views.scrollTop = 0;
+    document.body.classList.add('case-open');
+    page.inert = true;
+    current = id;
+    document.querySelectorAll('.nav .tab').forEach(t => t.setAttribute('aria-current', t.dataset.sec === 'projects' ? 'true' : 'false'));
+    cueT.textContent = 'Esc or Back closes this file'; cue.classList.remove('gone');
+    setTimeout(() => cue.classList.add('gone'), 2600);
+    const h = document.querySelector('#case-' + id + ' h1'); h && h.focus({preventScroll:true});
+  }
+  function open(id, card){
+    if (!ids.includes(id)) return;
+    lastCard = card || document.querySelector('.file[data-p="' + id + '"]');
+    const hero = document.querySelector('#case-' + id + ' .morph-target');
+    if (card && document.startViewTransition && !reduce.matches && !current){
+      card.style.viewTransitionName = 'morph';
+      const t = document.startViewTransition(() => { card.style.viewTransitionName = ''; apply(id); hero.style.viewTransitionName = 'morph'; });
+      t.finished.finally(() => hero.style.viewTransitionName = '');
+    } else apply(id);
+  }
+  function close(target){
+    if (!current) return;
+    const done = () => {
+      views.hidden = true; delete root.dataset.project;
+      document.body.classList.remove('case-open'); page.inert = false; current = null;
+      if (target){ const el = document.getElementById(target); el && el.scrollIntoView({behavior:'instant'}); }
+      lastCard && lastCard.focus({preventScroll:true});
+    };
+    if (document.startViewTransition && !reduce.matches) document.startViewTransition(done); else done();
+    history.replaceState(null, '', '#' + (target || 'projects'));
+  }
+
+  document.querySelectorAll('.file').forEach(card => card.addEventListener('click', e => {
+    e.preventDefault(); history.pushState(null, '', '#' + card.dataset.p); open(card.dataset.p, card);
+  }));
+  views.addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#"]'); if (!a) return;
+    const t = a.getAttribute('href').slice(1);
+    if (a.classList.contains('close')){ e.preventDefault(); close('projects'); }
+    else if (ids.includes(t)){ e.preventDefault(); history.pushState(null,'','#'+t); apply(t); }
+    else if (t.startsWith('ng-')||t.startsWith('coj-')||t.startsWith('ng-')||t.startsWith('noc-')){ e.preventDefault(); const el=document.getElementById(t); el && el.scrollIntoView({behavior: reduce.matches?'instant':'smooth'}); }
+  });
+  document.querySelector('.tabs').addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#"]'); if (!a || !current) return;
+    e.preventDefault(); close(a.getAttribute('href').slice(1));
+  });
+  addEventListener('keydown', e => { if (e.key === 'Escape' && current) close('projects'); });
+  function route(){ const id = location.hash.slice(1); if (ids.includes(id)) { if (id !== current) apply(id); } else if (current) close(id || 'projects'); }
+  addEventListener('popstate', route);
+  addEventListener('hashchange', route);
+  route();
+
+  /* ---------- active tab, progress bar, scroll cue ---------- */
+  const tabs = [...document.querySelectorAll('.nav .tab')];
+  const cues = {home:'Scroll to open the files', projects: matchMedia('(hover:none)').matches ? 'Tap a file to open it.' : 'Hover a file to peek. Click to open it.', about:'Keep going. Contact is at the bottom.', contact:"That's the bottom. Say hi."};
+  const seen = new Map();
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => seen.set(en.target.id, en.isIntersecting ? en.intersectionRatio : 0));
+    let best = 'home', r = -1;
+    for (const [k,v] of seen) if (v > r){ r = v; best = k; }
+    tabs.forEach(t => t.setAttribute('aria-current', t.dataset.sec === best ? 'true' : 'false'));
+    if (!current){ cueT.textContent = cues[best]; }
+  }, {threshold:[0,.15,.3,.5,.75,1], rootMargin:'-20% 0px -30% 0px'});
+  ['home','projects','about','contact'].forEach(id => io.observe(document.getElementById(id)));
+  const bar = document.getElementById('progress');
+  let ticking = false;
+  function onScroll(){
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(() => {
+      const el = current ? views : document.scrollingElement;
+      const max = el.scrollHeight - el.clientHeight;
+      bar.style.setProperty('--p', max > 0 ? (el.scrollTop / max).toFixed(4) : 0);
+      if (!current){ const atEnd = el.scrollTop > max - 40; cue.classList.toggle('gone', atEnd && el.scrollTop > 200); cue.querySelector('i').hidden = atEnd; }
+      ticking = false;
+    });
+  }
+  addEventListener('scroll', onScroll, {passive:true});
+  views.addEventListener('scroll', onScroll, {passive:true});
+
+  /* ---------- case-study table of contents ---------- */
+  const tocIO = new IntersectionObserver(entries => entries.forEach(en => {
+    if (!en.isIntersecting) return;
+    const toc = en.target.closest('.case').querySelector('.toc'); if (!toc) return;
+    toc.querySelectorAll('a').forEach(a => a.setAttribute('aria-current', a.getAttribute('href') === '#' + en.target.id ? 'true' : 'false'));
+  }), {root:views, rootMargin:'-30% 0px -60% 0px'});
+  document.querySelectorAll('.chapter').forEach(s => tocIO.observe(s));
+
+  /* ---------- hotspots ---------- */
+  document.querySelectorAll('.pin').forEach(pin => {
+    const note = document.getElementById('note-' + pin.dataset.note);
+    const lit = on => { note.classList.toggle('lit', on); };
+    pin.addEventListener('mouseenter', () => lit(true));
+    pin.addEventListener('mouseleave', () => { if (pin.getAttribute('aria-pressed') !== 'true') lit(false); });
+    pin.addEventListener('click', () => {
+      const on = pin.getAttribute('aria-pressed') !== 'true';
+      document.querySelectorAll('.pin').forEach(p => { p.setAttribute('aria-pressed','false'); document.getElementById('note-'+p.dataset.note).classList.remove('lit'); });
+      pin.setAttribute('aria-pressed', on ? 'true' : 'false'); lit(on);
+      if (on && matchMedia('(max-width:860px)').matches) note.scrollIntoView({block:'nearest', behavior: reduce.matches?'instant':'smooth'});
+    });
+  });
+
+  /* ---------- before / after ---------- */
+  const cmp = document.getElementById('compare'), rng = document.getElementById('compare-range');
+  rng.addEventListener('input', () => cmp.style.setProperty('--pos', rng.value + '%'));
+
+
+  /* ---------- Nitro Guzzler compass ---------- */
+  const dests = {
+    garage:['Settings','Garage','Settings live on W-Dawg\'s car as physical hotspots: Visual on the hood, Accessibility on the side, Audio in the open trunk.'],
+    prep:['Play','Prep Ride','A splash panel with high scores, a highlight clip, the game name and team name. Then Racer Select, then two flash transitions: one into the track intro and one into the race start.'],
+    monkey:['Credits','Monkey Business','The team credits. After a win, a duplicate of this area in the same spot becomes the win screen.'],
+    pit:['Lore bible','Pit Crew','A looping character sheet. Each racer does something in the white world while panels cover territory, origin, relations and a lore tidbit. A big arrow names the next racer.']
+  };
+  document.querySelectorAll('.dir').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('.dir').forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
+    const d = dests[b.dataset.dir];
+    document.getElementById('cp-std').textContent = d[0];
+    document.getElementById('cp-name').textContent = d[1];
+    document.getElementById('cp-text').textContent = d[2];
+  }));
+
+  /* ---------- copy helpers ---------- */
+  function say(msg){ toast.textContent = msg; toast.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.hidden = true, 1600); }
+  function copy(text, el){
+    const fallback = () => { const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); say('Selected. Press Ctrl/Cmd+C to copy'); };
+    if (navigator.clipboard) navigator.clipboard.writeText(text).then(() => say('Copied ' + text), fallback); else fallback();
+  }
+  document.querySelectorAll('.swatch').forEach(b => b.addEventListener('click', () => copy(b.dataset.hex, b.querySelector('span'))));
+  document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', () => { const el = document.querySelector(b.dataset.copy); copy(el.textContent.trim(), el); }));
+})();
+</script>
+</body>
+</html>

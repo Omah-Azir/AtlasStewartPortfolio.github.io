@@ -1,0 +1,23 @@
+# Atlas Stewart
+
+> Game UI/UX designer at DigiPen Institute of Technology, specializing in UI/UX and level design. Former Treyarch intern. Creative Director and UI/UX designer on Nitro Guzzler, a 31-person student racing game shipping on Steam in December 2026. Deep Unreal Engine Blueprint experience.
+
+All case studies are on one page. Each project opens at its own anchor.
+
+## Case studies
+
+- [Nitro Guzzler](https://omah-azir.github.io/atlasstewartportfolio.github.io/#nitro-guzzler): Redline-inspired portal racing game in Unreal Engine 5.5. Atlas created or directed all UI. The main menu is a 3D world: a camera director hard-cuts between Level Sequences as an attract loop, settings are etched onto the hero car (Visual on the hood, Accessibility on the side, Audio in the trunk), and root options are spray-painted compass arrows (Garage, Prep Ride, Monkey Business, Pit Crew). Built with Blueprints, Sequencer, and UMG widgets placed on 3D surfaces.
+- [Chain of Jewels](https://omah-azir.github.io/atlasstewartportfolio.github.io/#chain-of-jewels): DES 360 project. A moodboard turned into a style guide and palette, then a complete dark-fantasy game UI in Figma: a shared frame (player state in top corners, navigation in bottom corners), main menu, Jewel Shop, Skill Forge and battle screens.
+- [NOC-6000](https://omah-azir.github.io/atlasstewartportfolio.github.io/#noc-6000): Unreal Engine game with a robot protagonist and a diegetic holographic HUD in 3D world space, built from modules (sunrise tracker for six moons, mission clock, 3D crosshair, laser rangefinder, status and spear modules) that fade in and out with context.
+- [Enshahtenti](https://omah-azir.github.io/atlasstewartportfolio.github.io/#enshahtenti): Game feel project. Write-up coming soon.
+- [Minecraft project](https://omah-azir.github.io/atlasstewartportfolio.github.io/#minecraft-project): Write-up coming soon.
+
+## About
+
+- [About Atlas](https://omah-azir.github.io/atlasstewartportfolio.github.io/#about): Focus on game UI/UX, HUDs, menus and style guides; also level design and team leadership.
+- [Résumé (PDF, always current)](https://drive.google.com/file/d/1YiB4TUytKC5HxxYsFp5sX9tJaJlAxgy4/view?usp=sharing)
+- Software: Figma, Unreal Engine (Blueprints), Unity, Maya, Krita
+
+## Contact
+
+- [Contact section](https://omah-azir.github.io/atlasstewartportfolio.github.io/#contact)

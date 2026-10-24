@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://omah-azir.github.io/atlasstewartportfolio.github.io/sitemap.xml
