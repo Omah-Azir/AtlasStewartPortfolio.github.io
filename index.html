@@ -7,7 +7,7 @@
 <meta name="description" content="Atlas Stewart is a game UI/UX designer. See how he designed Nitro Guzzler's main menu, the Chain of Jewels UI, a Minecraft inventory redesign and more.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;0,700;1,400&family=Atkinson+Hyperlegible+Mono:wght@400;600&family=Alegreya:wght@500;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martian+Mono:wdth,wght@75..112.5,100..800&family=Hanken+Grotesk:ital,wght@0,300..800;1,300..800&family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&family=Alegreya:wght@500;700;800&display=swap">
 <style>
 html,body{margin:0}
 [hidden]{display:none!important}
@@ -22,11 +22,11 @@ html,body{margin:0}
   --accent:#63D9D9; --accent-ink:#051313;
   --red:#660000; --red-hi:#8E1212;
   --glow:0 0 14px rgba(99,217,217,.45);
-  --font-display:"Atkinson Hyperlegible Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --font-display:"Martian Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
   --font-wide:"Archivo","Arial Narrow",Arial,sans-serif;
-  --font-body:"Atkinson Hyperlegible Next","Atkinson Hyperlegible",Verdana,system-ui,sans-serif;
-  --font-mono:"Atkinson Hyperlegible Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
-  --display-stretch:100%; --display-weight:600; --display-style:normal;
+  --font-body:"Hanken Grotesk","Helvetica Neue",Arial,system-ui,sans-serif;
+  --font-mono:"Martian Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --display-stretch:87.5%; --display-weight:500; --display-style:normal;
   color-scheme:dark;
 
   /* Project palettes (each one is a single deliberate look) */
@@ -52,7 +52,7 @@ html,body{margin:0}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:calc(var(--tabs-h) + env(safe-area-inset-top,0px) + 12px)}
-body{background:var(--desk);color:var(--ink);font-family:var(--font-body);font-size:1.0625rem;line-height:1.6;transition:background-color .5s var(--ease),color .5s var(--ease)}
+body{background:var(--desk);color:var(--ink);font-family:var(--font-body);font-stretch:87.5%;font-size:1.0625rem;line-height:1.6;transition:background-color .5s var(--ease),color .5s var(--ease)}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--desk)}
 body.case-open{overflow:hidden}
 img{display:block;max-width:100%;height:auto}
@@ -77,10 +77,10 @@ a{color:inherit}
 .tab[aria-current="true"]::before{background:var(--sheet);box-shadow:inset 0 2px 0 var(--red-hi)}
 .tab-name{font-family:var(--font-display);font-stretch:var(--display-stretch);font-weight:var(--display-weight);font-style:var(--display-style);
   text-transform:none;letter-spacing:0;font-size:1.02rem;color:var(--ink);margin-right:auto;padding-left:.9rem}
-.tab-name small{font-family:var(--font-mono);font-weight:400;font-style:normal;font-stretch:100%;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.tab-name small{font-family:var(--font-mono);font-weight:400;font-style:normal;font-stretch:75%;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
 .nav{display:flex;align-items:flex-end;gap:2px;min-width:0;overflow-x:auto;scrollbar-width:none}
 .nav::-webkit-scrollbar{display:none}
-@media (max-width:560px){.tab{padding:0 .65rem;font-size:.7rem;letter-spacing:.04em}.tab-name{font-size:.92rem;padding-left:.7rem}.tab-name small,.nav .tab[data-sec="home"]{display:none}}
+@media (max-width:560px){.tab{padding:0 .5rem;font-size:.66rem;letter-spacing:.02em}.tab-name{font-size:.88rem;padding-left:.6rem}.tab-name small,.nav .tab[data-sec="home"]{display:none}}
 .progress{position:absolute;left:0;bottom:0;height:3px;width:100%;transform-origin:left;transform:scaleX(var(--p,0));background:linear-gradient(90deg,var(--red),var(--red-hi) 40%,var(--accent));z-index:2;pointer-events:none}
 
 /* ---------- The sheet ---------- */
@@ -151,7 +151,7 @@ p{margin:0;max-width:65ch}
 /* deck palettes */
 .file[data-p="chain-of-jewels"]{--f-bg:var(--coj-bg);--f-ink:var(--coj-ink);--f-ink2:var(--coj-ink2);--f-acc:var(--coj-accent);--fx-font:"Alegreya",Georgia,serif;--fx-stretch:100%}
 .file[data-p="nitro-guzzler"]{--fx-font:var(--font-wide);--f-bg:var(--ng-bg);--f-ink:var(--ng-ink);--f-ink2:var(--ng-ink2);--f-acc:var(--ng-accent);--fx-stretch:68%;--fx-weight:900;--fx-style:italic}
-.file[data-p="noc-6000"]{--f-bg:var(--noc-bg);--f-ink:var(--noc-ink);--f-ink2:var(--noc-ink2);--f-acc:var(--noc-accent);--fx-font:var(--font-mono);--fx-stretch:100%;--fx-weight:600}
+.file[data-p="noc-6000"]{--f-bg:var(--noc-bg);--f-ink:var(--noc-ink);--f-ink2:var(--noc-ink2);--f-acc:var(--noc-accent);--fx-font:var(--font-mono);--fx-stretch:87.5%;--fx-weight:500}
 .file[data-p="enshahtenti"]{--fx-font:var(--font-wide);--f-bg:var(--en-bg);--f-ink:var(--en-ink);--f-ink2:var(--en-ink2);--f-acc:var(--en-accent)}
 .file[data-p="this-portfolio"]{--f-bg:#0B2424;--f-ink:#B4EDED;--f-ink2:#9AD3D3;--f-acc:#63D9D9;--fx-font:var(--font-mono);--fx-stretch:100%;--fx-weight:600}
 .file[data-p="minecraft-project"]{--fx-font:var(--font-wide);--f-bg:var(--mc-panel);--f-ink:var(--mc-ink);--f-ink2:var(--mc-ink2);--f-acc:var(--mc-accent)}
@@ -309,6 +309,9 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
 .swatch i{display:block;height:68px}
 .swatch span{padding:.45rem .6rem .55rem;font-family:var(--font-mono);font-size:.72rem;line-height:1.35}
 .swatch span em{display:block;font-style:normal;color:var(--ink-2)}
+.swatch i{position:relative}
+.swatch i::after{content:"Copy";position:absolute;right:.5rem;bottom:.4rem;font-family:var(--font-mono);font-size:.65rem;letter-spacing:.06em;text-transform:uppercase;padding:.15rem .4rem;border-radius:4px;background:rgba(5,19,19,.75);color:#B4EDED;opacity:0;transition:opacity .2s}
+.swatch:hover i::after,.swatch:focus-visible i::after{opacity:1}
 .toast{position:fixed;left:50%;top:calc(var(--tabs-h) + env(safe-area-inset-top,0px) + 14px);transform:translateX(-50%);z-index:80;background:var(--accent);color:var(--accent-ink);
   font-family:var(--font-mono);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;transition:opacity .25s}
 .toast[hidden]{display:block!important;opacity:0;pointer-events:none}
@@ -414,7 +417,6 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
     <div class="inner">
       <div class="deck-head">
         <h2 id="projects-title">Projects</h2>
-        <p class="hint"><span class="h-mouse">Hover or <kbd>Tab</kbd> to a file to peek. Click to open it.</span><span class="h-touch">Tap a file to open it.</span></p>
       </div>
       <div class="deck" role="list">
         <a role="listitem" class="file" data-p="nitro-guzzler" href="#nitro-guzzler" aria-label="Nitro Guzzler. I'm Creative Director and UI/UX designer on this 31-person racing game. Open case study.">
@@ -524,7 +526,6 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
             <iframe src="https://drive.google.com/file/d/1YiB4TUytKC5HxxYsFp5sX9tJaJlAxgy4/preview" title="Atlas Stewart résumé" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
             <span class="resume-cover" aria-hidden="true"><span class="open-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg><span>Open résumé</span></span></span>
           </a>
-          <p class="small">This is always my current résumé. It opens in a new tab, so you won't lose your place here.</p>
         </aside>
       </div>
 
@@ -555,7 +556,7 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
       </ul>
     </div>
   </section>
-  <footer class="wrap"><div class="inner">© 2026 Atlas Stewart · Built by hand in plain HTML. Works with a keyboard and respects reduced motion.</div></footer>
+  <footer class="wrap"><div class="inner">© 2026 Atlas Stewart</div></footer>
 </main>
 
 <!-- ======== Case studies: full content lives in the HTML so people, screen readers and AI tools can all read it ======== -->
@@ -564,7 +565,7 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
   <article class="case" id="case-chain-of-jewels" data-id="chain-of-jewels" aria-labelledby="coj-title" hidden>
     <div class="wrap">
       <div class="inner">
-        <div class="case-bar"><a class="btn ghost close" href="#projects">← Back to projects</a><span class="hint"><kbd>Esc</kbd> closes the file</span></div>
+        <div class="case-bar"><a class="btn ghost close" href="#projects">← Back to projects</a></div>
         <header class="case-hero morph-target">
           <p class="eyebrow">Case study · DES 360</p>
           <h1 id="coj-title" tabindex="-1">Chain of Jewels</h1>
@@ -605,7 +606,6 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
                 <li><button class="swatch" type="button" data-hex="#6E6C34"><i style="background:#6E6C34"></i><span>#6E6C34<em>Earth</em></span></button></li>
                 <li><button class="swatch" type="button" data-hex="#BEB3A2"><i style="background:#BEB3A2"></i><span>#BEB3A2<em>Frame stone</em></span></button></li>
               </ul>
-              <p class="hint">Click a swatch to copy its hex code.</p>
               <figure class="reveal" style="max-width:420px">
                 <img src="img/coj-palette.webp" width="900" height="1226" loading="lazy" alt="Full palette sheet: a ten-step warm grey ramp, five earth tones, six muted neutrals, and two rows of manuscript-inspired jewel and accent colors.">
                 <figcaption>The full palette sheet from the style guide.</figcaption>
@@ -681,7 +681,7 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
   <article class="case" id="case-nitro-guzzler" data-id="nitro-guzzler" aria-labelledby="ng-title" hidden>
     <div class="wrap">
       <div class="inner">
-        <div class="case-bar"><a class="btn ghost close" href="#projects">← Back to projects</a><span class="hint"><kbd>Esc</kbd> closes the file</span></div>
+        <div class="case-bar"><a class="btn ghost close" href="#projects">← Back to projects</a></div>
         <header class="case-hero morph-target ng-hero">
           <div class="ng-splash" aria-hidden="true">
             <div class="ng-screen">
@@ -799,7 +799,7 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
   <article class="case" id="case-noc-6000" data-id="noc-6000" aria-labelledby="noc-title" hidden>
     <div class="wrap">
       <div class="inner">
-        <div class="case-bar"><a class="btn ghost close" href="#projects">← Back to projects</a><span class="hint"><kbd>Esc</kbd> closes the file</span></div>
+        <div class="case-bar"><a class="btn ghost close" href="#projects">← Back to projects</a></div>
         <header class="case-hero morph-target">
           <p class="eyebrow">Case study · In progress</p>
           <h1 id="noc-title" tabindex="-1">NOC-6000</h1>
@@ -845,7 +845,7 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
 
   <article class="case" id="case-enshahtenti" data-id="enshahtenti" aria-labelledby="en-title" hidden>
     <div class="wrap"><div class="inner">
-      <div class="case-bar"><a class="btn ghost close" href="#projects">← Back to projects</a><span class="hint"><kbd>Esc</kbd> closes the file</span></div>
+      <div class="case-bar"><a class="btn ghost close" href="#projects">← Back to projects</a></div>
       <header class="case-hero morph-target">
         <p class="eyebrow">Case study · Coming soon</p>
         <h1 id="en-title" tabindex="-1">Enshahtenti</h1>
@@ -859,7 +859,7 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
   <article class="case" id="case-minecraft-project" data-id="minecraft-project" aria-labelledby="mc-title" hidden>
     <div class="wrap">
       <div class="inner">
-        <div class="case-bar"><a class="btn ghost close" href="#projects">← Back to projects</a><span class="hint"><kbd>Esc</kbd> closes the file</span></div>
+        <div class="case-bar"><a class="btn ghost close" href="#projects">← Back to projects</a></div>
         <header class="case-hero morph-target">
           <p class="eyebrow">Case study · Inventory redesign</p>
           <h1 id="mc-title" tabindex="-1">Minecraft project</h1>
@@ -903,7 +903,7 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
   <article class="case" id="case-this-portfolio" data-id="this-portfolio" aria-labelledby="pf-title" hidden>
     <div class="wrap">
       <div class="inner">
-        <div class="case-bar"><a class="btn ghost close" href="#projects">← Back to projects</a><span class="hint"><kbd>Esc</kbd> closes the file</span></div>
+        <div class="case-bar"><a class="btn ghost close" href="#projects">← Back to projects</a></div>
         <header class="case-hero morph-target">
           <p class="eyebrow">Case study · The site you're on</p>
           <h1 id="pf-title" tabindex="-1">This portfolio</h1>
@@ -911,7 +911,7 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
           <dl class="glance">
             <div><dt>Role</dt><dd>Designer and builder</dd></div>
             <div><dt>Tools</dt><dd>Coolors, ColorHexa, HTML</dd></div>
-            <div><dt>Focus</dt><dd>Color, contrast, accessibility</dd></div>
+            <div><dt>Focus</dt><dd>Color and contrast</dd></div>
           </dl>
         </header>
         <div class="case-layout">
@@ -928,7 +928,6 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
                 <li><button class="swatch" type="button" data-hex="#145353"><i style="background:#145353"></i><span>#145353<em>Panels, popups, hovers</em></span></button></li>
                 <li><button class="swatch" type="button" data-hex="#051313"><i style="background:#051313"></i><span>#051313<em>Ink black background</em></span></button></li>
               </ul>
-              <p class="hint">Click a swatch to copy its hex code.</p>
             </section>
             <section class="chapter" id="pf-test" aria-labelledby="pf-test-h">
               <p class="eyebrow">Testing</p>
@@ -1010,8 +1009,7 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
     page.inert = true;
     current = id;
     document.querySelectorAll('.nav .tab').forEach(t => t.setAttribute('aria-current', t.dataset.sec === 'projects' ? 'true' : 'false'));
-    cueT.textContent = 'Esc or Back closes this file'; cue.classList.remove('gone');
-    setTimeout(() => cue.classList.add('gone'), 2600);
+    cue.classList.add('gone');
     const ngLoop = ngLoopEl();
     if (ngLoop){ if (id === 'nitro-guzzler' && !reduce.matches) ngLoop.play().catch(()=>{}); else ngLoop.pause(); }
     const h = document.querySelector('#case-' + id + ' h1'); h && h.focus({preventScroll:true});
