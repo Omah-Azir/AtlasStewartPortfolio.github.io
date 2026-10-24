@@ -1,6 +1,6 @@
 # Atlas Stewart
 
-> Game UI/UX designer at DigiPen Institute of Technology, specializing in UI/UX and level design. Former Treyarch intern. Creative Director and UI/UX designer on Nitro Guzzler, a 31-person student racing game shipping on Steam in December 2026. Deep Unreal Engine Blueprint experience.
+> Game UI/UX designer at DigiPen Institute of Technology, specializing in UI/UX and level design. Former Treyarch intern and game design instructor for DigiPen Open World. Creative Director and UI/UX designer on Nitro Guzzler, a 31-person student racing game shipping on Steam in December 2026. Deep Unreal Engine Blueprint experience.
 
 All case studies are on one page. Each project opens at its own anchor.
 
@@ -21,3 +21,7 @@ All case studies are on one page. Each project opens at its own anchor.
 ## Contact
 
 - [Contact section](https://omah-azir.github.io/AtlasStewartPortfolio.github.io/#contact)
+- Email: atlasgamedeveloper@gmail.com
+- Phone: (425) 620-8472
+- [LinkedIn](https://www.linkedin.com/in/atlas-stewart-3a333a33a)
+- [Linktree](https://linktr.ee/atlasgamedeveloper)
