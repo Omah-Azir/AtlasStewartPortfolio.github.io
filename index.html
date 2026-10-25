@@ -426,6 +426,127 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
 /* Drafts: placeholders only show off the live site, or with ?draft */
 .public .pending,.public .todo,.public .media-slot{display:none!important}
 
+/* ================= Glass layer =================
+   Everything floats. Panels are clear glass with a thin lit edge and corner
+   brackets; light text sits on top. Tokens derive from each theme's ink and
+   accent, so every project re-themes the glass too. */
+:root{
+  --glass:color-mix(in srgb,var(--ink) 5%,transparent);
+  --glass-hi:color-mix(in srgb,var(--ink) 9%,transparent);
+  --edge:color-mix(in srgb,var(--ink) 17%,transparent);
+  --edge-soft:color-mix(in srgb,var(--ink) 9%,transparent);
+  --corner:color-mix(in srgb,var(--accent) 90%,transparent);
+  --sheen:color-mix(in srgb,var(--ink) 16%,transparent);
+  --blur:blur(18px) saturate(150%);
+  --amb-a:var(--accent); --amb-b:var(--red-hi);
+  --ambient:
+    radial-gradient(70vw 60vh at 88% -10%,color-mix(in srgb,var(--amb-a) 17%,transparent),transparent 70%),
+    radial-gradient(55vw 55vh at -5% 55%,color-mix(in srgb,var(--amb-a) 9%,transparent),transparent 70%),
+    radial-gradient(50vw 45vh at 70% 115%,color-mix(in srgb,var(--amb-b) 26%,transparent),transparent 70%),
+    linear-gradient(color-mix(in srgb,var(--ink) 4%,transparent) 1px,transparent 1px) 0 0/64px 64px,
+    linear-gradient(90deg,color-mix(in srgb,var(--ink) 4%,transparent) 1px,transparent 1px) 0 0/64px 64px;
+  --display-weight:300;
+  --glow:0 0 22px rgba(99,217,217,.28);
+}
+:root[data-project]{--amb-b:var(--accent)}
+:root[data-project="this-portfolio"]{--amb-b:var(--red-hi);--glow:0 0 22px rgba(99,217,217,.28)}
+:root[data-project="enshahtenti"]{--glow:0 0 22px rgba(227,251,255,.25)}
+
+body{background:var(--ambient),var(--desk);background-attachment:fixed;font-weight:400}
+.views{background:var(--ambient),var(--desk)}
+.sheet,.case{background:transparent;box-shadow:none}
+.tabs{background:color-mix(in srgb,var(--desk) 55%,transparent);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border-bottom:1px solid var(--edge-soft)}
+.tab::before{background:var(--glass);border:1px solid var(--edge);border-bottom:0;transform:none;border-radius:9px 9px 0 0}
+.tab[aria-current="true"]::before{background:var(--glass-hi);border-color:color-mix(in srgb,var(--accent) 45%,transparent);box-shadow:inset 0 2px 0 var(--red-hi)}
+.tab-name{font-weight:400}
+
+/* type: lighter, more air */
+h1,h2,h3{letter-spacing:-.005em}
+.hero h1{font-weight:200}
+h2{font-weight:300}
+.eyebrow,.glance dt,.facts span,.contact-list .k,.file-tab,.toc,.tab{font-weight:300;letter-spacing:.14em}
+.lede{font-weight:300}
+.n,.d-num{font-weight:600}
+
+/* the glass itself */
+.contrib li,.story-card,.notes li,.tool,.resume,.flow li,.dir,.swatch,.media-slot,.compass-panel,.contact-list,.glance,.hud-label,.lb-close{
+  background-color:var(--glass);border:1px solid var(--edge);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);
+  box-shadow:inset 0 1px 0 var(--sheen),0 20px 40px -32px rgba(0,0,0,.7)}
+/* corner brackets: the framing device */
+.story-card,.resume,.tool,.compass-panel,.contact-list,.glance,.file-face,.contrib{
+  --cl:14px;
+  background-image:
+    linear-gradient(var(--corner),var(--corner)),linear-gradient(var(--corner),var(--corner)),
+    linear-gradient(var(--corner),var(--corner)),linear-gradient(var(--corner),var(--corner)),
+    linear-gradient(var(--corner),var(--corner)),linear-gradient(var(--corner),var(--corner)),
+    linear-gradient(var(--corner),var(--corner)),linear-gradient(var(--corner),var(--corner));
+  background-size:var(--cl) 1px,1px var(--cl),var(--cl) 1px,1px var(--cl),var(--cl) 1px,1px var(--cl),var(--cl) 1px,1px var(--cl);
+  background-position:0 0,0 0,100% 0,100% 0,0 100%,0 100%,100% 100%,100% 100%;
+  background-repeat:no-repeat;background-origin:border-box;background-clip:border-box}
+.story-card{border-top:1px solid var(--edge);border-radius:4px}
+.story-card b::before{color:var(--accent)}
+.resume,.tool,.compass-panel,.glance,.contact-list{border-radius:4px}
+.resume::before{background:var(--glass);border:1px solid var(--edge);border-bottom:0;font-weight:300;letter-spacing:.14em}
+.contrib{padding:.6rem;border:1px solid var(--edge-soft);border-radius:4px}
+.contrib li{border-radius:3px;background-image:none}
+.contrib li::before{background:transparent;border:1px solid var(--accent);border-radius:1px}
+.notes li{border-radius:4px}
+.notes li.lit{border-color:var(--accent);box-shadow:inset 0 1px 0 var(--sheen),0 0 0 1px var(--accent),0 0 24px -6px color-mix(in srgb,var(--accent) 60%,transparent)}
+.mono-mark{background:transparent;border:1px solid var(--edge);font-weight:300}
+.glance{padding:.25rem 1.1rem;border-top:1px solid var(--edge)}
+.glance div{border-bottom:0}
+.contact-list{padding:.2rem 1.2rem}
+.contact-list li{border-top:0;border-bottom:1px solid var(--edge-soft)}
+.contact-list li:last-child{border-bottom:0}
+.dir[aria-pressed="true"]{background-color:color-mix(in srgb,var(--accent) 22%,transparent);color:var(--ink);border-color:var(--accent);box-shadow:inset 0 1px 0 var(--sheen),0 0 26px -8px var(--accent)}
+.dir[aria-pressed="true"] small{color:var(--accent)}
+
+/* buttons and chips: glass with a lit edge */
+.btn{background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--ink);border:1px solid color-mix(in srgb,var(--accent) 60%,transparent);
+  backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);font-weight:500;border-radius:999px;box-shadow:inset 0 1px 0 var(--sheen)}
+.btn:hover{background:color-mix(in srgb,var(--accent) 24%,transparent);box-shadow:inset 0 1px 0 var(--sheen),0 0 28px -8px var(--accent)}
+.btn.ghost{background:var(--glass);border-color:var(--edge);box-shadow:inset 0 1px 0 var(--sheen)}
+.copy,.draw-toggle{background:var(--glass);border:1px solid var(--edge);border-radius:999px;backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur)}
+.cue{background:color-mix(in srgb,var(--desk) 40%,transparent);color:var(--ink);border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);
+  backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);box-shadow:inset 0 1px 0 var(--sheen),0 10px 30px -14px rgba(0,0,0,.7);font-weight:300}
+.chip{border-width:1px;font-weight:300;background:color-mix(in srgb,var(--f-bg) 40%,transparent);backdrop-filter:blur(6px)}
+
+/* project deck: each file is a pane of tinted glass */
+.file{--f-alpha:70%}
+.file[data-p="nitro-guzzler"],.file[data-p="minecraft-project"]{--f-alpha:88%}
+.file-face{background-color:color-mix(in srgb,var(--f-bg) var(--f-alpha),transparent);border:1px solid color-mix(in srgb,var(--f-ink) 22%,transparent);border-radius:0 6px 6px 6px;
+  --corner:color-mix(in srgb,var(--f-acc) 90%,transparent);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);
+  box-shadow:inset 0 1px 0 color-mix(in srgb,var(--f-ink) 22%,transparent),-14px 0 30px -22px rgba(0,0,0,.6)}
+.file-tab{background:color-mix(in srgb,var(--f-bg) var(--f-alpha),transparent);border:1px solid color-mix(in srgb,var(--f-ink) 22%,transparent);border-bottom:0;
+  backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border-radius:6px 6px 0 0;font-weight:300}
+.file-media img{-webkit-mask-image:linear-gradient(#000 62%,transparent);mask-image:linear-gradient(#000 62%,transparent)}
+.file-media.cover-ng,.file-media.cover-noc,.file-media.cover-en,.file-media.cover-mc{-webkit-mask-image:linear-gradient(#000 62%,transparent);mask-image:linear-gradient(#000 62%,transparent)}
+.file-face::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;
+  background:linear-gradient(105deg,transparent 35%,color-mix(in srgb,var(--f-ink) 14%,transparent) 50%,transparent 65%) no-repeat;
+  background-size:250% 100%;background-position:120% 0;transition:background-position .9s var(--ease)}
+.file:hover .file-face::after,.file:focus-visible .file-face::after{background-position:-20% 0}
+.file:hover .file-face{box-shadow:inset 0 1px 0 color-mix(in srgb,var(--f-ink) 28%,transparent),0 0 0 1px color-mix(in srgb,var(--f-acc) 55%,transparent),0 30px 60px -30px rgba(0,0,0,.8),0 0 40px -14px color-mix(in srgb,var(--f-acc) 50%,transparent)}
+.file-title{font-weight:var(--fx-weight,300)}
+
+/* images float on a thin frame */
+.case figure img,.draw-stage,.compare{border-radius:6px}
+.case figure > img,.draw-stage,.compare,.ng-screen{box-shadow:0 0 0 1px var(--edge),0 30px 60px -36px rgba(0,0,0,.85)}
+.d-label{background:rgba(6,14,16,.62);backdrop-filter:blur(10px) saturate(140%);-webkit-backdrop-filter:blur(10px) saturate(140%);border-radius:4px}
+
+/* résumé: a sheet hanging in glass */
+.resume-view{border-radius:3px;box-shadow:0 0 0 1px var(--edge),0 30px 60px -30px rgba(0,0,0,.8)}
+
+/* reveals: things materialize instead of sliding up heavy */
+@supports (animation-timeline: view()){
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{animation:materialize linear both;animation-timeline:view();animation-range:entry 0% cover 20%}
+    @keyframes materialize{from{opacity:.3;transform:translateY(14px);filter:blur(3px)}to{opacity:1;transform:none;filter:none}}
+  }
+}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .contrib li,.story-card,.notes li,.tool,.resume,.flow li,.dir,.swatch,.compass-panel,.contact-list,.glance,.file-face,.file-tab,.cue,.tabs{background-color:color-mix(in srgb,var(--desk) 88%,var(--ink))}
+}
+
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
