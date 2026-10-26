@@ -197,7 +197,12 @@ p{margin:0;max-width:65ch}
   font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;color:var(--ink-2)}
 .resume-view{position:relative;display:block;aspect-ratio:8.5/11;max-width:100%;border-radius:8px;overflow:hidden;background:#FFFFFF;text-decoration:none;
   box-shadow:0 18px 40px -24px rgba(0,0,0,.7)}
-.resume-view iframe{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none;background:#FFFFFF}
+.resume-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;background:#FFFFFF;transition:transform .5s var(--ease),filter .35s var(--ease)}
+.resume-view:hover .resume-img,.resume-view:focus-visible .resume-img{transform:scale(1.03)}
+.resume-fallback{display:none;position:absolute;inset:0;place-content:center;gap:.4rem;text-align:center;color:#051313;font-family:var(--font-mono)}
+.resume-fallback b{font-size:1.4rem;font-weight:500}
+.no-img .resume-img{display:none}
+.no-img .resume-fallback{display:grid}
 .resume-cover{position:absolute;inset:0;background:rgba(5,19,19,0);transition:background-color .35s var(--ease)}
 .open-pill{position:absolute;right:14px;bottom:14px;display:flex;align-items:center;height:3rem;min-width:3rem;padding:0 .95rem;border-radius:999px;
   background:var(--accent);color:var(--accent-ink);font-family:var(--font-mono);font-weight:600;font-size:.85rem;letter-spacing:.04em;gap:0;
@@ -426,6 +431,17 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
 /* Drafts: placeholders only show off the live site, or with ?draft */
 .public .pending,.public .todo,.public .media-slot{display:none!important}
 
+
+/* live status strip at the top */
+.status{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:clamp(1.5rem,3vw,2.25rem)}
+.status .now{margin:0;padding:.5rem .9rem;border-radius:999px;background:var(--glass);border:1px solid var(--edge);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);
+  box-shadow:inset 0 1px 0 var(--sheen);font-weight:300;max-width:100%}
+.status .now b{font-weight:500;color:var(--ink)}
+.status .reloc b{color:var(--accent)}
+.pin-ic{width:1rem;height:1rem;display:inline-grid;color:var(--accent)}
+.pin-ic svg{width:100%;height:100%}
+@media (prefers-reduced-motion: no-preference){.status .dot{animation:pulse 2.2s ease-in-out infinite}@keyframes pulse{50%{box-shadow:0 0 0 7px color-mix(in srgb,var(--accent) 0%,transparent),0 0 12px var(--accent)}}}
+
 /* ================= Glass layer =================
    Everything floats. Panels are clear glass with a thin lit edge and corner
    brackets; light text sits on top. Tokens derive from each theme's ink and
@@ -580,19 +596,13 @@ h2{font-weight:300}
 </header>
 
 <main class="sheet" id="page">
-  <section class="wrap hero" id="home" aria-labelledby="hero-title">
+  <h1 class="sr-only">Atlas Stewart, game UI/UX designer</h1>
+  <section class="wrap band" id="projects" aria-labelledby="projects-title" style="padding-top:clamp(1.25rem,2.5vw,2rem)">
     <div class="inner">
-      <p class="eyebrow">Atlas Stewart · Game UI/UX designer · DigiPen</p>
-      <h1 id="hero-title">Interfaces players read <em>at a glance.</em></h1>
-      <div class="hero-row">
-        <p class="lede">I design menus and HUDs, and the systems underneath them. I usually start with a moodboard and finish with a working build in engine. Every file below shows how I got there.</p>
-        <p class="now"><span class="dot" aria-hidden="true"></span><span>Now: <b>Creative Director + UI/UX, Nitro Guzzler</b>. Steam, Dec 2026</span></p>
+      <div class="status" id="home">
+        <p class="now"><span class="dot" aria-hidden="true"></span><span>Now <b>Creative Director + UI/UX, Nitro Guzzler</b> · Steam, Dec 2026</span></p>
+        <p class="now reloc"><span class="pin-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg></span><span>Redmond, WA · <b>Open to relocate</b></span></p>
       </div>
-    </div>
-  </section>
-
-  <section class="wrap band" id="projects" aria-labelledby="projects-title" style="padding-top:clamp(1.5rem,3vw,2.5rem)">
-    <div class="inner">
       <div class="deck-head">
         <h2 id="projects-title">Projects</h2>
       </div>
@@ -689,19 +699,21 @@ h2{font-weight:300}
           <p class="eyebrow">About</p>
           <h2 id="about-title">Hi, I'm Atlas.</h2>
           <p class="lede">I'm a game designer at DigiPen. I focus on UI/UX and level design. I care about that one second when a player looks at a screen and just knows what to do.</p>
-          <p>I know Unreal Blueprints really well, and I bring that to teams of C++ programmers. I've led student teams as a producer. One of my games, released on Steam in my sophomore year, won an award. Right now I'm Creative Director and UI/UX designer on Nitro Guzzler. It's a 31-person racing game shipping on Steam in December 2026.</p>
+          <p>Unreal Blueprints are my native language, and I bring that to teams of C++ programmers. I've led student teams as a producer. One of my games, released on Steam in my sophomore year, won an award. Right now I'm Creative Director and UI/UX designer on Nitro Guzzler. It's a 31-person racing game shipping on Steam in December 2026.</p>
           <ul class="facts">
             <li><span>Focus</span>Game UI/UX, HUDs, menus, style guides</li>
             <li><span>Also</span>Level design, leading teams</li>
             <li><span>Experience</span>Nitro Guzzler (Creative Director, UI/UX) · Game design instructor, DigiPen Open World</li>
             <li><span>Award</span>Won an award for a Steam game I released sophomore year</li>
             <li><span>School</span>DigiPen Institute of Technology</li>
+            <li><span>Based in</span>Redmond, WA · Open to relocate</li>
           </ul>
         </div>
         <aside class="resume reveal" aria-labelledby="resume-title" style="margin-top:28px">
           <h3 id="resume-title">My résumé</h3>
           <a class="resume-view" href="https://drive.google.com/file/d/1YiB4TUytKC5HxxYsFp5sX9tJaJlAxgy4/view?usp=sharing" target="_blank" rel="noopener" aria-label="Open my résumé in a new tab">
-            <iframe src="https://drive.google.com/file/d/1YiB4TUytKC5HxxYsFp5sX9tJaJlAxgy4/preview" title="Atlas Stewart résumé" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
+            <img class="resume-img" src="https://drive.google.com/thumbnail?id=1YiB4TUytKC5HxxYsFp5sX9tJaJlAxgy4&amp;sz=w1400" alt="First page of Atlas Stewart's résumé" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.resume-view').classList.add('no-img')">
+            <span class="resume-fallback" aria-hidden="true"><b>Atlas Stewart</b><span>Résumé</span></span>
             <span class="resume-cover" aria-hidden="true"><span class="open-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg><span>Open résumé</span></span></span>
           </a>
         </aside>
@@ -1364,7 +1376,7 @@ h2{font-weight:300}
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
- {"@type":"Person","@id":"#atlas","name":"Atlas Stewart","jobTitle":"UI/UX Designer (Games)","email":"mailto:atlasgamedeveloper@gmail.com","telephone":"+1-425-620-8472","sameAs":["https://www.linkedin.com/in/atlas-stewart-3a333a33a","https://linktr.ee/atlasgamedeveloper"],"affiliation":{"@type":"CollegeOrUniversity","name":"DigiPen Institute of Technology"},
+ {"@type":"Person","@id":"#atlas","name":"Atlas Stewart","jobTitle":"UI/UX Designer (Games)","homeLocation":{"@type":"Place","name":"Redmond, Washington"},"description":"Open to relocate.","email":"mailto:atlasgamedeveloper@gmail.com","telephone":"+1-425-620-8472","sameAs":["https://www.linkedin.com/in/atlas-stewart-3a333a33a","https://linktr.ee/atlasgamedeveloper"],"affiliation":{"@type":"CollegeOrUniversity","name":"DigiPen Institute of Technology"},
   "award":"Award for a Steam game released in his sophomore year","knowsAbout":["Game UI design","UX design","HUD design","Diegetic UI","Style guides","Level design","Unreal Engine Blueprints","Figma","Unity","Maya","Krita"]},
  {"@type":"CreativeWork","name":"Nitro Guzzler","creator":{"@id":"#atlas"},"description":"Redline-inspired portal racing game built in Unreal Engine 5.5 by a 31-person student team, the Grease Monkeys. Atlas Stewart is Creative Director and UI/UX designer and designed a diegetic main menu: an attract-loop camera director, settings etched onto the car, and compass-style spray-painted menu arrows. Releasing on Steam in December 2026."},
  {"@type":"CreativeWork","name":"Chain of Jewels","creator":{"@id":"#atlas"},"description":"DES 360 team project (team of 5): a style guide built from a moodboard, then a complete game UI in Figma (main menu, jewel shop, skill forge, battle)."},
@@ -1445,7 +1457,7 @@ h2{font-weight:300}
 
   /* ---------- active tab, progress bar, scroll cue ---------- */
   const tabs = [...document.querySelectorAll('.nav .tab')];
-  const cues = {home:'Scroll to open the files', projects: matchMedia('(hover:none)').matches ? 'Tap a file to open it.' : 'Hover a file to peek. Click to open it.', about:'Keep going. Contact is at the bottom.', contact:"That's the bottom. Say hi."};
+  const cues = {home: matchMedia('(hover:none)').matches ? 'Tap a file to open it.' : 'Hover a file to peek. Click to open it.', projects: matchMedia('(hover:none)').matches ? 'Tap a file to open it.' : 'Hover a file to peek. Click to open it.', about:'Keep going. Contact is at the bottom.', contact:"That's the bottom. Say hi."};
   const seen = new Map();
   const io = new IntersectionObserver(entries => {
     entries.forEach(en => seen.set(en.target.id, en.isIntersecting ? en.intersectionRatio : 0));
