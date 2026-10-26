@@ -438,6 +438,10 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
   box-shadow:inset 0 1px 0 var(--sheen);font-weight:300;max-width:100%}
 .status .now b{font-weight:500;color:var(--ink)}
 .status .reloc b{color:var(--accent)}
+/* the red counterweight: status pills are oxblood glass, text stays turquoise */
+.status .now{background:color-mix(in srgb,var(--red) 38%,transparent);border-color:color-mix(in srgb,var(--red-hi) 85%,transparent);
+  box-shadow:inset 0 1px 0 color-mix(in srgb,#FF9A9A 22%,transparent),0 0 34px -10px color-mix(in srgb,var(--red-hi) 75%,transparent)}
+.status .reloc b{color:var(--ink)}
 .pin-ic{width:1rem;height:1rem;display:inline-grid;color:var(--accent)}
 .pin-ic svg{width:100%;height:100%}
 @media (prefers-reduced-motion: no-preference){.status .dot{animation:pulse 2.2s ease-in-out infinite}@keyframes pulse{50%{box-shadow:0 0 0 7px color-mix(in srgb,var(--accent) 0%,transparent),0 0 12px var(--accent)}}}
