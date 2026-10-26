@@ -476,6 +476,62 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
 .contact-list li:hover::before,.contact-list li:focus-within::before{opacity:1;transform:translate(0,-50%) rotate(45deg)}
 .contact-list li:hover .k,.contact-list li:focus-within .k{color:var(--accent)}
 
+
+/* ---------- Process reel: full-bleed, always moving ---------- */
+html,body{overflow-x:clip}
+.reel{width:100vw;margin-left:calc(50% - 50vw);margin-bottom:clamp(2.5rem,5vw,4rem);overflow:hidden;position:relative;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.reel-track{display:flex;gap:14px;width:max-content;padding-block:6px 10px}
+@media (prefers-reduced-motion: no-preference){
+  .reel-track{animation:reel 90s linear infinite}
+  .reel:hover .reel-track,.reel:focus-within .reel-track{animation-play-state:paused}
+  @keyframes reel{to{transform:translateX(calc(-50% - 7px))}}
+}
+@media (prefers-reduced-motion: reduce){
+  .reel{overflow-x:auto;scroll-snap-type:x mandatory}
+  .reel-slide{scroll-snap-align:start}
+  .reel-slide[aria-hidden="true"]{display:none}
+}
+.reel-slide{--h:clamp(190px,24vw,300px);position:relative;display:block;height:var(--h);aspect-ratio:4/3;flex:none;text-decoration:none;color:var(--ink);
+  border-radius:6px;overflow:hidden;border:1px solid var(--edge);background:var(--glass);
+  box-shadow:inset 0 1px 0 var(--sheen),0 20px 40px -28px rgba(0,0,0,.8);transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s}
+.reel-slide.wide{aspect-ratio:16/9}
+.reel-slide.tall{aspect-ratio:1/1}
+.reel-media,.reel-morph{position:absolute;inset:0}
+.reel-media img,.reel-media video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s var(--ease)}
+.reel-morph img{position:absolute;inset:0}
+@media (prefers-reduced-motion: no-preference){
+  .reel-morph img:last-child{animation:morph 7s ease-in-out infinite}
+  @keyframes morph{0%,30%{opacity:0}50%,80%{opacity:1}100%{opacity:0}}
+}
+.reel-cap{position:absolute;left:10px;right:10px;bottom:10px;display:grid;gap:.1rem;padding:.5rem .7rem;border-radius:4px;
+  background:rgba(5,19,19,.8);backdrop-filter:blur(12px) saturate(140%);-webkit-backdrop-filter:blur(12px) saturate(140%);border:1px solid rgba(180,237,237,.2);
+  color:#E6F6F6;transform:translateY(0);transition:transform .35s var(--ease),background-color .35s}
+.reel-cap b{font-family:var(--font-mono);font-weight:400;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:#63D9D9}
+.reel-cap span{font-size:.88rem;line-height:1.3}
+.reel-slide::after{content:"Open \2192";position:absolute;top:10px;right:10px;font-family:var(--font-mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;
+  padding:.3rem .55rem;border-radius:999px;background:rgba(5,19,19,.55);color:#B4EDED;border:1px solid rgba(99,217,217,.5);backdrop-filter:blur(8px);opacity:0;transform:translateY(-4px);transition:opacity .25s,transform .25s}
+.reel-slide:hover,.reel-slide:focus-visible{transform:translateY(-4px);border-color:color-mix(in srgb,var(--accent) 70%,transparent);
+  box-shadow:inset 0 1px 0 var(--sheen),0 0 0 1px color-mix(in srgb,var(--accent) 40%,transparent),0 26px 50px -26px rgba(0,0,0,.9),0 0 40px -12px color-mix(in srgb,var(--accent) 55%,transparent)}
+.reel-slide:hover .reel-media img,.reel-slide:hover .reel-media video{transform:scale(1.05)}
+.reel-slide:hover::after,.reel-slide:focus-visible::after{opacity:1;transform:none}
+.reel-slide:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* ---------- Project grid ---------- */
+.deck{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:46px 18px!important;height:auto!important;padding-top:28px}
+.file,.file + .file{margin:0!important;transform:none!important;flex:none!important}
+.file:hover,.file:focus-visible{transform:translateY(-5px)!important;z-index:2}
+.file{transition:transform .35s var(--ease)!important}
+.file-face{position:relative!important;inset:auto;height:100%}
+.file-media{height:auto!important;aspect-ratio:16/9}
+.file-more{opacity:1!important;transform:none!important;width:auto!important;margin-top:auto}
+.file-line{-webkit-line-clamp:2}
+.file-body{gap:.5rem}
+.file-title{font-size:clamp(1.15rem,1.6vw,1.45rem)}
+.file .open{display:inline-flex;gap:.4rem;align-items:center;transition:gap .25s var(--ease)}
+.file:hover .open,.file:focus-visible .open{gap:.8rem}
+.file:hover .file-media img{transform:scale(1.05)}
+
 /* ================= Glass layer =================
    Everything floats. Panels are clear glass with a thin lit edge and corner
    brackets; light text sits on top. Tokens derive from each theme's ink and
@@ -637,6 +693,35 @@ h2{font-weight:300}
         <p class="now"><span class="dot" aria-hidden="true"></span><span>Now <b>Creative Director + UI/UX, Nitro Guzzler</b> · Steam, Dec 2026</span></p>
         <p class="now reloc"><span class="pin-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg></span><span>Redmond, WA · <b>Open to relocate</b></span></p>
       </div>
+      <section class="reel" aria-labelledby="reel-title">
+        <h2 id="reel-title" class="sr-only">Process reel</h2>
+        <div class="reel-track">
+<a class="reel-slide wide" href="#nitro-guzzler" data-p="nitro-guzzler" data-sec="ng-void"><span class="reel-media"><video src="media/ng-title-loop.mp4" poster="img/ng-title-poster.webp" muted loop playsinline preload="none"></video></span><span class="reel-cap"><b>Nitro Guzzler</b><span>Main menu title loop</span></span></a>
+<a class="reel-slide wide" href="#chain-of-jewels" data-p="chain-of-jewels" data-sec="coj-frame"><span class="reel-media"><span class="reel-morph"><img src="img/coj-frame-greybox.webp" alt="" width="1600" height="736" loading="lazy" style="object-position:center"><img src="img/coj-main-menu.webp" alt="" width="1600" height="736" loading="lazy" style="object-position:center"></span></span><span class="reel-cap"><b>Chain of Jewels</b><span>Greybox frame to art pass</span></span></a>
+<a class="reel-slide " href="#this-portfolio" data-p="this-portfolio" data-sec="pf-test"><span class="reel-media"><span class="reel-morph"><img src="img/pf-cvd-first.webp" alt="" width="1600" height="1227" loading="lazy" style="object-position:center"><img src="img/pf-cvd-final.webp" alt="" width="1600" height="1227" loading="lazy" style="object-position:center"></span></span><span class="reel-cap"><b>This portfolio</b><span>Where red fails</span></span></a>
+<a class="reel-slide " href="#enshahtenti" data-p="enshahtenti" data-sec="en-boards"><span class="reel-media"><img src="img/en-moodboards.webp" alt="" width="2000" height="1500" loading="lazy" style="object-position:50% 20%"></span><span class="reel-cap"><b>Enshahtenti</b><span>Style, weapon and power boards</span></span></a>
+<a class="reel-slide wide" href="#minecraft-project" data-p="minecraft-project" data-sec="mc-live"><span class="reel-media"><img src="img/mc-ingame.webp" alt="" width="1600" height="900" loading="lazy" style="object-position:center"></span><span class="reel-cap"><b>Minecraft project</b><span>Inventory wireframe over the live game</span></span></a>
+<a class="reel-slide " href="#chain-of-jewels" data-p="chain-of-jewels" data-sec="coj-board"><span class="reel-media"><img src="img/coj-moodboard.webp" alt="" width="2000" height="1318" loading="lazy" style="object-position:center"></span><span class="reel-cap"><b>Chain of Jewels</b><span>The moodboard</span></span></a>
+<a class="reel-slide wide" href="#enshahtenti" data-p="enshahtenti" data-sec="en-health"><span class="reel-media"><img src="img/en-health-tests.webp" alt="" width="1600" height="896" loading="lazy" style="object-position:center"></span><span class="reel-cap"><b>Enshahtenti</b><span>Health tests over a greybox</span></span></a>
+<a class="reel-slide wide" href="#chain-of-jewels" data-p="chain-of-jewels" data-sec="coj-screens"><span class="reel-media"><img src="img/coj-battle.webp" alt="" width="1600" height="736" loading="lazy" style="object-position:center"></span><span class="reel-cap"><b>Chain of Jewels</b><span>Battle screen</span></span></a>
+<a class="reel-slide " href="#this-portfolio" data-p="this-portfolio" data-sec="pf-process"><span class="reel-media"><img src="img/pf-process.webp" alt="" width="2000" height="1500" loading="lazy" style="object-position:70% 60%"></span><span class="reel-cap"><b>This portfolio</b><span>Every pass of the color chart</span></span></a>
+<a class="reel-slide wide" href="#chain-of-jewels" data-p="chain-of-jewels" data-sec="coj-frame"><span class="reel-media"><img src="img/coj-skill-forge.webp" alt="" width="1600" height="736" loading="lazy" style="object-position:center"></span><span class="reel-cap"><b>Chain of Jewels</b><span>Skill Forge first pass</span></span></a>
+<a class="reel-slide tall" href="#minecraft-project" data-p="minecraft-project" data-sec="mc-flat"><span class="reel-media"><img src="img/mc-wireframe.webp" alt="" width="1100" height="1045" loading="lazy" style="object-position:center"></span><span class="reel-cap"><b>Minecraft project</b><span>The flat wireframe</span></span></a>
+<a class="reel-slide wide" href="#enshahtenti" data-p="enshahtenti" data-sec="en-color"><span class="reel-media"><img src="img/en-boards.webp" alt="" width="1262" height="594" loading="lazy" style="object-position:center"></span><span class="reel-cap"><b>Enshahtenti</b><span>UI colors against the world</span></span></a>
+<a class="reel-slide wide" href="#nitro-guzzler" data-p="nitro-guzzler" data-sec="ng-void" aria-hidden="true" tabindex="-1"><span class="reel-media"><video src="media/ng-title-loop.mp4" poster="img/ng-title-poster.webp" muted loop playsinline preload="none"></video></span><span class="reel-cap"><b>Nitro Guzzler</b><span>Main menu title loop</span></span></a>
+<a class="reel-slide wide" href="#chain-of-jewels" data-p="chain-of-jewels" data-sec="coj-frame" aria-hidden="true" tabindex="-1"><span class="reel-media"><span class="reel-morph"><img src="img/coj-frame-greybox.webp" alt="" width="1600" height="736" loading="lazy" style="object-position:center"><img src="img/coj-main-menu.webp" alt="" width="1600" height="736" loading="lazy" style="object-position:center"></span></span><span class="reel-cap"><b>Chain of Jewels</b><span>Greybox frame to art pass</span></span></a>
+<a class="reel-slide " href="#this-portfolio" data-p="this-portfolio" data-sec="pf-test" aria-hidden="true" tabindex="-1"><span class="reel-media"><span class="reel-morph"><img src="img/pf-cvd-first.webp" alt="" width="1600" height="1227" loading="lazy" style="object-position:center"><img src="img/pf-cvd-final.webp" alt="" width="1600" height="1227" loading="lazy" style="object-position:center"></span></span><span class="reel-cap"><b>This portfolio</b><span>Where red fails</span></span></a>
+<a class="reel-slide " href="#enshahtenti" data-p="enshahtenti" data-sec="en-boards" aria-hidden="true" tabindex="-1"><span class="reel-media"><img src="img/en-moodboards.webp" alt="" width="2000" height="1500" loading="lazy" style="object-position:50% 20%"></span><span class="reel-cap"><b>Enshahtenti</b><span>Style, weapon and power boards</span></span></a>
+<a class="reel-slide wide" href="#minecraft-project" data-p="minecraft-project" data-sec="mc-live" aria-hidden="true" tabindex="-1"><span class="reel-media"><img src="img/mc-ingame.webp" alt="" width="1600" height="900" loading="lazy" style="object-position:center"></span><span class="reel-cap"><b>Minecraft project</b><span>Inventory wireframe over the live game</span></span></a>
+<a class="reel-slide " href="#chain-of-jewels" data-p="chain-of-jewels" data-sec="coj-board" aria-hidden="true" tabindex="-1"><span class="reel-media"><img src="img/coj-moodboard.webp" alt="" width="2000" height="1318" loading="lazy" style="object-position:center"></span><span class="reel-cap"><b>Chain of Jewels</b><span>The moodboard</span></span></a>
+<a class="reel-slide wide" href="#enshahtenti" data-p="enshahtenti" data-sec="en-health" aria-hidden="true" tabindex="-1"><span class="reel-media"><img src="img/en-health-tests.webp" alt="" width="1600" height="896" loading="lazy" style="object-position:center"></span><span class="reel-cap"><b>Enshahtenti</b><span>Health tests over a greybox</span></span></a>
+<a class="reel-slide wide" href="#chain-of-jewels" data-p="chain-of-jewels" data-sec="coj-screens" aria-hidden="true" tabindex="-1"><span class="reel-media"><img src="img/coj-battle.webp" alt="" width="1600" height="736" loading="lazy" style="object-position:center"></span><span class="reel-cap"><b>Chain of Jewels</b><span>Battle screen</span></span></a>
+<a class="reel-slide " href="#this-portfolio" data-p="this-portfolio" data-sec="pf-process" aria-hidden="true" tabindex="-1"><span class="reel-media"><img src="img/pf-process.webp" alt="" width="2000" height="1500" loading="lazy" style="object-position:70% 60%"></span><span class="reel-cap"><b>This portfolio</b><span>Every pass of the color chart</span></span></a>
+<a class="reel-slide wide" href="#chain-of-jewels" data-p="chain-of-jewels" data-sec="coj-frame" aria-hidden="true" tabindex="-1"><span class="reel-media"><img src="img/coj-skill-forge.webp" alt="" width="1600" height="736" loading="lazy" style="object-position:center"></span><span class="reel-cap"><b>Chain of Jewels</b><span>Skill Forge first pass</span></span></a>
+<a class="reel-slide tall" href="#minecraft-project" data-p="minecraft-project" data-sec="mc-flat" aria-hidden="true" tabindex="-1"><span class="reel-media"><img src="img/mc-wireframe.webp" alt="" width="1100" height="1045" loading="lazy" style="object-position:center"></span><span class="reel-cap"><b>Minecraft project</b><span>The flat wireframe</span></span></a>
+<a class="reel-slide wide" href="#enshahtenti" data-p="enshahtenti" data-sec="en-color" aria-hidden="true" tabindex="-1"><span class="reel-media"><img src="img/en-boards.webp" alt="" width="1262" height="594" loading="lazy" style="object-position:center"></span><span class="reel-cap"><b>Enshahtenti</b><span>UI colors against the world</span></span></a>
+        </div>
+      </section>
       <div class="deck-head">
         <h2 id="projects-title">Projects</h2>
       </div>
@@ -1504,7 +1589,7 @@ h2{font-weight:300}
 
   /* ---------- active tab, progress bar, scroll cue ---------- */
   const tabs = [...document.querySelectorAll('.nav .tab')];
-  const cues = {home: matchMedia('(hover:none)').matches ? 'Tap a file to open it.' : 'Hover a file to peek. Click to open it.', projects: matchMedia('(hover:none)').matches ? 'Tap a file to open it.' : 'Hover a file to peek. Click to open it.', about:'Keep going. Contact is at the bottom.', contact:'Pick an option to reach me.'};
+  const cues = {home: 'Click any frame or file to open it.', projects: 'Click any file to open it.', about:'Keep going. Contact is at the bottom.', contact:'Pick an option to reach me.'};
   const seen = new Map();
   const io = new IntersectionObserver(entries => {
     entries.forEach(en => seen.set(en.target.id, en.isIntersecting ? en.intersectionRatio : 0));
@@ -1531,20 +1616,6 @@ h2{font-weight:300}
   views.addEventListener('scroll', onScroll, {passive:true});
 
 
-  /* ---------- deck fans out slightly as it scrolls into view ---------- */
-  const deck = document.querySelector('.deck');
-  const tilts = ['-1.4deg','1deg','-.7deg','1.2deg','-1deg','.8deg'];
-  document.querySelectorAll('.file').forEach((f, i) => f.style.setProperty('--tilt', tilts[i % tilts.length]));
-  function spread(){
-    if (!deck) return;
-    if (reduce.matches){ deck.style.setProperty('--spread', 1); return; }
-    const r = deck.getBoundingClientRect(), vh = innerHeight;
-    const t = Math.min(1, Math.max(0, (vh - r.top) / (vh * 0.65)));
-    deck.style.setProperty('--spread', t.toFixed(3));
-  }
-  spread();
-  addEventListener('scroll', () => requestAnimationFrame(spread), {passive:true});
-  addEventListener('resize', spread);
 
   /* ---------- case-study table of contents ---------- */
   const tocIO = new IntersectionObserver(entries => entries.forEach(en => {
@@ -1670,6 +1741,18 @@ h2{font-weight:300}
     target.classList.add('zoomable');
     target.addEventListener('click', () => openLb(fig));
   });
+
+
+  /* ---------- process reel ---------- */
+  document.querySelectorAll('.reel-slide').forEach(sl => sl.addEventListener('click', e => {
+    e.preventDefault();
+    const id = sl.dataset.p, sec = sl.dataset.sec;
+    history.pushState(null, '', '#' + id);
+    lastCard = sl; apply(id);
+    requestAnimationFrame(() => { const t = document.getElementById(sec); if (t) views.scrollTop = t.getBoundingClientRect().top - views.getBoundingClientRect().top - 24; });
+  }));
+  const reelIO = new IntersectionObserver(es => es.forEach(e => { const v = e.target; if (e.isIntersecting && !reduce.matches) v.play().catch(()=>{}); else v.pause(); }), {threshold:.2});
+  document.querySelectorAll('.reel video').forEach(v => reelIO.observe(v));
 
   /* ---------- copy helpers ---------- */
   function say(msg){ toast.textContent = msg; toast.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.hidden = true, 1600); }
