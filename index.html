@@ -479,16 +479,24 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
 
 /* ---------- Process reel: full-bleed, always moving ---------- */
 html,body{overflow-x:clip}
-.reel{width:100vw;margin-left:calc(50% - 50vw);margin-bottom:clamp(2.5rem,5vw,4rem);overflow:hidden;position:relative;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.reel{width:100vw;margin-left:calc(50% - 50vw);margin-bottom:clamp(2.5rem,5vw,4rem);position:relative;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.reel-window{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.reel-track{will-change:transform}
+.reel-slide img,.reel-slide video{-webkit-user-drag:none;pointer-events:none}
+.reel.dragging .reel-slide{cursor:grabbing}
+.reel-edge{position:absolute;top:0;bottom:0;width:15%;z-index:3;pointer-events:none;display:flex;align-items:center;opacity:0;transition:opacity .3s var(--ease)}
+.reel-edge.l{left:0;justify-content:flex-start;padding-left:max(16px,env(safe-area-inset-left,0px))}
+.reel-edge.r{right:0;justify-content:flex-end;padding-right:max(16px,env(safe-area-inset-right,0px))}
+.reel-edge > span{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;color:var(--ink);background:color-mix(in srgb,var(--desk) 45%,transparent);
+  border:1px solid color-mix(in srgb,var(--accent) 55%,transparent);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);box-shadow:inset 0 1px 0 var(--sheen);transition:transform .25s var(--ease),box-shadow .25s}
+.reel-edge svg{width:20px;height:20px}
+.reel.hovering .reel-edge{opacity:.45}
+.reel .reel-edge.on{opacity:1}
+.reel .reel-edge.on > span{transform:scale(1.12);box-shadow:inset 0 1px 0 var(--sheen),0 0 30px -6px var(--accent)}
+@media (hover:none){.reel-edge{display:none}}
 .reel-track{display:flex;gap:14px;width:max-content;padding-block:6px 10px}
-@media (prefers-reduced-motion: no-preference){
-  .reel-track{animation:reel 90s linear infinite}
-  .reel:hover .reel-track,.reel:focus-within .reel-track{animation-play-state:paused}
-  @keyframes reel{to{transform:translateX(calc(-50% - 7px))}}
-}
 @media (prefers-reduced-motion: reduce){
-  .reel{overflow-x:auto;scroll-snap-type:x mandatory}
+  .reel-window{overflow-x:auto;scroll-snap-type:x mandatory}
   .reel-slide{scroll-snap-align:start}
   .reel-slide[aria-hidden="true"]{display:none}
 }
@@ -695,7 +703,7 @@ h2{font-weight:300}
       </div>
       <section class="reel" aria-labelledby="reel-title">
         <h2 id="reel-title" class="sr-only">Process reel</h2>
-        <div class="reel-track">
+        <div class="reel-window"><div class="reel-track">
 <a class="reel-slide wide" href="#nitro-guzzler" data-p="nitro-guzzler" data-sec="ng-void"><span class="reel-media"><video src="media/ng-title-loop.mp4" poster="img/ng-title-poster.webp" muted loop playsinline preload="none"></video></span><span class="reel-cap"><b>Nitro Guzzler</b><span>Main menu title loop</span></span></a>
 <a class="reel-slide wide" href="#chain-of-jewels" data-p="chain-of-jewels" data-sec="coj-frame"><span class="reel-media"><span class="reel-morph"><img src="img/coj-frame-greybox.webp" alt="" width="1600" height="736" loading="lazy" style="object-position:center"><img src="img/coj-main-menu.webp" alt="" width="1600" height="736" loading="lazy" style="object-position:center"></span></span><span class="reel-cap"><b>Chain of Jewels</b><span>Greybox frame to art pass</span></span></a>
 <a class="reel-slide " href="#this-portfolio" data-p="this-portfolio" data-sec="pf-test"><span class="reel-media"><span class="reel-morph"><img src="img/pf-cvd-first.webp" alt="" width="1600" height="1227" loading="lazy" style="object-position:center"><img src="img/pf-cvd-final.webp" alt="" width="1600" height="1227" loading="lazy" style="object-position:center"></span></span><span class="reel-cap"><b>This portfolio</b><span>Where red fails</span></span></a>
@@ -720,7 +728,9 @@ h2{font-weight:300}
 <a class="reel-slide wide" href="#chain-of-jewels" data-p="chain-of-jewels" data-sec="coj-frame" aria-hidden="true" tabindex="-1"><span class="reel-media"><img src="img/coj-skill-forge.webp" alt="" width="1600" height="736" loading="lazy" style="object-position:center"></span><span class="reel-cap"><b>Chain of Jewels</b><span>Skill Forge first pass</span></span></a>
 <a class="reel-slide tall" href="#minecraft-project" data-p="minecraft-project" data-sec="mc-flat" aria-hidden="true" tabindex="-1"><span class="reel-media"><img src="img/mc-wireframe.webp" alt="" width="1100" height="1045" loading="lazy" style="object-position:center"></span><span class="reel-cap"><b>Minecraft project</b><span>The flat wireframe</span></span></a>
 <a class="reel-slide wide" href="#enshahtenti" data-p="enshahtenti" data-sec="en-color" aria-hidden="true" tabindex="-1"><span class="reel-media"><img src="img/en-boards.webp" alt="" width="1262" height="594" loading="lazy" style="object-position:center"></span><span class="reel-cap"><b>Enshahtenti</b><span>UI colors against the world</span></span></a>
-        </div>
+        </div></div>
+        <span class="reel-edge l" aria-hidden="true"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></span></span>
+        <span class="reel-edge r" aria-hidden="true"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></span></span>
       </section>
       <div class="deck-head">
         <h2 id="projects-title">Projects</h2>
@@ -1753,6 +1763,50 @@ h2{font-weight:300}
   }));
   const reelIO = new IntersectionObserver(es => es.forEach(e => { const v = e.target; if (e.isIntersecting && !reduce.matches) v.play().catch(()=>{}); else v.pause(); }), {threshold:.2});
   document.querySelectorAll('.reel video').forEach(v => reelIO.observe(v));
+
+
+  /* ---------- reel motion: slow drift, edge hover steers, drag on touch ---------- */
+  (function(){
+    const reel = document.querySelector('.reel'); if (!reel || reduce.matches) return;
+    const win = reel.querySelector('.reel-window'), track = reel.querySelector('.reel-track');
+    const edgeL = reel.querySelector('.reel-edge.l'), edgeR = reel.querySelector('.reel-edge.r');
+    const ZONE = 0.15, DRIFT = -32, MAXV = 1100;
+    let x = 0, v = DRIFT, half = 0, last = performance.now(), hover = false, edge = 0, focused = false, visible = true;
+    let drag = null, moved = false;
+    function measure(){ const n = track.children.length / 2; half = track.children[n].offsetLeft - track.children[0].offsetLeft; }
+    measure(); addEventListener('resize', measure);
+    const wrap = () => { if (half <= 0) return; while (x <= -half) x += half; while (x > 0) x -= half; };
+    reel.addEventListener('pointermove', e => {
+      if (drag){ const dx = e.clientX - drag.x0; if (Math.abs(dx) > 6) moved = true; const now = performance.now(); v = (e.clientX - drag.lx) / Math.max(1, now - drag.lt) * 1000; drag.lx = e.clientX; drag.lt = now; x = drag.p0 + dx; wrap(); return; }
+      if (e.pointerType !== 'mouse') return;
+      const r = reel.getBoundingClientRect(), f = (e.clientX - r.left) / r.width;
+      edge = f < ZONE ? -(1 - f / ZONE) : f > 1 - ZONE ? (f - (1 - ZONE)) / ZONE : 0;
+      hover = true; reel.classList.add('hovering');
+      edgeL.classList.toggle('on', edge < 0); edgeR.classList.toggle('on', edge > 0);
+    });
+    reel.addEventListener('pointerleave', () => { hover = false; edge = 0; reel.classList.remove('hovering'); edgeL.classList.remove('on'); edgeR.classList.remove('on'); });
+    reel.addEventListener('pointerdown', e => { if (e.button && e.button !== 0) return; drag = {x0: e.clientX, p0: x, lx: e.clientX, lt: performance.now()}; moved = false; });
+    const endDrag = () => { if (!drag) return; drag = null; reel.classList.remove('dragging'); };
+    addEventListener('pointerup', endDrag); addEventListener('pointercancel', endDrag);
+    reel.addEventListener('pointermove', () => { if (drag && moved) reel.classList.add('dragging'); });
+    reel.addEventListener('click', e => { if (moved){ e.preventDefault(); e.stopImmediatePropagation(); moved = false; } }, true);
+    reel.addEventListener('focusin', e => { focused = true; const sl = e.target.closest('.reel-slide'); if (sl){ const wr = win.getBoundingClientRect(), sr = sl.getBoundingClientRect(); if (sr.left < wr.left + 40 || sr.right > wr.right - 40){ x -= (sr.left - wr.left) - wr.width * 0.2; wrap(); } } });
+    reel.addEventListener('focusout', () => { focused = false; });
+    new IntersectionObserver(es => { visible = es[0].isIntersecting; }).observe(reel);
+    function tick(now){
+      const dt = Math.min(0.05, (now - last) / 1000); last = now;
+      if (visible && !drag){
+        let want = DRIFT;
+        if (focused) want = 0;
+        else if (hover) want = edge ? -Math.sign(edge) * Math.pow(Math.abs(edge), 1.4) * MAXV : 0;
+        v += (want - v) * Math.min(1, dt * 5);
+        x += v * dt; wrap();
+      }
+      track.style.transform = 'translate3d(' + x.toFixed(2) + 'px,0,0)';
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  })();
 
   /* ---------- copy helpers ---------- */
   function say(msg){ toast.textContent = msg; toast.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.hidden = true, 1600); }
