@@ -11,7 +11,6 @@ All case studies are on one page. Each project opens at its own anchor and lists
 - [NOC-6000](https://omah-azir.github.io/AtlasStewartPortfolio.github.io/#noc-6000): Unreal Engine game with a robot protagonist and a diegetic holographic HUD in 3D world space, built from modules (sunrise tracker for six moons, mission clock, 3D crosshair, laser rangefinder, status and spear modules) that fade in and out with context.
 - [Enshahtenti](https://omah-azir.github.io/AtlasStewartPortfolio.github.io/#enshahtenti): Solo game feel deep dive into making each level of attack, the amount of damage and the player's health state feel different. Style, weapon and power mood boards, health UI tests over a greybox, and an Animus-inspired UI palette tested against environment colors.
 - [Minecraft project](https://omah-azir.github.io/AtlasStewartPortfolio.github.io/#minecraft-project): A redesign of the Minecraft inventory screen, wireframed flat and then overlaid on the live game.
-- [This portfolio](https://omah-azir.github.io/AtlasStewartPortfolio.github.io/#this-portfolio): The site's five-color oxblood and turquoise system, tested with color blindness simulations. Turquoise carries all text; the red is decoration only because it fails for many kinds of color blindness.
 
 ## About
 
