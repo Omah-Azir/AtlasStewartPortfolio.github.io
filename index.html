@@ -259,7 +259,7 @@ footer{padding-block:2rem 3rem;font-family:var(--font-mono);font-size:.75rem;let
 .case-hero{padding-block:clamp(1.5rem,4vw,3rem) clamp(2rem,4vw,3rem)}
 .case-hero h1{font-size:clamp(2.8rem,8vw,6.8rem);max-width:16ch}
 .case-hero .lede{margin-top:1.1rem;max-width:58ch}
-.glance{margin:2.25rem 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0;border-top:1px solid var(--rule)}
+.glance{margin:2.25rem 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:0;border-top:1px solid var(--rule)}
 .glance div{padding:.8rem 1rem .9rem 0;border-bottom:1px solid var(--rule)}
 .glance dt{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
 .glance dd{margin:.2rem 0 0;font-size:1rem}
@@ -474,6 +474,8 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
 .contact-list li:hover::before,.contact-list li:focus-within::before{opacity:1;transform:translate(0,-50%) rotate(45deg)}
 .contact-list li:hover .k,.contact-list li:focus-within .k{color:var(--accent)}
 
+
+html,body{overflow-x:clip}
 /* ---------- Project grid ---------- */
 .deck{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:46px 18px!important;height:auto!important;padding-top:28px}
 .file,.file + .file{margin:0!important;transform:none!important;flex:none!important}
@@ -488,55 +490,6 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
 .file .open{display:inline-flex;gap:.4rem;align-items:center;transition:gap .25s var(--ease)}
 .file:hover .open,.file:focus-visible .open{gap:.8rem}
 .file:hover .file-media img{transform:scale(1.05)}
-
-
-/* ---------- Intro: about first, compact, projects still in view ---------- */
-#projects-title{font-size:clamp(1.7rem,3vw,2.4rem)}
-.deck-head{margin-bottom:1.4rem}
-.intro{padding-block:clamp(1.25rem,2.5vw,2rem) clamp(1.5rem,3vw,2.25rem)}
-.intro-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(1.5rem,4vw,3.5rem);align-items:start}
-.intro h1{font-size:clamp(2.2rem,4.6vw,3.8rem);font-weight:200;margin-bottom:.9rem}
-.intro .lede{max-width:52ch}
-.intro-actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.3rem}
-.highlights{list-style:none;margin:0;padding:.35rem 1.1rem;display:grid;background-color:var(--glass);border:1px solid var(--edge);border-radius:4px;
-  backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);box-shadow:inset 0 1px 0 var(--sheen)}
-.highlights li{display:grid;grid-template-columns:5.6rem 1fr;column-gap:.9rem;padding-block:.6rem;border-bottom:1px solid var(--edge-soft)}
-.highlights li:last-child{border-bottom:0}
-.highlights .k{grid-row:span 2;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:300;padding-top:.2rem}
-.highlights b{font-weight:500;font-size:.98rem}
-.highlights small{color:var(--ink-2);font-size:.85rem}
-.tool-chips{display:flex;flex-wrap:wrap;gap:.35rem}
-.tool-chips span{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.06em;padding:.2rem .55rem;border:1px solid var(--edge);border-radius:999px;font-weight:300}
-.highlights .tools-row .k{grid-row:auto}
-@media (max-width:860px){.intro-grid{grid-template-columns:1fr}}
-
-
-/* My story: separate little sections, stacked */
-.story{grid-template-columns:1fr!important;gap:.8rem}
-.story-card{grid-template-columns:minmax(0,13rem) minmax(0,1fr);column-gap:1.6rem;row-gap:.6rem;padding:1.15rem 1.3rem 1.25rem;align-items:start}
-.story-card > b{grid-column:1;grid-row:1;font-size:1.08rem}
-.story-card > p{grid-column:2;max-width:62ch}
-@media (max-width:700px){.story-card{grid-template-columns:1fr}.story-card > b{grid-row:auto}.story-card > p{grid-column:1}}
-
-/* Roles over time */
-.roles{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:.75rem;counter-reset:rl}
-.role{position:relative;display:grid;gap:.45rem;align-content:start;padding:1rem 1.05rem 1.1rem;border-radius:4px;background-color:var(--glass);border:1px solid var(--edge);
-  backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);box-shadow:inset 0 1px 0 var(--sheen)}
-.role.current{border-color:color-mix(in srgb,var(--accent) 60%,transparent);box-shadow:inset 0 1px 0 var(--sheen),0 0 26px -12px var(--accent)}
-.role-when{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);font-weight:300}
-.role b{font-family:var(--font-display);font-stretch:var(--display-stretch);font-style:var(--display-style);font-size:1.15rem;line-height:1.15}
-.role p{font-size:.94rem}
-.role-link{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);text-decoration:none;margin-top:.2rem}
-.role-link:hover{text-decoration:underline}
-
-
-/* separate mood boards */
-.board{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,1fr);gap:1.5rem;align-items:start;padding-top:1.4rem;border-top:1px solid var(--edge-soft)}
-.board-copy{display:grid;gap:.45rem;position:sticky;top:1.5rem}
-.board-n{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.14em;color:var(--accent)}
-.board h3{font-size:1.4rem}
-.board p{font-size:.96rem;color:var(--ink-2)}
-@media (max-width:860px){.board{grid-template-columns:1fr}.board-copy{position:static}}
 
 /* ================= Glass layer =================
    Everything floats. Panels are clear glass with a thin lit edge and corner
@@ -658,38 +611,92 @@ h2{font-weight:300}
   .contrib li,.story-card,.notes li,.tool,.resume,.flow li,.dir,.swatch,.compass-panel,.contact-list,.glance,.file-face,.file-tab,.cue,.tabs{background-color:color-mix(in srgb,var(--desk) 88%,var(--ink))}
 }
 
-
-/* ---------- Chain of Jewels: papyrus pages in the game's stone-brick frame ---------- */
-#case-chain-of-jewels{--parch-ink:#2A1B0D;--parch-ink2:#5B4429;--parch-mark:#7A2A12}
-#case-chain-of-jewels .coj-frame{padding:clamp(12px,1.6vw,20px);margin-top:1rem;margin-bottom:clamp(2rem,4vw,3rem);border-radius:4px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='28'%3E%3Crect width='56' height='28' fill='%235F574C'/%3E%3Cg%3E%3Crect x='1' y='1' width='26' height='12' rx='1.5' fill='%23B9AE9C'/%3E%3Crect x='29' y='1' width='26' height='12' rx='1.5' fill='%23ADA28F'/%3E%3Crect x='-13' y='15' width='26' height='12' rx='1.5' fill='%23A69B88'/%3E%3Crect x='15' y='15' width='26' height='12' rx='1.5' fill='%23BEB3A2'/%3E%3Crect x='43' y='15' width='26' height='12' rx='1.5' fill='%23A69B88'/%3E%3C/g%3E%3Cg fill='%23FFFFFF' fill-opacity='.18'%3E%3Crect x='1' y='1' width='26' height='1.5'/%3E%3Crect x='29' y='1' width='26' height='1.5'/%3E%3Crect x='15' y='15' width='26' height='1.5'/%3E%3C/g%3E%3C/svg%3E") 0 0/56px 28px,#8E8576;
-  box-shadow:inset 0 0 0 2px rgba(0,0,0,.4),inset 0 0 30px rgba(0,0,0,.45),0 34px 70px -34px rgba(0,0,0,.9)}
-#case-chain-of-jewels .coj-page{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .32  0 0 0 0 .22  0 0 0 0 .1  0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),radial-gradient(ellipse at 50% 38%,#F4EAD2 0%,#EAD9B5 55%,#D4BC8E 100%);color:var(--parch-ink);border-radius:2px;padding:clamp(1.4rem,4vw,3rem);
-  box-shadow:inset 0 0 50px rgba(120,78,24,.38),inset 0 0 0 1px rgba(70,45,15,.45),0 0 0 3px rgba(40,26,10,.55)}
-#case-chain-of-jewels .coj-page h1{color:var(--parch-ink);text-shadow:0 1px 0 rgba(255,255,255,.35)}
-#case-chain-of-jewels .coj-page .eyebrow{color:var(--parch-mark);font-weight:500}
-#case-chain-of-jewels .coj-page .lede{color:var(--parch-ink2);font-weight:400}
-#case-chain-of-jewels .coj-page .glance{background:transparent;border:0;border-top:2px solid rgba(70,45,15,.45);border-bottom:2px solid rgba(70,45,15,.45);
-  box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;background-image:none;border-radius:0;padding:.2rem 0}
-#case-chain-of-jewels .coj-page .glance dt{color:var(--parch-mark);font-weight:500}
-#case-chain-of-jewels .coj-page .glance dd{color:var(--parch-ink);font-weight:500}
-/* little sections become small papyrus tiles with a stone border */
-#case-chain-of-jewels .contrib{background:none;border:0;padding:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
-#case-chain-of-jewels :is(.contrib li,.notes li,.story-card){background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .32  0 0 0 0 .22  0 0 0 0 .1  0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),radial-gradient(ellipse at 50% 38%,#F4EAD2 0%,#EAD9B5 55%,#D4BC8E 100%);color:var(--parch-ink);border:3px solid #A69B88;border-radius:3px;
-  outline:1px solid rgba(0,0,0,.45);backdrop-filter:none;-webkit-backdrop-filter:none;
-  box-shadow:inset 0 0 22px rgba(120,78,24,.3),inset 0 0 0 1px rgba(255,255,255,.3),0 12px 26px -16px rgba(0,0,0,.8)}
-#case-chain-of-jewels :is(.contrib li,.notes li,.story-card) :is(b,p){color:var(--parch-ink)}
-#case-chain-of-jewels :is(.notes li,.story-card) b{color:var(--parch-mark)}
-#case-chain-of-jewels .contrib li::before{border-color:var(--parch-mark);background:transparent}
-#case-chain-of-jewels .notes .n,#case-chain-of-jewels .story-card b::before{color:var(--parch-ink2)}
-#case-chain-of-jewels .notes li.lit{border-color:#E1B45A;box-shadow:inset 0 0 22px rgba(120,78,24,.3),0 0 0 2px #E1B45A,0 0 26px -6px #E1B45A}
-#case-chain-of-jewels .story-card .todo{color:var(--parch-ink2);border-color:var(--parch-mark)}
-#case-chain-of-jewels .story-card .todo::before{color:var(--parch-mark)}
-
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
 }
 ::view-transition-group(morph){animation-duration:.55s;animation-timing-function:cubic-bezier(.2,.8,.2,1)}
+
+/* ================= About first, projects right under it ================= */
+.intro{padding-block:clamp(1.25rem,2.5vw,2rem) 0}
+.intro-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:clamp(1.5rem,4vw,3.5rem);align-items:end}
+.intro h2{font-size:clamp(2rem,4.4vw,3.4rem);font-weight:200;max-width:22ch}
+.intro .lede{margin-top:1rem;max-width:58ch}
+.intro-actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.4rem}
+.intro-facts{margin:0;padding:.3rem 1.1rem;border-radius:4px;background-color:var(--glass);border:1px solid var(--edge);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);box-shadow:inset 0 1px 0 var(--sheen)}
+.intro-facts div{padding:.6rem 0;border-bottom:1px solid var(--edge-soft)}
+.intro-facts div:last-child{border-bottom:0}
+.intro-facts dt{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);font-weight:300}
+.intro-facts dd{margin:.1rem 0 0;font-size:.98rem}
+section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
+.projects .deck-head{margin-bottom:1.4rem}
+@media (max-width:860px){.intro-grid{grid-template-columns:1fr}.intro-facts{display:none}}
+@media (max-width:560px){.nav .tab[data-sec="resume"]{display:none}.intro .lede{font-size:1.02rem}.intro-actions .btn{padding:.6rem .95rem}}
+
+/* ================= Nitro Guzzler: team, timeline, story ================= */
+.team{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}
+@media (max-width:700px){.team{grid-template-columns:1fr}}
+.team-card{display:grid;gap:.45rem;align-content:start;padding:1rem 1.1rem 1.15rem;border-radius:4px;background-color:var(--glass);border:1px solid var(--edge);border-top:3px solid var(--accent);
+  backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);box-shadow:inset 0 1px 0 var(--sheen),0 20px 40px -32px rgba(0,0,0,.5)}
+.team-role{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.team-card b{font-family:var(--font-display);font-stretch:var(--display-stretch);font-style:var(--display-style);font-weight:800;font-size:1.25rem;line-height:1.1}
+.team-card p{font-size:.97rem}
+.team-card .todo{font-size:.74rem;padding:.5rem .6rem}
+.timeline{list-style:none;margin:0;padding:0 0 0 1.75rem;display:grid;gap:1.1rem;position:relative;max-width:70ch}
+.timeline::before{content:"";position:absolute;left:.45rem;top:.4rem;bottom:.4rem;width:2px;background:var(--rule)}
+.timeline li{position:relative;display:grid;gap:.15rem}
+.timeline li::before{content:"";position:absolute;left:-1.75rem;top:.3rem;width:.95rem;height:.95rem;border-radius:50%;background:var(--sheet);border:2px solid var(--ink-2)}
+.timeline li.done::before{background:var(--ink-2)}
+.timeline li.is-now::before{background:var(--accent);border-color:var(--accent);box-shadow:0 0 0 5px color-mix(in srgb,var(--accent) 22%,transparent)}
+.timeline li.ship::before{border-color:var(--accent);border-width:3px}
+.t-tag{justify-self:start;font-family:var(--font-mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);border:1px solid var(--edge);border-radius:999px;padding:.1rem .5rem}
+.timeline li.is-now .t-tag{color:var(--accent-ink);background:var(--accent);border-color:var(--accent)}
+.timeline b{font-family:var(--font-display);font-stretch:var(--display-stretch);font-style:var(--display-style);font-weight:800;font-size:1.15rem;line-height:1.15}
+.timeline p{font-size:.96rem;color:var(--ink-2)}
+.story-sec{gap:.9rem;border-left:3px solid var(--accent);padding-left:clamp(1rem,2.5vw,1.75rem);margin-top:calc(-1 * clamp(1.5rem,4vw,3rem))}
+.story-sec h3{font-size:clamp(1.6rem,3vw,2.3rem)}
+.story-sec p{max-width:62ch}
+.story-n{color:var(--accent);margin-right:.5rem;font-weight:600}
+
+/* ================= Enshahtenti: one board at a time ================= */
+.boards{display:grid;gap:clamp(2rem,4vw,3rem)}
+.board{grid-template-columns:minmax(0,1fr) minmax(0,2.1fr);gap:clamp(1rem,3vw,2rem);align-items:center}
+.board-head{display:grid;gap:.45rem;align-content:center}
+.board-head h3{font-size:clamp(1.5rem,2.6vw,2rem)}
+.board-sub{font-style:italic;color:var(--ink-2)!important;margin-top:-.2rem}
+.board-head p{font-size:.98rem}
+@media (max-width:760px){.board{grid-template-columns:1fr}}
+
+/* ================= Chain of Jewels: parchment pages in a stone frame ================= */
+#case-chain-of-jewels .chapters{gap:clamp(1.5rem,3vw,2.5rem)}
+#case-chain-of-jewels .case-hero,#case-chain-of-jewels .chapter{
+  --ink:#2B1E10;--ink-2:#5B4630;--rule:#B79F74;--accent:#7A4B0E;--accent-ink:#FBF3DF;--panel:rgba(255,248,228,.55);
+  --glass:rgba(255,249,232,.5);--glass-hi:rgba(255,249,232,.7);--edge:rgba(91,70,48,.38);--edge-soft:rgba(91,70,48,.2);--sheen:rgba(255,255,255,.55);--corner:rgba(122,75,14,.85);--glow:none;
+  color:var(--ink);position:relative;padding:clamp(1.4rem,4vw,3rem);
+  border:clamp(14px,1.8vw,22px) solid transparent;border-radius:3px;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .33 0 0 0 0 .22 0 0 0 0 .09 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") padding-box,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='700' height='700'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012' numOctaves='3' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .34 0 0 0 0 .12 0 0 0 -1.4 .62'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23s)'/%3E%3C/svg%3E") padding-box,
+    radial-gradient(ellipse at 50% 35%,#F4E9CC 0%,#EBDAB3 55%,#D8C08F 100%) padding-box,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='40'%3E%3Crect width='56' height='40' fill='%23716756'/%3E%3Crect x='1.5' y='1.5' width='53' height='17' rx='2' fill='%23BEB3A2'/%3E%3Crect x='-26.5' y='21.5' width='53' height='17' rx='2' fill='%23ADA190'/%3E%3Crect x='29.5' y='21.5' width='53' height='17' rx='2' fill='%23C7BDAD'/%3E%3Crect x='1.5' y='1.5' width='53' height='3' fill='%23D6CEC0'/%3E%3Crect x='-26.5' y='21.5' width='53' height='3' fill='%23C4B9A9'/%3E%3Crect x='29.5' y='21.5' width='53' height='3' fill='%23D9D1C4'/%3E%3C/svg%3E") 0 0/56px 40px border-box,
+    #716756 border-box;
+  box-shadow:inset 0 0 0 1px rgba(60,40,20,.45),inset 0 0 50px rgba(120,80,30,.4),0 0 0 1px rgba(0,0,0,.6),0 30px 60px -30px rgba(0,0,0,.95)}
+#case-chain-of-jewels .case-hero{margin-bottom:clamp(1.5rem,3vw,2.5rem)}
+#case-chain-of-jewels .case-hero h1{color:#3A2410;font-size:clamp(2.6rem,7vw,5.8rem)}
+#case-chain-of-jewels .case-hero h1::after{content:"";display:block;width:min(440px,75%);height:14px;margin-top:.7rem;
+  background:linear-gradient(#7A4B0E,#7A4B0E) 0 4px/100% 1.5px no-repeat,linear-gradient(#7A4B0E,#7A4B0E) 0 9px/100% 1px no-repeat,
+  radial-gradient(circle,#8E1F1F 0 4px,transparent 4.5px) 50% 0/14px 14px no-repeat}
+#case-chain-of-jewels .case-hero .lede{color:#3F2D1A;font-size:clamp(1.12rem,1.7vw,1.32rem);font-weight:400}
+#case-chain-of-jewels .chapter h2{color:#3A2410}
+#case-chain-of-jewels .chapter p,#case-chain-of-jewels .notes li,#case-chain-of-jewels .contrib li{font-size:1.06rem;line-height:1.7}
+#case-chain-of-jewels .chapter p.lede{color:#4A3622}
+#case-chain-of-jewels .eyebrow,#case-chain-of-jewels figcaption{color:#5B4630;font-weight:400}
+#case-chain-of-jewels .glance dd{font-weight:500}
+#case-chain-of-jewels .notes b{font-family:"Alegreya",Georgia,serif;font-weight:800;color:#3A2410}
+#case-chain-of-jewels .n{color:#7A4B0E}
+#case-chain-of-jewels .draw{--mark:#E1B45A}
+#case-chain-of-jewels .case figure img,#case-chain-of-jewels .draw-stage,#case-chain-of-jewels .compare,#case-chain-of-jewels figure > img{box-shadow:0 0 0 1px rgba(60,40,20,.5),0 18px 36px -22px rgba(40,25,10,.8)}
+#case-chain-of-jewels .todo{color:#4A3622}
 </style>
 <link rel="canonical" href="https://omah-azir.github.io/AtlasStewartPortfolio.github.io/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M3 9a2 2 0 0 1 2-2h8l3 3h11a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z' fill='%232A41C4'/%3E%3C/svg%3E">
@@ -700,51 +707,60 @@ h2{font-weight:300}
 <meta property="og:description" content="Case studies in game UI/UX: Nitro Guzzler's diegetic main menu, the Chain of Jewels style guide and UI, NOC-6000's holographic HUD.">
 <meta property="og:url" content="https://omah-azir.github.io/AtlasStewartPortfolio.github.io/">
 <meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://omah-azir.github.io/AtlasStewartPortfolio.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M3 9a2 2 0 0 1 2-2h8l3 3h11a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z' fill='%2363D9D9'/%3E%3C/svg%3E">
+<link rel="alternate" type="text/plain" href="llms.txt" title="Plain-text summary for AI tools">
+<meta name="theme-color" content="#051313">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Atlas Stewart · Game UI/UX Designer">
+<meta property="og:description" content="Case studies in game UI/UX: Nitro Guzzler's diegetic main menu, the Chain of Jewels style guide and UI, Enshahtenti's game feel deep dive.">
+<meta property="og:url" content="https://omah-azir.github.io/AtlasStewartPortfolio.github.io/">
+<meta name="twitter:card" content="summary">
 </head>
 <body>
 <a class="skip" href="#projects">Skip to projects</a>
 
 <header class="tabs" id="tabs">
   <div class="tabs-inner">
-    <a class="tab tab-name" href="#home">Atlas Stewart <small>UI/UX Design</small></a>
+    <a class="tab tab-name" href="#about">Atlas Stewart <small>UI/UX Design</small></a>
     <nav class="nav" aria-label="Primary">
-      <a class="tab" href="#home" data-sec="home">Home</a>
       <a class="tab" href="#about" data-sec="about">About</a>
       <a class="tab" href="#projects" data-sec="projects">Projects</a>
+      <a class="tab" href="#resume" data-sec="resume">Résumé</a>
       <a class="tab" href="#contact" data-sec="contact">Contact</a>
     </nav>
   </div>
-  <div class="progress" id="progress" aria-hidden="true"></div>
 </header>
 
 <main class="sheet" id="page">
+  <h1 class="sr-only">Atlas Stewart, game UI/UX designer</h1>
   <section class="wrap intro" id="about" aria-labelledby="about-title">
     <div class="inner">
-      <div class="status" id="home">
+      <div class="status">
         <p class="now"><span class="dot" aria-hidden="true"></span><span>Now <b>Creative Director + UI/UX, Nitro Guzzler</b> · Steam, Dec 2026</span></p>
         <p class="now reloc"><span class="pin-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg></span><span>Redmond, WA · <b>Open to relocate</b></span></p>
       </div>
       <div class="intro-grid">
         <div class="intro-copy">
-          <p class="eyebrow">Game UI/UX designer · DigiPen</p>
-          <h1 id="about-title">Hi, I'm Atlas.</h1>
-          <p class="lede">I design game menus and HUDs, from the first moodboard to a working build in engine. Unreal Blueprints are my native language, and I bring that to teams of C++ programmers.</p>
+          <h2 id="about-title">Hi, I'm Atlas. I design game UI/UX.</h2>
+          <p class="lede">I'm a game designer at DigiPen. I care about that one second when a player looks at a screen and just knows what to do. Right now I'm Creative Director and UI/UX designer on Nitro Guzzler, a 31-person racing game shipping on Steam in December 2026.</p>
           <div class="intro-actions">
-            <a class="btn" href="https://drive.google.com/file/d/1YiB4TUytKC5HxxYsFp5sX9tJaJlAxgy4/view?usp=sharing" target="_blank" rel="noopener">Résumé <span aria-hidden="true">↗</span></a>
+            <a class="btn" href="#projects">See my work ↓</a>
+            <a class="btn ghost" href="https://drive.google.com/file/d/1YiB4TUytKC5HxxYsFp5sX9tJaJlAxgy4/view?usp=sharing" target="_blank" rel="noopener">Résumé ↗</a>
             <a class="btn ghost" href="#contact">Contact</a>
           </div>
         </div>
-        <ul class="highlights" aria-label="Highlights">
-          <li><span class="k">Award</span><b>Award-winning Steam release</b><small>Shipped my sophomore year</small></li>
-          <li><span class="k">Teaching</span><b>Game design instructor</b><small>DigiPen Open World</small></li>
-          <li><span class="k">Leading</span><b>Producer and team lead</b><small>Student teams in Unreal Engine</small></li>
-          <li class="tools-row"><span class="k">Tools</span><span class="tool-chips"><span>Figma</span><span>Unreal</span><span>Unity</span><span>Maya</span><span>Krita</span></span></li>
-        </ul>
+        <dl class="intro-facts">
+          <div><dt>Focus</dt><dd>Game UI/UX, menus, HUDs, style guides</dd></div>
+          <div><dt>Engine</dt><dd>Unreal Blueprints, brought to C++ teams</dd></div>
+          <div><dt>Leading</dt><dd>Producer and team lead on student teams</dd></div>
+          <div><dt>Award</dt><dd>Award-winning Steam release, sophomore year</dd></div>
+        </dl>
       </div>
     </div>
   </section>
 
-  <section class="wrap band" id="projects" aria-labelledby="projects-title" style="padding-top:clamp(.5rem,1.5vw,1rem)">
+  <section class="wrap band projects" id="projects" aria-labelledby="projects-title">
     <div class="inner">
       <div class="deck-head">
         <h2 id="projects-title">Projects</h2>
@@ -780,8 +796,32 @@ h2{font-weight:300}
             </span>
           </span>
         </a>
+        <a role="listitem" class="file" data-p="enshahtenti" href="#enshahtenti" aria-label="Enshahtenti. A solo game feel deep dive into making attacks, damage and health feel different at every level. Open case study.">
+          <span class="file-tab" aria-hidden="true">03 · Game feel</span>
+          <span class="file-face">
+            <span class="file-media"><img src="img/en-board-style.webp" alt="" width="1092" height="620" loading="lazy" style="object-position:center 40%"></span>
+            <span class="file-body">
+              <span class="chip">Solo</span>
+              <span class="file-title">Enshahtenti</span>
+              <span class="file-line">A solo deep dive into making every level of attack and health feel different.</span>
+              <span class="file-more"><dl><dt>Team</dt><dd>Solo</dd><dt>Focus</dt><dd>Attack levels, damage, health</dd></dl><span class="open">Open file →</span></span>
+            </span>
+          </span>
+        </a>
+        <a role="listitem" class="file" data-p="minecraft-project" href="#minecraft-project" aria-label="Minecraft project. An inventory screen redesign, wireframed over the live game. Open case study.">
+          <span class="file-tab" aria-hidden="true">04 · Minecraft</span>
+          <span class="file-face">
+            <span class="file-media"><img src="img/mc-ingame.webp" alt="" width="1600" height="900" loading="lazy" style="object-position:center"></span>
+            <span class="file-body">
+              <span class="chip">UI redesign</span>
+              <span class="file-title">Minecraft project</span>
+              <span class="file-line">An inventory screen redesign, wireframed right over the live game.</span>
+              <span class="file-more"><dl><dt>Focus</dt><dd>Inventory layout</dd><dt>Built</dt><dd>Wireframe, in-game overlay</dd></dl><span class="open">Open file →</span></span>
+            </span>
+          </span>
+        </a>
         <a role="listitem" class="file" data-p="noc-6000" href="#noc-6000" aria-label="NOC-6000. Diegetic holographic HUD for a robot protagonist in Unreal Engine. Open case study.">
-          <span class="file-tab" aria-hidden="true">03 · In progress</span>
+          <span class="file-tab" aria-hidden="true">05 · In progress</span>
           <span class="file-face">
             <span class="file-media cover-noc" aria-hidden="true"></span>
             <span class="file-body">
@@ -795,34 +835,59 @@ h2{font-weight:300}
             </span>
           </span>
         </a>
-        <a role="listitem" class="file" data-p="enshahtenti" href="#enshahtenti" aria-label="Enshahtenti. A solo game feel deep dive into making attacks, damage and health feel different at every level. Open case study.">
-          <span class="file-tab" aria-hidden="true">04 · Game feel</span>
-          <span class="file-face">
-            <span class="file-media"><img src="img/en-moodboards.webp" alt="" width="2000" height="1500" loading="lazy" style="object-position:30% 30%"></span>
-            <span class="file-body">
-              <span class="chip">Solo</span>
-              <span class="file-title">Enshahtenti</span>
-              <span class="file-line">A solo deep dive into making every level of attack and health feel different.</span>
-              <span class="file-more"><dl><dt>Team</dt><dd>Solo</dd><dt>Focus</dt><dd>Attack levels, damage, health</dd></dl><span class="open">Open file →</span></span>
-            </span>
-          </span>
-        </a>
-        <a role="listitem" class="file" data-p="minecraft-project" href="#minecraft-project" aria-label="Minecraft project. An inventory screen redesign, wireframed over the live game. Open case study.">
-          <span class="file-tab" aria-hidden="true">05 · Minecraft</span>
-          <span class="file-face">
-            <span class="file-media"><img src="img/mc-ingame.webp" alt="" width="1600" height="900" loading="lazy" style="object-position:center"></span>
-            <span class="file-body">
-              <span class="chip">UI redesign</span>
-              <span class="file-title">Minecraft project</span>
-              <span class="file-line">An inventory screen redesign, wireframed right over the live game.</span>
-              <span class="file-more"><dl><dt>Focus</dt><dd>Inventory layout</dd><dt>Built</dt><dd>Wireframe, in-game overlay</dd></dl><span class="open">Open file →</span></span>
-            </span>
-          </span>
-        </a>
       </div>
     </div>
   </section>
 
+  <section class="wrap band" id="resume" aria-labelledby="more-title">
+    <div class="inner">
+      <div class="about-grid">
+        <div class="about-copy reveal">
+          <p class="eyebrow">More about me</p>
+          <h2 id="more-title">Background</h2>
+          <p>Unreal Blueprints are my native language, and I bring that to teams of C++ programmers. I've led student teams as a producer. One of my games, released on Steam in my sophomore year, won an award. I also focus on level design, but UI/UX is where I'm headed.</p>
+          <ul class="facts">
+            <li><span>Experience</span>Nitro Guzzler (Creative Director, UI/UX) · Game design instructor, DigiPen Open World</li>
+            <li><span>Award</span>Won an award for a Steam game I released sophomore year</li>
+            <li><span>School</span>DigiPen Institute of Technology</li>
+            <li><span>Based in</span>Redmond, WA · Open to relocate</li>
+          </ul>
+        </div>
+        <aside class="resume reveal" aria-labelledby="resume-title" style="margin-top:28px">
+          <h3 id="resume-title">My résumé</h3>
+          <a class="resume-view" href="https://drive.google.com/file/d/1YiB4TUytKC5HxxYsFp5sX9tJaJlAxgy4/view?usp=sharing" target="_blank" rel="noopener" aria-label="Open my résumé in a new tab">
+            <span class="resume-sheet">
+              <span class="rs-head"><b>Atlas Stewart</b><em>Game UI/UX Designer</em><small>Redmond, WA · Open to relocate</small></span>
+              <span class="rs-sec"><i>Experience</i>
+                <span class="rs-row"><b>Creative Director, UI/UX</b><small>Nitro Guzzler · 31-person team · Steam, Dec 2026</small></span>
+                <span class="rs-row"><b>Game Design Instructor</b><small>DigiPen Open World</small></span>
+              </span>
+              <span class="rs-sec"><i>Recognition</i>
+                <span class="rs-row"><b>Award-winning Steam release</b><small>Sophomore year</small></span>
+              </span>
+              <span class="rs-sec"><i>Education</i>
+                <span class="rs-row"><b>DigiPen Institute of Technology</b><small>Game design, UI/UX and level design</small></span>
+              </span>
+              <span class="rs-sec"><i>Tools</i><span class="rs-tags"><span>Figma</span><span>Unreal</span><span>Unity</span><span>Maya</span><span>Krita</span></span></span>
+              <span class="rs-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+            </span>
+            <span class="resume-cover" aria-hidden="true"><span class="open-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg><span>Open résumé</span></span></span>
+          </a>
+        </aside>
+      </div>
+
+      <div class="tools reveal">
+        <p class="eyebrow">Software I'm proficient in</p>
+        <ul class="tool-grid">
+          <li class="tool"><span class="mono-mark" aria-hidden="true">Fi</span><div><b>Figma</b><span>UI design</span></div></li>
+          <li class="tool"><span class="mono-mark" aria-hidden="true">Ue</span><div><b>Unreal Engine</b><span>Engine · Blueprints</span></div></li>
+          <li class="tool"><span class="mono-mark" aria-hidden="true">Un</span><div><b>Unity</b><span>Engine</span></div></li>
+          <li class="tool"><span class="mono-mark" aria-hidden="true">Ma</span><div><b>Maya</b><span>3D</span></div></li>
+          <li class="tool"><span class="mono-mark" aria-hidden="true">Kr</span><div><b>Krita</b><span>2D art</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
   <section class="wrap band contact" id="contact" aria-labelledby="contact-title">
     <div class="inner">
@@ -848,8 +913,7 @@ h2{font-weight:300}
     <div class="wrap">
       <div class="inner">
         <div class="case-bar"><a class="btn ghost close" href="#projects">← Back to projects</a></div>
-        <header class="case-hero morph-target coj-frame">
-          <div class="coj-page">
+        <header class="case-hero morph-target">
           <p class="eyebrow">Case study · DES 360</p>
           <h1 id="coj-title" tabindex="-1">Chain of Jewels</h1>
           <p class="lede">I built a style guide from a moodboard. Then I used it to design a full working UI for a dark fantasy jewel game. That meant a main menu, a shop, crafting and combat.</p>
@@ -860,7 +924,6 @@ h2{font-weight:300}
             <div><dt>Tools</dt><dd>Figma</dd></div>
             <div><dt>Deliverables</dt><dd>Moodboard, palette, frame, 5 screens</dd></div>
           </dl>
-          </div>
         </header>
         <div class="case-layout">
           <nav class="toc" aria-label="Chain of Jewels sections"><a href="#coj-part">My part</a>
@@ -987,18 +1050,18 @@ h2{font-weight:300}
             </section>
 
             <section class="chapter pending" id="coj-story" aria-labelledby="coj-story-h">
-              <p class="eyebrow">Looking back</p>
-              <h2 id="coj-story-h">My story</h2>
+              <p class="eyebrow">My story</p>
+              <h2 id="coj-story-h">How it went</h2>
               <ol class="story reveal">
                 <li class="story-card pending"><b>What went well</b><p class="todo">What went well, in your words.</p></li>
                 <li class="story-card pending"><b>What was tricky</b><p class="todo">What was tricky or slowed you down.</p></li>
-                <li class="story-card pending"><b>What we worked through</b><p class="todo">How you worked through it in the moment, and which other departments or teammates you worked with.</p></li>
+                <li class="story-card pending"><b>How I worked through it</b><p class="todo">How you worked through it in the moment, and which other departments or teammates you worked with.</p></li>
                 <li class="story-card pending"><b>What I'll carry forward</b><p class="todo">How you will use what you learned on the next project.</p></li>
               </ol>
             </section>
           </div>
         </div>
-        <div class="next"><span class="eyebrow" style="margin:0">Next file</span><a href="#noc-6000" class="big">NOC-6000 →</a></div>
+        <div class="next"><span class="eyebrow" style="margin:0">Next file</span><a href="#enshahtenti" class="big">Enshahtenti →</a></div>
       </div>
     </div>
   </article>
@@ -1027,20 +1090,8 @@ h2{font-weight:300}
           <div class="stripes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
         </header>
         <div class="case-layout">
-          <nav class="toc" aria-label="Nitro Guzzler sections"><a href="#ng-team">Team + roles</a><a href="#ng-part">My part</a><a href="#ng-goal">Goal</a><a href="#ng-void">White void</a><a href="#ng-compass">Menu map</a><a href="#ng-garage">Garage</a><a href="#ng-build">How it's built</a><a href="#ng-trailer">Trailer</a><a href="#ng-story">My story</a></nav>
+          <nav class="toc" aria-label="Nitro Guzzler sections"><a href="#ng-part">My part</a><a href="#ng-team">The team</a><a href="#ng-time">Timeline</a><a href="#ng-goal">Goal</a><a href="#ng-void">White void</a><a href="#ng-compass">Menu map</a><a href="#ng-garage">Garage</a><a href="#ng-build">How it's built</a><a href="#ng-trailer">Trailer</a><a href="#ng-story">My story</a><a href="#ng-well">What went well</a><a href="#ng-tricky">What was tricky</a><a href="#ng-through">What we worked through</a></nav>
           <div class="chapters">
-            <section class="chapter" id="ng-team" aria-labelledby="ng-team-h">
-              <p class="eyebrow">The bigger picture</p>
-              <h2 id="ng-team-h">One part of a 31-person team</h2>
-              <p>Nitro Guzzler is built by the Grease Monkeys, a student team that grew from 20 people to 31. The UI on this page is one piece of it. I've worn a few hats on the project, and this is how they line up.</p>
-              <ol class="roles reveal">
-                <li class="role current"><span class="role-when">Whole project</span><b>Creative Director</b><p>I set the game's direction and work with the design lead on running the team.</p><a class="role-link" href="#ng-part">My contributions ↓</a></li>
-                <li class="role"><span class="role-when">Earlier</span><b>Narrative Lead</b><p class="pending">What you wrote and owned.</p><a class="role-link pending" href="#ng-team">Link to narrative work</a></li>
-                <li class="role"><span class="role-when">Earlier</span><b>Level Designer</b><p class="pending">Which levels or tracks, and what you built.</p><a class="role-link pending" href="#ng-team">Link to level work</a></li>
-                <li class="role current"><span class="role-when">Now</span><b>UI/UX Designer</b><p>All of the game's UI. The main menu, intro, settings and the trailer plan below.</p><a class="role-link" href="#ng-goal">See the UI ↓</a></li>
-              </ol>
-              <p class="todo">For each role, add the dates you held it and a link (doc, video or teammate's page) for the other departments' work.</p>
-            </section>
             <section class="chapter" id="ng-part" aria-labelledby="ng-part-h">
               <p class="eyebrow">My part</p>
               <h2 id="ng-part-h">My contributions</h2>
@@ -1052,6 +1103,51 @@ h2{font-weight:300}
                 <li>Directed artists from my shot lists, for the trailer shots and the etched settings decals.</li>
                 <li>Worked with the design lead on team management.</li>
               </ul>
+            </section>
+            <section class="chapter" id="ng-team" aria-labelledby="ng-team-h">
+              <p class="eyebrow">The team</p>
+              <h2 id="ng-team-h">The UI is one piece of a 31-person game</h2>
+              <p>Nitro Guzzler is made by the Grease Monkeys. The menu only works because of what the other departments build. Here's who the UI leans on, and where to see their side of it.</p>
+              <ul class="team reveal">
+                <li class="team-card">
+                  <span class="team-role">Design</span>
+                  <b>Design lead</b>
+                  <p>Keyan owns the game's design. We split team management, and the menu has to sell the game he's building.</p>
+                  <p class="todo">Link to Keyan's portfolio or LinkedIn.</p>
+                </li>
+                <li class="team-card">
+                  <span class="team-role">Art</span>
+                  <b>Artists</b>
+                  <p>They built the trailer shots and the etched settings decals from my shot lists. The Art Zoo entry on the main menu leads into a level that shows off their work.</p>
+                  <p class="todo">Links to the trailer artist and the decal artist, plus an Art Zoo capture.</p>
+                </li>
+                <li class="team-card">
+                  <span class="team-role">Audio</span>
+                  <b>Audio</b>
+                  <p>I handed them the full VO script and bark list. The settings menu gives each of their sound types its own volume control, and the Audio Zoo entry leads into a level built for their work.</p>
+                  <p class="todo">Links to the audio team's work and an Audio Zoo capture.</p>
+                </li>
+                <li class="team-card">
+                  <span class="team-role">Engineering</span>
+                  <b>Programmers</b>
+                  <p>Most of the team works in C++. I build the menu logic in Blueprints on top of their systems, and Back plays the menu in reverse using the game's rewind feature.</p>
+                  <p class="todo">Link to a programmer's portfolio or the team's tech page.</p>
+                </li>
+              </ul>
+              <p class="todo">Link to the Nitro Guzzler Steam page once it's live.</p>
+            </section>
+            <section class="chapter" id="ng-time" aria-labelledby="ng-time-h">
+              <p class="eyebrow">Timeline</p>
+              <h2 id="ng-time-h">Where the UI sits in production</h2>
+              <ol class="timeline reveal">
+                <li class="done"><span class="t-tag">Done</span><b>Menu and intro designed</b><p>Game plan, shot list and menu map written, then rebuilt once the hard cut design settled.</p></li>
+                <li class="done"><span class="t-tag">Done</span><b>Intro and attract loop in engine</b><p>The Sequencer intro hands off to the menu loop.</p></li>
+                <li class="done"><span class="t-tag">Done</span><b>Trailer shot lists</b><p>Handed to an artist to produce.</p></li>
+                <li class="is-now"><span class="t-tag">Now</span><b>Settings, Art Zoo and Audio Zoo</b><p>Audio, Visual and Accessibility panels, plus the two zoo entries.</p></li>
+                <li><span class="t-tag">Next</span><b>Art pass</b><p>Ground graphics first, in a Frutiger Metro style.</p></li>
+                <li class="ship"><span class="t-tag">Dec 2026</span><b>Ships on Steam</b><p>The full team's release.</p></li>
+              </ol>
+              <p class="todo">Add the month for each step if you want real dates on this.</p>
             </section>
             <section class="chapter" id="ng-goal" aria-labelledby="ng-goal-h">
               <p class="eyebrow">The goal</p>
@@ -1133,14 +1229,30 @@ h2{font-weight:300}
             </section>
 
             <section class="chapter" id="ng-story" aria-labelledby="ng-story-h">
-              <p class="eyebrow">Looking back</p>
-              <h2 id="ng-story-h">My story</h2>
-              <ol class="story reveal">
-                <li class="story-card"><b>What went well</b><p>The first thing a player sees is done. The intro plays in engine and hands off cleanly into the attract loop.</p><p>The menu system held up too. Every destination is one row of data, and each row knows where Back goes. When Garage needed three hotspots on the car, that was three more rows. No new code, and no special cases.</p></li>
-                <li class="story-card"><b>What was tricky</b><p>I wrote my first implementation plan for a smooth, blended camera and a flat stack of 2D menus. Then the design moved on. Hard cuts and buttons living on 3D surfaces broke almost every assumption in that plan.</p><p>Unreal pushed back too. Data Tables don't hold references to things placed in a level well, and the whole menu is things placed in a level.</p></li>
-                <li class="story-card"><b>What we worked through</b><p>I rewrote the implementation plan around hard cuts and buttons on surfaces. Menu data moved from a Data Table into arrays of structs, which fixed the reference problem.</p><p>Art needed the same clarity. I turned the menu's look into shot lists, so the artist on the trailer and the artist on the settings decals were working from one plan.</p></li>
-                <li class="story-card pending"><b>What I'll carry forward</b><p class="todo">How you will use what you learned on the next project.</p></li>
-              </ol>
+              <p class="eyebrow">My story</p>
+              <h2 id="ng-story-h">Building a menu with 30 other people</h2>
+              <p>I own the UI on a 31-person team. Every choice I make for the menu touches someone else's work, from the camera to the cars to the sound. Here's how that went.</p>
+            </section>
+            <section class="chapter story-sec" id="ng-well" aria-labelledby="ng-well-h">
+              <p class="eyebrow"><span class="story-n">01</span> My story</p>
+              <h3 id="ng-well-h">What went well</h3>
+              <p>The intro and the attract loop run in engine. You boot the game, the cars smash through the glass, and the menu wakes up.</p>
+              <p>The bigger win was the data. Every menu destination is one row of the same struct, and each row knows where Back goes. When we added the three Garage hotspots, that was three more rows, not new code. That's when I knew the system would hold up for the rest of production.</p>
+              <p class="todo">One concrete moment: a playtest, a review or a teammate's reaction that showed you it was working.</p>
+            </section>
+            <section class="chapter story-sec" id="ng-tricky" aria-labelledby="ng-tricky-h">
+              <p class="eyebrow"><span class="story-n">02</span> My story</p>
+              <h3 id="ng-tricky-h">What was tricky</h3>
+              <p>I built half the system on the wrong assumption. I planned a smooth, blended camera and a stack of flat 2D menus. I had seven sections of the implementation guide done before the design settled on hard cuts and buttons that live on the car itself.</p>
+              <p>On top of that, Data Tables kept breaking when they pointed at things placed in the level.</p>
+              <p class="todo">Who did this affect on the team, and how did you find out the plan was wrong?</p>
+            </section>
+            <section class="chapter story-sec" id="ng-through" aria-labelledby="ng-through-h">
+              <p class="eyebrow"><span class="story-n">03</span> My story</p>
+              <h3 id="ng-through-h">What we worked through</h3>
+              <p>We rebuilt the plan around what the menu really is: one camera director that hard cuts between Level Sequences, with buttons that sit on 3D surfaces. I swapped the Data Table for arrays of structs, and the level references stopped breaking.</p>
+              <p>Mouse, gamepad and keyboard now take different paths to the same activation function, so one fix covers all three. For the art I wasn't making, I wrote shot lists so the artists on the trailer and the settings decals had something clear to build from.</p>
+              <p class="todo">What you'd do differently on day one of the next project.</p>
             </section>
           </div>
         </div>
@@ -1200,8 +1312,8 @@ h2{font-weight:300}
               <p>One master hologram material drives ring masks, radial ticks and layered opacity. A HUD rig Blueprint with four anchors is parented to the camera.</p>
             </section>
             <section class="chapter" id="noc-story" aria-labelledby="noc-story-h">
-              <p class="eyebrow">Looking back</p>
-              <h2 id="noc-story-h">My story</h2>
+              <p class="eyebrow">My story</p>
+              <h2 id="noc-story-h">How it went</h2>
               <ol class="story reveal">
                 <li class="story-card"><b>What went well</b><p>In the first build session the master hologram material came together, and the HUD rig was hooked up to the camera.</p></li>
                 <li class="story-card"><b>What was tricky</b><p>Getting flat hologram planes to face the right way took some trial and error.</p></li>
@@ -1211,7 +1323,7 @@ h2{font-weight:300}
             </section>
           </div>
         </div>
-        <div class="next"><span class="eyebrow" style="margin:0">Next file</span><a href="#enshahtenti" class="big">Enshahtenti →</a></div>
+        <div class="next"><span class="eyebrow" style="margin:0">Next file</span><a href="#nitro-guzzler" class="big">Nitro Guzzler →</a></div>
       </div>
     </div>
   </article>
@@ -1250,19 +1362,21 @@ h2{font-weight:300}
             </section>
             <section class="chapter" id="en-boards" aria-labelledby="en-boards-h">
               <p class="eyebrow">Research</p>
-              <h2 id="en-boards-h">Three mood boards, three jobs</h2>
-              <p>I split the research into three boards so each question had its own wall. One for how it looks, one for what you hold, and one for the power you call on.</p>
-              <div class="board reveal">
-                <div class="board-copy"><span class="board-n">01</span><h3>Style</h3><p>How the whole thing looks. Misty white space and blue greys from the Animus in the first Assassin's Creed. The palette strip at the top is the one I pulled for the UI.</p></div>
-                <figure><img src="img/en-board-style.webp" width="1600" height="897" loading="lazy" alt="Style mood board: misty white and blue grey Assassin's Creed Animus screenshots, a hooded figure in white, DNA and data graphics, and a strip of eight pale blue to slate swatches at the top."><figcaption>Style mood board.</figcaption></figure>
-              </div>
-              <div class="board reveal">
-                <div class="board-copy"><span class="board-n">02</span><h3>Physical weapon</h3><p>What you hold. Hunter's Bow and Wahjawe:e. Bows, arrows and tomahawks, in photos and in sketches.</p></div>
-                <figure><img src="img/en-board-weapon.webp" width="1600" height="1055" loading="lazy" alt="Physical Weapon mood board: a wooden bow, drawings of bows and arrows, an archer silhouette, engraved tomahawks with wooden handles, and two decorated clubs with fur and feathers."><figcaption>Physical Weapon mood board, Hunter's Bow and Wahjawe:e.</figcaption></figure>
-              </div>
-              <div class="board reveal">
-                <div class="board-copy"><span class="board-n">03</span><h3>Power</h3><p>What you call on. Call of the Murder. Crows, and the dark figures who command them.</p></div>
-                <figure><img src="img/en-board-power.webp" width="1600" height="1000" loading="lazy" alt="Power mood board: crows in game screenshots and illustrations, a white-haired figure surrounded by crows, an ink manga panel, a first-person view of a crow attack, and a large dark blue crow in a forest."><figcaption>Power mood board, Call of the Murder.</figcaption></figure>
+              <h2 id="en-boards-h">Three mood boards</h2>
+              <p>Each board answers a different question. Click any board to see it bigger.</p>
+              <div class="boards reveal">
+                <figure class="board">
+                  <div class="board-head"><span class="n">Board 01</span><h3>Style</h3><p>How should the whole thing look? It leans on the Animus from the first Assassin's Creed: misty whites, blue greys and grid lines. The palette strip at the top became the UI palette.</p></div>
+                  <img src="img/en-board-style.webp" width="1092" height="620" loading="lazy" alt="Style mood board: misty white and blue grey Assassin's Creed screenshots on a white grid background, with a strip of eight palette swatches from near white to dark slate across the top.">
+                </figure>
+                <figure class="board">
+                  <div class="board-head"><span class="n">Board 02</span><h3>Physical Weapon</h3><p class="board-sub">Hunter's Bow and Wahjawe:e</p><p>What do you hold? Bows, arrows and tomahawks, from museum pieces to sketches.</p></div>
+                  <img src="img/en-board-weapon.webp" width="970" height="616" loading="lazy" alt="Physical Weapon mood board: a wooden bow, arrow sketches, an archer silhouette, ornate pipe tomahawks and decorated war clubs on a misty blue background.">
+                </figure>
+                <figure class="board">
+                  <div class="board-head"><span class="n">Board 03</span><h3>Power</h3><p class="board-sub">Call of the Murder</p><p>What does your power feel like? Crows, and the dark figures who command them.</p></div>
+                  <img src="img/en-board-power.webp" width="950" height="610" loading="lazy" alt="Power mood board: illustrations and game screenshots of crows, a large dark blue crow swooping through a forest, and dark painted figures.">
+                </figure>
               </div>
             </section>
             <section class="chapter" id="en-health" aria-labelledby="en-health-h">
@@ -1299,8 +1413,8 @@ h2{font-weight:300}
               </figure>
             </section>
             <section class="chapter pending" id="en-story" aria-labelledby="en-story-h">
-              <p class="eyebrow">Looking back</p>
-              <h2 id="en-story-h">My story</h2>
+              <p class="eyebrow">My story</p>
+              <h2 id="en-story-h">How it went</h2>
               <ol class="story reveal">
                 <li class="story-card pending"><b>What went well</b><p class="todo">What went well, in your words.</p></li>
                 <li class="story-card pending"><b>What was tricky</b><p class="todo">What was tricky or slowed you down.</p></li>
@@ -1367,8 +1481,8 @@ h2{font-weight:300}
               <p class="todo">What problem you were solving with the default inventory, what the diamond links and the ABC button do, why the panel is see-through, and what you'd change next.</p>
             </section>
             <section class="chapter pending" id="mc-story" aria-labelledby="mc-story-h">
-              <p class="eyebrow">Looking back</p>
-              <h2 id="mc-story-h">My story</h2>
+              <p class="eyebrow">My story</p>
+              <h2 id="mc-story-h">How it went</h2>
               <ol class="story reveal">
                 <li class="story-card pending"><b>What went well</b><p class="todo">What went well, in your words.</p></li>
                 <li class="story-card pending"><b>What was tricky</b><p class="todo">What was tricky or slowed you down.</p></li>
@@ -1378,14 +1492,12 @@ h2{font-weight:300}
             </section>
           </div>
         </div>
-        <div class="next"><span class="eyebrow" style="margin:0">Next file</span><a href="#nitro-guzzler" class="big">Nitro Guzzler →</a></div>
+        <div class="next"><span class="eyebrow" style="margin:0">Next file</span><a href="#noc-6000" class="big">NOC-6000 →</a></div>
       </div>
     </div>
   </article>
-
 </div>
 
-<div class="cue" id="cue" aria-hidden="true"><span id="cue-t">Scroll to open the files</span><i>↓</i></div>
 <div class="toast" id="toast" role="status" hidden></div>
 
 <script type="application/ld+json">
@@ -1406,7 +1518,6 @@ h2{font-weight:300}
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   const views = document.getElementById('views');
   const page = document.getElementById('page');
-  const cue = document.getElementById('cue'), cueT = document.getElementById('cue-t');
   const toast = document.getElementById('toast');
   const ids = [...document.querySelectorAll('.case')].map(a => a.dataset.id);
   let current = null, lastCard = null, toastTimer;
@@ -1421,7 +1532,6 @@ h2{font-weight:300}
     page.inert = true;
     current = id;
     document.querySelectorAll('.nav .tab').forEach(t => t.setAttribute('aria-current', t.dataset.sec === 'projects' ? 'true' : 'false'));
-    cue.classList.add('gone');
     const ngLoop = ngLoopEl();
     if (ngLoop){ if (id === 'nitro-guzzler' && !reduce.matches) ngLoop.play().catch(()=>{}); else ngLoop.pause(); }
     const h = document.querySelector('#case-' + id + ' h1'); h && h.focus({preventScroll:true});
@@ -1468,33 +1578,17 @@ h2{font-weight:300}
   addEventListener('hashchange', route);
   route();
 
-  /* ---------- active tab, progress bar, scroll cue ---------- */
+  /* ---------- active tab ---------- */
   const tabs = [...document.querySelectorAll('.nav .tab')];
-  const cues = {home: 'Scroll for projects.', projects: 'Click any file to open it.', about:'Scroll for projects.', contact:'Pick an option to reach me.'};
   const seen = new Map();
   const io = new IntersectionObserver(entries => {
     entries.forEach(en => seen.set(en.target.id, en.isIntersecting ? en.intersectionRatio : 0));
-    let best = 'home', r = -1;
+    let best = 'about', r = -1;
     for (const [k,v] of seen) if (v > r){ r = v; best = k; }
     if (current) return;
     tabs.forEach(t => t.setAttribute('aria-current', t.dataset.sec === best ? 'true' : 'false'));
-    cueT.textContent = cues[best];
   }, {threshold:[0,.15,.3,.5,.75,1], rootMargin:'-20% 0px -30% 0px'});
-  ['home','projects','about','contact'].forEach(id => io.observe(document.getElementById(id)));
-  const bar = document.getElementById('progress');
-  let ticking = false;
-  function onScroll(){
-    if (ticking) return; ticking = true;
-    requestAnimationFrame(() => {
-      const el = current ? views : document.scrollingElement;
-      const max = el.scrollHeight - el.clientHeight;
-      bar.style.setProperty('--p', max > 0 ? (el.scrollTop / max).toFixed(4) : 0);
-      if (!current){ const atEnd = el.scrollTop > max - 40; cue.classList.toggle('gone', atEnd && el.scrollTop > 200); cue.querySelector('i').hidden = atEnd; }
-      ticking = false;
-    });
-  }
-  addEventListener('scroll', onScroll, {passive:true});
-  views.addEventListener('scroll', onScroll, {passive:true});
+  ['about','projects','resume','contact'].forEach(id => io.observe(document.getElementById(id)));
 
 
 
@@ -1622,9 +1716,6 @@ h2{font-weight:300}
     target.classList.add('zoomable');
     target.addEventListener('click', () => openLb(fig));
   });
-
-
-
 
 
   /* ---------- copy helpers ---------- */
