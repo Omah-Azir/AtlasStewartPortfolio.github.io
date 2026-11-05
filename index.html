@@ -391,11 +391,16 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
 .draw-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
 .draw-lines line{stroke:var(--mark);stroke-width:2;vector-effect:non-scaling-stroke}
 .draw-lines line.halo{stroke:rgba(0,0,0,.55);stroke-width:4.5}
-.d-box{position:absolute;border:2px dashed var(--mark);border-radius:6px;box-shadow:0 0 0 1px rgba(0,0,0,.45),inset 0 0 0 1px rgba(0,0,0,.35);pointer-events:none}
+.d-box{position:absolute;border-radius:3px;pointer-events:auto;--seg:color-mix(in srgb,var(--mark) 50%,transparent);
+  background:repeating-linear-gradient(90deg,var(--seg) 0 9px,transparent 9px 17px) top/100% 1.5px no-repeat,
+    repeating-linear-gradient(90deg,var(--seg) 0 9px,transparent 9px 17px) bottom/100% 1.5px no-repeat,
+    repeating-linear-gradient(180deg,var(--seg) 0 9px,transparent 9px 17px) left/1.5px 100% no-repeat,
+    repeating-linear-gradient(180deg,var(--seg) 0 9px,transparent 9px 17px) right/1.5px 100% no-repeat;
+  transition:opacity .3s var(--ease),background-color .2s var(--ease),box-shadow .2s var(--ease)}
 .d-num{position:absolute;top:4px;left:4px;width:1.55rem;height:1.55rem;border-radius:50%;display:grid;place-items:center;background:var(--mark);color:#111;
   font-family:var(--font-mono);font-size:.72rem;font-weight:700;box-shadow:0 0 0 2px rgba(0,0,0,.5)}
 .d-label{position:absolute;max-width:min(27%,250px);padding:.45rem .6rem .5rem;border-radius:8px;background:rgba(8,12,14,.86);color:#F2F5F5;
-  font-size:clamp(.68rem,1.35cqi,.9rem);line-height:1.35;box-shadow:0 0 0 1.5px var(--mark),0 10px 24px -10px rgba(0,0,0,.8);pointer-events:none}
+  font-size:clamp(.68rem,1.35cqi,.9rem);line-height:1.35;box-shadow:0 0 0 1.5px var(--mark),0 10px 24px -10px rgba(0,0,0,.8);pointer-events:auto;transition:opacity .3s var(--ease),box-shadow .2s var(--ease),transform .2s var(--ease)}
 .d-label b{display:block;font-family:"Kalam","Comic Sans MS",cursive;font-weight:700;font-size:1.18em;line-height:1.1;color:var(--mark);margin-bottom:.15rem}
 .d-label .d-n{font-family:var(--font-mono);font-size:.8em;opacity:.8;margin-right:.3rem}
 .draw.clean .d-box,.draw.clean .d-label,.draw.clean .draw-lines{opacity:0}
@@ -403,6 +408,16 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
 .draw.armed:not(.in) .d-box,.draw.armed:not(.in) .d-label,.draw.armed:not(.in) .draw-lines{opacity:0}
 .draw.in .d-label{transition-delay:calc(var(--i,0) * 120ms + 200ms)}
 .draw.in .d-box{transition-delay:calc(var(--i,0) * 120ms)}
+.d-box.hot{--seg:var(--mark);background-color:color-mix(in srgb,var(--mark) 14%,transparent);
+  box-shadow:0 0 0 1px color-mix(in srgb,var(--mark) 55%,transparent),0 0 22px color-mix(in srgb,var(--mark) 35%,transparent)}
+.d-label.hot{box-shadow:0 0 0 2.5px var(--mark),0 0 26px color-mix(in srgb,var(--mark) 45%,transparent),0 10px 24px -10px rgba(0,0,0,.8);transform:translateY(-2px);z-index:2}
+.draw-lines line{transition:opacity .2s var(--ease)}
+.draw-lines line.hot:not(.halo){stroke-width:3.5}
+.has-hot .d-box:not(.hot){--seg:color-mix(in srgb,var(--mark) 22%,transparent)}
+.has-hot .d-label:not(.hot),.has-hot .draw-lines line:not(.hot){opacity:.35}
+.draw.settled .d-box,.draw.settled .d-label{transition-delay:0s}
+.draw-notes li.hot{color:var(--ink)}
+.draw-notes li.hot b{color:var(--mark)}
 .draw figcaption{display:flex;flex-wrap:wrap;gap:.5rem 1rem;justify-content:space-between;align-items:center}
 .draw-toggle{font:inherit;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);background:transparent;border:1.5px solid var(--rule);border-radius:999px;padding:.3rem .75rem;cursor:pointer}
 .draw-toggle[aria-pressed="false"]{color:var(--ink-2)}
@@ -845,7 +860,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
           <span class="file-face">
             <span class="file-media"><img src="img/coj-main-menu.webp" alt="" width="1600" height="736" loading="lazy"></span>
             <span class="file-body">
-              <span class="chip">DES 360</span>
+              <span class="chip">Team of 5</span>
               <span class="file-title">Chain of Jewels</span>
               <span class="file-line">A moodboard that became a style guide, and then a full dark fantasy game UI.</span>
               <span class="file-more">
@@ -863,7 +878,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
               <span class="chip">Solo</span>
               <span class="file-title">Enhshahtén:ti</span>
               <span class="file-line">Combat feel and HUD. A bow and a murder of crows, three levels each.</span>
-              <span class="file-more"><dl><dt>Role</dt><dd>Everything</dd><dt>Team</dt><dd>Solo</dd><dt>Course</dt><dd>DES 365</dd></dl><span class="open">Open file →</span></span>
+              <span class="file-more"><dl><dt>Role</dt><dd>Everything</dd><dt>Team</dt><dd>Solo</dd><dt>Engine</dt><dd>Unreal Engine 5</dd></dl><span class="open">Open file →</span></span>
             </span>
           </span>
         </a>
@@ -902,7 +917,6 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
     <div class="inner">
       <div class="about-grid">
         <div class="about-copy reveal">
-          <p class="eyebrow">More about me</p>
           <h2 id="more-title">Background</h2>
           <p>Unreal Blueprints are my native language, and I bring that to teams of C++ programmers. I've led student teams as a producer. One of my games, released on Steam in my sophomore year, won an award. I also focus on level design, but UI/UX is where I'm headed.</p>
           <ul class="facts">
@@ -950,7 +964,6 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
 
   <section class="wrap band contact" id="contact" aria-labelledby="contact-title">
     <div class="inner">
-      <p class="eyebrow">Contact</p>
       <h2 id="contact-title" class="reveal">Continue?<span class="caret" aria-hidden="true"></span></h2>
       <p class="lede" style="margin-top:1.1rem">Pick an option. A call or text reaches me fastest.</p>
       <ul class="contact-list">
@@ -973,13 +986,12 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
       <div class="inner">
         <div class="case-bar"><a class="btn ghost close" href="#projects">← Back to projects</a></div>
         <header class="case-hero morph-target">
-          <p class="eyebrow">Case study · DES 360</p>
+          <p class="eyebrow">Case study · Game UI style guide</p>
           <h1 id="coj-title" tabindex="-1">Chain of Jewels</h1>
           <p class="lede">I built a style guide from a moodboard. Then I used it to design a full working UI for a dark fantasy jewel game. That meant a main menu, a shop, crafting and combat.</p>
           <dl class="glance">
             <div><dt>Role</dt><dd>UI/UX designer</dd></div>
             <div><dt>Team</dt><dd>5</dd></div>
-            <div><dt>Course</dt><dd>DES 360</dd></div>
             <div><dt>Tools</dt><dd>Figma</dd></div>
             <div><dt>Deliverables</dt><dd>Moodboard, palette, frame, 5 screens</dd></div>
           </dl>
@@ -990,7 +1002,6 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
           <a href="#coj-story">My story</a></nav>
           <div class="chapters">
             <section class="chapter" id="coj-part" aria-labelledby="coj-part-h">
-              <p class="eyebrow">My part</p>
               <h2 id="coj-part-h">My contributions</h2>
               <ul class="contrib reveal">
                 <li>Built the moodboard and pulled the style guide out of it.</li>
@@ -1000,8 +1011,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
               <p class="todo">Who else was on the team of 5 and what did each of you own? Name the roles you handed work to or got work from.</p>
             </section>
             <section class="chapter" id="coj-board" aria-labelledby="coj-board-h">
-              <p class="eyebrow">Step 1 · Research</p>
-              <h2 id="coj-board-h">It started as a wall of references</h2>
+              <h2 id="coj-board-h">Research moodboard</h2>
               <p>I pulled inventory and armory screens from dark fantasy RPGs. I added a ledger style menu from a medieval strategy game, a jewel matching puzzle game, Gothic cathedral stonework and a chart of medieval manuscript inks. Then I laid it all over a scan of an old woven wall hanging.</p>
               <figure class="reveal">
                 <img src="img/coj-moodboard.webp" width="2000" height="1318" loading="lazy" alt="Moodboard collage on a woven wall-hanging background: dark RPG inventory and skill-tree screens, a gilded medieval inventory UI, a jewel-matching puzzle grid, a Gothic cathedral photo, a medieval illuminated-manuscript color chart, and several extracted palettes of greys, umbers, olives and jewel tones.">
@@ -1010,8 +1020,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             </section>
 
             <section class="chapter" id="coj-palette" aria-labelledby="coj-palette-h">
-              <p class="eyebrow">Step 2 · Style guide</p>
-              <h2 id="coj-palette-h">A palette pulled straight from the board</h2>
+              <h2 id="coj-palette-h">Style guide and palette</h2>
               <p>Every color in the UI comes off the moodboard. Warm greys handle structure. Earth tones handle surfaces and type. The bright jewel tones are saved for the jewels.</p>
               <ul class="swatches reveal" aria-label="Chain of Jewels core palette. Activate a swatch to copy its hex code.">
                 <li><button class="swatch" type="button" data-hex="#281E12"><i style="background:#281E12"></i><span>#281E12<em>Background</em></span></button></li>
@@ -1030,7 +1039,6 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             </section>
 
             <section class="chapter" id="coj-frame" aria-labelledby="coj-frame-h">
-              <p class="eyebrow">Step 3 · Greybox</p>
               <h2 id="coj-frame-h">One frame for every screen</h2>
               <p>Before any art, I locked one frame for every screen. Player info sits in the top corners. Navigation sits in the bottom corners. The middle is for whatever that screen is about. So players never have to relearn where things are.</p>
               <div class="reveal" style="display:grid;gap:.5rem">
@@ -1066,8 +1074,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             </section>
 
             <section class="chapter" id="coj-menu" aria-labelledby="coj-menu-h">
-              <p class="eyebrow">Step 4 · Art pass</p>
-              <h2 id="coj-menu-h">Reading the main menu</h2>
+              <h2 id="coj-menu-h">Main menu art pass</h2>
               <p class="lede">Tap the numbered pins to see why each part sits where it does.</p>
               <figure class="hot reveal" id="hot">
                 <img src="img/coj-main-menu.webp" width="1600" height="736" loading="lazy" alt="Chain of Jewels main menu: the title over four large jewel shapes, a single large Campaign button in the center, a row of five buttons below (Shops, Crafting, Book of Chains, Rewards, Quit), player portrait with level and XP top left, energy 65 of 100 and coin count top right, audio and settings buttons in the bottom corners.">
@@ -1087,8 +1094,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             </section>
 
             <section class="chapter" id="coj-screens" aria-labelledby="coj-screens-h">
-              <p class="eyebrow">Step 5 · Screens</p>
-              <h2 id="coj-screens-h">The same frame, different jobs</h2>
+              <h2 id="coj-screens-h">Shop, forge and battle screens</h2>
               <figure class="draw reveal">
                 <div class="draw-stage"><img src="img/coj-jewel-shop.webp" width="1600" height="736" loading="lazy" alt="Jewel Shop screen: a hanging wooden sign reading Jewel Shop, four jewel cards each with Type, Effect and Cost tags above, and one green Purchase button below. Main Menu and Back sit in the bottom corners."></div>
                 <ol class="draw-notes">
@@ -1109,8 +1115,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             </section>
 
             <section class="chapter pending" id="coj-story" aria-labelledby="coj-story-h">
-              <p class="eyebrow">My story</p>
-              <h2 id="coj-story-h">How it went</h2>
+              <h2 id="coj-story-h">My story</h2>
               <ol class="story reveal">
                 <li class="story-card pending"><b>What went well</b><p class="todo">What went well, in your words.</p></li>
                 <li class="story-card pending"><b>What was tricky</b><p class="todo">What was tricky or slowed you down.</p></li>
@@ -1152,7 +1157,6 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
           <nav class="toc" aria-label="Nitro Guzzler sections"><a href="#ng-part">My part</a><a href="#ng-team">The team</a><a href="#ng-time">Timeline</a><a href="#ng-goal">Goal</a><a href="#ng-void">White void</a><a href="#ng-compass">Menu map</a><a href="#ng-garage">Garage</a><a href="#ng-build">How it's built</a><a href="#ng-trailer">Trailer</a><a href="#ng-story">My story</a><a href="#ng-well">What went well</a><a href="#ng-tricky">What was tricky</a><a href="#ng-through">What we worked through</a></nav>
           <div class="chapters">
             <section class="chapter" id="ng-part" aria-labelledby="ng-part-h">
-              <p class="eyebrow">My part</p>
               <h2 id="ng-part-h">My contributions</h2>
               <ul class="contrib reveal">
                 <li>Created or directed all of the game's UI, from concept to the build in engine.</li>
@@ -1164,8 +1168,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
               </ul>
             </section>
             <section class="chapter" id="ng-team" aria-labelledby="ng-team-h">
-              <p class="eyebrow">The team</p>
-              <h2 id="ng-team-h">The UI is one piece of a 31-person game</h2>
+              <h2 id="ng-team-h">My role on a 31-person team</h2>
               <p>Nitro Guzzler is made by the Grease Monkeys. The menu only works because of what the other departments build. Here's who the UI leans on, and where to see their side of it.</p>
               <ul class="team reveal">
                 <li class="team-card">
@@ -1196,8 +1199,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
               <p class="todo">Link to the Nitro Guzzler Steam page once it's live.</p>
             </section>
             <section class="chapter" id="ng-time" aria-labelledby="ng-time-h">
-              <p class="eyebrow">Timeline</p>
-              <h2 id="ng-time-h">Where the UI sits in production</h2>
+              <h2 id="ng-time-h">Production timeline</h2>
               <ol class="timeline reveal">
                 <li class="done"><span class="t-tag">Done</span><b>Menu and intro designed</b><p>Game plan, shot list and menu map written, then rebuilt once the hard cut design settled.</p></li>
                 <li class="done"><span class="t-tag">Done</span><b>Intro and attract loop in engine</b><p>The Sequencer intro hands off to the menu loop.</p></li>
@@ -1209,8 +1211,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
               <p class="todo">Add the month for each step if you want real dates on this.</p>
             </section>
             <section class="chapter" id="ng-goal" aria-labelledby="ng-goal-h">
-              <p class="eyebrow">The goal</p>
-              <h2 id="ng-goal-h">Make the menu part of the world</h2>
+              <h2 id="ng-goal-h">A menu inside the game world</h2>
               <p>I wanted the menu to feel like you're already in the game. So I borrowed from the Batman Arkham menus. The camera cycles through shots on its own. It pulls you in and shows you the characters before your first race.</p>
               <ul class="notes reveal">
                 <li><b>Racers up front</b>Players get invested in the racers, so I built the menu around them.</li>
@@ -1220,8 +1221,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             </section>
 
             <section class="chapter" id="ng-void" aria-labelledby="ng-void-h">
-              <p class="eyebrow">Intro</p>
-              <h2 id="ng-void-h">One white void for everything</h2>
+              <h2 id="ng-void-h">The white void intro</h2>
               <p>The intro and the menu share one white space. There's no separate garage level. Cars race through it in their livery colors and leave colored tire stripes. Then they smash through a glass pane with the logo on it and switch to their in-game textures. The camera falls, and you see the team name written in tire tracks.</p>
               <ol class="flow reveal" aria-label="Startup flow">
                 <li><span class="n">01</span><b>Intro</b>Plays once. Hold a button to skip.</li>
@@ -1233,8 +1233,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             </section>
 
             <section class="chapter" id="ng-compass" aria-labelledby="ng-compass-h">
-              <p class="eyebrow">Menu map</p>
-              <h2 id="ng-compass-h">A menu you read off the ground</h2>
+              <h2 id="ng-compass-h">Spray-painted menu map</h2>
               <p class="lede">The main options are arrows spray painted on the ground, laid out like a compass. Pick a direction to see where it goes.</p>
               <div class="compass-wrap reveal">
                 <div class="compass" role="group" aria-label="Main menu compass">
@@ -1254,8 +1253,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             </section>
 
             <section class="chapter" id="ng-garage" aria-labelledby="ng-garage-h">
-              <p class="eyebrow">Settings</p>
-              <h2 id="ng-garage-h">Settings scratched into the paint</h2>
+              <h2 id="ng-garage-h">Settings etched into the car</h2>
               <p>In the Garage, settings are hotspots right on W-Dawg's car. One Return button sits on the ground, so you can see it as the camera whips around. An artist on the team is making the etched decal art.</p>
               <ul class="notes reveal">
                 <li><span class="n">Hood</span><b>Visual</b>Display settings such as monitor size.</li>
@@ -1267,8 +1265,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             </section>
 
             <section class="chapter" id="ng-build" aria-labelledby="ng-build-h">
-              <p class="eyebrow">Implementation</p>
-              <h2 id="ng-build-h">How it's built</h2>
+              <h2 id="ng-build-h">How it's built in Unreal</h2>
               <ul class="notes reveal">
                 <li><b>One camera director</b>One Blueprint holds every menu destination as a row of data. Each row stores where Back goes. So there's no special case logic for Back.</li>
                 <li><b>Structs over a Data Table</b>Data Tables fight with references to actors placed in the level, so destinations are an array of structs.</li>
@@ -1281,34 +1278,29 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             </section>
 
             <section class="chapter" id="ng-trailer" aria-labelledby="ng-trailer-h">
-              <p class="eyebrow">Trailer</p>
-              <h2 id="ng-trailer-h">The trailer</h2>
+              <h2 id="ng-trailer-h">Trailer</h2>
               <p>I based the trailer's structure on the Need for Speed Most Wanted trailer. Instead of showing off cars, ours follows W-Dawg drifting through our menus and intro. I wrote the shot lists and an artist made the shots.</p>
               <div class="media-slot reveal">Trailer goes here: W-Dawg drifts through Nitro Guzzler's main menu and intro</div>
             </section>
 
             <section class="chapter" id="ng-story" aria-labelledby="ng-story-h">
-              <p class="eyebrow">My story</p>
-              <h2 id="ng-story-h">Building a menu with 30 other people</h2>
+              <h2 id="ng-story-h">My story</h2>
               <p>I own the UI on a 31-person team. Every choice I make for the menu touches someone else's work, from the camera to the cars to the sound. Here's how that went.</p>
             </section>
             <section class="chapter story-sec" id="ng-well" aria-labelledby="ng-well-h">
-              <p class="eyebrow"><span class="story-n">01</span> My story</p>
-              <h3 id="ng-well-h">What went well</h3>
+              <h3 id="ng-well-h"><span class="story-n">01</span>What went well</h3>
               <p>The intro and the attract loop run in engine. You boot the game, the cars smash through the glass, and the menu wakes up.</p>
               <p>The bigger win was the data. Every menu destination is one row of the same struct, and each row knows where Back goes. When we added the three Garage hotspots, that was three more rows, not new code. That's when I knew the system would hold up for the rest of production.</p>
               <p class="todo">One concrete moment: a playtest, a review or a teammate's reaction that showed you it was working.</p>
             </section>
             <section class="chapter story-sec" id="ng-tricky" aria-labelledby="ng-tricky-h">
-              <p class="eyebrow"><span class="story-n">02</span> My story</p>
-              <h3 id="ng-tricky-h">What was tricky</h3>
+              <h3 id="ng-tricky-h"><span class="story-n">02</span>What was tricky</h3>
               <p>I built half the system on the wrong assumption. I planned a smooth, blended camera and a stack of flat 2D menus. I had seven sections of the implementation guide done before the design settled on hard cuts and buttons that live on the car itself.</p>
               <p>On top of that, Data Tables kept breaking when they pointed at things placed in the level.</p>
               <p class="todo">Who did this affect on the team, and how did you find out the plan was wrong?</p>
             </section>
             <section class="chapter story-sec" id="ng-through" aria-labelledby="ng-through-h">
-              <p class="eyebrow"><span class="story-n">03</span> My story</p>
-              <h3 id="ng-through-h">What we worked through</h3>
+              <h3 id="ng-through-h"><span class="story-n">03</span>What we worked through</h3>
               <p>We rebuilt the plan around what the menu really is: one camera director that hard cuts between Level Sequences, with buttons that sit on 3D surfaces. I swapped the Data Table for arrays of structs, and the level references stopped breaking.</p>
               <p>Mouse, gamepad and keyboard now take different paths to the same activation function, so one fix covers all three. For the art I wasn't making, I wrote shot lists so the artists on the trailer and the settings decals had something clear to build from.</p>
               <p class="todo">What you'd do differently on day one of the next project.</p>
@@ -1339,7 +1331,6 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
           <nav class="toc" aria-label="NOC-6000 sections"><a href="#noc-part">My part</a><a href="#noc-layout">Layout</a><a href="#noc-behavior">Behavior</a><a href="#noc-build">Build</a><a href="#noc-story">My story</a></nav>
           <div class="chapters">
             <section class="chapter" id="noc-part" aria-labelledby="noc-part-h">
-              <p class="eyebrow">My part</p>
               <h2 id="noc-part-h">My contributions</h2>
               <ul class="contrib reveal">
                 <li>Sketched the HUD's module layout.</li>
@@ -1348,8 +1339,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
               </ul>
             </section>
             <section class="chapter" id="noc-layout" aria-labelledby="noc-layout-h">
-              <p class="eyebrow">Module layout</p>
-              <h2 id="noc-layout-h">A HUD built from modules, like an OS</h2>
+              <h2 id="noc-layout-h">Modular holographic HUD</h2>
               <ul class="notes reveal">
                 <li><b>Sunrise module</b>Upper left. Tracks the six moons as they rise.</li>
                 <li><b>Hunt banner</b>Top center. Time since the last hunt.</li>
@@ -1361,18 +1351,15 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
               <div class="media-slot reveal">HUD capture or sketch goes here</div>
             </section>
             <section class="chapter" id="noc-behavior" aria-labelledby="noc-behavior-h">
-              <p class="eyebrow">Behavior</p>
-              <h2 id="noc-behavior-h">A HUD that breathes</h2>
+              <h2 id="noc-behavior-h">How the HUD reacts</h2>
               <p>The crosshair widens after a miss and tightens when it's ready. It throbs a little, which makes the robot feel alive. Modules fade in when they matter and fade out when they don't. The hologram shifts between light and dark green.</p>
             </section>
             <section class="chapter" id="noc-build" aria-labelledby="noc-build-h">
-              <p class="eyebrow">Build</p>
-              <h2 id="noc-build-h">In engine</h2>
+              <h2 id="noc-build-h">In-engine build</h2>
               <p>One master hologram material drives ring masks, radial ticks and layered opacity. A HUD rig Blueprint with four anchors is parented to the camera.</p>
             </section>
             <section class="chapter" id="noc-story" aria-labelledby="noc-story-h">
-              <p class="eyebrow">My story</p>
-              <h2 id="noc-story-h">How it went</h2>
+              <h2 id="noc-story-h">My story</h2>
               <ol class="story reveal">
                 <li class="story-card"><b>What went well</b><p>In the first build session the master hologram material came together, and the HUD rig was hooked up to the camera.</p></li>
                 <li class="story-card"><b>What was tricky</b><p>Getting flat hologram planes to face the right way took some trial and error.</p></li>
@@ -1404,11 +1391,10 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
           </dl>
         </header>
         <div class="case-layout">
-          <nav class="toc" aria-label="Enhshahtén:ti sections"><a href="#en-short">Short version</a><a href="#en-part">My part</a><a href="#en-feel">Three levels</a><a href="#en-hud">The HUD</a><a href="#en-flow">How it updates</a><a href="#en-story">My story</a><a href="#en-boards">Research</a><a href="#en-color">Color</a><a href="#en-tests">Audience testing</a><a href="#en-review">Review</a></nav>
+          <nav class="toc" aria-label="Enhshahtén:ti sections"><a href="#en-short">Sneak Peek</a><a href="#en-part">My part</a><a href="#en-feel">Three levels</a><a href="#en-hud">The HUD</a><a href="#en-flow">How it updates</a><a href="#en-story">My story</a><a href="#en-boards">Research</a><a href="#en-color">Color</a><a href="#en-tests">Audience testing</a><a href="#en-review">Review</a></nav>
           <div class="chapters">
             <section class="chapter" id="en-short" aria-labelledby="en-short-h">
-              <p class="eyebrow">The short version</p>
-              <h2 id="en-short-h">In thirty seconds</h2>
+              <h2 id="en-short-h">Sneak Peek</h2>
               <div class="tldr reveal">
                 <div class="tl"><span class="tl-k">What I built</span><p>Two attack modes, a bow and a murder of crows, with three levels each. Plus three levels of getting hit. Solo in Unreal Engine 5, from VFX and UI to animation, audio and code.</p><a href="#en-feel">See the levels ↓</a></div>
                 <div class="tl"><span class="tl-k">How I thought about it</span><p>Every level had to look, sound and hit differently. The HUD shows how you feel instead of handing you bars. The crosshair is a feather fan, and its plumes are the cooldowns.</p><a href="#en-hud">See the HUD ↓</a></div>
@@ -1416,8 +1402,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
               </div>
             </section>
             <section class="chapter" id="en-part" aria-labelledby="en-part-h">
-              <p class="eyebrow">My part</p>
-              <h2 id="en-part-h">All of it</h2>
+              <h2 id="en-part-h">My contributions</h2>
               <p>This was a solo project, so every piece of it is mine.</p>
               <ul class="contrib reveal">
                 <li>Wrote the pitch, the story and the feel plan for every attack and every level of damage.</li>
@@ -1430,8 +1415,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             </section>
 
             <section class="chapter" id="en-feel" aria-labelledby="en-feel-h">
-              <p class="eyebrow">Combat feel</p>
-              <h2 id="en-feel-h">Three levels that feel different</h2>
+              <h2 id="en-feel-h">Three levels of attack and damage</h2>
               <p>There are two attack modes, not six attacks. Think of it like switching weapons. Each mode has a light, medium and heavy version, and each version had to look, sound and hit differently. The bow should feel lethal, heavy and stealthy, like one shot is enough. The crows should feel trained, intense and quick, a simple whistle and point followed by something brutal.</p>
               <div class="wt-tabs reveal" role="tablist" aria-label="Attack mode">
                 <button type="button" role="tab" aria-selected="true" aria-controls="en-w-bow" data-mode="en-w-bow"><b>a'én:na</b><small>Bow</small></button>
@@ -1445,8 +1429,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             </section>
 
             <section class="chapter" id="en-hud" aria-labelledby="en-hud-h">
-              <p class="eyebrow">The HUD</p>
-              <h2 id="en-hud-h">A feather for a crosshair</h2>
+              <h2 id="en-hud-h">Feather crosshair and HUD</h2>
               <p>I wanted the HUD to show how you feel, not hand you a bar. But you're also stuck in a corporate fever dream. So it's high contrast against the snow, with soft edges that blur clean information into something dreamlike. Feathers stand for the crows, flint heads stand for your arrows, and your health is a fluid trapped in a container.</p>
               <figure class="draw reveal en-xhair">
                 <div class="draw-stage"><img src="img/en-feather.webp" width="1000" height="600" loading="lazy" alt="The final crosshair: a blue grey fan of feathers shaped like an open collar, split into three plume sections, with a small dark star above it as the aim point."></div>
@@ -1478,44 +1461,37 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             </section>
 
             <section class="chapter" id="en-flow" aria-labelledby="en-flow-h">
-              <p class="eyebrow">How it updates</p>
-              <h2 id="en-flow-h">Every change in four beats</h2>
+              <h2 id="en-flow-h">HUD feedback in four beats</h2>
               <p>I planned each HUD element as four beats. Something grabs your attention, something signals the change, the change happens, and it settles.</p>
               <div class="fl-grid reveal"><div class="fl"><h3>Health</h3><p class="fl-sub">Soul fluid in a container, top left</p><ol class="fl-steps"><li><span class="fl-k">Attract</span>A splashy slash sound. Exposure jumps and a white vignette hits.</li><li><span class="fl-k">Signal</span>The fluid flashes with extra glow.</li><li><span class="fl-k">Update</span>The lost part greys out and wisps away like smoke.</li><li><span class="fl-k">Resolve</span>The fluid settles, sloshing in a smaller space.</li></ol></div><div class="fl"><h3>Enemy health</h3><p class="fl-sub">Drawn right on their body</p><ol class="fl-steps"><li><span class="fl-k">Attract</span>They grunt and react to the thunk of the arrow.</li><li><span class="fl-k">Signal</span>An outline appears on them.</li><li><span class="fl-k">Update</span>A glowing white overlay fills them as they get "consumed by damage."</li><li><span class="fl-k">Resolve</span>Below half, they switch to a damaged state.</li></ol></div><div class="fl"><h3>Arrows</h3><p class="fl-sub">Flint heads, bottom left</p><ol class="fl-steps"><li><span class="fl-k">Attract</span>The bow drops as the arrow leaves with its trail.</li><li><span class="fl-k">Signal</span>One glowing arrowhead leaves and the rest shift over.</li><li><span class="fl-k">Update</span>A reload "cathunk."</li><li><span class="fl-k">Resolve</span>The bow comes back up.</li></ol></div><div class="fl"><h3>Cooldown</h3><p class="fl-sub">The plumes on the crosshair</p><ol class="fl-steps"><li><span class="fl-k">Attract</span>The feathers glow for the level you picked and shake as the target gets marked.</li><li><span class="fl-k">Signal</span>Wisps escape the glow.</li><li><span class="fl-k">Update</span>The feathers go black and the glow drains into grey smoke.</li><li><span class="fl-k">Resolve</span>The smoke clears and the glow slowly charges back up.</li></ol><p class="fl-note">From Prof. Cagle: give it a signifier when it hits full power, like a sound or a flash.</p></div></div>
             </section>
 
             <section class="chapter" id="en-story" aria-labelledby="en-story-h">
-              <p class="eyebrow">My story</p>
-              <h2 id="en-story-h">One person, every department</h2>
+              <h2 id="en-story-h">My story</h2>
               <p>Doing it solo meant I was the designer, the artist, the animator, the sound person and the programmer. Here's how that went.</p>
             </section>
             <section class="chapter story-sec" id="en-well" aria-labelledby="en-well-h">
-              <p class="eyebrow"><span class="story-n">01</span> My story</p>
-              <h3 id="en-well-h">What went well</h3>
+              <h3 id="en-well-h"><span class="story-n">01</span>What went well</h3>
               <p>The core design held up. From the first pitch to the final build I barely had to iterate on it. The look I was chasing landed too. People called it dreamy, cold and ethereal, which is exactly where I was aiming.</p>
               <p>And I got all of it in. Three levels of both attacks, each with its own VFX, animation, sound and feedback, plus an enemy that visibly notices you. Watching a tester yell "He noticed me!" told me the enemy behavior was reading.</p>
             </section>
             <section class="chapter story-sec" id="en-tricky" aria-labelledby="en-tricky-h">
-              <p class="eyebrow"><span class="story-n">02</span> My story</p>
-              <h3 id="en-tricky-h">What was tricky</h3>
+              <h3 id="en-tricky-h"><span class="story-n">02</span>What was tricky</h3>
               <p>Scope. Prof. Cagle warned me at the pitch that getting the bow to look and feel good would take way more time than I thought. He was right. The end of the project turned into a huge push and a crunch to get it turned in. At presentation the HUD didn't do anything in the build yet, and the special attacks only showed up in the editor.</p>
               <p>I also got ahead of myself. Every time I finished a system or a section, I gave it an art pass right away, before other areas even worked. I did that on purpose. There's psychology research suggesting that when a project looks good early, you like it more and want to keep working on it. It did keep me motivated. But it spent time the functionality needed.</p>
             </section>
             <section class="chapter story-sec" id="en-through" aria-labelledby="en-through-h">
-              <p class="eyebrow"><span class="story-n">03</span> My story</p>
-              <h3 id="en-through-h">What I worked through</h3>
+              <h3 id="en-through-h"><span class="story-n">03</span>What I worked through</h3>
               <p>I tested the pitch with an audience early, then playtested as it came together. I sorted every note into what I could act on and what was way too much for the time I had. The biggest change was the crosshair. The feather fan became the cooldown too, with one plume for each ability level, so the thing you aim with tells you what's ready.</p>
               <p>With no team to hand things to, I had to pick my battles. Sound got priority, because a playtester was right. It can look rough as long as it sounds like it's tearing through the air. That showed in review, where the TA called out the audio work.</p>
             </section>
             <section class="chapter story-sec" id="en-next" aria-labelledby="en-next-h">
-              <p class="eyebrow"><span class="story-n">04</span> My story</p>
-              <h3 id="en-next-h">What I'll carry forward</h3>
+              <h3 id="en-next-h"><span class="story-n">04</span>What I'll carry forward</h3>
               <p>Take the scope warning seriously the first time. Next project, every system works before any of them gets pretty. Early art can still happen, but as one timeboxed pass, not after every system.</p>
               <p>And the UI goes in early, even if it's ugly. I spent this project planning to focus on UI and ended up doing it last. Next time the HUD works first, so testers react to it instead of a placeholder.</p>
             </section>
             <section class="chapter" id="en-boards" aria-labelledby="en-boards-h">
-              <p class="eyebrow">Research</p>
-              <h2 id="en-boards-h">Three mood boards</h2>
+              <h2 id="en-boards-h">Research mood boards</h2>
               <p>Each board answers a different question. Click any board to see it bigger.</p>
               <div class="boards reveal">
                 <figure class="board">
@@ -1534,8 +1510,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             </section>
 
             <section class="chapter" id="en-color" aria-labelledby="en-color-h">
-              <p class="eyebrow">Color</p>
-              <h2 id="en-color-h">UI colors against the world</h2>
+              <h2 id="en-color-h">HUD and world palettes</h2>
               <p>The HUD lives in strict blue greys. The greys in the middle are for near misses and hits. Grey fits a world where you're freezing and losing consciousness. The blues stand out against the reds, yellows and tans of the French soldiers, and against the deep cool tones of the winter forest.</p>
               <p class="pal-label">HUD</p>
               <ul class="swatches reveal" aria-label="HUD palette. Activate a swatch to copy its hex code.">
@@ -1564,8 +1539,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             </section>
 
             <section class="chapter" id="en-tests" aria-labelledby="en-tests-h">
-              <p class="eyebrow">Audience testing</p>
-              <h2 id="en-tests-h">Testing the idea before building it</h2>
+              <h2 id="en-tests-h">Audience testing</h2>
               <p>Before and during early production I ran qualitative sessions, closer to the audience testing and polling studios do before they commit to a game. I presented the pitch and early builds to artists, level designers, UX designers and people who'd never played Assassin's Creed or Far Cry, and polled how it felt. More playtests came later, once there was more to play. The aesthetic landed early. Most of the notes were about the HUD.</p>
               <ul class="quotes reveal">
                 <li>"It is very you. Which is good because that means you know how it should be."</li>
@@ -1587,11 +1561,10 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             </section>
 
             <section class="chapter" id="en-review" aria-labelledby="en-review-h">
-              <p class="eyebrow">Review</p>
-              <h2 id="en-review-h">What faculty said</h2>
+              <h2 id="en-review-h">Faculty review</h2>
               <blockquote class="review reveal">
                 <p>"This is a really interesting theme that I want you to lean into as hard as possible. Good references. … Your HUD concepting is super solid and, honestly, makes this project one that I'm excited to see how it gets implemented."</p>
-                <footer>Prof. Cagle, DES 365</footer>
+                <footer>Prof. Cagle, faculty</footer>
               </blockquote>
               <blockquote class="review reveal">
                 <p>"Great setting and good starting ambience. Animation when enemy notices you is great, small SFX with every attack. … Arrows sticking out is a good touch. … Camera shake is good. … Lots of good use with audio work."</p>
@@ -1624,7 +1597,6 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
           <nav class="toc" aria-label="Minecraft project sections"><a href="#mc-part">My part</a><a href="#mc-flat">Wireframe</a><a href="#mc-live">In the game</a><a href="#mc-why">My thinking</a><a href="#mc-story">My story</a></nav>
           <div class="chapters">
             <section class="chapter" id="mc-part" aria-labelledby="mc-part-h">
-              <p class="eyebrow">My part</p>
               <h2 id="mc-part-h">My contributions</h2>
               <ul class="contrib reveal">
                 <li>Wireframed a new inventory layout.</li>
@@ -1632,8 +1604,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
               </ul>
             </section>
             <section class="chapter" id="mc-flat" aria-labelledby="mc-flat-h">
-              <p class="eyebrow">Step 1 · Wireframe</p>
-              <h2 id="mc-flat-h">The layout, flat</h2>
+              <h2 id="mc-flat-h">Flat wireframe</h2>
 <div style="max-width:720px">              <figure class="draw reveal">
                 <div class="draw-stage"><img src="img/mc-wireframe.webp" width="1100" height="1045" loading="lazy" alt="Greyscale inventory wireframe. Top left, a column of four armor slots beside a large dark character preview. Top right, a two by two crafting grid joined by a line to one output slot. Below, a row of four buttons: a blank slot, a green recipe book, an ABC text icon and a salmon colored square. Then three rows of ten storage slots, a row of nine, and a lighter bottom row of nine. Diamond markers on four slots in the third row connect by vertical lines to the first four slots of the bottom row. A small node icon sits at the bottom right."></div>
                 <ol class="draw-notes">
@@ -1645,21 +1616,18 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
               </figure></div>
             </section>
             <section class="chapter" id="mc-live" aria-labelledby="mc-live-h">
-              <p class="eyebrow">Step 2 · In context</p>
-              <h2 id="mc-live-h">Over the live game</h2>
+              <h2 id="mc-live-h">Wireframe over the live game</h2>
               <figure class="reveal">
                 <img src="img/mc-ingame.webp" width="1600" height="900" loading="lazy" alt="The same inventory wireframe shown as a see-through panel over a Minecraft world with trees, hills and a lake. The health and hunger bars and the hotbar sit below it.">
                 <figcaption>The wireframe as a see-through panel over the world.</figcaption>
               </figure>
             </section>
             <section class="chapter pending" id="mc-why" aria-labelledby="mc-why-h">
-              <p class="eyebrow">My thinking</p>
-              <h2 id="mc-why-h">Why it's laid out this way</h2>
+              <h2 id="mc-why-h">Layout reasoning</h2>
               <p class="todo">What problem you were solving with the default inventory, what the diamond links and the ABC button do, why the panel is see-through, and what you'd change next.</p>
             </section>
             <section class="chapter pending" id="mc-story" aria-labelledby="mc-story-h">
-              <p class="eyebrow">My story</p>
-              <h2 id="mc-story-h">How it went</h2>
+              <h2 id="mc-story-h">My story</h2>
               <ol class="story reveal">
                 <li class="story-card pending"><b>What went well</b><p class="todo">What went well, in your words.</p></li>
                 <li class="story-card pending"><b>What was tricky</b><p class="todo">What was tricky or slowed you down.</p></li>
@@ -1682,9 +1650,9 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
  {"@type":"Person","@id":"#atlas","name":"Atlas Stewart","jobTitle":"UI/UX Designer (Games)","homeLocation":{"@type":"Place","name":"Redmond, Washington"},"description":"Open to relocate.","email":"mailto:atlasgamedeveloper@gmail.com","telephone":"+1-425-620-8472","sameAs":["https://www.linkedin.com/in/atlas-stewart-3a333a33a","https://linktr.ee/atlasgamedeveloper"],"affiliation":{"@type":"CollegeOrUniversity","name":"DigiPen Institute of Technology"},
   "award":"Award for a Steam game released in his sophomore year","knowsAbout":["Game UI design","UX design","HUD design","Diegetic UI","Style guides","Level design","Unreal Engine Blueprints","Figma","Unity","Maya","Krita"]},
  {"@type":"CreativeWork","name":"Nitro Guzzler","creator":{"@id":"#atlas"},"description":"Redline-inspired portal racing game built in Unreal Engine 5.5 by a 31-person student team, the Grease Monkeys. Atlas Stewart is Creative Director and UI/UX designer and designed a diegetic main menu: an attract-loop camera director, settings etched onto the car, and compass-style spray-painted menu arrows. Releasing on Steam in December 2026."},
- {"@type":"CreativeWork","name":"Chain of Jewels","creator":{"@id":"#atlas"},"description":"DES 360 team project (team of 5): a style guide built from a moodboard, then a complete game UI in Figma (main menu, jewel shop, skill forge, battle)."},
+ {"@type":"CreativeWork","name":"Chain of Jewels","creator":{"@id":"#atlas"},"description":"Team project (team of 5): a style guide built from a moodboard, then a complete game UI in Figma (main menu, jewel shop, skill forge, battle)."},
  {"@type":"CreativeWork","name":"NOC-6000","creator":{"@id":"#atlas"},"description":"Unreal Engine game with a robot protagonist and a diegetic holographic HUD in 3D world space."},
- {"@type":"CreativeWork","name":"Enhshahtén:ti","creator":{"@id":"#atlas"},"description":"Solo first-person combat feel and HUD project (DES 365, Spring 2026). Three levels each of a bow attack (a'én:na) and a crow special attack (iotiwísto), plus three levels of player damage feedback, each with distinct VFX, audio, animation and HUD feedback. Feather crosshair whose three plume sections show each ability level's cooldown. Qualitative audience testing on the pitch and early builds, followed by playtests. Built in Unreal Engine 5."},"description":"Solo game feel deep dive into making each level of attack, the amount of damage and the player's health state feel different. Includes style, weapon and power mood boards, health UI tests over a greybox, and an Animus-inspired UI palette tested against environment colors."},
+ {"@type":"CreativeWork","name":"Enhshahtén:ti","creator":{"@id":"#atlas"},"description":"Solo first-person combat feel and HUD project in Unreal Engine 5. Three levels each of a bow attack (a'én:na) and a crow special attack (iotiwísto), plus three levels of player damage feedback, each with distinct VFX, audio, animation and HUD feedback. Feather crosshair whose three plume sections show each ability level's cooldown. Qualitative audience testing on the pitch and early builds, followed by playtests. Built in Unreal Engine 5."},"description":"Solo game feel deep dive into making each level of attack, the amount of damage and the player's health state feel different. Includes style, weapon and power mood boards, health UI tests over a greybox, and an Animus-inspired UI palette tested against environment colors."},
  {"@type":"CreativeWork","name":"Minecraft inventory redesign","creator":{"@id":"#atlas"},"description":"A redesign of the Minecraft inventory screen, wireframed flat and then overlaid on the live game."}
 ]}
 </script>
@@ -1840,24 +1808,39 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
     fig.querySelectorAll('.draw-notes li').forEach((li, i) => {
       const [x, y, w, h] = li.dataset.box.split(',').map(Number);
       const [lx, ly] = li.dataset.at.split(',').map(Number);
-      const box = document.createElement('span'); box.className = 'd-box'; box.setAttribute('aria-hidden', 'true');
+      li.dataset.i = i;
+      const box = document.createElement('span'); box.className = 'd-box'; box.setAttribute('aria-hidden', 'true'); box.dataset.i = i;
       Object.assign(box.style, {left: x + '%', top: y + '%', width: w + '%', height: h + '%'}); box.style.setProperty('--i', i);
       box.innerHTML = '<span class="d-num">' + (i + 1) + '</span>';
-      const lab = document.createElement('span'); lab.className = 'd-label'; lab.setAttribute('aria-hidden', 'true');
+      const lab = document.createElement('span'); lab.className = 'd-label'; lab.setAttribute('aria-hidden', 'true'); lab.dataset.i = i;
       Object.assign(lab.style, {left: lx + '%', top: ly + '%'}); lab.style.setProperty('--i', i);
       lab.innerHTML = li.innerHTML.replace('<b>', '<b><span class="d-n">' + (i + 1) + '</span>');
       stage.appendChild(box); stage.appendChild(lab);
       const ax = lx + 1, ay = ly + 3;
       const px = Math.min(Math.max(ax, x), x + w), py = Math.min(Math.max(ay, y), y + h);
       if (Math.hypot(ax - px, ay - py) > 2) {
-        ['halo', ''].forEach(c => { const l = document.createElementNS(SVGNS, 'line'); if (c) l.setAttribute('class', c);
+        ['halo', ''].forEach(c => { const l = document.createElementNS(SVGNS, 'line'); if (c) l.setAttribute('class', c); l.setAttribute('data-i', i);
           l.setAttribute('x1', px); l.setAttribute('y1', py); l.setAttribute('x2', ax); l.setAttribute('y2', ay); svg.appendChild(l); });
       }
     });
     const t = fig.querySelector('.draw-toggle');
     t.addEventListener('click', () => { const on = t.getAttribute('aria-pressed') !== 'true'; t.setAttribute('aria-pressed', on); t.textContent = on ? 'Hide notes' : 'Show notes'; fig.classList.toggle('clean', !on); });
   });
-  const drawIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); drawIO.unobserve(e.target); } }), {threshold: .35});
+  const drawIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ const f = e.target; f.classList.add('in'); drawIO.unobserve(f); setTimeout(() => f.classList.add('settled'), 1600); } }), {threshold: .35});
+  /* hover a box, its label or its note: that whole note lights up */
+  const setHot = (fig, i) => {
+    fig.classList.toggle('has-hot', i != null);
+    fig.querySelectorAll('[data-i]').forEach(el => el.classList.toggle('hot', i != null && el.getAttribute('data-i') === String(i)));
+  };
+  document.addEventListener('pointerover', e => {
+    const fig = e.target.closest && e.target.closest('.draw'); if (!fig) return;
+    const t = e.target.closest('.d-box,.d-label,.draw-notes li');
+    setHot(fig, t ? t.getAttribute('data-i') : null);
+  });
+  document.addEventListener('pointerout', e => {
+    const fig = e.target.closest && e.target.closest('.draw');
+    if (fig && !fig.contains(e.relatedTarget)) setHot(fig, null);
+  });
   document.querySelectorAll('.draw').forEach(f => { if (!reduce.matches){ f.classList.add('armed'); drawIO.observe(f); } });
 
   /* ---------- click any image in a file to see it big ---------- */
@@ -1871,7 +1854,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
   lb.addEventListener('close', () => { lbInner.innerHTML = ''; });
   function openLb(fig){
     lbInner.innerHTML = '';
-    lbInner.className = 'lb-inner draw in' + (fig.classList.contains('clean') ? ' clean' : '');
+    lbInner.className = 'lb-inner draw in settled' + (fig.classList.contains('clean') ? ' clean' : '');
     const stage = fig.querySelector('.draw-stage');
     const img = fig.querySelector('img');
     const cap = fig.querySelector('figcaption span, figcaption');
