@@ -649,6 +649,27 @@ h2{font-weight:300}
 .review p{font-family:var(--font-display);font-stretch:var(--display-stretch);font-size:clamp(1.05rem,1.6vw,1.25rem);line-height:1.45;max-width:66ch}
 .review footer{padding:0;margin-top:.6rem;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
 
+
+/* Back to projects stays with you while you scroll a case study */
+.case-bar{position:sticky;top:10px;z-index:30;pointer-events:none;padding-block:.75rem}
+.case-bar > *{pointer-events:auto}
+.case-bar .close{background:color-mix(in srgb,var(--desk) 62%,transparent);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);
+  box-shadow:inset 0 1px 0 var(--sheen),0 10px 28px -12px rgba(0,0,0,.65)}
+#case-chain-of-jewels .case-bar .close{background:rgba(40,30,18,.82);color:#E9DFCC;border-color:rgba(233,223,204,.35)}
+.case .toc{top:6rem}
+.case .chapter,.case [id]{scroll-margin-top:6rem}
+/* The short version: three cards a reviewer can read in seconds */
+.tldr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem}
+.tl{display:grid;gap:.55rem;align-content:start;padding:1.05rem 1.15rem 1.15rem;border-radius:4px;background-color:var(--glass);border:1px solid var(--edge);border-top:3px solid var(--accent);
+  backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);box-shadow:inset 0 1px 0 var(--sheen)}
+.tl-k{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.tl p{font-size:.98rem;line-height:1.5}
+.tl a{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);text-decoration:none;margin-top:auto}
+.tl a:hover{text-decoration:underline}
+.tl-warn{border-top-color:#E59B8A}
+.tl-warn .tl-k{color:#F2B5A7}
+@media (max-width:760px){.tldr{grid-template-columns:1fr}}
+
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
@@ -1371,21 +1392,29 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
       <div class="inner">
         <div class="case-bar"><a class="btn ghost close" href="#projects">← Back to projects</a></div>
         <header class="case-hero morph-target">
-          <p class="eyebrow">Case study · Combat feel + HUD · DES 365</p>
+          <p class="eyebrow">Case study · Combat feel + HUD</p>
           <h1 id="en-title" tabindex="-1">Enhshahtén:ti</h1>
           <p class="en-trans">"He will leave here," in Mohawk</p>
           <p class="lede">A solo, first-person combat feel and HUD project. You're in a coma, trapped inside a corporate chip, reliving your ancestor's fight against French invaders on Mohawk land in the winter of 1666. You have a bow, a hatchet and a murder of crows you've trained to hunt with. I wanted every level of every attack, and every level of getting hurt, to feel like its own thing.</p>
           <dl class="glance">
             <div><dt>Role</dt><dd>Everything</dd></div>
             <div><dt>Team</dt><dd>Solo</dd></div>
-            <div><dt>Course</dt><dd>DES 365, Spring 2026</dd></div>
             <div><dt>Engine</dt><dd>Unreal Engine 5</dd></div>
             <div><dt>Built</dt><dd>2 attack modes × 3 levels</dd></div>
           </dl>
         </header>
         <div class="case-layout">
-          <nav class="toc" aria-label="Enhshahtén:ti sections"><a href="#en-part">My part</a><a href="#en-feel">Three levels</a><a href="#en-hud">The HUD</a><a href="#en-flow">How it updates</a><a href="#en-boards">Research</a><a href="#en-color">Color</a><a href="#en-tests">Audience testing</a><a href="#en-review">Review</a><a href="#en-story">My story</a></nav>
+          <nav class="toc" aria-label="Enhshahtén:ti sections"><a href="#en-short">Short version</a><a href="#en-part">My part</a><a href="#en-feel">Three levels</a><a href="#en-hud">The HUD</a><a href="#en-flow">How it updates</a><a href="#en-story">My story</a><a href="#en-boards">Research</a><a href="#en-color">Color</a><a href="#en-tests">Audience testing</a><a href="#en-review">Review</a></nav>
           <div class="chapters">
+            <section class="chapter" id="en-short" aria-labelledby="en-short-h">
+              <p class="eyebrow">The short version</p>
+              <h2 id="en-short-h">In thirty seconds</h2>
+              <div class="tldr reveal">
+                <div class="tl"><span class="tl-k">What I built</span><p>Two attack modes, a bow and a murder of crows, with three levels each. Plus three levels of getting hit. Solo in Unreal Engine 5, from VFX and UI to animation, audio and code.</p><a href="#en-feel">See the levels ↓</a></div>
+                <div class="tl"><span class="tl-k">How I thought about it</span><p>Every level had to look, sound and hit differently. The HUD shows how you feel instead of handing you bars. The crosshair is a feather fan, and its plumes are the cooldowns.</p><a href="#en-hud">See the HUD ↓</a></div>
+                <div class="tl tl-warn"><span class="tl-k">What went wrong</span><p>Scope. I was warned at the pitch and still ended in a crunch. I also did art passes too early, before other systems worked.</p><a href="#en-story">Read my story ↓</a></div>
+              </div>
+            </section>
             <section class="chapter" id="en-part" aria-labelledby="en-part-h">
               <p class="eyebrow">My part</p>
               <h2 id="en-part-h">All of it</h2>
@@ -1455,6 +1484,35 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
               <div class="fl-grid reveal"><div class="fl"><h3>Health</h3><p class="fl-sub">Soul fluid in a container, top left</p><ol class="fl-steps"><li><span class="fl-k">Attract</span>A splashy slash sound. Exposure jumps and a white vignette hits.</li><li><span class="fl-k">Signal</span>The fluid flashes with extra glow.</li><li><span class="fl-k">Update</span>The lost part greys out and wisps away like smoke.</li><li><span class="fl-k">Resolve</span>The fluid settles, sloshing in a smaller space.</li></ol></div><div class="fl"><h3>Enemy health</h3><p class="fl-sub">Drawn right on their body</p><ol class="fl-steps"><li><span class="fl-k">Attract</span>They grunt and react to the thunk of the arrow.</li><li><span class="fl-k">Signal</span>An outline appears on them.</li><li><span class="fl-k">Update</span>A glowing white overlay fills them as they get "consumed by damage."</li><li><span class="fl-k">Resolve</span>Below half, they switch to a damaged state.</li></ol></div><div class="fl"><h3>Arrows</h3><p class="fl-sub">Flint heads, bottom left</p><ol class="fl-steps"><li><span class="fl-k">Attract</span>The bow drops as the arrow leaves with its trail.</li><li><span class="fl-k">Signal</span>One glowing arrowhead leaves and the rest shift over.</li><li><span class="fl-k">Update</span>A reload "cathunk."</li><li><span class="fl-k">Resolve</span>The bow comes back up.</li></ol></div><div class="fl"><h3>Cooldown</h3><p class="fl-sub">The plumes on the crosshair</p><ol class="fl-steps"><li><span class="fl-k">Attract</span>The feathers glow for the level you picked and shake as the target gets marked.</li><li><span class="fl-k">Signal</span>Wisps escape the glow.</li><li><span class="fl-k">Update</span>The feathers go black and the glow drains into grey smoke.</li><li><span class="fl-k">Resolve</span>The smoke clears and the glow slowly charges back up.</li></ol><p class="fl-note">From Prof. Cagle: give it a signifier when it hits full power, like a sound or a flash.</p></div></div>
             </section>
 
+            <section class="chapter" id="en-story" aria-labelledby="en-story-h">
+              <p class="eyebrow">My story</p>
+              <h2 id="en-story-h">One person, every department</h2>
+              <p>Doing it solo meant I was the designer, the artist, the animator, the sound person and the programmer. Here's how that went.</p>
+            </section>
+            <section class="chapter story-sec" id="en-well" aria-labelledby="en-well-h">
+              <p class="eyebrow"><span class="story-n">01</span> My story</p>
+              <h3 id="en-well-h">What went well</h3>
+              <p>The core design held up. From the first pitch to the final build I barely had to iterate on it. The look I was chasing landed too. People called it dreamy, cold and ethereal, which is exactly where I was aiming.</p>
+              <p>And I got all of it in. Three levels of both attacks, each with its own VFX, animation, sound and feedback, plus an enemy that visibly notices you. Watching a tester yell "He noticed me!" told me the enemy behavior was reading.</p>
+            </section>
+            <section class="chapter story-sec" id="en-tricky" aria-labelledby="en-tricky-h">
+              <p class="eyebrow"><span class="story-n">02</span> My story</p>
+              <h3 id="en-tricky-h">What was tricky</h3>
+              <p>Scope. Prof. Cagle warned me at the pitch that getting the bow to look and feel good would take way more time than I thought. He was right. The end of the project turned into a huge push and a crunch to get it turned in. At presentation the HUD didn't do anything in the build yet, and the special attacks only showed up in the editor.</p>
+              <p>I also got ahead of myself. Every time I finished a system or a section, I gave it an art pass right away, before other areas even worked. I did that on purpose. There's psychology research suggesting that when a project looks good early, you like it more and want to keep working on it. It did keep me motivated. But it spent time the functionality needed.</p>
+            </section>
+            <section class="chapter story-sec" id="en-through" aria-labelledby="en-through-h">
+              <p class="eyebrow"><span class="story-n">03</span> My story</p>
+              <h3 id="en-through-h">What I worked through</h3>
+              <p>I tested the pitch with an audience early, then playtested as it came together. I sorted every note into what I could act on and what was way too much for the time I had. The biggest change was the crosshair. The feather fan became the cooldown too, with one plume for each ability level, so the thing you aim with tells you what's ready.</p>
+              <p>With no team to hand things to, I had to pick my battles. Sound got priority, because a playtester was right. It can look rough as long as it sounds like it's tearing through the air. That showed in review, where the TA called out the audio work.</p>
+            </section>
+            <section class="chapter story-sec" id="en-next" aria-labelledby="en-next-h">
+              <p class="eyebrow"><span class="story-n">04</span> My story</p>
+              <h3 id="en-next-h">What I'll carry forward</h3>
+              <p>Take the scope warning seriously the first time. Next project, every system works before any of them gets pretty. Early art can still happen, but as one timeboxed pass, not after every system.</p>
+              <p>And the UI goes in early, even if it's ugly. I spent this project planning to focus on UI and ended up doing it last. Next time the HUD works first, so testers react to it instead of a placeholder.</p>
+            </section>
             <section class="chapter" id="en-boards" aria-labelledby="en-boards-h">
               <p class="eyebrow">Research</p>
               <h2 id="en-boards-h">Three mood boards</h2>
@@ -1541,34 +1599,6 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
               </blockquote>
             </section>
 
-            <section class="chapter" id="en-story" aria-labelledby="en-story-h">
-              <p class="eyebrow">My story</p>
-              <h2 id="en-story-h">One person, every department</h2>
-              <p>Doing it solo meant I was the designer, the artist, the animator, the sound person and the programmer. Here's how that went.</p>
-            </section>
-            <section class="chapter story-sec" id="en-well" aria-labelledby="en-well-h">
-              <p class="eyebrow"><span class="story-n">01</span> My story</p>
-              <h3 id="en-well-h">What went well</h3>
-              <p>The core design held up. From the first pitch to the final build I barely had to iterate on it. The look I was chasing landed too. People called it dreamy, cold and ethereal, which is exactly where I was aiming.</p>
-              <p>And I got all of it in. Three levels of both attacks, each with its own VFX, animation, sound and feedback, plus an enemy that visibly notices you. Watching a tester yell "He noticed me!" told me the enemy behavior was reading.</p>
-            </section>
-            <section class="chapter story-sec" id="en-tricky" aria-labelledby="en-tricky-h">
-              <p class="eyebrow"><span class="story-n">02</span> My story</p>
-              <h3 id="en-tricky-h">What was tricky</h3>
-              <p>Time. Prof. Cagle warned me that getting the bow to look and feel good would take longer than I thought, and it did. Feel came first, so the HUD's functionality came last. At presentation the HUD didn't do anything in the build yet, and the special attacks only showed up in the editor.</p>
-              <p>Playtesters also caught things I was too close to see. The crosshair was too big to see through, the damage tint blended into the snow, and the arrow count read like any shooter's ammo.</p>
-            </section>
-            <section class="chapter story-sec" id="en-through" aria-labelledby="en-through-h">
-              <p class="eyebrow"><span class="story-n">03</span> My story</p>
-              <h3 id="en-through-h">What I worked through</h3>
-              <p>I tested the pitch with an audience early, then playtested as it came together. I sorted every note into what I could act on and what was way too much for the time I had. The biggest change was the crosshair. The feather fan became the cooldown too, with one plume for each ability level, so the thing you aim with tells you what's ready.</p>
-              <p>With no team to hand things to, I had to pick my battles. Sound got priority, because a playtester was right. It can look rough as long as it sounds like it's tearing through the air. That showed in review, where the TA called out the audio work.</p>
-            </section>
-            <section class="chapter story-sec" id="en-next" aria-labelledby="en-next-h">
-              <p class="eyebrow"><span class="story-n">04</span> My story</p>
-              <h3 id="en-next-h">What I'll carry forward</h3>
-              <p>Get the UI working early, even if it's ugly. I spent the project thinking I'd focus on UI and ended up doing it last. Next time the HUD gets functional first and pretty later, so playtesters can react to it instead of a placeholder.</p>
-            </section>
           </div>
         </div>
         <div class="next"><span class="eyebrow" style="margin:0">Next file</span><a href="#minecraft-project" class="big">Minecraft project →</a></div>
