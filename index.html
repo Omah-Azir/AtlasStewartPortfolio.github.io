@@ -611,6 +611,44 @@ h2{font-weight:300}
   .contrib li,.story-card,.notes li,.tool,.resume,.flow li,.dir,.swatch,.compass-panel,.contact-list,.glance,.file-face,.file-tab,.cue,.tabs{background-color:color-mix(in srgb,var(--desk) 88%,var(--ink))}
 }
 
+
+/* ================= Enhshahtén:ti ================= */
+#case-enshahtenti .en-trans{font-family:var(--font-mono);font-size:.8rem;letter-spacing:.08em;color:var(--ink-2);margin:.5rem 0 0}
+.wt-tabs{display:flex;flex-wrap:wrap;gap:.5rem}
+.wt-tabs button{font:inherit;display:grid;gap:.05rem;text-align:left;padding:.6rem 1rem;border-radius:4px;cursor:pointer;color:var(--ink);background:var(--glass);border:1px solid var(--edge);
+  backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);box-shadow:inset 0 1px 0 var(--sheen);transition:border-color .2s,background-color .2s}
+.wt-tabs button b{font-family:var(--font-display);font-stretch:var(--display-stretch);font-weight:700;font-size:1.05rem}
+.wt-tabs button small{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+.wt-tabs button[aria-selected="true"]{border-color:var(--accent);background-color:color-mix(in srgb,var(--accent) 14%,transparent);box-shadow:inset 0 1px 0 var(--sheen),0 0 24px -10px var(--accent)}
+.wt-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem}
+.wt{padding:1rem 1.05rem 1.1rem;border-radius:4px;background-color:var(--glass);border:1px solid var(--edge);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);box-shadow:inset 0 1px 0 var(--sheen)}
+.wt > b{display:flex;align-items:center;gap:.55rem;font-family:var(--font-display);font-stretch:var(--display-stretch);font-weight:700;font-size:1.15rem;margin-bottom:.6rem}
+.wt > b::before{content:"";height:3px;border-radius:2px;background:var(--accent);box-shadow:0 0 10px var(--accent)}
+.wt-light > b::before{width:1rem;opacity:.55}.wt-medium > b::before{width:1.9rem;opacity:.8}.wt-heavy > b::before{width:2.8rem}
+.wt ul{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
+.wt li{display:grid;gap:.05rem;font-size:.94rem;line-height:1.4}
+.wt li span{font-family:var(--font-mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+@media (max-width:760px){.wt-grid{grid-template-columns:1fr}}
+.wt-panels{display:grid}
+#case-enshahtenti .en-xhair{max-width:720px}
+#case-enshahtenti .en-xhair .draw-stage{background:#FFFFFF}
+.fl-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}
+.fl{padding:1rem 1.1rem 1.15rem;border-radius:4px;background-color:var(--glass);border:1px solid var(--edge);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);box-shadow:inset 0 1px 0 var(--sheen)}
+.fl h3{font-size:1.2rem}
+.fl-sub{font-size:.88rem;color:var(--ink-2);margin:.15rem 0 .75rem}
+.fl-steps{list-style:none;margin:0;padding:0;display:grid;gap:.45rem;counter-reset:fl}
+.fl-steps li{display:grid;grid-template-columns:4.6rem 1fr;gap:.6rem;align-items:baseline;font-size:.93rem;line-height:1.4;padding-top:.45rem;border-top:1px solid var(--edge-soft)}
+.fl-k{font-family:var(--font-mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.fl-note{margin-top:.75rem;font-size:.86rem;color:var(--ink-2);padding-left:.7rem;border-left:2px solid var(--accent)}
+@media (max-width:760px){.fl-grid{grid-template-columns:1fr}}
+.pal-label{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin-bottom:-.5rem}
+.quotes{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
+.quotes li{font-family:var(--font-display);font-stretch:var(--display-stretch);font-size:1.05rem;padding:.5rem .85rem;border-radius:999px;background:var(--glass);border:1px solid var(--edge)}
+.sub-h{font-size:1.2rem;margin-top:.5rem}
+.review{margin:0;padding:1.2rem 1.35rem;border-left:3px solid var(--accent);background:var(--glass);border-radius:0 4px 4px 0}
+.review p{font-family:var(--font-display);font-stretch:var(--display-stretch);font-size:clamp(1.05rem,1.6vw,1.25rem);line-height:1.45;max-width:66ch}
+.review footer{padding:0;margin-top:.6rem;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
@@ -796,15 +834,15 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             </span>
           </span>
         </a>
-        <a role="listitem" class="file" data-p="enshahtenti" href="#enshahtenti" aria-label="Enshahtenti. A solo game feel deep dive into making attacks, damage and health feel different at every level. Open case study.">
-          <span class="file-tab" aria-hidden="true">03 · Game feel</span>
+        <a role="listitem" class="file" data-p="enshahtenti" href="#enshahtenti" aria-label="Enhshahtén:ti. A solo first-person combat feel and HUD project with three levels of two attack modes. Open case study.">
+          <span class="file-tab" aria-hidden="true">03 · Combat feel</span>
           <span class="file-face">
-            <span class="file-media"><img src="img/en-board-style.webp" alt="" width="1092" height="620" loading="lazy" style="object-position:center 40%"></span>
+            <span class="file-media"><img src="img/en-hud-special.webp" alt="" width="1600" height="900" loading="lazy" style="object-position:center 45%"></span>
             <span class="file-body">
               <span class="chip">Solo</span>
-              <span class="file-title">Enshahtenti</span>
-              <span class="file-line">A solo deep dive into making every level of attack and health feel different.</span>
-              <span class="file-more"><dl><dt>Team</dt><dd>Solo</dd><dt>Focus</dt><dd>Attack levels, damage, health</dd></dl><span class="open">Open file →</span></span>
+              <span class="file-title">Enhshahtén:ti</span>
+              <span class="file-line">Combat feel and HUD. A bow and a murder of crows, three levels each.</span>
+              <span class="file-more"><dl><dt>Role</dt><dd>Everything</dd><dt>Team</dt><dd>Solo</dd><dt>Course</dt><dd>DES 365</dd></dl><span class="open">Open file →</span></span>
             </span>
           </span>
         </a>
@@ -1061,7 +1099,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             </section>
           </div>
         </div>
-        <div class="next"><span class="eyebrow" style="margin:0">Next file</span><a href="#enshahtenti" class="big">Enshahtenti →</a></div>
+        <div class="next"><span class="eyebrow" style="margin:0">Next file</span><a href="#enshahtenti" class="big">Enhshahtén:ti →</a></div>
       </div>
     </div>
   </article>
@@ -1333,71 +1371,115 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
       <div class="inner">
         <div class="case-bar"><a class="btn ghost close" href="#projects">← Back to projects</a></div>
         <header class="case-hero morph-target">
-          <p class="eyebrow">Case study · Game feel deep dive</p>
-          <h1 id="en-title" tabindex="-1">Enshahtenti</h1>
-          <p class="lede">A solo deep dive into game feel. I wanted every level of attack to feel different from the next. And I wanted the amount of damage and your health state to feel different too.</p>
+          <p class="eyebrow">Case study · Combat feel + HUD · DES 365</p>
+          <h1 id="en-title" tabindex="-1">Enhshahtén:ti</h1>
+          <p class="en-trans">"He will leave here," in Mohawk</p>
+          <p class="lede">A solo, first-person combat feel and HUD project. You're in a coma, trapped inside a corporate chip, reliving your ancestor's fight against French invaders on Mohawk land in the winter of 1666. You have a bow, a hatchet and a murder of crows you've trained to hunt with. I wanted every level of every attack, and every level of getting hurt, to feel like its own thing.</p>
           <dl class="glance">
             <div><dt>Role</dt><dd>Everything</dd></div>
             <div><dt>Team</dt><dd>Solo</dd></div>
-            <div><dt>Focus</dt><dd>Attack levels, damage, health state</dd></div>
+            <div><dt>Course</dt><dd>DES 365, Spring 2026</dd></div>
+            <div><dt>Built</dt><dd>2 attack modes × 3 levels</dd></div>
           </dl>
         </header>
         <div class="case-layout">
-          <nav class="toc" aria-label="Enshahtenti sections"><a href="#en-part">My part</a><a href="#en-goal">The goal</a><a href="#en-boards">Mood boards</a><a href="#en-health">Health tests</a><a href="#en-color">UI vs world</a><a href="#en-story">My story</a></nav>
+          <nav class="toc" aria-label="Enhshahtén:ti sections"><a href="#en-part">My part</a><a href="#en-feel">Three levels</a><a href="#en-hud">The HUD</a><a href="#en-flow">How it updates</a><a href="#en-boards">Research</a><a href="#en-color">Color</a><a href="#en-tests">Playtests</a><a href="#en-review">Review</a><a href="#en-story">My story</a></nav>
           <div class="chapters">
             <section class="chapter" id="en-part" aria-labelledby="en-part-h">
               <p class="eyebrow">My part</p>
-              <h2 id="en-part-h">My contributions</h2>
+              <h2 id="en-part-h">All of it</h2>
+              <p>This was a solo project, so every piece of it is mine.</p>
               <ul class="contrib reveal">
-                <li>Ran the whole deep dive on my own.</li>
-                <li>Made three mood boards for style, weapons and power.</li>
-                <li>Tested health ideas over a UI greybox.</li>
-                <li>Built a UI color scheme and tested it against the environment colors.</li>
+                <li>Wrote the pitch, the story and the feel plan for every attack and every level of damage.</li>
+                <li>Built three levels of both attacks, the a'én:na bow and the iotiwísto crows, with their VFX, animation, audio, feedback and functionality.</li>
+                <li>Designed and built the HUD, from wireframes to the final feather crosshair.</li>
+                <li>Built the enemy's behavior, including the moment it notices you.</li>
+                <li>Set up the snowy environment, post process and color palettes.</li>
+                <li>Ran nine playtests across three sessions and sorted the notes into changes.</li>
               </ul>
             </section>
-            <section class="chapter" id="en-goal" aria-labelledby="en-goal-h">
-              <p class="eyebrow">The goal</p>
-              <h2 id="en-goal-h">Every level should feel different</h2>
-              <p>A light hit and a heavy hit shouldn't feel the same. And being a little hurt shouldn't feel like being almost dead. I wanted to find what makes each level read as its own thing to the player.</p>
+
+            <section class="chapter" id="en-feel" aria-labelledby="en-feel-h">
+              <p class="eyebrow">Combat feel</p>
+              <h2 id="en-feel-h">Three levels that feel different</h2>
+              <p>There are two attack modes, not six attacks. Think of it like switching weapons. Each mode has a light, medium and heavy version, and each version had to look, sound and hit differently. The bow should feel lethal, heavy and stealthy, like one shot is enough. The crows should feel trained, intense and quick, a simple whistle and point followed by something brutal.</p>
+              <div class="wt-tabs reveal" role="tablist" aria-label="Attack mode">
+                <button type="button" role="tab" aria-selected="true" aria-controls="en-w-bow" data-mode="en-w-bow"><b>a'én:na</b><small>Bow</small></button>
+                <button type="button" role="tab" aria-selected="false" aria-controls="en-w-crow" data-mode="en-w-crow"><b>iotiwísto</b><small>Snow birds</small></button>
+                <button type="button" role="tab" aria-selected="false" aria-controls="en-w-dmg" data-mode="en-w-dmg"><b>Getting hit</b><small>Player damage</small></button>
+              </div>
+              <div class="wt-panels reveal">
+                <div class="wt-grid" id="en-w-bow" role="tabpanel"><div class="wt wt-light"><b>Light</b><ul><li><span>Look</span>A thin smoke trail</li><li><span>Sound</span>A soft "fff" and a flat bow snap</li><li><span>Hit</span>Half damage, short arc</li><li><span>HUD</span>Arrow count ticks down</li></ul></div><div class="wt wt-medium"><b>Medium</b><ul><li><span>Look</span>An air trail with a faint glow</li><li><span>Sound</span>Grip tightens, a breath in, then a clean release</li><li><span>Hit</span>Full damage, longer arc</li><li><span>Camera</span>The sight holds up a beat, ready for the next shot</li></ul></div><div class="wt wt-heavy"><b>Heavy</b><ul><li><span>Look</span>A thin, bright glowing trail</li><li><span>Sound</span>Tight grip, big snap, a whiz in the air, then a thunk</li><li><span>Hit</span>Pierces, flies straight</li><li><span>Camera</span>Focuses in, then snaps back out with a pale blue vignette</li></ul></div></div><div class="wt-grid" id="en-w-crow" role="tabpanel" hidden><div class="wt wt-light"><b>Light</b><ul><li><span>Look</span>Feathers and flashes of ravens, the target glows</li><li><span>Sound</span>One short whistle, feathers fluffing, curses</li><li><span>Hit</span>The enemy thrashes at the air</li><li><span>Hands</span>One hand comes up to point</li></ul></div><div class="wt wt-medium"><b>Medium</b><ul><li><span>Look</span>Adds bright blue slashes</li><li><span>Sound</span>Two whistles, cawing, slicing</li><li><span>Hit</span>The enemy drops to their knees, then falls</li><li><span>Hands</span>The point holds for a second</li></ul></div><div class="wt wt-heavy"><b>Heavy</b><ul><li><span>Look</span>A black feather tornado over everyone in a glowing circle</li><li><span>Sound</span>One raven call, then all of it on everyone</li><li><span>Hit</span>Every enemy in the circle goes down</li><li><span>Hands</span>The bow goes away and both hands point</li></ul></div></div><div class="wt-grid" id="en-w-dmg" role="tabpanel" hidden><div class="wt wt-light"><b>Light</b><ul><li><span>Look</span>Exposure up, blue vignette</li><li><span>Sound</span>A blade swipe</li><li><span>Camera</span>Slight sway, wider FOV</li><li><span>HUD</span>Everything shakes and blinks</li></ul></div><div class="wt wt-medium"><b>Medium</b><ul><li><span>Look</span>Desaturated and overexposed</li><li><span>Sound</span>The world goes quiet, crows and snowfall get louder, a low ring</li><li><span>Body</span>You slow down</li><li><span>HUD</span>Blinks faster, with blue streaks of light</li></ul></div><div class="wt wt-heavy"><b>Heavy</b><ul><li><span>Look</span>An instant white screen</li><li><span>Sound</span>A heavy bang, then a high ring that fades into chanting</li><li><span>Camera</span>Nothing. It just stops</li><li><span>HUD</span>Nothing</li></ul></div></div>
+              </div>
+              <p>Getting hurt is cold instead of bloody. You're freezing, slipping deeper into the coma. A heavy hit doesn't shake the camera at all. It just goes white, rings, and fades into chanting.</p>
             </section>
+
+            <section class="chapter" id="en-hud" aria-labelledby="en-hud-h">
+              <p class="eyebrow">The HUD</p>
+              <h2 id="en-hud-h">A feather for a crosshair</h2>
+              <p>I wanted the HUD to show how you feel, not hand you a bar. But you're also stuck in a corporate fever dream. So it's high contrast against the snow, with soft edges that blur clean information into something dreamlike. Feathers stand for the crows, flint heads stand for your arrows, and your health is a fluid trapped in a container.</p>
+              <figure class="draw reveal en-xhair">
+                <div class="draw-stage"><img src="img/en-feather.webp" width="1000" height="600" loading="lazy" alt="The final crosshair: a blue grey fan of feathers shaped like an open collar, split into three plume sections, with a small dark star above it as the aim point."></div>
+                <ol class="draw-notes">
+                  <li data-box="22,54,55,40" data-at="2,10"><b>Three plumes</b> One section for each ability level. Each one shows its own cooldown.</li>
+                  <li data-box="43,46,13,13" data-at="64,20"><b>The aim point</b> A small dark star sits above the fan.</li>
+                </ol>
+                <figcaption><span>The final crosshair. The three plume sections show the cooldown for each level of ability.</span><button class="draw-toggle" type="button" aria-pressed="true">Hide notes</button></figcaption>
+              </figure>
+              <figure class="draw reveal">
+                <div class="draw-stage"><img src="img/en-hud-ranged.webp" width="1600" height="900" loading="lazy" alt="HUD wireframe in bow mode on grey: a white smudged health container top left, a small feather crosshair in the center, four flint arrowhead icons bottom left, a drawn bow on the right and a smudged arrow count bottom right."></div>
+                <ol class="draw-notes">
+                  <li data-box="0,0,33,21" data-at="36,4"><b>Soul fluid</b> Your health, trapped in a container.</li>
+                  <li data-box="33,42,15,19" data-at="4,30"><b>Tight in bow mode</b> The lines stretch out as you draw and show the level with a glowing arc.</li>
+                  <li data-box="0,64,20,33" data-at="22,62"><b>Flint heads</b> Arrows left, shown as arrowheads.</li>
+                  <li data-box="69,64,31,36" data-at="72,36"><b>The count</b> A smudged number. Playtesters said it read like regular ammo.</li>
+                </ol>
+                <figcaption><span>Bow mode wireframe.</span><button class="draw-toggle" type="button" aria-pressed="true">Hide notes</button></figcaption>
+              </figure>
+              <figure class="draw reveal">
+                <div class="draw-stage"><img src="img/en-hud-special.webp" width="1600" height="900" loading="lazy" alt="HUD wireframe in crow mode on grey: the feather crosshair spread wide around an enemy outlined in white with a small beak shape pointing down at them, a hand pointing from the left and the health container top left."></div>
+                <ol class="draw-notes">
+                  <li data-box="25,47,26,31" data-at="56,50"><b>Feathers open</b> The fan spreads around the target and glows for the level you picked.</li>
+                  <li data-box="37,28,13,34" data-at="56,24"><b>Marked</b> The target gets a white outline and a beak points at them from above.</li>
+                  <li data-box="10,52,16,48" data-at="2,28"><b>Point to send</b> Your hand comes up. On heavy, the bow goes away and both hands point.</li>
+                </ol>
+                <figcaption><span>Crow mode wireframe.</span><button class="draw-toggle" type="button" aria-pressed="true">Hide notes</button></figcaption>
+              </figure>
+            </section>
+
+            <section class="chapter" id="en-flow" aria-labelledby="en-flow-h">
+              <p class="eyebrow">How it updates</p>
+              <h2 id="en-flow-h">Every change in four beats</h2>
+              <p>I planned each HUD element as four beats. Something grabs your attention, something signals the change, the change happens, and it settles.</p>
+              <div class="fl-grid reveal"><div class="fl"><h3>Health</h3><p class="fl-sub">Soul fluid in a container, top left</p><ol class="fl-steps"><li><span class="fl-k">Attract</span>A splashy slash sound. Exposure jumps and a white vignette hits.</li><li><span class="fl-k">Signal</span>The fluid flashes with extra glow.</li><li><span class="fl-k">Update</span>The lost part greys out and wisps away like smoke.</li><li><span class="fl-k">Resolve</span>The fluid settles, sloshing in a smaller space.</li></ol></div><div class="fl"><h3>Enemy health</h3><p class="fl-sub">Drawn right on their body</p><ol class="fl-steps"><li><span class="fl-k">Attract</span>They grunt and react to the thunk of the arrow.</li><li><span class="fl-k">Signal</span>An outline appears on them.</li><li><span class="fl-k">Update</span>A glowing white overlay fills them as they get "consumed by damage."</li><li><span class="fl-k">Resolve</span>Below half, they switch to a damaged state.</li></ol></div><div class="fl"><h3>Arrows</h3><p class="fl-sub">Flint heads, bottom left</p><ol class="fl-steps"><li><span class="fl-k">Attract</span>The bow drops as the arrow leaves with its trail.</li><li><span class="fl-k">Signal</span>One glowing arrowhead leaves and the rest shift over.</li><li><span class="fl-k">Update</span>A reload "cathunk."</li><li><span class="fl-k">Resolve</span>The bow comes back up.</li></ol></div><div class="fl"><h3>Cooldown</h3><p class="fl-sub">The plumes on the crosshair</p><ol class="fl-steps"><li><span class="fl-k">Attract</span>The feathers glow for the level you picked and shake as the target gets marked.</li><li><span class="fl-k">Signal</span>Wisps escape the glow.</li><li><span class="fl-k">Update</span>The feathers go black and the glow drains into grey smoke.</li><li><span class="fl-k">Resolve</span>The smoke clears and the glow slowly charges back up.</li></ol><p class="fl-note">From Prof. Cagle: give it a signifier when it hits full power, like a sound or a flash.</p></div></div>
+            </section>
+
             <section class="chapter" id="en-boards" aria-labelledby="en-boards-h">
               <p class="eyebrow">Research</p>
               <h2 id="en-boards-h">Three mood boards</h2>
               <p>Each board answers a different question. Click any board to see it bigger.</p>
               <div class="boards reveal">
                 <figure class="board">
-                  <div class="board-head"><span class="n">Board 01</span><h3>Style</h3><p>How should the whole thing look? It leans on the Animus from the first Assassin's Creed: misty whites, blue greys and grid lines. The palette strip at the top became the UI palette.</p></div>
+                  <div class="board-head"><span class="n">Board 01</span><h3>Style</h3><p>How should the whole thing look? It leans on the Animus from the first Assassin's Creed, which is also a corporate machine you're trapped in. Misty whites, blue greys and grid lines. The palette strip at the top became the UI palette.</p></div>
                   <img src="img/en-board-style.webp" width="1092" height="620" loading="lazy" alt="Style mood board: misty white and blue grey Assassin's Creed screenshots on a white grid background, with a strip of eight palette swatches from near white to dark slate across the top.">
                 </figure>
                 <figure class="board">
-                  <div class="board-head"><span class="n">Board 02</span><h3>Physical Weapon</h3><p class="board-sub">Hunter's Bow and Wahjawe:e</p><p>What do you hold? Bows, arrows and tomahawks, from museum pieces to sketches.</p></div>
+                  <div class="board-head"><span class="n">Board 02</span><h3>Physical Weapon</h3><p class="board-sub">Hunter's Bow and Wahjawe:e</p><p>What do you hold? A heavy Mohawk war bow with flint-tipped arrows, and tomahawks. From Far Cry Primal I took the weight of the draw. Its loose reticle I left behind.</p></div>
                   <img src="img/en-board-weapon.webp" width="970" height="616" loading="lazy" alt="Physical Weapon mood board: a wooden bow, arrow sketches, an archer silhouette, ornate pipe tomahawks and decorated war clubs on a misty blue background.">
                 </figure>
                 <figure class="board">
-                  <div class="board-head"><span class="n">Board 03</span><h3>Power</h3><p class="board-sub">Call of the Murder</p><p>What does your power feel like? Crows, and the dark figures who command them.</p></div>
+                  <div class="board-head"><span class="n">Board 03</span><h3>Power</h3><p class="board-sub">Call of the Murder</p><p>What does your power feel like? Crows, and the dark figures who command them. From Assassin's Creed Revelations I took the stacks of summoned attackers. From Far Cry Primal's owl, the dive attack. I didn't want a summon that gets in your way.</p></div>
                   <img src="img/en-board-power.webp" width="950" height="610" loading="lazy" alt="Power mood board: illustrations and game screenshots of crows, a large dark blue crow swooping through a forest, and dark painted figures.">
                 </figure>
               </div>
             </section>
-            <section class="chapter" id="en-health" aria-labelledby="en-health-h">
-              <p class="eyebrow">Health</p>
-              <h2 id="en-health-h">Health tests over a greybox</h2>
-              <p>I tried a bunch of health ideas right over a UI greybox, so I could judge them in place.</p>
-              <figure class="reveal">
-                <img src="img/en-health-tests.webp" width="1600" height="896" loading="lazy" alt="Health test sketch on black. Blue arrows point to four ideas: the top left screen edge, a small white winged emblem in the center, a cluster of white arrows with grey tips at the bottom left, and smudged white text at the bottom right beside a grey blade held in a hand.">
-                <figcaption>Health ideas, tested in place.</figcaption>
-              </figure>
-              <figure class="reveal" style="max-width:620px">
-                <img src="img/en-feather.webp" width="1000" height="600" loading="lazy" alt="Sketch of a blue grey fan of feathers shaped like an open collar, with a small dark star shape above it.">
-                <figcaption>A feather fan sketch.</figcaption>
-              </figure>
-              <p class="todo">What each health idea shows, and which one you picked and why.</p>
-            </section>
+
             <section class="chapter" id="en-color" aria-labelledby="en-color-h">
               <p class="eyebrow">Color</p>
               <h2 id="en-color-h">UI colors against the world</h2>
-              <p>I pulled the UI palette from the Animus. Then I put the UI's values side by side with the environment's colors, so I could see where the UI would hold up.</p>
-              <ul class="swatches reveal" aria-label="Enshahtenti UI palette. Activate a swatch to copy its hex code.">
+              <p>The HUD lives in strict blue greys. The greys in the middle are for near misses and hits. Grey fits a world where you're freezing and losing consciousness. The blues stand out against the reds, yellows and tans of the French soldiers, and against the deep cool tones of the winter forest.</p>
+              <p class="pal-label">HUD</p>
+              <ul class="swatches reveal" aria-label="HUD palette. Activate a swatch to copy its hex code.">
                 <li><button class="swatch" type="button" data-hex="#FEFCFB"><i style="background:#FEFCFB"></i><span>#FEFCFB</span></button></li>
                 <li><button class="swatch" type="button" data-hex="#E3FBFF"><i style="background:#E3FBFF"></i><span>#E3FBFF</span></button></li>
                 <li><button class="swatch" type="button" data-hex="#A4AFC3"><i style="background:#A4AFC3"></i><span>#A4AFC3</span></button></li>
@@ -1407,20 +1489,84 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
                 <li><button class="swatch" type="button" data-hex="#38495C"><i style="background:#38495C"></i><span>#38495C</span></button></li>
                 <li><button class="swatch" type="button" data-hex="#2D3A4B"><i style="background:#2D3A4B"></i><span>#2D3A4B</span></button></li>
               </ul>
+              <p class="pal-label">Environment</p>
+              <ul class="swatches reveal" aria-label="Environment palette. Activate a swatch to copy its hex code.">
+                <li><button class="swatch" type="button" data-hex="#C1C4C2"><i style="background:#C1C4C2"></i><span>#C1C4C2</span></button></li>
+                <li><button class="swatch" type="button" data-hex="#768394"><i style="background:#768394"></i><span>#768394</span></button></li>
+                <li><button class="swatch" type="button" data-hex="#6768A8"><i style="background:#6768A8"></i><span>#6768A8</span></button></li>
+                <li><button class="swatch" type="button" data-hex="#836693"><i style="background:#836693"></i><span>#836693</span></button></li>
+                <li><button class="swatch" type="button" data-hex="#475F81"><i style="background:#475F81"></i><span>#475F81</span></button></li>
+                <li><button class="swatch" type="button" data-hex="#1A1A22"><i style="background:#1A1A22"></i><span>#1A1A22</span></button></li>
+              </ul>
               <figure class="reveal">
-                <img src="img/en-boards.webp" width="1262" height="594" loading="lazy" alt="Six Figma frames. Top row: In-Game UI Health Ideas, various health tests with a UI greybox; In-Game UI Wireframe 2, the UI color scheme beside the environment color scheme; In-Game UI With Color 2, UI test values against the environment colors. Bottom row: the Physical Weapon, Style and Power mood boards.">
-                <figcaption>The whole board in Figma, from health tests to color.</figcaption>
+                <img src="img/en-health-tests.webp" width="1600" height="896" loading="lazy" alt="Health test sketch on black. Blue arrows point to four ideas: the top left screen edge, a small white winged emblem in the center, a cluster of white arrows with grey tips at the bottom left, and smudged white text at the bottom right beside a grey blade held in a hand.">
+                <figcaption>Early HUD ideas sketched over a greybox, before the wireframes.</figcaption>
               </figure>
             </section>
-            <section class="chapter pending" id="en-story" aria-labelledby="en-story-h">
+
+            <section class="chapter" id="en-tests" aria-labelledby="en-tests-h">
+              <p class="eyebrow">Playtests</p>
+              <h2 id="en-tests-h">Nine playtests, three sessions</h2>
+              <p>I tested with artists, level designers, UX designers and people who'd never played Assassin's Creed or Far Cry. The aesthetic landed early. The notes were mostly about the HUD.</p>
+              <ul class="quotes reveal">
+                <li>"It is very you. Which is good because that means you know how it should be."</li>
+                <li>"Ancient dark feel."</li>
+                <li>"Very blue! Dreamy!"</li>
+                <li>"He noticed me!"</li>
+                <li>"Doesn't look unfinished."</li>
+                <li>"Feels cold. Sounds cold."</li>
+              </ul>
+              <h3 class="sub-h">What I took from it</h3>
+              <ul class="notes reveal">
+                <li><b>Crosshair too big</b>Two testers said they couldn't see through it to the target.</li>
+                <li><b>Numbers read as ammo</b>"Numbers are too traditional ammo theming." Arrows left should be silhouettes, not text.</li>
+                <li><b>Health blends in</b>It needs a tint when you're hit so it pops off the snow.</li>
+                <li><b>Draw like a bowstring</b>For the heavy shot, pull the FOV back as you draw and snap it forward on release.</li>
+                <li><b>Sound first</b>"Biggest sound for the bow is that dead air whoosh thunk next to your ear." Crow calls blend into the arrow's whistle.</li>
+                <li><b>Lean into the clash</b>Testers couldn't tell if the HUD was a visor or in your head. So the answer was to blur that line even more. Mix the fog with static.</li>
+              </ul>
+            </section>
+
+            <section class="chapter" id="en-review" aria-labelledby="en-review-h">
+              <p class="eyebrow">Review</p>
+              <h2 id="en-review-h">What faculty said</h2>
+              <blockquote class="review reveal">
+                <p>"This is a really interesting theme that I want you to lean into as hard as possible. Good references. … Your HUD concepting is super solid and, honestly, makes this project one that I'm excited to see how it gets implemented."</p>
+                <footer>Prof. Cagle, DES 365</footer>
+              </blockquote>
+              <blockquote class="review reveal">
+                <p>"Great setting and good starting ambience. Animation when enemy notices you is great, small SFX with every attack. … Arrows sticking out is a good touch. … Camera shake is good. … Lots of good use with audio work."</p>
+                <footer>Mika Lewis, TA</footer>
+              </blockquote>
+            </section>
+
+            <section class="chapter" id="en-story" aria-labelledby="en-story-h">
               <p class="eyebrow">My story</p>
-              <h2 id="en-story-h">How it went</h2>
-              <ol class="story reveal">
-                <li class="story-card pending"><b>What went well</b><p class="todo">What went well, in your words.</p></li>
-                <li class="story-card pending"><b>What was tricky</b><p class="todo">What was tricky or slowed you down.</p></li>
-                <li class="story-card pending"><b>How I worked through it</b><p class="todo">How you worked through it in the moment, and which other departments or teammates you worked with.</p></li>
-                <li class="story-card pending"><b>What I'll carry forward</b><p class="todo">How you will use what you learned on the next project.</p></li>
-              </ol>
+              <h2 id="en-story-h">One person, every department</h2>
+              <p>Doing it solo meant I was the designer, the artist, the animator, the sound person and the programmer. Here's how that went.</p>
+            </section>
+            <section class="chapter story-sec" id="en-well" aria-labelledby="en-well-h">
+              <p class="eyebrow"><span class="story-n">01</span> My story</p>
+              <h3 id="en-well-h">What went well</h3>
+              <p>The core design held up. From the first pitch to the final build I barely had to iterate on it. The look I was chasing landed too. People called it dreamy, cold and ethereal, which is exactly where I was aiming.</p>
+              <p>And I got all of it in. Three levels of both attacks, each with its own VFX, animation, sound and feedback, plus an enemy that visibly notices you. Watching a tester yell "He noticed me!" told me the enemy behavior was reading.</p>
+            </section>
+            <section class="chapter story-sec" id="en-tricky" aria-labelledby="en-tricky-h">
+              <p class="eyebrow"><span class="story-n">02</span> My story</p>
+              <h3 id="en-tricky-h">What was tricky</h3>
+              <p>Time. Prof. Cagle warned me that getting the bow to look and feel good would take longer than I thought, and it did. Feel came first, so the HUD's functionality came last. At presentation the HUD didn't do anything in the build yet, and the special attacks only showed up in the editor.</p>
+              <p>Playtesters also caught things I was too close to see. The crosshair was too big to see through, the damage tint blended into the snow, and the arrow count read like any shooter's ammo.</p>
+            </section>
+            <section class="chapter story-sec" id="en-through" aria-labelledby="en-through-h">
+              <p class="eyebrow"><span class="story-n">03</span> My story</p>
+              <h3 id="en-through-h">What I worked through</h3>
+              <p>I ran nine playtests and sorted the notes into what I could act on and what was way too much for the time I had. The biggest change was the crosshair. The feather fan became the cooldown too, with one plume for each ability level, so the thing you aim with tells you what's ready.</p>
+              <p>With no team to hand things to, I had to pick my battles. Sound got priority, because a playtester was right. It can look rough as long as it sounds like it's tearing through the air. That showed in review, where the TA called out the audio work.</p>
+            </section>
+            <section class="chapter story-sec" id="en-next" aria-labelledby="en-next-h">
+              <p class="eyebrow"><span class="story-n">04</span> My story</p>
+              <h3 id="en-next-h">What I'll carry forward</h3>
+              <p>Get the UI working early, even if it's ugly. I spent the project thinking I'd focus on UI and ended up doing it last. Next time the HUD gets functional first and pretty later, so playtesters can react to it instead of a placeholder.</p>
             </section>
           </div>
         </div>
@@ -1507,7 +1653,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
  {"@type":"CreativeWork","name":"Nitro Guzzler","creator":{"@id":"#atlas"},"description":"Redline-inspired portal racing game built in Unreal Engine 5.5 by a 31-person student team, the Grease Monkeys. Atlas Stewart is Creative Director and UI/UX designer and designed a diegetic main menu: an attract-loop camera director, settings etched onto the car, and compass-style spray-painted menu arrows. Releasing on Steam in December 2026."},
  {"@type":"CreativeWork","name":"Chain of Jewels","creator":{"@id":"#atlas"},"description":"DES 360 team project (team of 5): a style guide built from a moodboard, then a complete game UI in Figma (main menu, jewel shop, skill forge, battle)."},
  {"@type":"CreativeWork","name":"NOC-6000","creator":{"@id":"#atlas"},"description":"Unreal Engine game with a robot protagonist and a diegetic holographic HUD in 3D world space."},
- {"@type":"CreativeWork","name":"Enshahtenti","creator":{"@id":"#atlas"},"description":"Solo game feel deep dive into making each level of attack, the amount of damage and the player's health state feel different. Includes style, weapon and power mood boards, health UI tests over a greybox, and an Animus-inspired UI palette tested against environment colors."},
+ {"@type":"CreativeWork","name":"Enhshahtén:ti","creator":{"@id":"#atlas"},"description":"Solo first-person combat feel and HUD project (DES 365, Spring 2026). Three levels each of a bow attack (a'én:na) and a crow special attack (iotiwísto), plus three levels of player damage feedback, each with distinct VFX, audio, animation and HUD feedback. Feather crosshair whose three plume sections show each ability level's cooldown. Nine playtests across three sessions."},"description":"Solo game feel deep dive into making each level of attack, the amount of damage and the player's health state feel different. Includes style, weapon and power mood boards, health UI tests over a greybox, and an Animus-inspired UI palette tested against environment colors."},
  {"@type":"CreativeWork","name":"Minecraft inventory redesign","creator":{"@id":"#atlas"},"description":"A redesign of the Minecraft inventory screen, wireframed flat and then overlaid on the live game."}
 ]}
 </script>
@@ -1717,6 +1863,18 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
     target.addEventListener('click', () => openLb(fig));
   });
 
+
+
+  /* ---------- attack weight tabs ---------- */
+  document.querySelectorAll('.wt-tabs').forEach(tl => {
+    const tabs = [...tl.querySelectorAll('[role=tab]')];
+    const show = t => { tabs.forEach(x => { const on = x === t; x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1; document.getElementById(x.dataset.mode).hidden = !on; }); };
+    tabs.forEach((t, i) => {
+      t.addEventListener('click', () => show(t));
+      t.addEventListener('keydown', e => { const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (!d) return; e.preventDefault(); const n = tabs[(i + d + tabs.length) % tabs.length]; show(n); n.focus(); });
+    });
+    show(tabs[0]);
+  });
 
   /* ---------- copy helpers ---------- */
   function say(msg){ toast.textContent = msg; toast.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.hidden = true, 1600); }
