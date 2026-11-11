@@ -666,17 +666,18 @@ h2{font-weight:300}
 
 
 
-/* Nitro Guzzler: quick stats */
-.hype{list-style:none;margin:1.1rem 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.6rem}
-.hype li{display:grid;gap:.25rem;align-content:start;padding:.85rem .9rem .9rem;border-radius:6px;background:#17151F;color:#F5F5F4;border-bottom:3px solid var(--hc,var(--liv-3));box-shadow:0 10px 26px -14px color-mix(in srgb,var(--hc,var(--liv-3)) 80%,transparent)}
-.hype li:nth-child(2){--hc:var(--liv-1)}.hype li:nth-child(3){--hc:var(--liv-2)}.hype li:nth-child(4){--hc:#B6FF3B}.hype li:nth-child(5){--hc:var(--liv-4)}
-.hype b{font-family:var(--font-display);font-stretch:var(--display-stretch);font-style:var(--display-style);font-weight:900;font-size:clamp(1.6rem,2.6vw,2.2rem);line-height:1;color:var(--hc,var(--liv-3));text-shadow:0 0 18px color-mix(in srgb,var(--hc,var(--liv-3)) 55%,transparent)}
-.hype span{font-size:.82rem;line-height:1.35;color:#D9D6E6}
-@media (max-width:900px){.hype{grid-template-columns:repeat(2,minmax(0,1fr))}.hype li:first-child{grid-column:1/-1}}
+/* Nitro Guzzler: quick stats, small bleeps in the page's glass */
+.hype{list-style:none;margin:.9rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:.4rem}
+.hype li{display:inline-flex;align-items:baseline;gap:.4rem;padding:.3rem .7rem .32rem .6rem;border-radius:999px;font-size:.84rem;line-height:1.3;color:var(--ink-2);
+  background:color-mix(in srgb,var(--sheet) 70%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--rule)}
+.hype li::before{content:"";align-self:center;width:.5rem;height:.5rem;border-radius:50%;background:var(--hc,#00FFFF);box-shadow:0 0 0 1px rgba(22,19,42,.35),0 0 8px var(--hc,#00FFFF)}
+.hype li:nth-child(4n+2){--hc:#FF5FA2}.hype li:nth-child(4n+3){--hc:#FFD93B}.hype li:nth-child(4n+4){--hc:#B6FF3B}
+.hype b{font-family:var(--font-display);font-stretch:var(--display-stretch);font-style:var(--display-style);font-weight:900;font-size:.98rem;color:var(--ink)}
+.hype .hype-steam{border-color:var(--ink);color:var(--ink)}
 /* Nitro Guzzler: vector menu stage */
-.vx-wrap{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(1rem,3vw,2rem);align-items:start;--c-prep:#3FC8FF;--c-settings:#FF5FA2;--c-pit:#FFD93B;--c-credits:#B6FF3B}
-.vx-stage{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:radial-gradient(120% 90% at 50% 40%,#211E2E 0%,#0E0D14 70%);box-shadow:0 24px 50px -28px rgba(10,8,24,.8),inset 0 0 0 1px rgba(255,255,255,.08)}
-.vx{position:absolute;inset:0;color:var(--c);opacity:.72;transition:opacity .3s var(--ease),filter .3s var(--ease);filter:drop-shadow(0 0 5px color-mix(in srgb,var(--c) 45%,transparent))}
+.vx-wrap{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(1rem,3vw,2rem);align-items:start;--c-prep:#00FFFF;--c-settings:#FF5FA2;--c-pit:#FFD93B;--c-credits:#B6FF3B}
+.vx-stage{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.82),rgba(245,245,244,.6));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--rule);box-shadow:inset 0 1px 0 #fff,0 20px 44px -30px rgba(22,19,42,.45)}
+.vx{position:absolute;inset:0;color:var(--c);opacity:.8;transition:opacity .3s var(--ease),filter .3s var(--ease);--ol:rgba(22,19,42,.8);filter:drop-shadow(0 0 .6px var(--ol)) drop-shadow(0 0 .6px var(--ol))}
 .vx-prep{--c:var(--c-prep)}.vx-settings{--c:var(--c-settings)}.vx-pit{--c:var(--c-pit)}.vx-credits{--c:var(--c-credits)}
 .vx i{position:absolute;inset:0;background:currentColor;-webkit-mask:var(--m) center/100% 100% no-repeat;mask:var(--m) center/100% 100% no-repeat;transition:opacity .3s var(--ease)}
 .vx .vx-hot{opacity:0;background:linear-gradient(105deg,var(--c) 0 42%,#fff 50%,var(--c) 58% 100%) 100% 0/320% 100%}
@@ -684,44 +685,53 @@ h2{font-weight:300}
 .vx-pit .vx-idle{--m:url(img/ng-vx-pit-idle.webp)}.vx-pit .vx-hot{--m:url(img/ng-vx-pit-hot.webp)}
 .vx-prep .vx-idle{--m:url(img/ng-vx-prep-idle.webp)}.vx-prep .vx-hot{--m:url(img/ng-vx-prep-hot.webp)}
 .vx-credits .vx-idle{--m:url(img/ng-vx-credits-idle.webp)}.vx-credits .vx-hot{--m:url(img/ng-vx-credits-hot.webp)}
-.vx-stage[data-on="prep"] .vx-prep,.vx-stage[data-on="settings"] .vx-settings,.vx-stage[data-on="pit"] .vx-pit,.vx-stage[data-on="credits"] .vx-credits{opacity:1;z-index:1;filter:drop-shadow(0 0 10px color-mix(in srgb,var(--c) 75%,transparent)) drop-shadow(0 0 34px color-mix(in srgb,var(--c) 45%,transparent))}
+.vx-stage[data-on="prep"] .vx-prep,.vx-stage[data-on="settings"] .vx-settings,.vx-stage[data-on="pit"] .vx-pit,.vx-stage[data-on="credits"] .vx-credits{opacity:1;z-index:1;filter:drop-shadow(0 0 .7px var(--ol)) drop-shadow(0 0 .7px var(--ol)) drop-shadow(0 0 14px color-mix(in srgb,var(--c) 70%,transparent))}
 .vx-stage[data-on="prep"] .vx-prep .vx-hot,.vx-stage[data-on="settings"] .vx-settings .vx-hot,.vx-stage[data-on="pit"] .vx-pit .vx-hot,.vx-stage[data-on="credits"] .vx-credits .vx-hot{opacity:1}
 .vx-stage[data-on="prep"] .vx-prep .vx-idle,.vx-stage[data-on="settings"] .vx-settings .vx-idle,.vx-stage[data-on="pit"] .vx-pit .vx-idle,.vx-stage[data-on="credits"] .vx-credits .vx-idle{opacity:1;background:#fff;z-index:1}
 .vx-hit{position:absolute;z-index:2;border:0;background:none;cursor:pointer;border-radius:8px;padding:0}
 .vx-hit:focus-visible{outline:2px solid #fff;outline-offset:-2px}
+.ng-concept{display:grid;gap:1.25rem}
+.ng-concept figure{margin:0}
 .vx-side{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:.9rem;min-width:0;align-items:start}
 .vx-side .compass-panel{padding:1rem 1.1rem 1.1rem}
 .vx-keys{display:grid;grid-template-columns:1fr 1fr;gap:.45rem}
-.vx-key{font:inherit;font-family:var(--font-display);font-stretch:var(--display-stretch);font-style:var(--display-style);font-weight:800;font-size:.95rem;display:flex;align-items:center;gap:.5rem;padding:.55rem .7rem;border-radius:6px;border:0;cursor:pointer;background:#17151F;color:#F5F5F4;text-align:left;transition:box-shadow .2s var(--ease),transform .2s var(--ease)}
-.vx-key i{flex:none;width:.8rem;height:.8rem;border-radius:2px;transform:skewX(-14deg);background:var(--c);box-shadow:0 0 10px var(--c)}
+.vx-key{position:relative;isolation:isolate;font:inherit;font-family:var(--font-display);font-stretch:var(--display-stretch);font-style:var(--display-style);font-weight:900;font-size:1.02rem;padding:.5rem .8rem;border-radius:6px;border:1px solid transparent;cursor:pointer;background:none;color:var(--ink);text-align:left;transition:transform .2s var(--ease),border-color .2s var(--ease)}
+.vx-key i{position:absolute;z-index:-1;left:.3rem;right:38%;top:22%;bottom:14%;border-radius:40% 60% 55% 45%/60% 45% 55% 40%;transform:skewX(-16deg) rotate(-2deg);background:var(--c);opacity:.5;filter:blur(1.5px);transition:opacity .2s var(--ease),right .25s var(--ease)}
 .vx-key[data-dir="prep"]{--c:var(--c-prep)}.vx-key[data-dir="settings"]{--c:var(--c-settings)}.vx-key[data-dir="pit"]{--c:var(--c-pit)}.vx-key[data-dir="credits"]{--c:var(--c-credits)}
 .vx-key:hover{transform:translateY(-1px)}
-.vx-key[aria-pressed="true"]{box-shadow:inset 0 0 0 2px var(--c),0 0 18px -4px var(--c)}
+.vx-key[aria-pressed="true"]{border-color:var(--ink)}
+.vx-key[aria-pressed="true"] i{opacity:.95;right:.3rem}
 .vx-color{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);display:flex;align-items:center;gap:.5rem;margin:0}
-.vx-color::before{content:"";width:1.6rem;height:.5rem;border-radius:2px;transform:skewX(-20deg);background:var(--c-prep)}
+.vx-color::before{content:"";width:1.6rem;height:.5rem;border-radius:2px;transform:skewX(-20deg);background:var(--c-prep);box-shadow:0 0 0 1px rgba(22,19,42,.4)}
 .vx-wrap[data-on="settings"] .vx-color::before{background:var(--c-settings)}.vx-wrap[data-on="pit"] .vx-color::before{background:var(--c-pit)}.vx-wrap[data-on="credits"] .vx-color::before{background:var(--c-credits)}
 @media (max-width:860px){.vx-side{grid-template-columns:1fr}}
-/* Nitro Guzzler: sections sit along a road, arrows point at each one */
-#case-nitro-guzzler .chapters{position:relative;padding-left:5.75rem}
-#case-nitro-guzzler .chapters::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3rem;border-radius:6px;
-  background:repeating-linear-gradient(180deg,#F5F5F4 0 26px,transparent 26px 60px) center 0/4px 100% no-repeat,#17151F;
-  box-shadow:inset 3px 0 0 var(--liv-3),inset -3px 0 0 var(--liv-1),0 0 26px -6px color-mix(in srgb,var(--liv-3) 70%,transparent)}
+/* Nitro Guzzler: sections sit beside a painted road, big curved arrows swing off it toward each one */
+#case-nitro-guzzler .chapters{position:relative;padding-left:10.8rem}
+#case-nitro-guzzler .chapters::before{content:"";position:absolute;left:.4rem;top:0;bottom:0;width:2.2rem;border-radius:4px;
+  background:repeating-linear-gradient(180deg,rgba(22,19,42,.5) 0 22px,transparent 22px 54px) center 0/3px 100% no-repeat,color-mix(in srgb,var(--sheet) 60%,transparent);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-inline:1.5px solid rgba(22,19,42,.28)}
 #case-nitro-guzzler .chapter{position:relative}
-.road-arrow{position:absolute;left:-5.15rem;top:.15rem;width:4.7rem;height:2.5rem;--rc:var(--c-r,#3FC8FF);pointer-events:none;
-  filter:drop-shadow(0 0 1px #16132A) drop-shadow(0 0 9px color-mix(in srgb,var(--rc) 85%,transparent))}
-.road-arrow i{position:absolute;inset:0;clip-path:polygon(0 26%,14% 26%,22% 50%,14% 74%,0 74%,8% 50%,0 26%,0 26%,22% 26%,58% 26%,58% 0,100% 50%,58% 100%,58% 74%,22% 74%,30% 50%);
-  background:linear-gradient(105deg,var(--rc) 0 40%,#fff 50%,var(--rc) 60% 100%) 100% 0/320% 100%}
+.road-arrow{position:absolute;left:-10.9rem;top:-.75rem;width:11.2rem;height:7.84rem;overflow:visible;pointer-events:none;color:var(--c-r,#00FFFF);--ink-r:#16132A;
+  filter:drop-shadow(0 0 10px color-mix(in srgb,var(--c-r,#00FFFF) 65%,transparent))}
+.road-arrow .ra-ht{color:var(--ink-r);opacity:.5}
+.road-arrow .ra-rings circle{fill:var(--sheet);stroke:var(--ink-r);stroke-width:7}
+.road-arrow .ra-dot circle{fill:currentColor;stroke:var(--ink-r);stroke-width:2}
+.road-arrow .ra-ink{fill:none;stroke:var(--ink-r);stroke-width:24;stroke-linejoin:round}
+.road-arrow .ra-head{fill:var(--ink-r);stroke-width:9}
+.road-arrow .ra-fill{fill:none;stroke:currentColor;stroke-width:15;stroke-linejoin:round}
+.road-arrow .ra-headf{fill:currentColor;stroke:none}
+.road-arrow .ra-gleam{fill:none;stroke:#fff;stroke-width:5;stroke-linecap:round;stroke-dasharray:20 100;stroke-dashoffset:22;opacity:0}
 #case-nitro-guzzler .chapter:nth-child(4n+2) .road-arrow{--c-r:#FF5FA2}
 #case-nitro-guzzler .chapter:nth-child(4n+3) .road-arrow{--c-r:#FFD93B}
 #case-nitro-guzzler .chapter:nth-child(4n+4) .road-arrow{--c-r:#B6FF3B}
-#case-nitro-guzzler .story-sec .road-arrow{transform:scale(.72);transform-origin:left center;top:-.1rem}
-@media (max-width:860px){#case-nitro-guzzler .chapters{padding-left:2.5rem}#case-nitro-guzzler .chapters::before{width:1.1rem;background-size:2px 100%}
-  .road-arrow{left:-2.45rem;width:2.5rem;height:1.4rem;top:.35rem}}
+#case-nitro-guzzler .story-sec .road-arrow{transform:scale(.72);transform-origin:right 30%}
+@media (max-width:860px){#case-nitro-guzzler .chapters{padding-left:3.4rem}#case-nitro-guzzler .chapters::before{left:0;width:1rem;background-size:2px 100%}
+  .road-arrow{left:-3.5rem;width:3.6rem;height:2.5rem;top:.1rem}}
 @media (prefers-reduced-motion: no-preference){
-  .vx .vx-hot,.road-arrow i{animation:gleam 3.2s var(--ease) infinite}
-  #case-nitro-guzzler .chapters::before{animation:lane 1.4s linear infinite}
+  .vx .vx-hot{animation:gleam 3.2s var(--ease) infinite}
+  .ra-gleam{animation:ragleam 4.6s var(--ease) infinite}
   @keyframes gleam{0%,35%{background-position:100% 0}80%,100%{background-position:0 0}}
-  @keyframes lane{to{background-position:center 60px}}
+  @keyframes ragleam{0%,45%{stroke-dashoffset:22;opacity:0}55%{opacity:.95}88%{opacity:.95}100%{stroke-dashoffset:-100;opacity:0}}
 }
 /* Back to projects stays with you while you scroll a case study */
 .case-bar{position:sticky;top:10px;z-index:30;pointer-events:none;padding-block:.75rem}
@@ -1210,18 +1220,26 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             <div><dt>Release</dt><dd>Steam, Dec 2026</dd></div>
           </dl>
           <ul class="hype" aria-label="Quick stats">
-            <li><b>UE 5.5</b><span>Unreal Engine, Blueprints and Sequencer</span></li>
-            <li><b>31</b><span>developers on the team</span></li>
-            <li><b>100%</b><span>of the UI created or directed by me</span></li>
+            <li class="hype-steam"><b>Steam</b><span>December 2026</span></li>
+            <li><b>UE 5.5</b><span>Unreal Engine</span></li>
+            <li><b>100%</b><span>of the UI is mine, made or directed</span></li>
+            <li><b>All</b><span>UI art drawn by me, in vector</span></li>
             <li><b>4</b><span>menu destinations in one 3D space</span></li>
-            <li><b>0</b><span>AI-made art. Every piece is human made</span></li>
+            <li><b>31</b><span>developers</span></li>
+            <li><b>0</b><span>AI-made art</span></li>
           </ul>
+          <p class="todo">Steam page link goes on the Steam chip once the page is live.</p>
           <div class="stripes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
         </header>
+        <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+          <pattern id="ng-ht" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="3.5" cy="3.5" r="2.1" fill="currentColor"/></pattern>
+          <radialGradient id="ng-htg"><stop offset="0" stop-color="#fff"/><stop offset=".55" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+          <mask id="ng-htm" maskContentUnits="objectBoundingBox"><rect width="1" height="1" fill="url(#ng-htg)"/></mask>
+        </defs></svg>
         <div class="case-layout">
-          <nav class="toc" aria-label="Nitro Guzzler sections"><a href="#ng-part">My part</a><a href="#ng-team">The team</a><a href="#ng-time">Timeline</a><a href="#ng-goal">Goal</a><a href="#ng-void">White void</a><a href="#ng-compass">Menu art</a><a href="#ng-garage">Garage</a><a href="#ng-build">How it's built</a><a href="#ng-trailer">Trailer</a><a href="#ng-ai">AI use</a><a href="#ng-story">My story</a><a href="#ng-well">What went well</a><a href="#ng-tricky">What was tricky</a><a href="#ng-through">What we worked through</a></nav>
+          <nav class="toc" aria-label="Nitro Guzzler sections"><a href="#ng-part">My part</a><a href="#ng-time">Timeline</a><a href="#ng-goal">Goal</a><a href="#ng-void">White void</a><a href="#ng-compass">Menu art</a><a href="#ng-garage">Garage</a><a href="#ng-build">How it's built</a><a href="#ng-trailer">Trailer</a><a href="#ng-ai">AI use</a><a href="#ng-story">My story</a><a href="#ng-well">What went well</a><a href="#ng-tricky">What was tricky</a><a href="#ng-through">What we worked through</a><a href="#ng-team">The team</a></nav>
           <div class="chapters">
-            <section class="chapter" id="ng-part" aria-labelledby="ng-part-h"><span class="road-arrow" aria-hidden="true"><i></i></span>
+            <section class="chapter" id="ng-part" aria-labelledby="ng-part-h"><svg class="road-arrow" viewBox="0 0 200 140" aria-hidden="true" focusable="false"><circle class="ra-ht" cx="58" cy="96" r="46" fill="url(#ng-ht)" mask="url(#ng-htm)"/><g class="ra-rings"><circle cx="44" cy="104" r="21"/><circle cx="76" cy="122" r="9"/></g><g class="ra-dot"><circle cx="44" cy="104" r="8"/></g><path class="ra-ink" d="M30 132 C 28 70, 70 40, 150 40"/><path class="ra-ink ra-head" d="M146 16 L194 40 L146 64 L157 40 Z"/><path class="ra-fill" d="M30 132 C 28 70, 70 40, 150 40"/><path class="ra-fill ra-headf" d="M146 16 L194 40 L146 64 L157 40 Z"/><path class="ra-gleam" pathLength="100" d="M30 132 C 28 70, 70 40, 150 40 L 188 40"/></svg>
               <h2 id="ng-part-h">My contributions</h2>
               <ul class="contrib reveal">
                 <li>Created or directed all of the game's UI, from concept to the build in engine.</li>
@@ -1233,8 +1251,151 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
                 <li>Worked with the design lead on team management.</li>
               </ul>
             </section>
-            <section class="chapter" id="ng-team" aria-labelledby="ng-team-h"><span class="road-arrow" aria-hidden="true"><i></i></span>
-              <h2 id="ng-team-h">My role on a 31-person team</h2>
+            <section class="chapter" id="ng-time" aria-labelledby="ng-time-h"><svg class="road-arrow" viewBox="0 0 200 140" aria-hidden="true" focusable="false"><circle class="ra-ht" cx="62" cy="60" r="46" fill="url(#ng-ht)" mask="url(#ng-htm)"/><g class="ra-rings"><circle cx="70" cy="62" r="19"/><circle cx="30" cy="48" r="8"/></g><g class="ra-dot"><circle cx="70" cy="62" r="7"/></g><path class="ra-ink" d="M22 16 C 96 8, 34 98, 92 98 C 132 98, 108 40, 150 40"/><path class="ra-ink ra-head" d="M146 16 L194 40 L146 64 L157 40 Z"/><path class="ra-fill" d="M22 16 C 96 8, 34 98, 92 98 C 132 98, 108 40, 150 40"/><path class="ra-fill ra-headf" d="M146 16 L194 40 L146 64 L157 40 Z"/><path class="ra-gleam" pathLength="100" d="M22 16 C 96 8, 34 98, 92 98 C 132 98, 108 40, 150 40 L 188 40"/></svg>
+              <h2 id="ng-time-h">Production timeline</h2>
+              <ol class="timeline reveal">
+                <li class="done"><span class="t-tag">Done</span><b>Menu and intro designed</b><p>Game plan, shot list and menu map written, then rebuilt once the hard cut design settled.</p></li>
+                <li class="done"><span class="t-tag">Done</span><b>Intro and attract loop in engine</b><p>The Sequencer intro hands off to the menu loop.</p></li>
+                <li class="done"><span class="t-tag">Done</span><b>Trailer shot lists</b><p>Two versions written and handed to art.</p></li>
+                <li class="is-now"><span class="t-tag">Now</span><b>Settings, Art Zoo and Audio Zoo</b><p>Audio, Visual and Accessibility panels, plus the two zoo entries.</p></li>
+                <li class="is-now"><span class="t-tag">Now</span><b>Vector UI art</b><p>The main menu art is drawn. Racer colors go on next.</p></li>
+                <li class="ship"><span class="t-tag">Dec 2026</span><b>Ships on Steam</b><p>The full team's release.</p></li>
+              </ol>
+              <p class="todo">Add the month for each step if you want real dates on this.</p>
+            </section>
+            <section class="chapter" id="ng-goal" aria-labelledby="ng-goal-h"><svg class="road-arrow" viewBox="0 0 200 140" aria-hidden="true" focusable="false"><circle class="ra-ht" cx="74" cy="88" r="46" fill="url(#ng-ht)" mask="url(#ng-htm)"/><g class="ra-rings"><circle cx="72" cy="84" r="23"/><circle cx="108" cy="100" r="9"/></g><g class="ra-dot"><circle cx="72" cy="84" r="9"/></g><path class="ra-ink" d="M124 128 C 26 130, 14 44, 92 40 L 150 40"/><path class="ra-ink ra-head" d="M146 16 L194 40 L146 64 L157 40 Z"/><path class="ra-fill" d="M124 128 C 26 130, 14 44, 92 40 L 150 40"/><path class="ra-fill ra-headf" d="M146 16 L194 40 L146 64 L157 40 Z"/><path class="ra-gleam" pathLength="100" d="M124 128 C 26 130, 14 44, 92 40 L 150 40 L 188 40"/></svg>
+              <h2 id="ng-goal-h">A menu inside the game world</h2>
+              <p>I wanted the menu to feel like you're already in the game. So I borrowed from the Batman Arkham menus. The camera cycles through shots on its own. It pulls you in and shows you the characters before your first race.</p>
+              <ul class="notes reveal">
+                <li><b>Racers up front</b>Players get invested in the racers, so I built the menu around them.</li>
+                <li><b>The menu is the attract loop</b>A camera director hard cuts between sequences. The camera never blends. Only the stuff in the shot moves.</li>
+                <li><b>Names that fit the world</b>Destinations get names from garage culture. Play is Prep Ride. The lore bible is Pit Crew.</li>
+              </ul>
+            </section>
+
+            <section class="chapter" id="ng-void" aria-labelledby="ng-void-h"><svg class="road-arrow" viewBox="0 0 200 140" aria-hidden="true" focusable="false"><circle class="ra-ht" cx="58" cy="96" r="46" fill="url(#ng-ht)" mask="url(#ng-htm)"/><g class="ra-rings"><circle cx="44" cy="104" r="21"/><circle cx="76" cy="122" r="9"/></g><g class="ra-dot"><circle cx="44" cy="104" r="8"/></g><path class="ra-ink" d="M30 132 C 28 70, 70 40, 150 40"/><path class="ra-ink ra-head" d="M146 16 L194 40 L146 64 L157 40 Z"/><path class="ra-fill" d="M30 132 C 28 70, 70 40, 150 40"/><path class="ra-fill ra-headf" d="M146 16 L194 40 L146 64 L157 40 Z"/><path class="ra-gleam" pathLength="100" d="M30 132 C 28 70, 70 40, 150 40 L 188 40"/></svg>
+              <h2 id="ng-void-h">The white void intro</h2>
+              <p>The intro and the menu share one white space. There's no separate garage level. Cars race through it in their livery colors and leave colored tire stripes. Then they smash through a glass pane with the logo on it and switch to their in-game textures. The camera falls, and you see the team name written in tire tracks.</p>
+              <ol class="flow reveal" aria-label="Startup flow">
+                <li><span class="n">01</span><b>Intro</b>Plays once. Hold a button to skip.</li>
+                <li><span class="n">02</span><b>Ready loop</b>Waits for the player.</li>
+                <li><span class="n">03</span><b>Any key</b>Wakes the menu.</li>
+                <li><span class="n">04</span><b>Main menu loop</b>The attract loop takes over.</li>
+              </ol>
+              <div class="media-slot reveal">Intro capture goes here: livery-colored cars before the glass pane, in-game textures after</div>
+            </section>
+
+            <section class="chapter" id="ng-compass" aria-labelledby="ng-compass-h"><svg class="road-arrow" viewBox="0 0 200 140" aria-hidden="true" focusable="false"><circle class="ra-ht" cx="62" cy="60" r="46" fill="url(#ng-ht)" mask="url(#ng-htm)"/><g class="ra-rings"><circle cx="70" cy="62" r="19"/><circle cx="30" cy="48" r="8"/></g><g class="ra-dot"><circle cx="70" cy="62" r="7"/></g><path class="ra-ink" d="M22 16 C 96 8, 34 98, 92 98 C 132 98, 108 40, 150 40"/><path class="ra-ink ra-head" d="M146 16 L194 40 L146 64 L157 40 Z"/><path class="ra-fill" d="M22 16 C 96 8, 34 98, 92 98 C 132 98, 108 40, 150 40"/><path class="ra-fill ra-headf" d="M146 16 L194 40 L146 64 L157 40 Z"/><path class="ra-gleam" pathLength="100" d="M22 16 C 96 8, 34 98, 92 98 C 132 98, 108 40, 150 40 L 188 40"/></svg>
+              <h2 id="ng-compass-h">Main menu in vector art</h2>
+              <p class="lede">I'm drawing all of the game's UI art in vector graphics for this 3D space. The look mixes vectordelia with Redline's cinematic style. The art sits on the white concrete of the menu world. The four options are laid out like a compass, and each one gets a color from the cast. Pick one to wake it up.</p>
+              <div class="vx-wrap reveal" data-on="prep">
+                <div class="vx-stage" data-on="prep">
+                  <div class="vx vx-settings"><i class="vx-idle"></i><i class="vx-hot"></i></div>
+                  <div class="vx vx-pit"><i class="vx-idle"></i><i class="vx-hot"></i></div>
+                  <div class="vx vx-prep"><i class="vx-idle"></i><i class="vx-hot"></i></div>
+                  <div class="vx vx-credits"><i class="vx-idle"></i><i class="vx-hot"></i></div>
+                  <button type="button" class="vx-hit" data-dir="settings" style="left:3%;top:4%;width:42%;height:32%" aria-label="Settings"></button>
+                  <button type="button" class="vx-hit" data-dir="pit" style="left:1%;top:47%;width:33%;height:36%" aria-label="Pit Crew"></button>
+                  <button type="button" class="vx-hit" data-dir="prep" style="left:48%;top:6%;width:47%;height:36%" aria-label="Prep Ride"></button>
+                  <button type="button" class="vx-hit" data-dir="credits" style="left:36%;top:80%;width:38%;height:19%" aria-label="Credits"></button>
+                </div>
+                <div class="vx-side">
+                  <div class="vx-keys" role="group" aria-label="Main menu options">
+                    <button type="button" class="vx-key" data-dir="prep" aria-pressed="true"><i></i>Prep Ride</button>
+                    <button type="button" class="vx-key" data-dir="settings" aria-pressed="false"><i></i>Settings</button>
+                    <button type="button" class="vx-key" data-dir="pit" aria-pressed="false"><i></i>Pit Crew</button>
+                    <button type="button" class="vx-key" data-dir="credits" aria-pressed="false"><i></i>Credits</button>
+                  </div>
+                  <div class="compass-panel" id="compass-panel" aria-live="polite">
+                    <h3 id="cp-name">Prep Ride</h3>
+                    <p class="vx-color" id="cp-std">W-Dawg's cyan · 00FFFF</p>
+                    <p id="cp-text">A splash panel with high scores, a highlight clip, the game name and team name. Then Racer Select. Then two flash transitions, one into the track intro and one into the race start.</p>
+                  </div>
+                </div>
+              </div>
+              <ul class="notes reveal">
+                <li><b>Plain names won</b>We wanted to push further into the narrative and give every option an esoteric, in-world name. It cost more usability than it gave back. So the menu says Settings and Credits.</li>
+                <li><b>Two plates per option</b>Each option has a resting plate and a lit plate. Hovering swaps them, so the halftone, tire tracks and arrows burst out around the word.</li>
+                <li><b>Colors from the cast</b>Cyan is W-Dawg, our main racer. Pink is Lo Quei. Yellow is Donnie and Momo, the married Dookern natives.</li>
+                <li><b>Credits get their own color</b>Credits are lime green, a color no racer owns. You've stepped outside their world at that point.</li>
+              </ul>
+              <p class="small">Quitting is themed too. Leaving the game brings up a "Racer Retiring" confirmation.</p>
+            </section>
+
+            <section class="chapter" id="ng-garage" aria-labelledby="ng-garage-h"><svg class="road-arrow" viewBox="0 0 200 140" aria-hidden="true" focusable="false"><circle class="ra-ht" cx="74" cy="88" r="46" fill="url(#ng-ht)" mask="url(#ng-htm)"/><g class="ra-rings"><circle cx="72" cy="84" r="23"/><circle cx="108" cy="100" r="9"/></g><g class="ra-dot"><circle cx="72" cy="84" r="9"/></g><path class="ra-ink" d="M124 128 C 26 130, 14 44, 92 40 L 150 40"/><path class="ra-ink ra-head" d="M146 16 L194 40 L146 64 L157 40 Z"/><path class="ra-fill" d="M124 128 C 26 130, 14 44, 92 40 L 150 40"/><path class="ra-fill ra-headf" d="M146 16 L194 40 L146 64 L157 40 Z"/><path class="ra-gleam" pathLength="100" d="M124 128 C 26 130, 14 44, 92 40 L 150 40 L 188 40"/></svg>
+              <h2 id="ng-garage-h">Settings etched into the car</h2>
+              <p>In the Garage, settings are hotspots right on W-Dawg's car. One Return button sits on the ground, so you can see it as the camera whips around.</p>
+              <ul class="notes reveal">
+                <li><span class="n">Hood</span><b>Visual</b>Display settings such as monitor size.</li>
+                <li><span class="n">Side</span><b>Accessibility + gameplay</b>Toggles like turning the HUD on or off.</li>
+                <li><span class="n">Open trunk</span><b>Audio</b>Volume for each type of sound.</li>
+              </ul>
+              <p>The other destinations work differently. They're flat holographic overlays you step through with Next and Return. Racer Select shows the racer's face, info, track record and a bit of lore, and Confirm locks them in. Pit Crew is a looping character sheet that cycles through every racer.</p>
+              <h3>Settings paintover</h3>
+              <p>This is an early photobash to concept the look. I painted over a capture of the Garage to find where each group of settings sits around the car. The bigger, bolder title text isn't in yet.</p>
+              <div class="ng-concept reveal">
+                <figure>
+                  <img src="img/ng-settings-photobash.webp" width="1600" height="900" loading="lazy" alt="Photobash concept on a white background. Black and blue vector shapes burst outward from the center: rings, halftone dots, star badges, paint splatter, tall black strips of small glyphs and blue arrows curving away to the left and right.">
+                  <figcaption>The paintover on its own.</figcaption>
+                </figure>
+                <figure>
+                  <img src="img/ng-settings-labels.webp" width="1600" height="944" loading="lazy" alt="The same concept faded back behind W-Dawg's cyan car, with drawover labels: Visual Settings on a dark box at the left, Gameplay plus Accessibility across the car, Audio Settings at the lower right beside music notes and blue arrows, and Rewind along the bottom.">
+                  <figcaption>With drawovers. Visual, Gameplay + Accessibility, Audio and Rewind each get their own spot.</figcaption>
+                </figure>
+              </div>
+              <div class="media-slot reveal">Before/after goes here: W-Dawg's bare hood vs. the hood with Visual settings etched in</div>
+            </section>
+
+            <section class="chapter" id="ng-build" aria-labelledby="ng-build-h"><svg class="road-arrow" viewBox="0 0 200 140" aria-hidden="true" focusable="false"><circle class="ra-ht" cx="58" cy="96" r="46" fill="url(#ng-ht)" mask="url(#ng-htm)"/><g class="ra-rings"><circle cx="44" cy="104" r="21"/><circle cx="76" cy="122" r="9"/></g><g class="ra-dot"><circle cx="44" cy="104" r="8"/></g><path class="ra-ink" d="M30 132 C 28 70, 70 40, 150 40"/><path class="ra-ink ra-head" d="M146 16 L194 40 L146 64 L157 40 Z"/><path class="ra-fill" d="M30 132 C 28 70, 70 40, 150 40"/><path class="ra-fill ra-headf" d="M146 16 L194 40 L146 64 L157 40 Z"/><path class="ra-gleam" pathLength="100" d="M30 132 C 28 70, 70 40, 150 40 L 188 40"/></svg>
+              <h2 id="ng-build-h">How it's built in Unreal</h2>
+              <ul class="notes reveal">
+                <li><b>One camera director</b>One Blueprint holds every menu destination as a row of data. Each row stores where Back goes. So there's no special case logic for Back.</li>
+                <li><b>Structs over a Data Table</b>Data Tables fight with references to actors placed in the level, so destinations are an array of structs.</li>
+                <li><b>Hierarchy by tag</b>Each destination has a parent tag. Garage's three hotspots are just three more rows tagged Garage.</li>
+                <li><b>Widgets on surfaces</b>UMG widgets sit on 3D surfaces as Widget Components. They're physically separate but navigate as one screen.</li>
+                <li><b>One activation path</b>Mouse clicks hit the UI through a raycast. Gamepad and keyboard step through an ordered list. Both call the same function.</li>
+                <li><b>Back plays in reverse</b>Each destination sequence plays once and holds its last frame. Back plays it in reverse, reusing the game's rewind component.</li>
+              </ul>
+              <p>I first planned a blended moving camera and a 2D widget stack. Once the real design was clear, I rewrote the plan around hard cut sequences and buttons on 3D surfaces. The Sequencer intro and the hand off into the attract loop are done in engine.</p>
+            </section>
+
+            <section class="chapter" id="ng-trailer" aria-labelledby="ng-trailer-h"><svg class="road-arrow" viewBox="0 0 200 140" aria-hidden="true" focusable="false"><circle class="ra-ht" cx="62" cy="60" r="46" fill="url(#ng-ht)" mask="url(#ng-htm)"/><g class="ra-rings"><circle cx="70" cy="62" r="19"/><circle cx="30" cy="48" r="8"/></g><g class="ra-dot"><circle cx="70" cy="62" r="7"/></g><path class="ra-ink" d="M22 16 C 96 8, 34 98, 92 98 C 132 98, 108 40, 150 40"/><path class="ra-ink ra-head" d="M146 16 L194 40 L146 64 L157 40 Z"/><path class="ra-fill" d="M22 16 C 96 8, 34 98, 92 98 C 132 98, 108 40, 150 40"/><path class="ra-fill ra-headf" d="M146 16 L194 40 L146 64 L157 40 Z"/><path class="ra-gleam" pathLength="100" d="M22 16 C 96 8, 34 98, 92 98 C 132 98, 108 40, 150 40 L 188 40"/></svg>
+              <h2 id="ng-trailer-h">Trailer</h2>
+              <p>I based the trailer's structure on the Need for Speed Most Wanted trailer. Ours follows W-Dawg drifting through our menus and intro. I wrote the shot lists and an artist made the shots.</p>
+              <p>I set up shot lists for two versions. The first is the one we submitted. The second is a more complex trailer. Art didn't have time to set dress it before the submission deadline, so it's still on the list.</p>
+              <div class="media-slot reveal">Trailer goes here: W-Dawg drifts through Nitro Guzzler's main menu and intro</div>
+            </section>
+
+            <section class="chapter" id="ng-ai" aria-labelledby="ng-ai-h"><svg class="road-arrow" viewBox="0 0 200 140" aria-hidden="true" focusable="false"><circle class="ra-ht" cx="74" cy="88" r="46" fill="url(#ng-ht)" mask="url(#ng-htm)"/><g class="ra-rings"><circle cx="72" cy="84" r="23"/><circle cx="108" cy="100" r="9"/></g><g class="ra-dot"><circle cx="72" cy="84" r="9"/></g><path class="ra-ink" d="M124 128 C 26 130, 14 44, 92 40 L 150 40"/><path class="ra-ink ra-head" d="M146 16 L194 40 L146 64 L157 40 Z"/><path class="ra-fill" d="M124 128 C 26 130, 14 44, 92 40 L 150 40"/><path class="ra-fill ra-headf" d="M146 16 L194 40 L146 64 L157 40 Z"/><path class="ra-gleam" pathLength="100" d="M124 128 C 26 130, 14 44, 92 40 L 150 40 L 188 40"/></svg>
+              <h2 id="ng-ai-h">How AI was used</h2>
+              <p>All of the art in Nitro Guzzler is human made.</p>
+              <p>AI was a tool during development, and we used it to further our education on the subject. I used it for bug fixing, for notes and secretary help, for compiling lists and for grammar checks on documents.</p>
+            </section>
+
+            <section class="chapter" id="ng-story" aria-labelledby="ng-story-h"><svg class="road-arrow" viewBox="0 0 200 140" aria-hidden="true" focusable="false"><circle class="ra-ht" cx="58" cy="96" r="46" fill="url(#ng-ht)" mask="url(#ng-htm)"/><g class="ra-rings"><circle cx="44" cy="104" r="21"/><circle cx="76" cy="122" r="9"/></g><g class="ra-dot"><circle cx="44" cy="104" r="8"/></g><path class="ra-ink" d="M30 132 C 28 70, 70 40, 150 40"/><path class="ra-ink ra-head" d="M146 16 L194 40 L146 64 L157 40 Z"/><path class="ra-fill" d="M30 132 C 28 70, 70 40, 150 40"/><path class="ra-fill ra-headf" d="M146 16 L194 40 L146 64 L157 40 Z"/><path class="ra-gleam" pathLength="100" d="M30 132 C 28 70, 70 40, 150 40 L 188 40"/></svg>
+              <h2 id="ng-story-h">My story</h2>
+              <p>I own the UI on a 31-person team. Every choice I make for the menu touches someone else's work, from the camera to the cars to the sound. Here's how that went.</p>
+            </section>
+            <section class="chapter story-sec" id="ng-well" aria-labelledby="ng-well-h"><svg class="road-arrow" viewBox="0 0 200 140" aria-hidden="true" focusable="false"><circle class="ra-ht" cx="62" cy="60" r="46" fill="url(#ng-ht)" mask="url(#ng-htm)"/><g class="ra-rings"><circle cx="70" cy="62" r="19"/><circle cx="30" cy="48" r="8"/></g><g class="ra-dot"><circle cx="70" cy="62" r="7"/></g><path class="ra-ink" d="M22 16 C 96 8, 34 98, 92 98 C 132 98, 108 40, 150 40"/><path class="ra-ink ra-head" d="M146 16 L194 40 L146 64 L157 40 Z"/><path class="ra-fill" d="M22 16 C 96 8, 34 98, 92 98 C 132 98, 108 40, 150 40"/><path class="ra-fill ra-headf" d="M146 16 L194 40 L146 64 L157 40 Z"/><path class="ra-gleam" pathLength="100" d="M22 16 C 96 8, 34 98, 92 98 C 132 98, 108 40, 150 40 L 188 40"/></svg>
+              <h3 id="ng-well-h"><span class="story-n">01</span>What went well</h3>
+              <p>The intro and the attract loop run in engine. You boot the game, the cars smash through the glass, and the menu wakes up.</p>
+              <p>The bigger win was the data. Every menu destination is one row of the same struct, and each row knows where Back goes. When we added the three Garage hotspots, that was three more rows, not new code. That's when I knew the system would hold up for the rest of production.</p>
+              <p class="todo">One concrete moment: a playtest, a review or a teammate's reaction that showed you it was working.</p>
+            </section>
+            <section class="chapter story-sec" id="ng-tricky" aria-labelledby="ng-tricky-h"><svg class="road-arrow" viewBox="0 0 200 140" aria-hidden="true" focusable="false"><circle class="ra-ht" cx="74" cy="88" r="46" fill="url(#ng-ht)" mask="url(#ng-htm)"/><g class="ra-rings"><circle cx="72" cy="84" r="23"/><circle cx="108" cy="100" r="9"/></g><g class="ra-dot"><circle cx="72" cy="84" r="9"/></g><path class="ra-ink" d="M124 128 C 26 130, 14 44, 92 40 L 150 40"/><path class="ra-ink ra-head" d="M146 16 L194 40 L146 64 L157 40 Z"/><path class="ra-fill" d="M124 128 C 26 130, 14 44, 92 40 L 150 40"/><path class="ra-fill ra-headf" d="M146 16 L194 40 L146 64 L157 40 Z"/><path class="ra-gleam" pathLength="100" d="M124 128 C 26 130, 14 44, 92 40 L 150 40 L 188 40"/></svg>
+              <h3 id="ng-tricky-h"><span class="story-n">02</span>What was tricky</h3>
+              <p>I built half the system on the wrong assumption. I planned a smooth, blended camera and a stack of flat 2D menus. I had seven sections of the implementation guide done before the design settled on hard cuts and buttons that live on the car itself.</p>
+              <p>On top of that, Data Tables kept breaking when they pointed at things placed in the level.</p>
+              <p class="todo">Who did this affect on the team, and how did you find out the plan was wrong?</p>
+            </section>
+            <section class="chapter story-sec" id="ng-through" aria-labelledby="ng-through-h"><svg class="road-arrow" viewBox="0 0 200 140" aria-hidden="true" focusable="false"><circle class="ra-ht" cx="58" cy="96" r="46" fill="url(#ng-ht)" mask="url(#ng-htm)"/><g class="ra-rings"><circle cx="44" cy="104" r="21"/><circle cx="76" cy="122" r="9"/></g><g class="ra-dot"><circle cx="44" cy="104" r="8"/></g><path class="ra-ink" d="M30 132 C 28 70, 70 40, 150 40"/><path class="ra-ink ra-head" d="M146 16 L194 40 L146 64 L157 40 Z"/><path class="ra-fill" d="M30 132 C 28 70, 70 40, 150 40"/><path class="ra-fill ra-headf" d="M146 16 L194 40 L146 64 L157 40 Z"/><path class="ra-gleam" pathLength="100" d="M30 132 C 28 70, 70 40, 150 40 L 188 40"/></svg>
+              <h3 id="ng-through-h"><span class="story-n">03</span>What we worked through</h3>
+              <p>We rebuilt the plan around what the menu really is: one camera director that hard cuts between Level Sequences, with buttons that sit on 3D surfaces. I swapped the Data Table for arrays of structs, and the level references stopped breaking.</p>
+              <p>Mouse, gamepad and keyboard now take different paths to the same activation function, so one fix covers all three. For the art I wasn't making, I wrote shot lists so the artists on the trailer had something clear to build from.</p>
+              <p class="todo">What you'd do differently on day one of the next project.</p>
+            </section>
+            <section class="chapter" id="ng-team" aria-labelledby="ng-team-h"><svg class="road-arrow" viewBox="0 0 200 140" aria-hidden="true" focusable="false"><circle class="ra-ht" cx="62" cy="60" r="46" fill="url(#ng-ht)" mask="url(#ng-htm)"/><g class="ra-rings"><circle cx="70" cy="62" r="19"/><circle cx="30" cy="48" r="8"/></g><g class="ra-dot"><circle cx="70" cy="62" r="7"/></g><path class="ra-ink" d="M22 16 C 96 8, 34 98, 92 98 C 132 98, 108 40, 150 40"/><path class="ra-ink ra-head" d="M146 16 L194 40 L146 64 L157 40 Z"/><path class="ra-fill" d="M22 16 C 96 8, 34 98, 92 98 C 132 98, 108 40, 150 40"/><path class="ra-fill ra-headf" d="M146 16 L194 40 L146 64 L157 40 Z"/><path class="ra-gleam" pathLength="100" d="M22 16 C 96 8, 34 98, 92 98 C 132 98, 108 40, 150 40 L 188 40"/></svg>
+              <h2 id="ng-team-h">The team around the UI</h2>
               <p>Nitro Guzzler is made by the Grease Monkeys. The menu only works because of what the other departments build. Here's who the UI leans on, and where to see their side of it.</p>
               <ul class="team reveal">
                 <li class="team-card">
@@ -1262,137 +1423,6 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
                   <p class="todo">Link to a programmer's portfolio or the team's tech page.</p>
                 </li>
               </ul>
-              <p class="todo">Link to the Nitro Guzzler Steam page once it's live.</p>
-            </section>
-            <section class="chapter" id="ng-time" aria-labelledby="ng-time-h"><span class="road-arrow" aria-hidden="true"><i></i></span>
-              <h2 id="ng-time-h">Production timeline</h2>
-              <ol class="timeline reveal">
-                <li class="done"><span class="t-tag">Done</span><b>Menu and intro designed</b><p>Game plan, shot list and menu map written, then rebuilt once the hard cut design settled.</p></li>
-                <li class="done"><span class="t-tag">Done</span><b>Intro and attract loop in engine</b><p>The Sequencer intro hands off to the menu loop.</p></li>
-                <li class="done"><span class="t-tag">Done</span><b>Trailer shot lists</b><p>Two versions written and handed to art.</p></li>
-                <li class="is-now"><span class="t-tag">Now</span><b>Settings, Art Zoo and Audio Zoo</b><p>Audio, Visual and Accessibility panels, plus the two zoo entries.</p></li>
-                <li class="is-now"><span class="t-tag">Now</span><b>Vector UI art</b><p>The main menu art is drawn. Racer colors go on next.</p></li>
-                <li class="ship"><span class="t-tag">Dec 2026</span><b>Ships on Steam</b><p>The full team's release.</p></li>
-              </ol>
-              <p class="todo">Add the month for each step if you want real dates on this.</p>
-            </section>
-            <section class="chapter" id="ng-goal" aria-labelledby="ng-goal-h"><span class="road-arrow" aria-hidden="true"><i></i></span>
-              <h2 id="ng-goal-h">A menu inside the game world</h2>
-              <p>I wanted the menu to feel like you're already in the game. So I borrowed from the Batman Arkham menus. The camera cycles through shots on its own. It pulls you in and shows you the characters before your first race.</p>
-              <ul class="notes reveal">
-                <li><b>Racers up front</b>Players get invested in the racers, so I built the menu around them.</li>
-                <li><b>The menu is the attract loop</b>A camera director hard cuts between sequences. The camera never blends. Only the stuff in the shot moves.</li>
-                <li><b>Names that fit the world</b>Destinations get names from garage culture. Play is Prep Ride. The lore bible is Pit Crew.</li>
-              </ul>
-            </section>
-
-            <section class="chapter" id="ng-void" aria-labelledby="ng-void-h"><span class="road-arrow" aria-hidden="true"><i></i></span>
-              <h2 id="ng-void-h">The white void intro</h2>
-              <p>The intro and the menu share one white space. There's no separate garage level. Cars race through it in their livery colors and leave colored tire stripes. Then they smash through a glass pane with the logo on it and switch to their in-game textures. The camera falls, and you see the team name written in tire tracks.</p>
-              <ol class="flow reveal" aria-label="Startup flow">
-                <li><span class="n">01</span><b>Intro</b>Plays once. Hold a button to skip.</li>
-                <li><span class="n">02</span><b>Ready loop</b>Waits for the player.</li>
-                <li><span class="n">03</span><b>Any key</b>Wakes the menu.</li>
-                <li><span class="n">04</span><b>Main menu loop</b>The attract loop takes over.</li>
-              </ol>
-              <div class="media-slot reveal">Intro capture goes here: livery-colored cars before the glass pane, in-game textures after</div>
-            </section>
-
-            <section class="chapter" id="ng-compass" aria-labelledby="ng-compass-h"><span class="road-arrow" aria-hidden="true"><i></i></span>
-              <h2 id="ng-compass-h">Main menu in vector art</h2>
-              <p class="lede">I'm drawing all of the game's UI art in vector graphics for this 3D space. The look mixes vectordelia with Redline's cinematic style. The four options sit like a compass, and each one gets a color from the cast. Pick one to wake it up.</p>
-              <div class="vx-wrap reveal" data-on="prep">
-                <div class="vx-stage" data-on="prep">
-                  <div class="vx vx-settings"><i class="vx-idle"></i><i class="vx-hot"></i></div>
-                  <div class="vx vx-pit"><i class="vx-idle"></i><i class="vx-hot"></i></div>
-                  <div class="vx vx-prep"><i class="vx-idle"></i><i class="vx-hot"></i></div>
-                  <div class="vx vx-credits"><i class="vx-idle"></i><i class="vx-hot"></i></div>
-                  <button type="button" class="vx-hit" data-dir="settings" style="left:3%;top:4%;width:42%;height:32%" aria-label="Settings"></button>
-                  <button type="button" class="vx-hit" data-dir="pit" style="left:1%;top:47%;width:33%;height:36%" aria-label="Pit Crew"></button>
-                  <button type="button" class="vx-hit" data-dir="prep" style="left:48%;top:6%;width:47%;height:36%" aria-label="Prep Ride"></button>
-                  <button type="button" class="vx-hit" data-dir="credits" style="left:36%;top:80%;width:38%;height:19%" aria-label="Credits"></button>
-                </div>
-                <div class="vx-side">
-                  <div class="vx-keys" role="group" aria-label="Main menu options">
-                    <button type="button" class="vx-key" data-dir="prep" aria-pressed="true"><i></i>Prep Ride</button>
-                    <button type="button" class="vx-key" data-dir="settings" aria-pressed="false"><i></i>Settings</button>
-                    <button type="button" class="vx-key" data-dir="pit" aria-pressed="false"><i></i>Pit Crew</button>
-                    <button type="button" class="vx-key" data-dir="credits" aria-pressed="false"><i></i>Credits</button>
-                  </div>
-                  <div class="compass-panel" id="compass-panel" aria-live="polite">
-                    <h3 id="cp-name">Prep Ride</h3>
-                    <p class="vx-color" id="cp-std">W-Dawg's blue</p>
-                    <p id="cp-text">A splash panel with high scores, a highlight clip, the game name and team name. Then Racer Select. Then two flash transitions, one into the track intro and one into the race start.</p>
-                  </div>
-                </div>
-              </div>
-              <ul class="notes reveal">
-                <li><b>Two plates per option</b>Each option has a resting plate and a lit plate. Hovering swaps them, so the halftone, tire tracks and arrows burst out around the word.</li>
-                <li><b>Colors from the cast</b>Blue is W-Dawg, our main racer. Pink is Lo Quei. Yellow is Donnie and Momo, the married Dookern natives.</li>
-                <li><b>Credits get their own color</b>Credits are lime green, a color no racer owns. You've stepped outside their world at that point.</li>
-              </ul>
-              <p class="small">Quitting is themed too. Leaving the game brings up a "Racer Retiring" confirmation.</p>
-            </section>
-
-            <section class="chapter" id="ng-garage" aria-labelledby="ng-garage-h"><span class="road-arrow" aria-hidden="true"><i></i></span>
-              <h2 id="ng-garage-h">Settings etched into the car</h2>
-              <p>In the Garage, settings are hotspots right on W-Dawg's car. One Return button sits on the ground, so you can see it as the camera whips around.</p>
-              <ul class="notes reveal">
-                <li><span class="n">Hood</span><b>Visual</b>Display settings such as monitor size.</li>
-                <li><span class="n">Side</span><b>Accessibility + gameplay</b>Toggles like turning the HUD on or off.</li>
-                <li><span class="n">Open trunk</span><b>Audio</b>Volume for each type of sound.</li>
-              </ul>
-              <p>The other destinations work differently. They're flat holographic overlays you step through with Next and Return. Racer Select shows the racer's face, info, track record and a bit of lore, and Confirm locks them in. Pit Crew is a looping character sheet that cycles through every racer.</p>
-              <div class="media-slot reveal">Before/after goes here: W-Dawg's bare hood vs. the hood with Visual settings etched in</div>
-            </section>
-
-            <section class="chapter" id="ng-build" aria-labelledby="ng-build-h"><span class="road-arrow" aria-hidden="true"><i></i></span>
-              <h2 id="ng-build-h">How it's built in Unreal</h2>
-              <ul class="notes reveal">
-                <li><b>One camera director</b>One Blueprint holds every menu destination as a row of data. Each row stores where Back goes. So there's no special case logic for Back.</li>
-                <li><b>Structs over a Data Table</b>Data Tables fight with references to actors placed in the level, so destinations are an array of structs.</li>
-                <li><b>Hierarchy by tag</b>Each destination has a parent tag. Garage's three hotspots are just three more rows tagged Garage.</li>
-                <li><b>Widgets on surfaces</b>UMG widgets sit on 3D surfaces as Widget Components. They're physically separate but navigate as one screen.</li>
-                <li><b>One activation path</b>Mouse clicks hit the UI through a raycast. Gamepad and keyboard step through an ordered list. Both call the same function.</li>
-                <li><b>Back plays in reverse</b>Each destination sequence plays once and holds its last frame. Back plays it in reverse, reusing the game's rewind component.</li>
-              </ul>
-              <p>I first planned a blended moving camera and a 2D widget stack. Once the real design was clear, I rewrote the plan around hard cut sequences and buttons on 3D surfaces. The Sequencer intro and the hand off into the attract loop are done in engine.</p>
-            </section>
-
-            <section class="chapter" id="ng-trailer" aria-labelledby="ng-trailer-h"><span class="road-arrow" aria-hidden="true"><i></i></span>
-              <h2 id="ng-trailer-h">Trailer</h2>
-              <p>I based the trailer's structure on the Need for Speed Most Wanted trailer. Ours follows W-Dawg drifting through our menus and intro. I wrote the shot lists and an artist made the shots.</p>
-              <p>I set up shot lists for two versions. The first is the one we submitted. The second is a more complex trailer. Art didn't have time to set dress it before the submission deadline, so it's still on the list.</p>
-              <div class="media-slot reveal">Trailer goes here: W-Dawg drifts through Nitro Guzzler's main menu and intro</div>
-            </section>
-
-            <section class="chapter" id="ng-ai" aria-labelledby="ng-ai-h"><span class="road-arrow" aria-hidden="true"><i></i></span>
-              <h2 id="ng-ai-h">How AI was used</h2>
-              <p>All of the art in Nitro Guzzler is human made.</p>
-              <p>AI was a tool during development, and we used it to further our education on the subject. I used it for bug fixing, for notes and secretary help, for compiling lists and for grammar checks on documents.</p>
-            </section>
-
-            <section class="chapter" id="ng-story" aria-labelledby="ng-story-h"><span class="road-arrow" aria-hidden="true"><i></i></span>
-              <h2 id="ng-story-h">My story</h2>
-              <p>I own the UI on a 31-person team. Every choice I make for the menu touches someone else's work, from the camera to the cars to the sound. Here's how that went.</p>
-            </section>
-            <section class="chapter story-sec" id="ng-well" aria-labelledby="ng-well-h"><span class="road-arrow" aria-hidden="true"><i></i></span>
-              <h3 id="ng-well-h"><span class="story-n">01</span>What went well</h3>
-              <p>The intro and the attract loop run in engine. You boot the game, the cars smash through the glass, and the menu wakes up.</p>
-              <p>The bigger win was the data. Every menu destination is one row of the same struct, and each row knows where Back goes. When we added the three Garage hotspots, that was three more rows, not new code. That's when I knew the system would hold up for the rest of production.</p>
-              <p class="todo">One concrete moment: a playtest, a review or a teammate's reaction that showed you it was working.</p>
-            </section>
-            <section class="chapter story-sec" id="ng-tricky" aria-labelledby="ng-tricky-h"><span class="road-arrow" aria-hidden="true"><i></i></span>
-              <h3 id="ng-tricky-h"><span class="story-n">02</span>What was tricky</h3>
-              <p>I built half the system on the wrong assumption. I planned a smooth, blended camera and a stack of flat 2D menus. I had seven sections of the implementation guide done before the design settled on hard cuts and buttons that live on the car itself.</p>
-              <p>On top of that, Data Tables kept breaking when they pointed at things placed in the level.</p>
-              <p class="todo">Who did this affect on the team, and how did you find out the plan was wrong?</p>
-            </section>
-            <section class="chapter story-sec" id="ng-through" aria-labelledby="ng-through-h"><span class="road-arrow" aria-hidden="true"><i></i></span>
-              <h3 id="ng-through-h"><span class="story-n">03</span>What we worked through</h3>
-              <p>We rebuilt the plan around what the menu really is: one camera director that hard cuts between Level Sequences, with buttons that sit on 3D surfaces. I swapped the Data Table for arrays of structs, and the level references stopped breaking.</p>
-              <p>Mouse, gamepad and keyboard now take different paths to the same activation function, so one fix covers all three. For the art I wasn't making, I wrote shot lists so the artists on the trailer had something clear to build from.</p>
-              <p class="todo">What you'd do differently on day one of the next project.</p>
             </section>
           </div>
         </div>
@@ -1854,7 +1884,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
 
   /* ---------- Nitro Guzzler vector menu ---------- */
   const dests = {
-    prep:["W-Dawg's blue",'Prep Ride','A splash panel with high scores, a highlight clip, the game name and team name. Then Racer Select. Then two flash transitions, one into the track intro and one into the race start.'],
+    prep:["W-Dawg's cyan · 00FFFF",'Prep Ride','A splash panel with high scores, a highlight clip, the game name and team name. Then Racer Select. Then two flash transitions, one into the track intro and one into the race start.'],
     settings:["Lo Quei's pink",'Settings','Settings live right on W-Dawg\'s car. Visual is on the hood, Accessibility is on the side and Audio is in the open trunk.'],
     pit:["Donnie and Momo's yellow",'Pit Crew','A looping character sheet. Each racer does something in the white world while panels cover territory, origin, relations and a lore tidbit. A big arrow names the next racer.'],
     credits:['Lime green, outside the racers\' world','Credits','The team credits. After a win, a duplicate of this area in the same spot becomes the win screen.']
