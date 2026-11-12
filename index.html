@@ -476,7 +476,14 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
 .rs-lines{margin-top:auto;display:grid;gap:.45rem}
 .rs-lines span{height:1px;background:#C9C9C9}
 .rs-lines span:nth-child(2){width:72%}.rs-lines span:nth-child(3){width:48%}
-.intro .motto{font-style:italic;text-wrap:balance;font-size:clamp(1.25rem,2.4vw,1.9rem);line-height:1.3;font-weight:300;max-width:26ch}
+.intro .inner{position:relative;isolation:isolate;padding-top:clamp(3rem,8.5vw,7rem)}
+.atlas-bg{position:absolute;z-index:-1;left:0;top:0;width:100%;height:clamp(7rem,24vw,19rem);color:var(--accent);font-family:var(--font-mono);pointer-events:none;user-select:none;overflow:visible}
+.intro .motto{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.2em .6em;max-width:none;margin:0 0 1rem;padding-block:.7rem;border-block:1px solid var(--edge);
+  font-family:var(--font-mono);font-style:normal;font-weight:300;font-size:clamp(.78rem,1.25vw,1.02rem);letter-spacing:.2em;text-transform:uppercase;color:var(--accent);text-shadow:none}
+.intro-copy{padding:clamp(1rem,2vw,1.4rem);border-radius:4px;background-color:var(--glass);border:1px solid var(--edge);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);box-shadow:inset 0 1px 0 var(--sheen)}
+.intro-copy .lede{margin-top:0}
+.intro-grid{align-items:stretch!important}
+@media (max-width:560px){.intro .motto{justify-content:flex-start;letter-spacing:.12em}}
 .resume-view:hover .resume-sheet,.resume-view:focus-visible .resume-sheet{transform:scale(1.02);filter:blur(1px)}
 
 /* contact as a game menu */
@@ -735,7 +742,17 @@ h2{font-weight:300}
 #case-nitro-guzzler .toc a:nth-child(4n+2){--tc:#FF5FA2}#case-nitro-guzzler .toc a:nth-child(4n+3){--tc:#FFD93B}#case-nitro-guzzler .toc a:nth-child(4n+4){--tc:#B6FF3B}
 .hype li{background:color-mix(in srgb,var(--hc,#00FFFF) 22%,rgba(252,252,251,.75))!important;border-color:color-mix(in srgb,var(--hc,#00FFFF) 60%,rgba(22,19,42,.3))!important}
 /* the rail that ties the small arrows together */
-#case-nitro-guzzler .chapters::after{content:"";position:absolute;z-index:1;left:calc(clamp(.75rem,2vw,1.5rem) + 1.59rem);top:1.5rem;bottom:14rem;width:1.23rem;border-radius:3px;background:#16132A;pointer-events:none}
+#case-nitro-guzzler .chapter::before{content:"";position:absolute;z-index:1;left:1.59rem;top:-3.2rem;bottom:calc(3.2rem - clamp(4rem,7vw,6rem));width:1.23rem;box-sizing:border-box;background:var(--c-r);border-inline:.25rem solid #16132A;pointer-events:none}
+#case-nitro-guzzler .chapter:first-of-type::before{border-top:.25rem solid #16132A;border-radius:4px 4px 0 0}
+#case-nitro-guzzler .chapter:last-child::before{bottom:35%;border-bottom:.25rem solid #16132A;border-radius:0 0 4px 4px}
+/* comic placement: inked panels of different widths, read top to bottom */
+#case-nitro-guzzler .chapter{border:3px solid #16132A!important;border-top:3px solid #16132A!important;border-radius:3px;box-shadow:7px 7px 0 var(--c-r),7px 7px 0 3px #16132A!important}
+@media (min-width:861px){
+  #case-nitro-guzzler .chapter:nth-child(3n+2){margin-right:9%}
+  #case-nitro-guzzler .chapter:nth-child(3n+3){margin-right:3%}
+  #case-nitro-guzzler .chapter:nth-child(3n+4){margin-right:15%}
+  #case-nitro-guzzler .story-sec{margin-right:22%!important}
+}
 .road-arrow{position:absolute;z-index:2;left:1.1rem;color:var(--c-r);top:-3.2rem;width:9.2rem;height:6.75rem;overflow:visible;pointer-events:none;color:var(--c-r,#00FFFF);--ink-r:#16132A;
   filter:drop-shadow(0 0 9px color-mix(in srgb,var(--c-r,#00FFFF) 60%,transparent))}
 .road-arrow .ra-ink{fill:var(--ink-r);stroke:var(--ink-r);stroke-width:20;stroke-linejoin:round;stroke-linecap:butt;fill:none}
@@ -744,7 +761,7 @@ h2{font-weight:300}
 .road-arrow .ra-gleam{fill:none;stroke:#fff;stroke-width:4;stroke-linecap:round;stroke-dasharray:20 100;stroke-dashoffset:22;opacity:0}
 @media (max-width:860px){
   #case-nitro-guzzler .chapter{padding-left:3.6rem}
-  #case-nitro-guzzler .chapters::after{left:calc(clamp(.75rem,2vw,1.5rem) + .53rem);width:.46rem}
+  #case-nitro-guzzler .chapter::before{left:.53rem;width:.46rem;top:-1.05rem;bottom:calc(1.05rem - clamp(4rem,7vw,6rem));border-inline-width:.1rem}
   .road-arrow{left:.35rem;width:3.4rem;height:2.5rem;top:-1.05rem}
 }
 @media (prefers-reduced-motion: no-preference){
@@ -916,9 +933,10 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
         <p class="now"><span class="dot" aria-hidden="true"></span><span>Now <b>Creative Director, UI + UX · Nitro Guzzler</b> · Steam, Dec 2026</span></p>
         <p class="now reloc"><span class="pin-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg></span><span>Redmond, WA · <b>Open to relocate</b></span></p>
       </div>
+      <svg class="atlas-bg" viewBox="0 0 1000 250" preserveAspectRatio="none" aria-hidden="true" focusable="false"><defs><linearGradient id="atlas-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity=".2"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><text x="4" y="232" textLength="992" lengthAdjust="spacingAndGlyphs" font-size="300" font-weight="800" fill="url(#atlas-g)" stroke="currentColor" stroke-opacity=".32" stroke-width="1.5">ATLAS</text></svg>
+      <h2 id="about-title" class="motto"><span>The</span> <span>man</span> <span>on</span> <span>top</span> <span>of</span> <span>the</span> <span>mountain</span> <span>was</span> <span>not</span> <span>born</span> <span>there.</span></h2>
       <div class="intro-grid">
         <div class="intro-copy">
-          <h2 id="about-title" class="motto">The man on top of the mountain was not born there.</h2>
           <p class="lede">I design UI + UX for games. That means user experience, user interface, game feel, HUDs and information architecture. I'm all about the process. I start in greybox and sculpt the idea until it plays right, and the art pass comes after that. Right now I'm Creative Director and UI + UX designer on Nitro Guzzler, a 31-person racing experience shipping on Steam in December 2026.</p>
           <div class="intro-actions">
             <a class="btn" href="#projects">See my work ↓</a>
@@ -1286,7 +1304,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             </section>
             <section class="chapter" id="ng-premise" aria-labelledby="ng-premise-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
               <h2 id="ng-premise-h">A race you can't lose</h2>
-              <p>Nitro Guzzler started when a teammate showed me Redline and we both said we had to make this game. That was heading into junior year. After a lot of meetings it got rebuilt several times. It went combat first, then racing, then art first, then mecha, then a Mad Max version where you could get out of the car. We landed on a vertical slice racing experience, built around what a team can really make: one level, in Death Valley.</p>
+              <p>Nitro Guzzler started when a teammate showed me Redline and we both said we had to make this game. That was heading into junior year. It went combat first, then racing, then art first, then mecha, then a Mad Max version where you could get out of the car. We landed on a vertical slice racing experience, built around what a team can really make: one level, in Death Valley.</p>
               <ul class="notes reveal">
                 <li><b>The channel</b>ADDR, the Apocalypse Dimension Death Run. Think American Ninja Warrior across dimensions. Each racer gets sent into their own dimension partway through its apocalypse, just to show off.</li>
                 <li><b>You can only win</b>You play W-Dawg. Crash and the broadcast rewinds the whole world, because a wreck wouldn't look good to the audience. What you chase is the audience score and your rating.</li>
@@ -1416,23 +1434,23 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
 
             <section class="chapter" id="ng-story" aria-labelledby="ng-story-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
               <h2 id="ng-story-h">My story</h2>
-              <p>I've been on Nitro Guzzler since the first idea. I co-produced the team, and now I own the UI on a 31-person team. Every choice I make for the menu touches someone else's work, from the camera to the cars to the sound. Here's how that went.</p>
+              <p>I've been on Nitro Guzzler since the first idea. I co-produced the team, and now I own the UI on a 31-person team. Every choice I make for the menu touches someone else's work, from the camera to the cars to the sound.</p>
             </section>
             <section class="chapter story-sec" id="ng-well" aria-labelledby="ng-well-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
-              <h3 id="ng-well-h"><span class="story-n">01</span>What went well</h3>
+              <h3 id="ng-well-h">What went well</h3>
               <p>I'm proud of what we made in those first two semesters, with the team we had. And the team held together.</p>
               <p>The intro and the attract loop run in engine. You boot the game, the cars smash through the glass, and the menu wakes up.</p>
               <p>The bigger win was the data. Every menu destination is one row of the same struct, and each row knows where Back goes. When we added the three Garage hotspots, that was three more rows, not new code. That's when I knew the system would hold up for the rest of production.</p>
               <p class="todo">One concrete moment: a playtest, a review or a teammate's reaction that showed you it was working.</p>
             </section>
             <section class="chapter story-sec" id="ng-tricky" aria-labelledby="ng-tricky-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
-              <h3 id="ng-tricky-h"><span class="story-n">02</span>What was tricky</h3>
+              <h3 id="ng-tricky-h">What was tricky</h3>
               <p>There was a lot of scope and a lot of turmoil. We had very few artists for what we needed, and many of them were first-time artists. Our CS students had never worked in Unreal because of how the classes are set up, so they learned it on top of their other work. That meant design couldn't get as technical as it needed to. Some people took on more than they had the experience for yet, and a few crucial changes and mix-ups landed mid-development.</p>
               <p>On the menu, I built half the system on the wrong assumption. I planned a smooth, blended camera and a stack of flat 2D menus. I had seven sections of the implementation guide done before the design settled on hard cuts and buttons that live on the car itself.</p>
               <p>On top of that, Data Tables kept breaking when they pointed at things placed in the level.</p>
             </section>
             <section class="chapter story-sec" id="ng-through" aria-labelledby="ng-through-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
-              <h3 id="ng-through-h"><span class="story-n">03</span>What we worked through</h3>
+              <h3 id="ng-through-h">What we worked through</h3>
               <p>What kept the team from blowing up was the foundation. As the first producer, with one other producer, I built the team on proactive communication. We didn't get the double-producer payoff another team got. But we kept our spot, and our team worked together longer than theirs did.</p>
               <p>Then we refactored over the summer and came back as the largest team in DigiPen history, 31 people. Now we're deep in polish. That's why I'm rebuilding the whole main menu. It's also why the map has been almost fully redone, with a new environment art team filling in a Death Valley town for you to tear through and wreck, all for the audience score.</p>
               <p>On the menu, we rebuilt the plan around what the menu really is: one camera director that hard cuts between Level Sequences, with buttons that sit on 3D surfaces. I swapped the Data Table for arrays of structs, and the level references stopped breaking.</p>
