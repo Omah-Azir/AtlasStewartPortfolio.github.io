@@ -708,10 +708,7 @@ h2{font-weight:300}
 /* Nitro Guzzler: a wide concrete road runs behind everything. One huge spray-painted arrow comes down the middle.
    Each section is a lit slab of concrete over it, and a rail of small arrows ties the sections together, always heading down. */
 #case-nitro-guzzler .chapters{position:relative;isolation:isolate;gap:clamp(4rem,7vw,6rem);padding:5rem clamp(.75rem,2vw,1.5rem) 15rem}
-#case-nitro-guzzler .chapters::before{content:"";position:absolute;z-index:-2;inset:0 -1rem;border-radius:6px;
-  background:linear-gradient(90deg,rgba(22,19,42,.5) 0 2px,transparent 2px) .9rem 0/100% 100% no-repeat,linear-gradient(270deg,rgba(22,19,42,.5) 0 2px,transparent 2px) -.9rem 0/100% 100% no-repeat,
-    linear-gradient(rgba(244,244,243,.7),rgba(244,244,243,.7)),url(img/ng-fog.webp) 0 0/420px,#F1F1F0;box-shadow:inset 0 0 0 1px rgba(22,19,42,.14)}
-.ng-spine{position:absolute;z-index:-1;inset:0;pointer-events:none;overflow:hidden}
+.ng-spine{position:absolute;z-index:-1;inset:0;pointer-events:none;overflow:hidden;opacity:.14}
 .ng-shaft,.ng-head{position:absolute;left:50%;transform:translateX(-50%);background:#0D0C12;display:block}
 .ng-shaft{top:0;bottom:11.4rem;width:clamp(5rem,13vw,9.5rem);
   -webkit-mask:linear-gradient(90deg,transparent 0,#000 9%,#000 91%,transparent 100%),linear-gradient(180deg,transparent 0,#000 9rem),url(img/ng-fog-mask.webp) 0 0/300px;
@@ -722,22 +719,27 @@ h2{font-weight:300}
 .ng-shaft{overflow:visible}
 .ng-head{bottom:1.2rem;width:clamp(11rem,30vw,21rem);height:13rem;clip-path:polygon(0 0,50% 16%,100% 0,50% 100%);
   -webkit-mask:url(img/ng-fog-mask.webp) 0 0/300px;mask:url(img/ng-fog-mask.webp) 0 0/300px}
-#case-nitro-guzzler .chapter{position:relative;padding:clamp(1.25rem,3vw,2.25rem) clamp(1rem,3vw,2.25rem) clamp(1.25rem,3vw,2.25rem) 9.5rem;border-radius:6px;
-  background:linear-gradient(rgba(252,252,251,.87),rgba(252,252,251,.87)),url(img/ng-fog.webp) 0 0/420px;box-shadow:0 0 0 1px rgba(22,19,42,.12),0 18px 40px -26px rgba(22,19,42,.5)}
+#case-nitro-guzzler .chapter{--c-r:#00FFFF;position:relative;padding:clamp(1.25rem,3vw,2.25rem) clamp(1rem,3vw,2.25rem) clamp(1.25rem,3vw,2.25rem) 9.5rem;border-radius:6px;
+  background:color-mix(in srgb,var(--c-r) 13%,rgba(252,252,251,.8));border:1px solid color-mix(in srgb,var(--c-r) 55%,rgba(22,19,42,.25));border-top:5px solid var(--c-r);
+  box-shadow:0 18px 40px -26px color-mix(in srgb,var(--c-r) 60%,rgba(22,19,42,.6))}
+#case-nitro-guzzler .chapter:nth-child(4n+3){--c-r:#FF5FA2}
+#case-nitro-guzzler .chapter:nth-child(4n+4){--c-r:#FFD93B}
+#case-nitro-guzzler .chapter:nth-child(4n+5){--c-r:#B6FF3B}
+#case-nitro-guzzler .chapter>h2,#case-nitro-guzzler .chapter>h3{justify-self:start;background:linear-gradient(transparent 62%,color-mix(in srgb,var(--c-r) 70%,transparent) 62% 92%,transparent 92%)}
+#case-nitro-guzzler .toc a{border-left:4px solid var(--tc,#00FFFF)}
+#case-nitro-guzzler .toc a:nth-child(4n+2){--tc:#FF5FA2}#case-nitro-guzzler .toc a:nth-child(4n+3){--tc:#FFD93B}#case-nitro-guzzler .toc a:nth-child(4n+4){--tc:#B6FF3B}
+.hype li{background:color-mix(in srgb,var(--hc,#00FFFF) 22%,rgba(252,252,251,.75))!important;border-color:color-mix(in srgb,var(--hc,#00FFFF) 60%,rgba(22,19,42,.3))!important}
 /* the rail that ties the small arrows together */
-#case-nitro-guzzler .chapters::after{content:"";position:absolute;z-index:1;left:calc(clamp(.75rem,2vw,1.5rem) + 2.05rem);top:2rem;bottom:14rem;width:6px;border-radius:3px;background:#16132A;pointer-events:none}
-.road-arrow{position:absolute;z-index:2;left:1.1rem;top:-3.2rem;width:9.2rem;height:6.75rem;overflow:visible;pointer-events:none;color:var(--c-r,#00FFFF);--ink-r:#16132A;
+#case-nitro-guzzler .chapters::after{content:"";position:absolute;z-index:1;left:calc(clamp(.75rem,2vw,1.5rem) + 1.59rem);top:1.5rem;bottom:14rem;width:1.23rem;border-radius:3px;background:#16132A;pointer-events:none}
+.road-arrow{position:absolute;z-index:2;left:1.1rem;color:var(--c-r);top:-3.2rem;width:9.2rem;height:6.75rem;overflow:visible;pointer-events:none;color:var(--c-r,#00FFFF);--ink-r:#16132A;
   filter:drop-shadow(0 0 9px color-mix(in srgb,var(--c-r,#00FFFF) 60%,transparent))}
 .road-arrow .ra-ink{fill:var(--ink-r);stroke:var(--ink-r);stroke-width:20;stroke-linejoin:round;stroke-linecap:butt;fill:none}
 .road-arrow .ra-fill{fill:none;stroke:currentColor;stroke-width:12}
 .road-arrow .ra-headf{fill:currentColor;stroke:currentColor;stroke-width:2;stroke-linejoin:round}
 .road-arrow .ra-gleam{fill:none;stroke:#fff;stroke-width:4;stroke-linecap:round;stroke-dasharray:20 100;stroke-dashoffset:22;opacity:0}
-#case-nitro-guzzler .chapter:nth-child(4n+2) .road-arrow{--c-r:#FF5FA2}
-#case-nitro-guzzler .chapter:nth-child(4n+3) .road-arrow{--c-r:#FFD93B}
-#case-nitro-guzzler .chapter:nth-child(4n+4) .road-arrow{--c-r:#B6FF3B}
 @media (max-width:860px){
   #case-nitro-guzzler .chapter{padding-left:3.6rem}
-  #case-nitro-guzzler .chapters::after{left:calc(clamp(.75rem,2vw,1.5rem) + .72rem);width:4px}
+  #case-nitro-guzzler .chapters::after{left:calc(clamp(.75rem,2vw,1.5rem) + .53rem);width:.46rem}
   .road-arrow{left:.35rem;width:3.4rem;height:2.5rem;top:-1.05rem}
 }
 @media (prefers-reduced-motion: no-preference){
@@ -1262,7 +1264,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
                 <li>Built the menu's camera director in Blueprints and wrote an Unreal Engine 5.5 implementation guide for the team.</li>
                 <li>Planned the trailer and wrote shot lists for two versions of it.</li>
                 <li>Directed artists from my shot lists for the trailer shots.</li>
-                <li>Worked with the design lead on team management.</li>
+                <li>Helped run the team inside a lead and producer structure.</li>
               </ul>
             </section>
             <section class="chapter" id="ng-time" aria-labelledby="ng-time-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
@@ -1413,10 +1415,9 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
               <p>Nitro Guzzler is made by the Grease Monkeys. The menu only works because of what the other departments build. Here's who the UI leans on, and where to see their side of it.</p>
               <ul class="team reveal">
                 <li class="team-card">
-                  <span class="team-role">Design</span>
-                  <b>Design lead</b>
-                  <p>Keyan owns the game's design. We split team management, and the menu has to sell the game he's building.</p>
-                  <p class="todo">Link to Keyan's portfolio or LinkedIn.</p>
+                  <span class="team-role">Leadership</span>
+                  <b>Leads and producers</b>
+                  <p>The team runs on a lead and producer structure. Each department has a lead, and producers keep the schedule. The menu has to sell the game they're all building.</p>
                 </li>
                 <li class="team-card">
                   <span class="team-role">Art</span>
