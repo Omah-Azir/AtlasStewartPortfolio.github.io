@@ -753,6 +753,16 @@ h2{font-weight:300}
   @keyframes gleam{0%,35%{background-position:100% 0}80%,100%{background-position:0 0}}
   @keyframes ragleam{0%,45%{stroke-dashoffset:22;opacity:0}55%{opacity:.95}88%{opacity:.95}100%{stroke-dashoffset:-100;opacity:0}}
 }
+
+/* Gameplay and VFX clips: short low-frame loops that only play on screen */
+.clips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.9rem}
+.clips .clip{margin:0;display:grid;gap:.45rem;align-content:start}
+.clips video{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:6px;background:var(--panel);box-shadow:0 0 0 1px var(--edge),0 18px 36px -24px rgba(0,0,0,.8)}
+.clips-3 video{aspect-ratio:540/480;object-fit:contain;background:#2D3A4B}
+.clips figcaption{font-size:.9rem;line-height:1.45;color:var(--ink-2)}
+.clips figcaption b{display:block;color:var(--ink);font-family:var(--font-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.15rem}
+@media (max-width:860px){.clips{grid-template-columns:1fr}.clips-3{grid-template-columns:repeat(3,minmax(0,1fr))}.clips-3 figcaption{font-size:.78rem}}
+@media (max-width:520px){.clips-3{grid-template-columns:1fr}}
 /* Back to projects stays with you while you scroll a case study */
 .case-bar{position:sticky;top:10px;z-index:30;pointer-events:none;padding-block:.75rem}
 .case-bar > *{pointer-events:auto}
@@ -1578,7 +1588,20 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
               <div class="wt-panels reveal">
                 <div class="wt-grid" id="en-w-bow" role="tabpanel"><div class="wt wt-light"><b>Light</b><ul><li><span>Look</span>A thin smoke trail</li><li><span>Sound</span>A soft "fff" and a flat bow snap</li><li><span>Hit</span>Half damage, short arc</li><li><span>HUD</span>Arrow count ticks down</li></ul></div><div class="wt wt-medium"><b>Medium</b><ul><li><span>Look</span>An air trail with a faint glow</li><li><span>Sound</span>Grip tightens, a breath in, then a clean release</li><li><span>Hit</span>Full damage, longer arc</li><li><span>Camera</span>The sight holds up a beat, ready for the next shot</li></ul></div><div class="wt wt-heavy"><b>Heavy</b><ul><li><span>Look</span>A thin, bright glowing trail</li><li><span>Sound</span>Tight grip, big snap, a whiz in the air, then a thunk</li><li><span>Hit</span>Pierces, flies straight</li><li><span>Camera</span>Focuses in, then snaps back out with a pale blue vignette</li></ul></div></div><div class="wt-grid" id="en-w-crow" role="tabpanel" hidden><div class="wt wt-light"><b>Light</b><ul><li><span>Look</span>Feathers and flashes of ravens, the target glows</li><li><span>Sound</span>One short whistle, feathers fluffing, curses</li><li><span>Hit</span>The enemy thrashes at the air</li><li><span>Hands</span>One hand comes up to point</li></ul></div><div class="wt wt-medium"><b>Medium</b><ul><li><span>Look</span>Adds bright blue slashes</li><li><span>Sound</span>Two whistles, cawing, slicing</li><li><span>Hit</span>The enemy drops to their knees, then falls</li><li><span>Hands</span>The point holds for a second</li></ul></div><div class="wt wt-heavy"><b>Heavy</b><ul><li><span>Look</span>A black feather tornado over everyone in a glowing circle</li><li><span>Sound</span>One raven call, then all of it on everyone</li><li><span>Hit</span>Every enemy in the circle goes down</li><li><span>Hands</span>The bow goes away and both hands point</li></ul></div></div><div class="wt-grid" id="en-w-dmg" role="tabpanel" hidden><div class="wt wt-light"><b>Light</b><ul><li><span>Look</span>Exposure up, blue vignette</li><li><span>Sound</span>A blade swipe</li><li><span>Camera</span>Slight sway, wider FOV</li><li><span>HUD</span>Everything shakes and blinks</li></ul></div><div class="wt wt-medium"><b>Medium</b><ul><li><span>Look</span>Desaturated and overexposed</li><li><span>Sound</span>The world goes quiet, crows and snowfall get louder, a low ring</li><li><span>Body</span>You slow down</li><li><span>HUD</span>Blinks faster, with blue streaks of light</li></ul></div><div class="wt wt-heavy"><b>Heavy</b><ul><li><span>Look</span>An instant white screen</li><li><span>Sound</span>A heavy bang, then a high ring that fades into chanting</li><li><span>Camera</span>Nothing. It just stops</li><li><span>HUD</span>Nothing</li></ul></div></div>
               </div>
+              <h3>In engine</h3>
+              <div class="clips reveal" aria-label="In-engine gameplay">
+                <figure class="clip"><video src="media/en-bow-draw.mp4" poster="img/en-bow-draw.webp" muted loop playsinline preload="none" aria-label="First-person view in a dark snowy forest. The player draws the heavy bow toward a distant soldier, and the feather crosshair closes around him."></video><figcaption><b>The draw</b> The heavy bow comes up and the feather crosshair closes on the target.</figcaption></figure>
+                <figure class="clip"><video src="media/en-soul.mp4" poster="img/en-soul.webp" muted loop playsinline preload="none" aria-label="Bright snowy clearing. A soldier walks toward the player, then turns pale and outlined as hits drain him, while the crosshair stays locked on."></video><figcaption><b>Taking their soul</b> Each hit drains the soldier toward white, so damage reads on the enemy itself.</figcaption></figure>
+                <figure class="clip"><video src="media/en-kill.mp4" poster="img/en-kill.webp" muted loop playsinline preload="none" aria-label="A soldier, already pale, takes a final arrow, collapses into a white heap and fades."></video><figcaption><b>The kill</b> One last shot and he folds into the snow.</figcaption></figure>
+              </div>
               <p>Getting hurt is cold instead of bloody. You're freezing, slipping deeper into the coma. A heavy hit doesn't shake the camera at all. It just goes white, rings, and fades into chanting.</p>
+                          <h3>Crow special VFX</h3>
+              <div class="clips clips-3 reveal" aria-label="Crow special VFX, three levels">
+                <figure class="clip"><video src="media/en-crows-light.mp4" poster="img/en-crows-light.webp" muted loop playsinline preload="none" aria-label="Light crow VFX: a small swirl of wind and a few dark feathers circling low to the ground."></video><figcaption><b>Light</b> A low swirl and a few feathers.</figcaption></figure>
+                <figure class="clip"><video src="media/en-crows-medium.mp4" poster="img/en-crows-medium.webp" muted loop playsinline preload="none" aria-label="Medium crow VFX: a glass-like dome of wind rises, then a wider ring of crows and feathers spins around it."></video><figcaption><b>Medium</b> A dome of wind, then the flock.</figcaption></figure>
+                <figure class="clip"><video src="media/en-crows-large.mp4" poster="img/en-crows-large.webp" muted loop playsinline preload="none" aria-label="Large crow VFX: a full sphere of wind with a bright shockwave ring at its base and a dense spiral of crows."></video><figcaption><b>Large</b> A full sphere and a shockwave ring.</figcaption></figure>
+              </div>
+              <p class="small">The three crow-special Niagara systems in Unreal's preview, light to large. In the build, the larger levels spawned too small and the on-hit call broke, so these show the VFX as designed.</p>
             </section>
 
             <section class="chapter" id="en-hud" aria-labelledby="en-hud-h">
@@ -1941,6 +1964,15 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
   document.querySelectorAll('.vx-hit,.vx-key').forEach(b => ['pointerenter','focus','click'].forEach(ev => b.addEventListener(ev, () => vxPick(b.dataset.dir))));
 
 
+
+
+  /* ---------- short loops: load and play only while on screen ---------- */
+  const clipIO = new IntersectionObserver(es => es.forEach(e => {
+    const v = e.target;
+    if (e.isIntersecting && !reduce.matches){ if (v.preload === 'none') v.preload = 'auto'; v.play().catch(()=>{}); }
+    else v.pause();
+  }), {threshold: .25});
+  document.querySelectorAll('.clips video').forEach(v => clipIO.observe(v));
 
   /* ---------- video loops: respect reduced motion, hover-play on cards ---------- */
   const ngLoop = document.getElementById('ng-loop');
