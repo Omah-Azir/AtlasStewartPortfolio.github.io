@@ -487,16 +487,15 @@ figcaption{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em;li
 .pts li::marker{color:var(--accent)}
 p strong,li strong{font-weight:700;color:var(--ink)}
 /* fortune slip */
-.fortune-wrap{padding-block:1rem 2.5rem}
-.fortune{margin:0 auto;width:fit-content;max-width:100%;transform:rotate(-1.2deg);background:#F7F2E4;color:#7A0C0C;font-family:var(--font-mono);font-size:clamp(.72rem,1.3vw,.9rem);letter-spacing:.14em;text-transform:uppercase;text-align:center;
-  padding:.7rem 2.2rem;box-shadow:0 10px 24px -12px rgba(0,0,0,.8);clip-path:polygon(0 0,100% 0,calc(100% - 7px) 25%,100% 50%,calc(100% - 7px) 75%,100% 100%,0 100%,7px 75%,0 50%,7px 25%)}
 
-.intro .motto-unused{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.2em .6em;max-width:none;margin:0 0 1rem;padding-block:.7rem;border-block:1px solid var(--edge);
-  font-family:var(--font-mono);font-style:normal;font-weight:300;font-size:clamp(.78rem,1.25vw,1.02rem);letter-spacing:.2em;text-transform:uppercase;color:var(--accent);text-shadow:none}
+.motto-wrap{padding-block:1rem 2rem}
+.motto{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.2em .6em;margin:0;max-width:none;width:100%;padding-block:.7rem;border-block:1px solid var(--edge);
+  font-family:var(--font-mono);font-weight:300;font-size:clamp(.78rem,1.25vw,1.02rem);letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+@media (max-width:560px){.motto{justify-content:flex-start;letter-spacing:.12em}}
 .intro-copy{padding:clamp(1rem,2vw,1.4rem);border-radius:4px;background-color:var(--glass);border:1px solid var(--edge);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);box-shadow:inset 0 1px 0 var(--sheen)}
 .intro-copy .lede{margin-top:0}
 .intro-grid{align-items:stretch!important}
-@media (max-width:560px){.intro .motto{justify-content:flex-start;letter-spacing:.12em}}
+
 .resume-view:hover .resume-sheet,.resume-view:focus-visible .resume-sheet{transform:scale(1.02);filter:blur(1px)}
 
 /* contact as a game menu */
@@ -810,6 +809,14 @@ h2{font-weight:300}
 .hype li{font-size:1rem!important;padding:.4rem .9rem .42rem .75rem!important}
 .hype b{font-family:var(--font-mono)!important;font-style:normal!important;font-stretch:100%!important;font-weight:600!important;font-size:1.02rem!important;letter-spacing:-.01em}
 .now{font-size:.8rem}
+/* Nitro Guzzler story beats: indented, lighter heading, blue then orange then red */
+#case-nitro-guzzler .story-sec{margin-left:3.5rem;margin-right:14%!important}
+#case-nitro-guzzler .story-sec::before{left:calc(1.59rem - 3.5rem - 3px)}
+#case-nitro-guzzler .story-sec .road-arrow{left:calc(1.1rem - 3.5rem - 3px)}
+#case-nitro-guzzler .story-sec>h3{font-weight:500;font-style:normal;font-stretch:90%;letter-spacing:0}
+#case-nitro-guzzler #ng-well{--c-r:#2F8CFF}#case-nitro-guzzler #ng-tricky{--c-r:#FF8A1F}#case-nitro-guzzler #ng-through{--c-r:#FF3B30}
+#case-nitro-guzzler .toc a[href="#ng-well"]{--tc:#2F8CFF}#case-nitro-guzzler .toc a[href="#ng-tricky"]{--tc:#FF8A1F}#case-nitro-guzzler .toc a[href="#ng-through"]{--tc:#FF3B30}
+@media (max-width:860px){#case-nitro-guzzler .story-sec{margin-left:1rem;margin-right:0!important}#case-nitro-guzzler .story-sec::before{left:calc(.53rem - 1rem - 3px)}#case-nitro-guzzler .story-sec .road-arrow{left:calc(.35rem - 1rem - 3px)}}
 /* Back to projects stays with you while you scroll a case study */
 .case-bar{position:sticky;top:10px;z-index:30;pointer-events:none;padding-block:.75rem}
 .case-bar > *{pointer-events:auto}
@@ -1129,7 +1136,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
       </ul>
     </div>
   </section>
-  <aside class="wrap fortune-wrap" aria-label="Fortune"><div class="inner"><p class="fortune"><span>The man on top of the mountain was not born there.</span></p></div></aside>
+  <aside class="wrap motto-wrap"><div class="inner"><p class="motto"><span>The</span> <span>man</span> <span>on</span> <span>top</span> <span>of</span> <span>the</span> <span>mountain</span> <span>was</span> <span>not</span> <span>born</span> <span>there.</span></p></div></aside>
   <footer class="wrap"><div class="inner">© 2026 Atlas Stewart</div></footer>
 </main>
 
