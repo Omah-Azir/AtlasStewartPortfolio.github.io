@@ -819,6 +819,14 @@ h2{font-weight:300}
 @media (max-width:860px){#case-nitro-guzzler .story-sec{margin-left:1rem;margin-right:0!important}#case-nitro-guzzler .story-sec::before{left:calc(.53rem - 1rem - 3px)}#case-nitro-guzzler .story-sec .road-arrow{left:calc(.35rem - 1rem - 3px)}}
 .resume::before{content:none!important;display:none!important}
 .resume{background:none!important;border:0!important;box-shadow:none!important;padding:0!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background-image:none!important}
+/* Process strip: the four things a UI + UX reviewer looks for, each linking to its section */
+.proc{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:.6rem;margin:1.25rem 0 2rem}
+.proc a{display:grid;gap:.2rem;padding:.8rem 1rem .9rem;border-radius:4px;text-decoration:none;color:var(--ink-2);background-color:var(--glass,var(--panel));border:1px solid var(--edge,var(--rule));border-left:4px solid var(--accent);transition:transform .2s var(--ease),border-color .2s var(--ease)}
+.proc a:hover{transform:translateY(-2px);border-color:var(--accent)}
+.proc b{font-family:var(--font-mono);font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+.proc span{font-size:.95rem;line-height:1.4}
+#case-nitro-guzzler .proc a{background:#fff;border:2px solid #0B0B0C;border-left:6px solid #00FFFF}
+#case-nitro-guzzler .proc a:nth-child(2){border-left-color:#FF5FA2}#case-nitro-guzzler .proc a:nth-child(3){border-left-color:#FFD93B}
 /* Back to projects stays with you while you scroll a case study */
 .case-bar{position:sticky;top:10px;z-index:30;pointer-events:none;padding-block:.75rem}
 .case-bar > *{pointer-events:auto}
@@ -1159,6 +1167,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             <div><dt>Deliverables</dt><dd>Moodboard, palette, frame, 5 screens</dd></div>
           </dl>
         </header>
+        <nav class="proc" aria-label="Process"><a href="#coj-frame"><b>Wireframes</b><span>Greybox frame for every screen</span></a><a href="#coj-screens"><b>Prototype</b><span>Shop, forge and battle in Figma</span></a></nav>
         <div class="case-layout">
           <nav class="toc" aria-label="Chain of Jewels sections"><a href="#coj-part">My part</a>
             <a href="#coj-board">Moodboard</a><a href="#coj-palette">Palette</a><a href="#coj-frame">One frame</a><a href="#coj-menu">Main menu</a><a href="#coj-screens">Screens</a>
@@ -1328,6 +1337,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
           <radialGradient id="ng-htg"><stop offset="0" stop-color="#fff"/><stop offset=".55" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
           <mask id="ng-htm" maskContentUnits="objectBoundingBox"><rect width="1" height="1" fill="url(#ng-htg)"/></mask>
         </defs></svg>
+        <nav class="proc" aria-label="Process"><a href="#ng-void"><b>Journey</b><span>Boot to main menu, step by step</span></a><a href="#ng-garage"><b>Wireframes</b><span>Settings paintover with drawovers</span></a><a href="#ng-build"><b>Prototype</b><span>Running in Unreal Engine 5.5</span></a></nav>
         <div class="case-layout">
           <nav class="toc" aria-label="Nitro Guzzler sections"><a href="#ng-part">My part</a><a href="#ng-premise">Premise</a><a href="#ng-time">Timeline</a><a href="#ng-goal">Goal</a><a href="#ng-void">White void</a><a href="#ng-compass">Menu art</a><a href="#ng-garage">Garage</a><a href="#ng-build">How it's built</a><a href="#ng-trailer">Trailer</a><a href="#ng-ai">AI use</a><a href="#ng-story">My story</a><a href="#ng-well">What went well</a><a href="#ng-tricky">What was tricky</a><a href="#ng-through">What we worked through</a><a href="#ng-team">The team</a></nav>
           <div class="chapters">
@@ -1621,6 +1631,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             <div><dt>Built</dt><dd>2 attack modes × 3 levels</dd></div>
           </dl>
         </header>
+        <nav class="proc" aria-label="Process"><a href="#en-flow"><b>Journey</b><span>How each HUD change plays out, in four beats</span></a><a href="#en-hud"><b>Wireframes</b><span>Bow mode and crow mode HUD</span></a><a href="#en-feel"><b>Prototype</b><span>Built and captured in Unreal Engine 5</span></a><a href="#en-tests"><b>Testing</b><span>Audience testing, then playtests</span></a></nav>
         <div class="case-layout">
           <nav class="toc" aria-label="Enhshahtén:ti sections"><a href="#en-short">Sneak Peek</a><a href="#en-part">My part</a><a href="#en-feel">Three levels</a><a href="#en-hud">The HUD</a><a href="#en-flow">How it updates</a><a href="#en-story">My story</a><a href="#en-boards">Research</a><a href="#en-color">Color</a><a href="#en-tests">Audience testing</a><a href="#en-review">Review</a></nav>
           <div class="chapters">
