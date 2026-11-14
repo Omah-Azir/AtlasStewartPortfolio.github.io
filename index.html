@@ -820,6 +820,14 @@ h2{font-weight:300}
 .resume::before{content:none!important;display:none!important}
 .resume{background:none!important;border:0!important;box-shadow:none!important;padding:0!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background-image:none!important}
 /* The reasoning: problem, role, decision, evidence, outcome */
+.why-wrap{display:grid;gap:.75rem;margin-top:1.5rem}
+.why-wrap .why,.why-wrap .proc{margin:0}
+@media (min-width:1100px){.why-wrap{grid-template-columns:minmax(0,2.2fr) minmax(0,1fr);align-items:start}.why-wrap .proc{grid-template-columns:1fr}}
+.contrib-link{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:.25rem 1rem;color:inherit;text-decoration:none}
+@media (max-width:640px){.contrib-link{grid-template-columns:1fr}}
+.contrib-link .cl-go{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);opacity:.55;white-space:nowrap;transition:opacity .2s var(--ease),transform .2s var(--ease)}
+.contrib-link:hover .cl-go,.contrib-link:focus-visible .cl-go{opacity:1;transform:translateX(3px)}
+.contrib-link:hover .cl-t{text-decoration:underline;text-underline-offset:.2em;text-decoration-thickness:1px}
 .why{margin:1.5rem 0 0;display:grid;border:1px solid var(--edge,var(--rule));border-radius:4px;background-color:var(--glass,var(--panel));overflow:hidden}
 .why>div{display:grid;grid-template-columns:8.5rem minmax(0,1fr);gap:1rem;padding:.8rem 1.1rem;align-items:baseline}
 .why>div+div{border-top:1px solid var(--edge,var(--rule))}
@@ -1099,6 +1107,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             <li>One of my games, released on Steam in my sophomore year, <em>won an award</em>.</li>
             <li>I came up through level design, and <em><strong>UI + UX</strong></em> is where I've settled.</li>
             <li>Most of what I know came from climbing, <em>one <strong>greybox</strong> at a time</em>.</li>
+            <li>I value <em>failure</em> more than success. Every failure eliminates an option. Then it's about picking myself up and <em>being better</em>.</li>
           </ul>
           <ul class="facts">
             <li><span>Experience</span>Nitro Guzzler (Creative Director, UI + UX) · Game design instructor, DigiPen Open World</li>
@@ -1177,8 +1186,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             <div><dt>Deliverables</dt><dd>Moodboard, palette, frame, 5 screens</dd></div>
           </dl>
         </header>
-        <dl class="why" aria-label="The reasoning"><div><dt>Problem</dt><dd>Five designers each made their own screens, and they didn't read as one game. Attendance was thin, so the work landed unevenly.</dd></div><div><dt>My role</dt><dd><strong>UI + UX</strong> designer. I made the style guide and every border, and ran the style passes.</dd></div><div><dt>Decision</dt><dd>Before any art, I locked one frame for every screen. Player info sits in the top corners, navigation in the bottom corners, and the middle belongs to the screen's job. Then I ran passes for layout, spacing and kerning.</dd></div><div><dt>Evidence</dt><dd><a href="#coj-frame">Greybox against art pass</a> · <a href="#coj-screens">Shop, forge and battle with drawovers</a></dd></div><div><dt>Outcome</dt><dd>Players never relearn where things are, and five people's screens read as one UI.</dd></div></dl>
-        <nav class="proc" aria-label="Process"><a href="#coj-frame"><b>Wireframes</b><span>Greybox frame for every screen</span></a><a href="#coj-screens"><b>Prototype</b><span>Shop, forge and battle in Figma</span></a></nav>
+        <div class="why-wrap"><dl class="why" aria-label="The reasoning"><div><dt>Problem</dt><dd>Five designers each made their own screens, and they didn't read as one game. Attendance was thin, so the work landed unevenly.</dd></div><div><dt>My role</dt><dd><strong>UI + UX</strong> designer. I made the style guide and every border, and ran the style passes.</dd></div><div><dt>Decision</dt><dd>Before any art, I locked one frame for every screen. Player info sits in the top corners, navigation in the bottom corners, and the middle belongs to the screen's job. Then I ran passes for layout, spacing and kerning.</dd></div><div><dt>Evidence</dt><dd><a href="#coj-frame">Greybox against art pass</a> · <a href="#coj-screens">Shop, forge and battle with drawovers</a></dd></div><div><dt>Outcome</dt><dd>Players never relearn where things are, and five people's screens read as one UI.</dd></div></dl><nav class="proc" aria-label="Process"><a href="#coj-frame"><b>Wireframes</b><span>Greybox frame for every screen</span></a><a href="#coj-screens"><b>Prototype</b><span>Shop, forge and battle in Figma</span></a></nav></div>
         <div class="case-layout">
           <nav class="toc" aria-label="Chain of Jewels sections"><a href="#coj-part">My part</a>
             <a href="#coj-board">Moodboard</a><a href="#coj-palette">Palette</a><a href="#coj-frame">One frame</a><a href="#coj-menu">Main menu</a><a href="#coj-screens">Screens</a>
@@ -1187,10 +1195,10 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             <section class="chapter" id="coj-part" aria-labelledby="coj-part-h">
               <h2 id="coj-part-h">My contributions</h2>
               <ul class="contrib reveal">
-                <li>Built the <strong>moodboard</strong> and pulled the <strong>style guide</strong> out of it.</li>
-                <li>Made every border and the one frame every screen sits in, and set the palette.</li>
-                <li>Ran style passes on everyone's screens for layout, spacing and kerning.</li>
-                <li>Designed my own screens in <strong>Figma</strong>, from <strong>greybox</strong> to art pass.</li>
+                <li><a class="contrib-link" href="#coj-board"><span class="cl-t">Built the <strong>moodboard</strong> and pulled the <strong>style guide</strong> out of it.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
+                <li><a class="contrib-link" href="#coj-frame"><span class="cl-t">Made every border and the one frame every screen sits in, and set the palette.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
+                <li><a class="contrib-link" href="#coj-screens"><span class="cl-t">Ran style passes on everyone's screens for layout, spacing and kerning.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
+                <li><a class="contrib-link" href="#coj-menu"><span class="cl-t">Designed my own screens in <strong>Figma</strong>, from <strong>greybox</strong> to art pass.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
               </ul>
               <p>Each of the five of us designed our own screens. My borders, <strong>style guide</strong> and style passes are what tie them together.</p>
             </section>
@@ -1348,8 +1356,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
           <radialGradient id="ng-htg"><stop offset="0" stop-color="#fff"/><stop offset=".55" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
           <mask id="ng-htm" maskContentUnits="objectBoundingBox"><rect width="1" height="1" fill="url(#ng-htg)"/></mask>
         </defs></svg>
-        <dl class="why" aria-label="The reasoning"><div><dt>Problem</dt><dd>My first menu plan didn't fit the game. I'd planned a blended camera over a stack of flat 2D menus, and Data Tables kept breaking when they pointed at things placed in the level.</dd></div><div><dt>My role</dt><dd>Creative Director, <strong>UI + UX</strong>. I own all of the UI and draw the UI art.</dd></div><div><dt>Decision</dt><dd>Rebuilt it around what the menu really is. One camera director hard cuts between Level Sequences, and buttons sit on 3D surfaces. Structs replaced the Data Table. Plain option names replaced in-world ones, because those cost usability.</dd></div><div><dt>Evidence</dt><dd><a href="#ng-compass">Menu art, each direction explained</a> · <a href="#ng-garage">Settings paintover</a> · <a href="#ng-build">How it's built</a></dd></div><div><dt>Outcome</dt><dd>Level references stopped breaking. Mouse, gamepad and keyboard share one activation path, so one fix covers all three. Adding the three Garage hotspots took three rows of data and no new code.</dd></div></dl>
-        <nav class="proc" aria-label="Process"><a href="#ng-void"><b>Journey</b><span>Boot to main menu, step by step</span></a><a href="#ng-garage"><b>Wireframes</b><span>Settings paintover with drawovers</span></a><a href="#ng-compass"><b>Prototype</b><span>Main menu art, each direction explained</span></a></nav>
+        <div class="why-wrap"><dl class="why" aria-label="The reasoning"><div><dt>Problem</dt><dd>I was handed the previous main menu, and it had to become part of the game world. My first plan, a blended camera over a stack of flat 2D menus, didn't fit. Data Tables also kept breaking when they pointed at things placed in the level.</dd></div><div><dt>My role</dt><dd>Creative Director, <strong>UI + UX</strong>. I own all of the UI and draw the UI art.</dd></div><div><dt>Decision</dt><dd>Rebuilt it around what the menu really is. One camera director hard cuts between Level Sequences, and buttons sit on 3D surfaces. Structs replaced the Data Table. Plain option names replaced in-world ones, because those cost usability.</dd></div><div><dt>Evidence</dt><dd><a href="#ng-compass">Menu art, each direction explained</a> · <a href="#ng-garage">Settings paintover</a> · <a href="#ng-build">How it's built</a></dd></div><div><dt>Outcome</dt><dd>Level references stopped breaking. Mouse, gamepad and keyboard share one activation path, so one fix covers all three. Adding the three Garage hotspots took three rows of data and no new code.</dd></div></dl><nav class="proc" aria-label="Process"><a href="#ng-void"><b>Journey</b><span>Boot to main menu, step by step</span></a><a href="#ng-garage"><b>Wireframes</b><span>Settings paintover with drawovers</span></a><a href="#ng-compass"><b>Prototype</b><span>Main menu art, each direction explained</span></a></nav></div>
         <div class="case-layout">
           <nav class="toc" aria-label="Nitro Guzzler sections"><a href="#ng-part">My part</a><a href="#ng-compass">Menu art</a><a href="#ng-garage">Garage</a><a href="#ng-void">White void</a><a href="#ng-goal">Goal</a><a href="#ng-build">How it's built</a><a href="#ng-premise">Premise</a><a href="#ng-time">Timeline</a><a href="#ng-trailer">Trailer</a><a href="#ng-ai">AI use</a><a href="#ng-story">My story</a><a href="#ng-well">What went well</a><a href="#ng-tricky">What was tricky</a><a href="#ng-through">What we worked through</a><a href="#ng-team">The team</a></nav>
           <div class="chapters">
@@ -1357,14 +1364,14 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             <section class="chapter" id="ng-part" aria-labelledby="ng-part-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
               <h2 id="ng-part-h">My contributions</h2>
               <ul class="contrib reveal">
-                <li>Created or directed all of the game's UI, from concept to the build in engine.</li>
-                <li>Drawing all of the UI art myself in vector graphics, starting with the main menu.</li>
-                <li>Designed the main menu and intro as one space, and wrote the game plan and shot list for it.</li>
-                <li>Built the menu's camera director in <strong>Blueprints</strong> and wrote an <strong>Unreal Engine 5.5</strong> <strong>implementation guide</strong> for the team.</li>
-                <li>Planned the trailer and wrote <strong>shot lists</strong> for two versions of it.</li>
-                <li>Directed artists from my <strong>shot lists</strong> for the trailer shots.</li>
-                <li>Co-produced the team from the start with one other <strong>producer</strong>, and built it on <strong>proactive communication</strong>.</li>
-                <li>Pushed the game from a Redline night to a <strong>vertical slice</strong>, through several reworks.</li>
+                <li><a class="contrib-link" href="#ng-compass"><span class="cl-t">Created or directed all of the game's UI, from concept to the build in engine.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
+                <li><a class="contrib-link" href="#ng-compass"><span class="cl-t">Drawing all of the UI art myself in vector graphics, starting with the main menu.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
+                <li><a class="contrib-link" href="#ng-void"><span class="cl-t">Designed the main menu and intro as one space, and wrote the game plan and shot list for it.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
+                <li><a class="contrib-link" href="#ng-build"><span class="cl-t">Built the menu's camera director in <strong>Blueprints</strong> and wrote an <strong>Unreal Engine 5.5</strong> <strong>implementation guide</strong> for the team.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
+                <li><a class="contrib-link" href="#ng-trailer"><span class="cl-t">Planned the trailer and wrote <strong>shot lists</strong> for two versions of it.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
+                <li><a class="contrib-link" href="#ng-trailer"><span class="cl-t">Directed artists from my <strong>shot lists</strong> for the trailer shots.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
+                <li><a class="contrib-link" href="#ng-through"><span class="cl-t">Co-produced the team from the start with one other <strong>producer</strong>, and built it on <strong>proactive communication</strong>.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
+                <li><a class="contrib-link" href="#ng-premise"><span class="cl-t">Pushed the game from a Redline night to a <strong>vertical slice</strong>, through several reworks.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
               </ul>
             </section>
             <section class="chapter" id="ng-compass" aria-labelledby="ng-compass-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
@@ -1586,9 +1593,9 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             <section class="chapter" id="noc-part" aria-labelledby="noc-part-h">
               <h2 id="noc-part-h">My contributions</h2>
               <ul class="contrib reveal">
-                <li>Sketched the <strong>HUD</strong>'s module layout.</li>
-                <li>Built the master hologram material in <strong>Unreal</strong>, with ring masks, radial ticks and layered opacity.</li>
-                <li>Built the <strong>HUD</strong> rig Blueprint, with four anchors parented to the camera.</li>
+                <li><a class="contrib-link" href="#noc-layout"><span class="cl-t">Sketched the <strong>HUD</strong>'s module layout.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
+                <li><a class="contrib-link" href="#noc-build"><span class="cl-t">Built the master hologram material in <strong>Unreal</strong>, with ring masks, radial ticks and layered opacity.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
+                <li><a class="contrib-link" href="#noc-build"><span class="cl-t">Built the <strong>HUD</strong> rig Blueprint, with four anchors parented to the camera.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
               </ul>
             </section>
             <section class="chapter" id="noc-layout" aria-labelledby="noc-layout-h">
@@ -1643,8 +1650,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             <div><dt>Built</dt><dd>2 attack modes × 3 levels</dd></div>
           </dl>
         </header>
-        <dl class="why" aria-label="The reasoning"><div><dt>Problem</dt><dd>Testers couldn't see through the crosshair to the target. The arrow count read like any shooter's ammo, and getting hit blended into the snow.</dd></div><div><dt>My role</dt><dd>Everything. Solo, in <strong>Unreal Engine 5</strong>.</dd></div><div><dt>Decision</dt><dd>I sorted every note into what I could act on and what was too much for the time. The biggest change was the crosshair. The feather fan became the cooldown too, one plume per ability level. Sound got priority over polish.</dd></div><div><dt>Evidence</dt><dd><a href="#en-tests">Audience testing notes</a> · <a href="#en-hud">HUD wireframes with drawovers</a> · <a href="#en-feel">In-engine clips</a></dd></div><div><dt>Outcome</dt><dd>All three levels of both attacks worked, each with its own sound, VFX and art, and the TA called out the audio. The HUD's functionality came last and wasn't working in the graded build. That's the scope lesson.</dd></div></dl>
-        <nav class="proc" aria-label="Process"><a href="#en-flow"><b>Journey</b><span>How each HUD change plays out, in four beats</span></a><a href="#en-hud"><b>Wireframes</b><span>Bow mode and crow mode HUD</span></a><a href="#en-feel"><b>Prototype</b><span>Built and captured in Unreal Engine 5</span></a><a href="#en-tests"><b>Testing</b><span>Audience testing, then playtests</span></a></nav>
+        <div class="why-wrap"><dl class="why" aria-label="The reasoning"><div><dt>Problem</dt><dd>Make it feel like a finished game. Hit reactions, camera shake, VFX, sound and the HUD all had to carry the polish players expect from a shipped game, across three levels of every attack and three levels of getting hit.</dd></div><div><dt>My role</dt><dd>Everything. Solo, in <strong>Unreal Engine 5</strong>.</dd></div><div><dt>Decision</dt><dd>I treated each level as its own feel pass, with its own hit reaction, camera shake, VFX and sound. Then I sorted testers' notes into what I could act on and what was too much for the time. They couldn't see through the crosshair, so the biggest change was the crosshair. The feather fan became the cooldown too, one plume per ability level. Sound got priority over polish.</dd></div><div><dt>Evidence</dt><dd><a href="#en-tests">Audience testing notes</a> · <a href="#en-hud">HUD wireframes with drawovers</a> · <a href="#en-feel">In-engine clips</a></dd></div><div><dt>Outcome</dt><dd>All three levels of both attacks worked, each with its own sound, VFX and art, and the TA called out the audio. The HUD's functionality came last and wasn't working in the graded build. That's the scope lesson.</dd></div></dl><nav class="proc" aria-label="Process"><a href="#en-flow"><b>Journey</b><span>How each HUD change plays out, in four beats</span></a><a href="#en-hud"><b>Wireframes</b><span>Bow mode and crow mode HUD</span></a><a href="#en-feel"><b>Prototype</b><span>Built and captured in Unreal Engine 5</span></a><a href="#en-tests"><b>Testing</b><span>Audience testing, then playtests</span></a></nav></div>
         <div class="case-layout">
           <nav class="toc" aria-label="Enhshahtén:ti sections"><a href="#en-short">Sneak Peek</a><a href="#en-hud">The HUD</a><a href="#en-feel">Three levels</a><a href="#en-flow">How it updates</a><a href="#en-tests">Audience testing</a><a href="#en-part">My part</a><a href="#en-story">My story</a><a href="#en-boards">Research</a><a href="#en-color">Color</a><a href="#en-review">Review</a></nav>
           <div class="chapters">
@@ -1747,13 +1753,13 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
               <h2 id="en-part-h">My contributions</h2>
               <p>This was a solo project, so every piece of it is mine.</p>
               <ul class="contrib reveal">
-                <li>Designed the game concept from scratch and pitched it, with the story and the feel plan for every attack and every level of damage.</li>
-                <li>Built three levels of both attacks, the a'én:na bow and the iotiwísto crows, with their <strong>VFX</strong>, animation, audio, feedback and functionality.</li>
-                <li>Designed and built the <strong>HUD</strong>, from <strong>wireframes</strong> to the final feather crosshair.</li>
-                <li>Built the enemy's behavior, including the moment it notices you.</li>
-                <li>Set up the snowy environment, snow particles, post process and color palettes.</li>
-                <li>Built the feedback on top of a studio-style template I didn't write, which meant building the functionality too.</li>
-                <li>Ran qualitative <strong>audience testing</strong> on the pitch and early builds, then more <strong>playtests</strong> once it was playable.</li>
+                <li><a class="contrib-link" href="#en-boards"><span class="cl-t">Designed the game concept from scratch and pitched it, with the story and the feel plan for every attack and every level of damage.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
+                <li><a class="contrib-link" href="#en-feel"><span class="cl-t">Built three levels of both attacks, the a'én:na bow and the iotiwísto crows, with their <strong>VFX</strong>, animation, audio, feedback and functionality.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
+                <li><a class="contrib-link" href="#en-hud"><span class="cl-t">Designed and built the <strong>HUD</strong>, from <strong>wireframes</strong> to the final feather crosshair.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
+                <li><a class="contrib-link" href="#en-feel"><span class="cl-t">Built the enemy's behavior, including the moment it notices you.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
+                <li><a class="contrib-link" href="#en-color"><span class="cl-t">Set up the snowy environment, snow particles, post process and color palettes.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
+                <li><a class="contrib-link" href="#en-through"><span class="cl-t">Built the feedback on top of a studio-style template I didn't write, which meant building the functionality too.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
+                <li><a class="contrib-link" href="#en-tests"><span class="cl-t">Ran qualitative <strong>audience testing</strong> on the pitch and early builds, then more <strong>playtests</strong> once it was playable.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
               </ul>
             </section>
 
@@ -1879,8 +1885,8 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             <section class="chapter" id="mc-part" aria-labelledby="mc-part-h">
               <h2 id="mc-part-h">My contributions</h2>
               <ul class="contrib reveal">
-                <li>Wireframed a new inventory layout.</li>
-                <li>Laid the <strong>wireframe</strong> over the live game to check it in context.</li>
+                <li><a class="contrib-link" href="#mc-flat"><span class="cl-t">Wireframed a new inventory layout.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
+                <li><a class="contrib-link" href="#mc-live"><span class="cl-t">Laid the <strong>wireframe</strong> over the live game to check it in context.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
               </ul>
             </section>
             <section class="chapter" id="mc-flat" aria-labelledby="mc-flat-h">
