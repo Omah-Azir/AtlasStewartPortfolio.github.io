@@ -819,6 +819,16 @@ h2{font-weight:300}
 @media (max-width:860px){#case-nitro-guzzler .story-sec{margin-left:1rem;margin-right:0!important}#case-nitro-guzzler .story-sec::before{left:calc(.53rem - 1rem - 3px)}#case-nitro-guzzler .story-sec .road-arrow{left:calc(.35rem - 1rem - 3px)}}
 .resume::before{content:none!important;display:none!important}
 .resume{background:none!important;border:0!important;box-shadow:none!important;padding:0!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background-image:none!important}
+/* The reasoning: problem, role, decision, evidence, outcome */
+.why{margin:1.5rem 0 0;display:grid;border:1px solid var(--edge,var(--rule));border-radius:4px;background-color:var(--glass,var(--panel));overflow:hidden}
+.why>div{display:grid;grid-template-columns:8.5rem minmax(0,1fr);gap:1rem;padding:.8rem 1.1rem;align-items:baseline}
+.why>div+div{border-top:1px solid var(--edge,var(--rule))}
+.why dt{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.why dd{margin:0;font-size:1.05rem;line-height:1.5;color:var(--ink)}
+.why dd a{color:inherit;text-underline-offset:.2em}
+#case-nitro-guzzler .why{background:#fff;border:2px solid #0B0B0C}
+#case-nitro-guzzler .why dt{color:#0B0B0C}
+@media (max-width:640px){.why>div{grid-template-columns:1fr;gap:.2rem}}
 /* Process strip: the four things a UI + UX reviewer looks for, each linking to its section */
 .proc{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:.6rem;margin:1.25rem 0 2rem}
 .proc a{display:grid;gap:.2rem;padding:.8rem 1rem .9rem;border-radius:4px;text-decoration:none;color:var(--ink-2);background-color:var(--glass,var(--panel));border:1px solid var(--edge,var(--rule));border-left:4px solid var(--accent);transition:transform .2s var(--ease),border-color .2s var(--ease)}
@@ -981,7 +991,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
       <svg class="atlas-bg bigword" viewBox="0 0 1000 250" preserveAspectRatio="none" aria-hidden="true" focusable="false"><defs><linearGradient id="atlas-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity=".2"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><text x="4" y="232" textLength="992" lengthAdjust="spacingAndGlyphs" font-size="300" font-weight="800" fill="url(#atlas-g)" stroke="currentColor" stroke-opacity=".32" stroke-width="1.5">ATLAS</text></svg>
       <div class="intro-grid">
         <div class="intro-copy">
-          <p class="lede">I design <em><strong>UI + UX</strong></em> for games. That means <em><strong>user experience</strong></em>, <em><strong>user interface</strong></em>, <em>game feel</em>, <em>HUDs</em> and <em>information architecture</em>. I'm all about the <em>process</em>. I start in <em>greybox</em> and <em>sculpt the idea</em> until it plays right, and the art pass comes after that.</p>
+          <p class="lede">I design <em><strong>UI + UX</strong></em> for games. That means <em><strong>user experience</strong></em>, <em><strong>user interface</strong></em>, <em>game feel</em>, <em>HUDs</em> and <em>information architecture</em>. I'm all about the <em>process</em>. I start in <em>greybox</em>, then <em>iterate</em>, and repeat.</p>
           <div class="intro-actions">
             <a class="btn" href="#projects">See my work ↓</a>
             <a class="btn ghost" href="https://drive.google.com/file/d/1YiB4TUytKC5HxxYsFp5sX9tJaJlAxgy4/view?usp=sharing" target="_blank" rel="noopener">Résumé ↗</a>
@@ -1167,6 +1177,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             <div><dt>Deliverables</dt><dd>Moodboard, palette, frame, 5 screens</dd></div>
           </dl>
         </header>
+        <dl class="why" aria-label="The reasoning"><div><dt>Problem</dt><dd>Five designers each made their own screens, and they didn't read as one game. Attendance was thin, so the work landed unevenly.</dd></div><div><dt>My role</dt><dd><strong>UI + UX</strong> designer. I made the style guide and every border, and ran the style passes.</dd></div><div><dt>Decision</dt><dd>Before any art, I locked one frame for every screen. Player info sits in the top corners, navigation in the bottom corners, and the middle belongs to the screen's job. Then I ran passes for layout, spacing and kerning.</dd></div><div><dt>Evidence</dt><dd><a href="#coj-frame">Greybox against art pass</a> · <a href="#coj-screens">Shop, forge and battle with drawovers</a></dd></div><div><dt>Outcome</dt><dd>Players never relearn where things are, and five people's screens read as one UI.</dd></div></dl>
         <nav class="proc" aria-label="Process"><a href="#coj-frame"><b>Wireframes</b><span>Greybox frame for every screen</span></a><a href="#coj-screens"><b>Prototype</b><span>Shop, forge and battle in Figma</span></a></nav>
         <div class="case-layout">
           <nav class="toc" aria-label="Chain of Jewels sections"><a href="#coj-part">My part</a>
@@ -1337,9 +1348,10 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
           <radialGradient id="ng-htg"><stop offset="0" stop-color="#fff"/><stop offset=".55" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
           <mask id="ng-htm" maskContentUnits="objectBoundingBox"><rect width="1" height="1" fill="url(#ng-htg)"/></mask>
         </defs></svg>
-        <nav class="proc" aria-label="Process"><a href="#ng-void"><b>Journey</b><span>Boot to main menu, step by step</span></a><a href="#ng-garage"><b>Wireframes</b><span>Settings paintover with drawovers</span></a><a href="#ng-build"><b>Prototype</b><span>Running in Unreal Engine 5.5</span></a></nav>
+        <dl class="why" aria-label="The reasoning"><div><dt>Problem</dt><dd>My first menu plan didn't fit the game. I'd planned a blended camera over a stack of flat 2D menus, and Data Tables kept breaking when they pointed at things placed in the level.</dd></div><div><dt>My role</dt><dd>Creative Director, <strong>UI + UX</strong>. I own all of the UI and draw the UI art.</dd></div><div><dt>Decision</dt><dd>Rebuilt it around what the menu really is. One camera director hard cuts between Level Sequences, and buttons sit on 3D surfaces. Structs replaced the Data Table. Plain option names replaced in-world ones, because those cost usability.</dd></div><div><dt>Evidence</dt><dd><a href="#ng-compass">Menu art, each direction explained</a> · <a href="#ng-garage">Settings paintover</a> · <a href="#ng-build">How it's built</a></dd></div><div><dt>Outcome</dt><dd>Level references stopped breaking. Mouse, gamepad and keyboard share one activation path, so one fix covers all three. Adding the three Garage hotspots took three rows of data and no new code.</dd></div></dl>
+        <nav class="proc" aria-label="Process"><a href="#ng-void"><b>Journey</b><span>Boot to main menu, step by step</span></a><a href="#ng-garage"><b>Wireframes</b><span>Settings paintover with drawovers</span></a><a href="#ng-compass"><b>Prototype</b><span>Main menu art, each direction explained</span></a></nav>
         <div class="case-layout">
-          <nav class="toc" aria-label="Nitro Guzzler sections"><a href="#ng-part">My part</a><a href="#ng-premise">Premise</a><a href="#ng-time">Timeline</a><a href="#ng-goal">Goal</a><a href="#ng-void">White void</a><a href="#ng-compass">Menu art</a><a href="#ng-garage">Garage</a><a href="#ng-build">How it's built</a><a href="#ng-trailer">Trailer</a><a href="#ng-ai">AI use</a><a href="#ng-story">My story</a><a href="#ng-well">What went well</a><a href="#ng-tricky">What was tricky</a><a href="#ng-through">What we worked through</a><a href="#ng-team">The team</a></nav>
+          <nav class="toc" aria-label="Nitro Guzzler sections"><a href="#ng-part">My part</a><a href="#ng-compass">Menu art</a><a href="#ng-garage">Garage</a><a href="#ng-void">White void</a><a href="#ng-goal">Goal</a><a href="#ng-build">How it's built</a><a href="#ng-premise">Premise</a><a href="#ng-time">Timeline</a><a href="#ng-trailer">Trailer</a><a href="#ng-ai">AI use</a><a href="#ng-story">My story</a><a href="#ng-well">What went well</a><a href="#ng-tricky">What was tricky</a><a href="#ng-through">What we worked through</a><a href="#ng-team">The team</a></nav>
           <div class="chapters">
             <div class="ng-spine" aria-hidden="true"><i class="ng-shaft"></i><i class="ng-head"></i></div>
             <section class="chapter" id="ng-part" aria-labelledby="ng-part-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
@@ -1355,49 +1367,6 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
                 <li>Pushed the game from a Redline night to a <strong>vertical slice</strong>, through several reworks.</li>
               </ul>
             </section>
-            <section class="chapter" id="ng-premise" aria-labelledby="ng-premise-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
-              <h2 id="ng-premise-h">A race you can't lose</h2>
-              <p>Nitro Guzzler started when a teammate showed me Redline and we both said we had to make this game. That was heading into junior year. It went combat first, then racing, then art first, then mecha, then a Mad Max version where you could get out of the car. We landed on a <strong>vertical slice</strong> racing experience, built around what a team can really make: one level, in Death Valley.</p>
-              <ul class="notes reveal">
-                <li><b>The channel</b>ADDR, the Apocalypse Dimension Death Run. Think American Ninja Warrior across dimensions. Each racer gets sent into their own dimension partway through its apocalypse, just to show off.</li>
-                <li><b>You can only win</b>You play W-Dawg. Crash and the broadcast rewinds the whole world, because a wreck wouldn't look good to the audience. What you chase is the audience score and your rating.</li>
-                <li><b>You don't even drive</b>Your AI girlfriend is the car, and she drives. You're the nepo baby of the intergalactic racing scene, and you get to revel in it.</li>
-              </ul>
-            </section>
-            <section class="chapter" id="ng-time" aria-labelledby="ng-time-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
-              <h2 id="ng-time-h">Production timeline</h2>
-              <ol class="timeline reveal">
-                <li class="done"><span class="t-tag">Done</span><b>Menu and intro designed</b><p>Game plan, shot list and menu map written, then rebuilt once the hard cut design settled.</p></li>
-                <li class="done"><span class="t-tag">Done</span><b>Intro and attract loop in engine</b><p>The Sequencer intro hands off to the menu loop.</p></li>
-                <li class="done"><span class="t-tag">Done</span><b>Trailer shot lists</b><p>Two versions written and handed to art.</p></li>
-                <li class="is-now"><span class="t-tag">Now</span><b>Settings, Art Zoo and Audio Zoo</b><p>Audio, Visual and Accessibility panels, plus the two zoo entries.</p></li>
-                <li class="is-now"><span class="t-tag">Now</span><b>Vector UI art</b><p>The main menu art is drawn. Racer colors go on next.</p></li>
-                <li class="ship"><span class="t-tag">Dec 2026</span><b>Ships on Steam</b><p>The full team's release.</p></li>
-              </ol>
-              <p class="todo">Add the month for each step if you want real dates on this.</p>
-            </section>
-            <section class="chapter" id="ng-goal" aria-labelledby="ng-goal-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
-              <h2 id="ng-goal-h">A menu inside the game world</h2>
-              <p>I wanted the menu to feel like you're already in the game. So I borrowed from the Batman Arkham menus. The camera cycles through shots on its own. It pulls you in and shows you the characters before your first race.</p>
-              <ul class="notes reveal">
-                <li><b>Racers up front</b>Players get invested in the racers, so I built the menu around them.</li>
-                <li><b>The menu is the attract loop</b>A camera director hard cuts between sequences. The camera never blends. Only the stuff in the shot moves.</li>
-                <li><b>Names that fit the world</b>Destinations get names from garage culture. Play is Prep Ride. The lore bible is Pit Crew.</li>
-              </ul>
-            </section>
-
-            <section class="chapter" id="ng-void" aria-labelledby="ng-void-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
-              <h2 id="ng-void-h">The white void intro</h2>
-              <p>The intro and the menu share one white space. There's no separate garage level. Cars race through it in their livery colors and leave colored tire stripes. Then they smash through a glass pane with the logo on it and switch to their in-game textures. The camera falls, and you see the team name written in tire tracks.</p>
-              <ol class="flow reveal" aria-label="Startup flow">
-                <li><span class="n">01</span><b>Intro</b>Plays once. Hold a button to skip.</li>
-                <li><span class="n">02</span><b>Ready loop</b>Waits for the player.</li>
-                <li><span class="n">03</span><b>Any key</b>Wakes the menu.</li>
-                <li><span class="n">04</span><b>Main menu loop</b>The attract loop takes over.</li>
-              </ol>
-              <div class="media-slot reveal">Intro capture goes here: livery-colored cars before the glass pane, in-game textures after</div>
-            </section>
-
             <section class="chapter" id="ng-compass" aria-labelledby="ng-compass-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
               <h2 id="ng-compass-h">Main menu in vector art</h2>
               <p class="lede">I'm drawing all of the game's UI art in vector graphics for this 3D space. The look mixes vectordelia with Redline's cinematic style. The art sits on the white concrete of the menu world. The four options are laid out like a compass, and each one gets a color from the cast. Pick one to wake it up.</p>
@@ -1459,6 +1428,28 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
               <div class="media-slot reveal">Before/after goes here: W-Dawg's bare hood vs. the hood with Visual settings etched in</div>
             </section>
 
+            <section class="chapter" id="ng-void" aria-labelledby="ng-void-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
+              <h2 id="ng-void-h">The white void intro</h2>
+              <p>The intro and the menu share one white space. There's no separate garage level. Cars race through it in their livery colors and leave colored tire stripes. Then they smash through a glass pane with the logo on it and switch to their in-game textures. The camera falls, and you see the team name written in tire tracks.</p>
+              <ol class="flow reveal" aria-label="Startup flow">
+                <li><span class="n">01</span><b>Intro</b>Plays once. Hold a button to skip.</li>
+                <li><span class="n">02</span><b>Ready loop</b>Waits for the player.</li>
+                <li><span class="n">03</span><b>Any key</b>Wakes the menu.</li>
+                <li><span class="n">04</span><b>Main menu loop</b>The attract loop takes over.</li>
+              </ol>
+              <div class="media-slot reveal">Intro capture goes here: livery-colored cars before the glass pane, in-game textures after</div>
+            </section>
+
+            <section class="chapter" id="ng-goal" aria-labelledby="ng-goal-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
+              <h2 id="ng-goal-h">A menu inside the game world</h2>
+              <p>I wanted the menu to feel like you're already in the game. So I borrowed from the Batman Arkham menus. The camera cycles through shots on its own. It pulls you in and shows you the characters before your first race.</p>
+              <ul class="notes reveal">
+                <li><b>Racers up front</b>Players get invested in the racers, so I built the menu around them.</li>
+                <li><b>The menu is the attract loop</b>A camera director hard cuts between sequences. The camera never blends. Only the stuff in the shot moves.</li>
+                <li><b>Names that fit the world</b>Destinations get names from garage culture. Play is Prep Ride. The lore bible is Pit Crew.</li>
+              </ul>
+            </section>
+
             <section class="chapter" id="ng-build" aria-labelledby="ng-build-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
               <h2 id="ng-build-h">How it's built in Unreal</h2>
               <ul class="notes reveal">
@@ -1472,6 +1463,27 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
               <p>I first planned a blended moving camera and a 2D widget stack. Once the real design was clear, I rewrote the plan around hard cut sequences and buttons on 3D surfaces. The <strong>Sequencer</strong> intro and the hand off into the attract loop are done in engine.</p>
             </section>
 
+            <section class="chapter" id="ng-premise" aria-labelledby="ng-premise-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
+              <h2 id="ng-premise-h">A race you can't lose</h2>
+              <p>Nitro Guzzler started when a teammate showed me Redline and we both said we had to make this game. That was heading into junior year. It went combat first, then racing, then art first, then mecha, then a Mad Max version where you could get out of the car. We landed on a <strong>vertical slice</strong> racing experience, built around what a team can really make: one level, in Death Valley.</p>
+              <ul class="notes reveal">
+                <li><b>The channel</b>ADDR, the Apocalypse Dimension Death Run. Think American Ninja Warrior across dimensions. Each racer gets sent into their own dimension partway through its apocalypse, just to show off.</li>
+                <li><b>You can only win</b>You play W-Dawg. Crash and the broadcast rewinds the whole world, because a wreck wouldn't look good to the audience. What you chase is the audience score and your rating.</li>
+                <li><b>You don't even drive</b>Your AI girlfriend is the car, and she drives. You're the nepo baby of the intergalactic racing scene, and you get to revel in it.</li>
+              </ul>
+            </section>
+            <section class="chapter" id="ng-time" aria-labelledby="ng-time-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
+              <h2 id="ng-time-h">Production timeline</h2>
+              <ol class="timeline reveal">
+                <li class="done"><span class="t-tag">Done</span><b>Menu and intro designed</b><p>Game plan, shot list and menu map written, then rebuilt once the hard cut design settled.</p></li>
+                <li class="done"><span class="t-tag">Done</span><b>Intro and attract loop in engine</b><p>The Sequencer intro hands off to the menu loop.</p></li>
+                <li class="done"><span class="t-tag">Done</span><b>Trailer shot lists</b><p>Two versions written and handed to art.</p></li>
+                <li class="is-now"><span class="t-tag">Now</span><b>Settings, Art Zoo and Audio Zoo</b><p>Audio, Visual and Accessibility panels, plus the two zoo entries.</p></li>
+                <li class="is-now"><span class="t-tag">Now</span><b>Vector UI art</b><p>The main menu art is drawn. Racer colors go on next.</p></li>
+                <li class="ship"><span class="t-tag">Dec 2026</span><b>Ships on Steam</b><p>The full team's release.</p></li>
+              </ol>
+              <p class="todo">Add the month for each step if you want real dates on this.</p>
+            </section>
             <section class="chapter" id="ng-trailer" aria-labelledby="ng-trailer-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
               <h2 id="ng-trailer-h">Trailer</h2>
               <p>I based the trailer's structure on the Need for Speed Most Wanted trailer. Ours follows W-Dawg drifting through our menus and intro. I wrote the <strong>shot lists</strong> and an artist made the shots.</p>
@@ -1631,9 +1643,10 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             <div><dt>Built</dt><dd>2 attack modes × 3 levels</dd></div>
           </dl>
         </header>
+        <dl class="why" aria-label="The reasoning"><div><dt>Problem</dt><dd>Testers couldn't see through the crosshair to the target. The arrow count read like any shooter's ammo, and getting hit blended into the snow.</dd></div><div><dt>My role</dt><dd>Everything. Solo, in <strong>Unreal Engine 5</strong>.</dd></div><div><dt>Decision</dt><dd>I sorted every note into what I could act on and what was too much for the time. The biggest change was the crosshair. The feather fan became the cooldown too, one plume per ability level. Sound got priority over polish.</dd></div><div><dt>Evidence</dt><dd><a href="#en-tests">Audience testing notes</a> · <a href="#en-hud">HUD wireframes with drawovers</a> · <a href="#en-feel">In-engine clips</a></dd></div><div><dt>Outcome</dt><dd>All three levels of both attacks worked, each with its own sound, VFX and art, and the TA called out the audio. The HUD's functionality came last and wasn't working in the graded build. That's the scope lesson.</dd></div></dl>
         <nav class="proc" aria-label="Process"><a href="#en-flow"><b>Journey</b><span>How each HUD change plays out, in four beats</span></a><a href="#en-hud"><b>Wireframes</b><span>Bow mode and crow mode HUD</span></a><a href="#en-feel"><b>Prototype</b><span>Built and captured in Unreal Engine 5</span></a><a href="#en-tests"><b>Testing</b><span>Audience testing, then playtests</span></a></nav>
         <div class="case-layout">
-          <nav class="toc" aria-label="Enhshahtén:ti sections"><a href="#en-short">Sneak Peek</a><a href="#en-part">My part</a><a href="#en-feel">Three levels</a><a href="#en-hud">The HUD</a><a href="#en-flow">How it updates</a><a href="#en-story">My story</a><a href="#en-boards">Research</a><a href="#en-color">Color</a><a href="#en-tests">Audience testing</a><a href="#en-review">Review</a></nav>
+          <nav class="toc" aria-label="Enhshahtén:ti sections"><a href="#en-short">Sneak Peek</a><a href="#en-hud">The HUD</a><a href="#en-feel">Three levels</a><a href="#en-flow">How it updates</a><a href="#en-tests">Audience testing</a><a href="#en-part">My part</a><a href="#en-story">My story</a><a href="#en-boards">Research</a><a href="#en-color">Color</a><a href="#en-review">Review</a></nav>
           <div class="chapters">
             <section class="chapter" id="en-short" aria-labelledby="en-short-h">
               <h2 id="en-short-h">Sneak Peek</h2>
@@ -1643,47 +1656,6 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
                 <div class="tl tl-warn"><span class="tl-k">What went wrong</span><p>Scope. Everyone knew it was overscoped from the pitch, me included. It ended in a crunch, and the build crashed the morning of grading.</p><a href="#en-story">Read my story ↓</a></div>
               </div>
             </section>
-            <section class="chapter" id="en-part" aria-labelledby="en-part-h">
-              <h2 id="en-part-h">My contributions</h2>
-              <p>This was a solo project, so every piece of it is mine.</p>
-              <ul class="contrib reveal">
-                <li>Designed the game concept from scratch and pitched it, with the story and the feel plan for every attack and every level of damage.</li>
-                <li>Built three levels of both attacks, the a'én:na bow and the iotiwísto crows, with their <strong>VFX</strong>, animation, audio, feedback and functionality.</li>
-                <li>Designed and built the <strong>HUD</strong>, from <strong>wireframes</strong> to the final feather crosshair.</li>
-                <li>Built the enemy's behavior, including the moment it notices you.</li>
-                <li>Set up the snowy environment, snow particles, post process and color palettes.</li>
-                <li>Built the feedback on top of a studio-style template I didn't write, which meant building the functionality too.</li>
-                <li>Ran qualitative <strong>audience testing</strong> on the pitch and early builds, then more <strong>playtests</strong> once it was playable.</li>
-              </ul>
-            </section>
-
-            <section class="chapter" id="en-feel" aria-labelledby="en-feel-h">
-              <h2 id="en-feel-h">Three levels of attack and damage</h2>
-              <p>There are two attack modes, not six attacks. Think of it like switching weapons. Each mode has a light, medium and heavy version, and each version had to look, sound and hit differently. The bow should feel lethal, heavy and stealthy, like one shot is enough. The crows should feel trained, intense and quick, a simple whistle and point followed by something brutal.</p>
-              <div class="wt-tabs reveal" role="tablist" aria-label="Attack mode">
-                <button type="button" role="tab" aria-selected="true" aria-controls="en-w-bow" data-mode="en-w-bow"><b>a'én:na</b><small>Bow</small></button>
-                <button type="button" role="tab" aria-selected="false" aria-controls="en-w-crow" data-mode="en-w-crow"><b>iotiwísto</b><small>Snow birds</small></button>
-                <button type="button" role="tab" aria-selected="false" aria-controls="en-w-dmg" data-mode="en-w-dmg"><b>Getting hit</b><small>Player damage</small></button>
-              </div>
-              <div class="wt-panels reveal">
-                <div class="wt-grid" id="en-w-bow" role="tabpanel"><div class="wt wt-light"><b>Light</b><ul><li><span>Look</span>A thin smoke trail</li><li><span>Sound</span>A soft "fff" and a flat bow snap</li><li><span>Hit</span>Half damage, short arc</li><li><span>HUD</span>Arrow count ticks down</li></ul></div><div class="wt wt-medium"><b>Medium</b><ul><li><span>Look</span>An air trail with a faint glow</li><li><span>Sound</span>Grip tightens, a breath in, then a clean release</li><li><span>Hit</span>Full damage, longer arc</li><li><span>Camera</span>The sight holds up a beat, ready for the next shot</li></ul></div><div class="wt wt-heavy"><b>Heavy</b><ul><li><span>Look</span>A thin, bright glowing trail</li><li><span>Sound</span>Tight grip, big snap, a whiz in the air, then a thunk</li><li><span>Hit</span>Pierces, flies straight</li><li><span>Camera</span>Focuses in, then snaps back out with a pale blue vignette</li></ul></div></div><div class="wt-grid" id="en-w-crow" role="tabpanel" hidden><div class="wt wt-light"><b>Light</b><ul><li><span>Look</span>Feathers and flashes of ravens, the target glows</li><li><span>Sound</span>One short whistle, feathers fluffing, curses</li><li><span>Hit</span>The enemy thrashes at the air</li><li><span>Hands</span>One hand comes up to point</li></ul></div><div class="wt wt-medium"><b>Medium</b><ul><li><span>Look</span>Adds bright blue slashes</li><li><span>Sound</span>Two whistles, cawing, slicing</li><li><span>Hit</span>The enemy drops to their knees, then falls</li><li><span>Hands</span>The point holds for a second</li></ul></div><div class="wt wt-heavy"><b>Heavy</b><ul><li><span>Look</span>A black feather tornado over everyone in a glowing circle</li><li><span>Sound</span>One raven call, then all of it on everyone</li><li><span>Hit</span>Every enemy in the circle goes down</li><li><span>Hands</span>The bow goes away and both hands point</li></ul></div></div><div class="wt-grid" id="en-w-dmg" role="tabpanel" hidden><div class="wt wt-light"><b>Light</b><ul><li><span>Look</span>Exposure up, blue vignette</li><li><span>Sound</span>A blade swipe</li><li><span>Camera</span>Slight sway, wider FOV</li><li><span>HUD</span>Everything shakes and blinks</li></ul></div><div class="wt wt-medium"><b>Medium</b><ul><li><span>Look</span>Desaturated and overexposed</li><li><span>Sound</span>The world goes quiet, crows and snowfall get louder, a low ring</li><li><span>Body</span>You slow down</li><li><span>HUD</span>Blinks faster, with blue streaks of light</li></ul></div><div class="wt wt-heavy"><b>Heavy</b><ul><li><span>Look</span>An instant white screen</li><li><span>Sound</span>A heavy bang, then a high ring that fades into chanting</li><li><span>Camera</span>Nothing. It just stops</li><li><span>HUD</span>Nothing</li></ul></div></div>
-              </div>
-              <h3>In engine</h3>
-              <div class="clips reveal" aria-label="In-engine gameplay">
-                <figure class="clip"><video src="media/en-bow-draw.mp4" poster="img/en-bow-draw.webp" muted loop playsinline preload="none" aria-label="First-person view in a dark snowy forest. The player draws the heavy bow toward a distant soldier, and the feather crosshair closes around him."></video><figcaption><b>The draw</b> The heavy bow comes up and the feather crosshair closes on the target.</figcaption></figure>
-                <figure class="clip"><video src="media/en-soul.mp4" poster="img/en-soul.webp" muted loop playsinline preload="none" aria-label="Bright snowy clearing. A soldier walks toward the player, then turns pale and outlined as hits drain him, while the crosshair stays locked on."></video><figcaption><b>Taking their soul</b> Each hit drains the soldier toward white, so damage reads on the enemy itself.</figcaption></figure>
-                <figure class="clip"><video src="media/en-kill.mp4" poster="img/en-kill.webp" muted loop playsinline preload="none" aria-label="A soldier, already pale, takes a final arrow, collapses into a white heap and fades."></video><figcaption><b>The kill</b> One last shot and he folds into the snow.</figcaption></figure>
-              </div>
-              <p>Getting hurt is cold instead of bloody. You're freezing, slipping deeper into the coma. A heavy hit doesn't shake the camera at all. It just goes white, rings, and fades into chanting.</p>
-                          <h3>Crow special VFX</h3>
-              <div class="clips clips-3 reveal" aria-label="Crow special VFX, three levels">
-                <figure class="clip"><video src="media/en-crows-light.mp4" poster="img/en-crows-light.webp" muted loop playsinline preload="none" aria-label="Light crow VFX: a small swirl of wind and a few dark feathers circling low to the ground."></video><figcaption><b>Level 1</b> No slash. The crows harass the target, an annoying debuff.</figcaption></figure>
-                <figure class="clip"><video src="media/en-crows-medium.mp4" poster="img/en-crows-medium.webp" muted loop playsinline preload="none" aria-label="Medium crow VFX: a glass-like dome of wind rises, then a wider ring of crows and feathers spins around it."></video><figcaption><b>Level 2</b> One slash.</figcaption></figure>
-                <figure class="clip"><video src="media/en-crows-large.mp4" poster="img/en-crows-large.webp" muted loop playsinline preload="none" aria-label="Large crow VFX: a full sphere of wind with a bright shockwave ring at its base and a dense spiral of crows."></video><figcaption><b>Level 3</b> Multiple vicious slashes.</figcaption></figure>
-              </div>
-              <p class="small">The three crow-special Niagara systems in Unreal's preview, light to large. In the build, the larger levels spawned too small and the on-hit call broke, so these show the VFX as designed.</p>
-            </section>
-
             <section class="chapter" id="en-hud" aria-labelledby="en-hud-h">
               <h2 id="en-hud-h">Feather crosshair and HUD</h2>
               <p>I wanted the <strong>HUD</strong> to show how you feel, not hand you a bar. But you're also stuck in a corporate fever dream. So it's high contrast against the snow, with soft edges that blur clean information into something dreamlike. Feathers stand for the crows, flint heads stand for your arrows, and your health is a fluid trapped in a container.</p>
@@ -1716,10 +1688,73 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
               </figure>
             </section>
 
+            <section class="chapter" id="en-feel" aria-labelledby="en-feel-h">
+              <h2 id="en-feel-h">Three levels of attack and damage</h2>
+              <p>There are two attack modes, not six attacks. Think of it like switching weapons. Each mode has a light, medium and heavy version, and each version had to look, sound and hit differently. The bow should feel lethal, heavy and stealthy, like one shot is enough. The crows should feel trained, intense and quick, a simple whistle and point followed by something brutal.</p>
+              <div class="wt-tabs reveal" role="tablist" aria-label="Attack mode">
+                <button type="button" role="tab" aria-selected="true" aria-controls="en-w-bow" data-mode="en-w-bow"><b>a'én:na</b><small>Bow</small></button>
+                <button type="button" role="tab" aria-selected="false" aria-controls="en-w-crow" data-mode="en-w-crow"><b>iotiwísto</b><small>Snow birds</small></button>
+                <button type="button" role="tab" aria-selected="false" aria-controls="en-w-dmg" data-mode="en-w-dmg"><b>Getting hit</b><small>Player damage</small></button>
+              </div>
+              <div class="wt-panels reveal">
+                <div class="wt-grid" id="en-w-bow" role="tabpanel"><div class="wt wt-light"><b>Light</b><ul><li><span>Look</span>A thin smoke trail</li><li><span>Sound</span>A soft "fff" and a flat bow snap</li><li><span>Hit</span>Half damage, short arc</li><li><span>HUD</span>Arrow count ticks down</li></ul></div><div class="wt wt-medium"><b>Medium</b><ul><li><span>Look</span>An air trail with a faint glow</li><li><span>Sound</span>Grip tightens, a breath in, then a clean release</li><li><span>Hit</span>Full damage, longer arc</li><li><span>Camera</span>The sight holds up a beat, ready for the next shot</li></ul></div><div class="wt wt-heavy"><b>Heavy</b><ul><li><span>Look</span>A thin, bright glowing trail</li><li><span>Sound</span>Tight grip, big snap, a whiz in the air, then a thunk</li><li><span>Hit</span>Pierces, flies straight</li><li><span>Camera</span>Focuses in, then snaps back out with a pale blue vignette</li></ul></div></div><div class="wt-grid" id="en-w-crow" role="tabpanel" hidden><div class="wt wt-light"><b>Light</b><ul><li><span>Look</span>Feathers and flashes of ravens, the target glows</li><li><span>Sound</span>One short whistle, feathers fluffing, curses</li><li><span>Hit</span>The enemy thrashes at the air</li><li><span>Hands</span>One hand comes up to point</li></ul></div><div class="wt wt-medium"><b>Medium</b><ul><li><span>Look</span>Adds bright blue slashes</li><li><span>Sound</span>Two whistles, cawing, slicing</li><li><span>Hit</span>The enemy drops to their knees, then falls</li><li><span>Hands</span>The point holds for a second</li></ul></div><div class="wt wt-heavy"><b>Heavy</b><ul><li><span>Look</span>A black feather tornado over everyone in a glowing circle</li><li><span>Sound</span>One raven call, then all of it on everyone</li><li><span>Hit</span>Every enemy in the circle goes down</li><li><span>Hands</span>The bow goes away and both hands point</li></ul></div></div><div class="wt-grid" id="en-w-dmg" role="tabpanel" hidden><div class="wt wt-light"><b>Light</b><ul><li><span>Look</span>Exposure up, blue vignette</li><li><span>Sound</span>A blade swipe</li><li><span>Camera</span>Slight sway, wider FOV</li><li><span>HUD</span>Everything shakes and blinks</li></ul></div><div class="wt wt-medium"><b>Medium</b><ul><li><span>Look</span>Desaturated and overexposed</li><li><span>Sound</span>The world goes quiet, crows and snowfall get louder, a low ring</li><li><span>Body</span>You slow down</li><li><span>HUD</span>Blinks faster, with blue streaks of light</li></ul></div><div class="wt wt-heavy"><b>Heavy</b><ul><li><span>Look</span>An instant white screen</li><li><span>Sound</span>A heavy bang, then a high ring that fades into chanting</li><li><span>Camera</span>Nothing. It just stops</li><li><span>HUD</span>Nothing</li></ul></div></div>
+              </div>
+              <h3>In engine</h3>
+              <div class="clips reveal" aria-label="In-engine gameplay">
+                <figure class="clip"><video src="media/en-bow-draw.mp4" poster="img/en-bow-draw.webp" muted loop playsinline preload="none" aria-label="First-person view in a dark snowy forest. The player draws the heavy bow toward a distant soldier, and the feather crosshair closes around him."></video><figcaption><b>The draw</b> The heavy bow comes up and the feather crosshair closes on the target.</figcaption></figure>
+                <figure class="clip"><video src="media/en-soul.mp4" poster="img/en-soul.webp" muted loop playsinline preload="none" aria-label="Bright snowy clearing. A soldier walks toward the player, then turns pale and outlined as hits drain him, while the crosshair stays locked on."></video><figcaption><b>Taking their soul</b> Each hit drains the soldier toward white, so damage reads on the enemy itself.</figcaption></figure>
+                <figure class="clip"><video src="media/en-kill.mp4" poster="img/en-kill.webp" muted loop playsinline preload="none" aria-label="A soldier, already pale, takes a final arrow, collapses into a white heap and fades."></video><figcaption><b>The kill</b> One last shot and he folds into the snow.</figcaption></figure>
+              </div>
+              <p>Getting hurt is cold instead of bloody. You're freezing, slipping deeper into the coma. A heavy hit doesn't shake the camera at all. It just goes white, rings, and fades into chanting.</p>
+                          <h3>Crow special VFX</h3>
+              <div class="clips clips-3 reveal" aria-label="Crow special VFX, three levels">
+                <figure class="clip"><video src="media/en-crows-light.mp4" poster="img/en-crows-light.webp" muted loop playsinline preload="none" aria-label="Light crow VFX: a small swirl of wind and a few dark feathers circling low to the ground."></video><figcaption><b>Level 1</b> No slash. The crows harass the target, an annoying debuff.</figcaption></figure>
+                <figure class="clip"><video src="media/en-crows-medium.mp4" poster="img/en-crows-medium.webp" muted loop playsinline preload="none" aria-label="Medium crow VFX: a glass-like dome of wind rises, then a wider ring of crows and feathers spins around it."></video><figcaption><b>Level 2</b> One slash.</figcaption></figure>
+                <figure class="clip"><video src="media/en-crows-large.mp4" poster="img/en-crows-large.webp" muted loop playsinline preload="none" aria-label="Large crow VFX: a full sphere of wind with a bright shockwave ring at its base and a dense spiral of crows."></video><figcaption><b>Level 3</b> Multiple vicious slashes.</figcaption></figure>
+              </div>
+              <p class="small">The three crow-special Niagara systems in Unreal's preview, light to large. In the build, the larger levels spawned too small and the on-hit call broke, so these show the VFX as designed.</p>
+            </section>
+
             <section class="chapter" id="en-flow" aria-labelledby="en-flow-h">
               <h2 id="en-flow-h">HUD feedback in four beats</h2>
               <p>I planned each <strong>HUD</strong> element as four beats. Something grabs your attention, something signals the change, the change happens, and it settles.</p>
               <div class="fl-grid reveal"><div class="fl"><h3>Health</h3><p class="fl-sub">Soul fluid in a container, top left</p><ol class="fl-steps"><li><span class="fl-k">Attract</span>A splashy slash sound. Exposure jumps and a white vignette hits.</li><li><span class="fl-k">Signal</span>The fluid flashes with extra glow.</li><li><span class="fl-k">Update</span>The lost part greys out and wisps away like smoke.</li><li><span class="fl-k">Resolve</span>The fluid settles, sloshing in a smaller space.</li></ol></div><div class="fl"><h3>Enemy health</h3><p class="fl-sub">Drawn right on their body</p><ol class="fl-steps"><li><span class="fl-k">Attract</span>They grunt and react to the thunk of the arrow.</li><li><span class="fl-k">Signal</span>An outline appears on them.</li><li><span class="fl-k">Update</span>A glowing white overlay fills them as they get "consumed by damage."</li><li><span class="fl-k">Resolve</span>Below half, they switch to a damaged state.</li></ol></div><div class="fl"><h3>Arrows</h3><p class="fl-sub">Flint heads, bottom left</p><ol class="fl-steps"><li><span class="fl-k">Attract</span>The bow drops as the arrow leaves with its trail.</li><li><span class="fl-k">Signal</span>One glowing arrowhead leaves and the rest shift over.</li><li><span class="fl-k">Update</span>A reload "cathunk."</li><li><span class="fl-k">Resolve</span>The bow comes back up.</li></ol></div><div class="fl"><h3>Cooldown</h3><p class="fl-sub">The plumes on the crosshair</p><ol class="fl-steps"><li><span class="fl-k">Attract</span>The feathers glow for the level you picked and shake as the target gets marked.</li><li><span class="fl-k">Signal</span>Wisps escape the glow.</li><li><span class="fl-k">Update</span>The feathers go black and the glow drains into grey smoke.</li><li><span class="fl-k">Resolve</span>The smoke clears and the glow slowly charges back up.</li></ol><p class="fl-note">From Prof. Cagle: give it a signifier when it hits full power, like a sound or a flash.</p></div></div>
+            </section>
+
+            <section class="chapter" id="en-tests" aria-labelledby="en-tests-h">
+              <h2 id="en-tests-h">Audience testing</h2>
+              <p>Before and during early production I ran qualitative sessions, closer to the <strong>audience testing</strong> and polling studios do before they commit to a game. I presented the pitch and early builds to artists, level designers, UX designers and people who'd never played Assassin's Creed or Far Cry, and polled how it felt. More <strong>playtests</strong> came later, once there was more to play. The aesthetic landed early. Most of the notes were about the <strong>HUD</strong>.</p>
+              <ul class="quotes reveal">
+                <li>"It is very you. Which is good because that means you know how it should be."</li>
+                <li>"Ancient dark feel."</li>
+                <li>"Very blue! Dreamy!"</li>
+                <li>"He noticed me!"</li>
+                <li>"Doesn't look unfinished."</li>
+                <li>"Feels cold. Sounds cold."</li>
+              </ul>
+              <h3 class="sub-h">What I took from it</h3>
+              <ul class="notes reveal">
+                <li><b>Crosshair too big</b>Two testers said they couldn't see through it to the target.</li>
+                <li><b>Numbers read as ammo</b>"Numbers are too traditional ammo theming." Arrows left should be silhouettes, not text.</li>
+                <li><b>Health blends in</b>It needs a tint when you're hit so it pops off the snow.</li>
+                <li><b>Draw like a bowstring</b>For the heavy shot, pull the FOV back as you draw and snap it forward on release.</li>
+                <li><b>Sound first</b>"Biggest sound for the bow is that dead air whoosh thunk next to your ear." Crow calls blend into the arrow's whistle.</li>
+                <li><b>Lean into the clash</b>Testers couldn't tell if the <strong>HUD</strong> was a visor or in your head. So the answer was to blur that line even more. Mix the fog with static.</li>
+              </ul>
+            </section>
+
+            <section class="chapter" id="en-part" aria-labelledby="en-part-h">
+              <h2 id="en-part-h">My contributions</h2>
+              <p>This was a solo project, so every piece of it is mine.</p>
+              <ul class="contrib reveal">
+                <li>Designed the game concept from scratch and pitched it, with the story and the feel plan for every attack and every level of damage.</li>
+                <li>Built three levels of both attacks, the a'én:na bow and the iotiwísto crows, with their <strong>VFX</strong>, animation, audio, feedback and functionality.</li>
+                <li>Designed and built the <strong>HUD</strong>, from <strong>wireframes</strong> to the final feather crosshair.</li>
+                <li>Built the enemy's behavior, including the moment it notices you.</li>
+                <li>Set up the snowy environment, snow particles, post process and color palettes.</li>
+                <li>Built the feedback on top of a studio-style template I didn't write, which meant building the functionality too.</li>
+                <li>Ran qualitative <strong>audience testing</strong> on the pitch and early builds, then more <strong>playtests</strong> once it was playable.</li>
+              </ul>
             </section>
 
             <section class="chapter" id="en-story" aria-labelledby="en-story-h">
@@ -1803,28 +1838,6 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
                 <img src="img/en-health-tests.webp" width="1600" height="896" loading="lazy" alt="Health test sketch on black. Blue arrows point to four ideas: the top left screen edge, a small white winged emblem in the center, a cluster of white arrows with grey tips at the bottom left, and smudged white text at the bottom right beside a grey blade held in a hand.">
                 <figcaption>Early HUD ideas sketched over a greybox, before the wireframes.</figcaption>
               </figure>
-            </section>
-
-            <section class="chapter" id="en-tests" aria-labelledby="en-tests-h">
-              <h2 id="en-tests-h">Audience testing</h2>
-              <p>Before and during early production I ran qualitative sessions, closer to the <strong>audience testing</strong> and polling studios do before they commit to a game. I presented the pitch and early builds to artists, level designers, UX designers and people who'd never played Assassin's Creed or Far Cry, and polled how it felt. More <strong>playtests</strong> came later, once there was more to play. The aesthetic landed early. Most of the notes were about the <strong>HUD</strong>.</p>
-              <ul class="quotes reveal">
-                <li>"It is very you. Which is good because that means you know how it should be."</li>
-                <li>"Ancient dark feel."</li>
-                <li>"Very blue! Dreamy!"</li>
-                <li>"He noticed me!"</li>
-                <li>"Doesn't look unfinished."</li>
-                <li>"Feels cold. Sounds cold."</li>
-              </ul>
-              <h3 class="sub-h">What I took from it</h3>
-              <ul class="notes reveal">
-                <li><b>Crosshair too big</b>Two testers said they couldn't see through it to the target.</li>
-                <li><b>Numbers read as ammo</b>"Numbers are too traditional ammo theming." Arrows left should be silhouettes, not text.</li>
-                <li><b>Health blends in</b>It needs a tint when you're hit so it pops off the snow.</li>
-                <li><b>Draw like a bowstring</b>For the heavy shot, pull the FOV back as you draw and snap it forward on release.</li>
-                <li><b>Sound first</b>"Biggest sound for the bow is that dead air whoosh thunk next to your ear." Crow calls blend into the arrow's whistle.</li>
-                <li><b>Lean into the clash</b>Testers couldn't tell if the <strong>HUD</strong> was a visor or in your head. So the answer was to blur that line even more. Mix the fog with static.</li>
-              </ul>
             </section>
 
             <section class="chapter" id="en-review" aria-labelledby="en-review-h">
