@@ -841,6 +841,7 @@ h2{font-weight:300}
 .why-more{display:block;margin-top:.35rem;font-size:.95rem;opacity:.85}
 .status-line{display:flex;align-items:center;gap:.55rem;font-family:var(--font-mono);font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
 .status-line .dot{width:.55rem;height:.55rem;border-radius:50%;background:#FF8A1F;box-shadow:0 0 0 1px #0B0B0C}
+.clips-1{grid-template-columns:minmax(0,1fr)!important;max-width:960px}
 /* Process strip: the four things a UI + UX reviewer looks for, each linking to its section */
 .proc{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:.6rem;margin:1.25rem 0 2rem}
 .proc a{display:grid;gap:.2rem;padding:.8rem 1rem .9rem;border-radius:4px;text-decoration:none;color:var(--ink-2);background-color:var(--glass,var(--panel));border:1px solid var(--edge,var(--rule));border-left:4px solid var(--accent);transition:transform .2s var(--ease),border-color .2s var(--ease)}
@@ -1362,7 +1363,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
         </defs></svg>
         <div class="why-wrap"><dl class="why" aria-label="The reasoning"><div><dt>Goal</dt><dd>Take the main menu I was handed and make it part of the game world.</dd></div><div><dt>Pain points</dt><dd>My first plan, a blended camera over a stack of flat 2D menus, didn't fit the game. Data Tables kept breaking when they pointed at things placed in the level.</dd></div><div><dt>My role</dt><dd>Creative Director, <strong>UI + UX</strong>. I own all of the UI and draw the UI art.</dd></div><div><dt>Decision</dt><dd>Rebuilt it around what the menu really is. One camera director hard cuts between Level Sequences, and buttons sit on 3D surfaces. Structs replaced the Data Table. Plain option names replaced in-world ones, because those cost usability.</dd></div><div><dt>Evidence</dt><dd><a class="why-lead" href="#ng-ab">A/B testing the main menu</a><span class="why-more"><a href="#ng-compass">Menu art, each direction explained</a> · <a href="#ng-garage">Settings paintover</a> · <a href="#ng-build">How it's built</a></span></dd></div><div><dt>Outcome</dt><dd>Level references stopped breaking. Mouse, gamepad and keyboard share one activation path, so one fix covers all three. Adding the three Garage hotspots took three rows of data and no new code.</dd></div></dl><nav class="proc" aria-label="Process"><a href="#ng-void"><b>Journey</b><span>Boot to main menu, step by step</span></a><a href="#ng-garage"><b>Wireframes</b><span>Settings paintover with drawovers</span></a><a href="#ng-compass"><b>Prototype</b><span>Main menu art, each direction explained</span></a><a href="#ng-ab"><b>Testing</b><span>A/B tests on two builds of the menu</span></a></nav></div>
         <div class="case-layout">
-          <nav class="toc" aria-label="Nitro Guzzler sections"><a href="#ng-part">My part</a><a href="#ng-ab">A/B tests</a><a href="#ng-compass">Menu art</a><a href="#ng-garage">Garage</a><a href="#ng-void">White void</a><a href="#ng-goal">Goal</a><a href="#ng-build">How it's built</a><a href="#ng-premise">Premise</a><a href="#ng-time">Timeline</a><a href="#ng-trailer">Trailer</a><a href="#ng-ai">AI use</a><a href="#ng-story">My story</a><a href="#ng-well">What went well</a><a href="#ng-tricky">What was tricky</a><a href="#ng-through">What we worked through</a><a href="#ng-team">The team</a></nav>
+          <nav class="toc" aria-label="Nitro Guzzler sections"><a href="#ng-part">My part</a><a href="#ng-ab">A/B tests</a><a href="#ng-compass">Menu art</a><a href="#ng-garage">Garage</a><a href="#ng-void">White void</a><a href="#ng-goal">Goal</a><a href="#ng-build">How it's built</a><a href="#ng-premise">Premise</a><a href="#ng-time">Timeline</a><a href="#ng-trailer">Trailer</a><a href="#ng-ai">AI use</a><a href="#ng-story">My story</a><a href="#ng-well">What went well</a><a href="#ng-tricky">What was tricky</a><a href="#ng-through">What I worked through</a><a href="#ng-team">The team</a></nav>
           <div class="chapters">
             <div class="ng-spine" aria-hidden="true"><i class="ng-shaft"></i><i class="ng-head"></i></div>
             <section class="chapter" id="ng-part" aria-labelledby="ng-part-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
@@ -1447,6 +1448,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
                   <figcaption>With drawovers. Visual, Gameplay + Accessibility, Audio and Rewind each get their own spot.</figcaption>
                 </figure>
               </div>
+              <div class="clips clips-1 reveal"><figure class="clip"><video src="media/ng-to-settings.mp4" poster="img/ng-to-settings.webp" muted loop playsinline preload="none" aria-label="In-engine capture. The camera hard cuts from the main menu to W-Dawg's car, where Settings is spray-painted on the ground in yellow and etched along the car's side, then settles behind the car."></video><figcaption><b>Into Settings</b> Picking Settings cuts to the car. The word is sprayed on the ground and etched along the side.</figcaption></figure></div>
               <div class="media-slot reveal">Before/after goes here: W-Dawg's bare hood vs. the hood with Visual settings etched in</div>
             </section>
 
@@ -1459,6 +1461,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
                 <li><span class="n">03</span><b>Any key</b>Wakes the menu.</li>
                 <li><span class="n">04</span><b>Main menu loop</b>The attract loop takes over.</li>
               </ol>
+              <div class="clips clips-1 reveal"><figure class="clip"><video src="media/ng-intro.mp4" poster="img/ng-intro.webp" muted loop playsinline preload="none" aria-label="In-engine capture of the intro. The Nitro Guzzler logo and the team name in tire tracks, then W-Dawg's cyan car drops in, lands, and drifts off through spray-painted graffiti on the white void."></video><figcaption><b>First art pass, in engine</b> The intro after my first art pass. Logo, team name, then W-Dawg drops in and drifts off.</figcaption></figure></div>
               <div class="media-slot reveal">Intro capture goes here: livery-colored cars before the glass pane, in-game textures after</div>
             </section>
 
@@ -1508,15 +1511,15 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             </section>
             <section class="chapter" id="ng-trailer" aria-labelledby="ng-trailer-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
               <h2 id="ng-trailer-h">Trailer</h2>
-              <p>I based the trailer's structure on the Need for Speed Most Wanted trailer. Ours follows W-Dawg drifting through our menus and intro. I wrote the <strong>shot lists</strong> and an artist made the shots.</p>
-              <p>I set up <strong>shot lists</strong> for two versions. The first is the one we submitted. The second is a more complex trailer. Art didn't have time to set dress it before the submission deadline, so it's still on the list.</p>
+              <p>I based the trailer's structure on the Need for Speed Most Wanted trailer. Mine follows W-Dawg drifting through the menus and intro I built. I wrote the <strong>shot lists</strong> and an artist made the shots.</p>
+              <p>I set up <strong>shot lists</strong> for two versions. The first is the one I submitted. The second is a more complex trailer. Art didn't have time to set dress it before the submission deadline, so it's still on the list.</p>
               <div class="media-slot reveal">Trailer goes here: W-Dawg drifts through Nitro Guzzler's main menu and intro</div>
             </section>
 
             <section class="chapter" id="ng-ai" aria-labelledby="ng-ai-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
               <h2 id="ng-ai-h">How AI was used</h2>
               <p>All of the art in Nitro Guzzler is human made.</p>
-              <p>AI was a tool during development, and we used it to further our education on the subject. I used it for bug fixing, for notes and secretary help, for compiling lists and for grammar checks on documents.</p>
+              <p>AI was a tool during development, and I used it to further my education on the subject. I used it for bug fixing, for notes and secretary help, for compiling lists and for grammar checks on documents.</p>
             </section>
 
             <section class="chapter" id="ng-story" aria-labelledby="ng-story-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
@@ -1527,7 +1530,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
               <h3 id="ng-well-h">What went well</h3>
               <p>I'm proud of what we made in those first two semesters, with the team we had. And the team held together.</p>
               <p>The intro and the attract loop run in engine. You boot the game, the cars smash through the glass, and the menu wakes up.</p>
-              <p>The bigger win was the data. Every menu destination is one row of the same struct, and each row knows where Back goes. When we added the three Garage hotspots, that was three more rows, not new code. That's when I knew the system would hold up for the rest of production.</p>
+              <p>The bigger win was the data. Every menu destination is one row of the same struct, and each row knows where Back goes. When I added the three Garage hotspots, that was three more rows, not new code. That's when I knew the system would hold up for the rest of production.</p>
               <p class="todo">One concrete moment: a playtest, a review or a teammate's reaction that showed you it was working.</p>
             </section>
             <section class="chapter story-sec" id="ng-tricky" aria-labelledby="ng-tricky-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
@@ -1545,10 +1548,10 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
               <p>On top of that, Data Tables kept breaking when they pointed at things placed in the level.</p>
             </section>
             <section class="chapter story-sec" id="ng-through" aria-labelledby="ng-through-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
-              <h3 id="ng-through-h">What we worked through</h3>
+              <h3 id="ng-through-h">What I worked through</h3>
               <p>What kept the team from blowing up was the foundation. As the first <strong>producer</strong>, with one other producer, I built the team on <strong>proactive communication</strong>.</p>
               <p>Then we refactored over the summer and came back as the largest team in DigiPen history, 31 people. Now we're deep in polish. That's why I'm rebuilding the whole main menu. It's also why the map has been almost fully redone, with a new environment art team filling in a Death Valley town for you to tear through and wreck, all for the audience score.</p>
-              <p>On the menu, we rebuilt the plan around what the menu really is: one camera director that hard cuts between Level Sequences, with buttons that sit on 3D surfaces. I swapped the Data Table for arrays of structs, and the level references stopped breaking.</p>
+              <p>On the menu, I rebuilt the plan around what the menu really is: one camera director that hard cuts between Level Sequences, with buttons that sit on 3D surfaces. I swapped the Data Table for arrays of structs, and the level references stopped breaking.</p>
               <p>Mouse, gamepad and keyboard now take different paths to the same activation function, so one fix covers all three. For the art I wasn't making, I wrote <strong>shot lists</strong> so the artists on the trailer had something clear to build from.</p>
             </section>
             <section class="chapter" id="ng-team" aria-labelledby="ng-team-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
