@@ -956,23 +956,35 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
 #case-chain-of-jewels .draw{--mark:#E1B45A}
 #case-chain-of-jewels .case figure img,#case-chain-of-jewels .draw-stage,#case-chain-of-jewels .compare,#case-chain-of-jewels figure > img{box-shadow:0 0 0 1px rgba(60,40,20,.5),0 18px 36px -22px rgba(40,25,10,.8)}
 #case-chain-of-jewels .todo{color:#4A3622}
-/* startup flow: hopscotch, 1 on top, 2 beside 3, the arrow turns down into 4 */
-.flow{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-areas:"one one" "two three" ". four";column-gap:clamp(1.5rem,5vw,3.5rem);row-gap:2rem;max-width:40rem;align-items:center}
+/* startup flow: a zigzag. 1 drops into 2, 2 runs into 3, 3 turns down into 4, 4 broadcasts to the TV */
+.flow{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-areas:"one ." "two three" ". four";column-gap:clamp(1.5rem,5vw,3.5rem);row-gap:0;max-width:40rem;align-items:center}
 .flow li{padding:.7rem .9rem;font-size:.85rem;--fc:#00FFFF;background:#fff!important;border:2px solid #0B0B0C!important;border-left:6px solid var(--fc)!important;border-radius:4px;box-shadow:4px 4px 0 var(--fc),4px 4px 0 2px #0B0B0C!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
 .flow li b{font-size:1rem}
-.flow li:nth-child(1){grid-area:one;justify-self:center;width:min(100%,19rem)}
+.flow li:nth-child(1){grid-area:one;margin-bottom:9rem}
 .flow li:nth-child(2){grid-area:two;--fc:#FF00FF}
 .flow li:nth-child(3){grid-area:three;--fc:#FFFF00;justify-self:center;width:min(100%,9rem)}
-.flow li:nth-child(4){justify-self:center;width:min(100%,14rem);margin-top:4.2rem}
-.flow li:nth-child(4){grid-area:four;--fc:#00FF00}
-.flow li.flow-arrow .fa-art{position:absolute;z-index:-1;width:22.625rem;height:14.125rem;left:calc(50% - 16.375rem);top:calc(50% - 4rem);overflow:visible;pointer-events:none}
+.flow li:nth-child(4){grid-area:four;--fc:#00FF00;justify-self:center;width:min(100%,14rem);margin-top:4.2rem}
+.flow .fa-art{position:absolute;z-index:-1;overflow:visible;pointer-events:none}
+.flow li.flow-arrow .fa-art{width:22.625rem;height:14.125rem;left:calc(50% - 16.375rem);top:calc(50% - 4rem)}
+.flow .fa-auto{width:8.25rem;height:12.25rem;left:calc(50% - 4.125rem);top:calc(100% - 1.5rem)}
+.flow .fa-auto text{font-family:var(--font-mono);font-weight:700;font-size:11px;letter-spacing:.04em;fill:#0B0B0C}
+.flow .fa-waves{width:6rem;height:3.4rem;left:calc(50% - 3rem);top:calc(100% + .5rem)}
 #case-nitro-guzzler .chapter{isolation:isolate}
-@media (max-width:700px){.flow{column-gap:1.4rem;row-gap:1.6rem}.flow li:nth-child(4){margin-top:2.6rem}.flow li{padding:.6rem .7rem;font-size:.8rem}.flow li:nth-child(3){width:min(100%,7.6rem)}.flow li.flow-arrow .fa-art{width:15.84rem;height:9.89rem;left:calc(50% - 11.46rem);top:calc(50% - 2.8rem)}}
-/* paint drips carry the last section's color into the next one */
-#case-nitro-guzzler .chapter.has-drip::after{content:"";position:absolute;z-index:-1;left:0;right:0;top:0;height:2.4rem;background:var(--c-p);pointer-events:none;
-  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 40'%3E%3Cpath d='M0 0H220V8C212 8 210 12 210 18S206 26 203 22 200 10 190 9C176 8 178 30 170 34S160 28 161 18 158 9 146 9C130 9 134 14 128 15S118 10 104 9C92 8 94 24 88 26S80 20 80 13 74 8 62 8C46 8 50 36 42 38S32 30 33 20 28 8 16 8C6 8 6 10 0 10Z'/%3E%3C/svg%3E") 0 0/220px 100% repeat-x;
-          mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 40'%3E%3Cpath d='M0 0H220V8C212 8 210 12 210 18S206 26 203 22 200 10 190 9C176 8 178 30 170 34S160 28 161 18 158 9 146 9C130 9 134 14 128 15S118 10 104 9C92 8 94 24 88 26S80 20 80 13 74 8 62 8C46 8 50 36 42 38S32 30 33 20 28 8 16 8C6 8 6 10 0 10Z'/%3E%3C/svg%3E") 0 0/220px 100% repeat-x}
-#case-nitro-guzzler .chapter.has-drip::before{background:linear-gradient(var(--c-p),var(--c-r) 70%)}
+/* the showcase as a little TV */
+.tv-wrap{margin-top:3.6rem!important}
+.tv .tv-set{position:relative;display:block;background:#0B0B0C;padding:clamp(.55rem,1.6vw,1rem);border-radius:22px;box-shadow:8px 8px 0 #00FF00,8px 8px 0 3px #0B0B0C}
+.tv .tv-set video{border-radius:12px;box-shadow:none;display:block}
+.tv figcaption{margin-top:.75rem}
+.tv .tv-ant{position:absolute;left:75%;bottom:100%;width:5rem;height:3rem;transform:translateX(-50%);overflow:visible;pointer-events:none}
+@media (prefers-reduced-motion:no-preference){.fa-waves .w{animation:wave 1.8s steps(1) infinite}.fa-waves .w2{animation-delay:.6s}.fa-waves .w3{animation-delay:1.2s}
+  @keyframes wave{0%{opacity:1}33%{opacity:.35}66%{opacity:.35}}}
+@media (max-width:700px){.flow{column-gap:1.4rem}.flow li{padding:.6rem .7rem;font-size:.8rem}.flow li:nth-child(1){margin-bottom:7.2rem}.flow li:nth-child(3){width:min(100%,7.6rem)}.flow li:nth-child(4){margin-top:2.6rem}
+.flow li.flow-arrow .fa-art{width:15.84rem;height:9.89rem;left:calc(50% - 11.46rem);top:calc(50% - 2.8rem)}
+.flow .fa-auto{width:6.6rem;height:9.8rem;left:calc(50% - 3.3rem);top:calc(100% - 1.2rem)}}
+/* paint drips on the rail: the last section's color runs down into the next one, just before its arrow */
+#case-nitro-guzzler .chapter.has-drip::before{top:-5.2rem}
+#case-nitro-guzzler .chapter.has-drip::after{content:"";position:absolute;z-index:1;left:1.84rem;width:.73rem;top:-5.2rem;height:3.2rem;background:var(--c-p);pointer-events:none;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H20V12C20 16 19 30 16.5 30S13 22 13 17 11 13 9 15 8 24 5.5 24 3 15 0 13Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H20V12C20 16 19 30 16.5 30S13 22 13 17 11 13 9 15 8 24 5.5 24 3 15 0 13Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat}
+@media (max-width:860px){#case-nitro-guzzler .chapter.has-drip::before{top:-3rem}#case-nitro-guzzler .chapter.has-drip::after{left:.63rem;width:.26rem;top:-3rem;height:1.7rem}}
 </style>
 <link rel="canonical" href="https://omah-azir.github.io/AtlasStewartPortfolio.github.io/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M3 9a2 2 0 0 1 2-2h8l3 3h11a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z' fill='%232A41C4'/%3E%3C/svg%3E">
@@ -1474,12 +1486,12 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
               <h2 id="ng-void-h">The white void intro</h2>
               <p>The intro and the menu share one white space. There's no separate garage level. Cars race through it in their livery colors and leave colored tire stripes. Then they smash through a glass pane with the logo on it and switch to their in-game textures. The camera falls, and you see the team name written in tire tracks.</p>
               <ol class="flow reveal" aria-label="Startup flow">
-                <li><span class="n">01</span><b>Intro</b>Plays once. Hold a button to skip.</li>
+                <li><span class="n">01</span><b>Intro</b>Plays once. Hold a button to skip.<span class="sr-only"> Then an automatic transition.</span><svg class="fa-art fa-auto" viewBox="-66 -24 132 196" aria-hidden="true" focusable="false"><g fill="#0B0B0C" stroke="#0B0B0C" stroke-width="12" stroke-linejoin="round"><path d="M0 -24 V92" fill="none" stroke-width="92"/><path d="M-60 88 L60 88 L0 144 Z"/></g><path d="M0 -24 V92 V94" fill="none" stroke="#00FFFF" stroke-width="80"/><path d="M-60 88 L60 88 L0 144 Z" fill="#00FFFF"/><text transform="translate(0 46) rotate(-90)" text-anchor="middle"><tspan x="0" y="-5">AUTOMATIC</tspan><tspan x="0" y="12">TRANSITION</tspan></text></svg></li>
                 <li><span class="n">02</span><b>Ready loop</b>Waits for the player.</li>
-                <li class="flow-arrow"><span class="n">03</span><svg class="fa-art" viewBox="-262 -64 362 226" aria-hidden="true" focusable="false"><defs><linearGradient id="fa-g" gradientUnits="userSpaceOnUse" x1="-220" y1="0" x2="0" y2="150"><stop offset="0" stop-color="#FF00FF"/><stop offset=".5" stop-color="#FFFF00"/><stop offset="1" stop-color="#00FF00"/></linearGradient></defs><g fill="#0B0B0C" stroke="#0B0B0C" stroke-width="12" stroke-linejoin="round"><path d="M-260 0 H-44 Q0 0 0 44 V92" fill="none" stroke-width="112"/><path d="M-80 88 L80 88 L0 156 Z"/></g><path d="M-260 0 H-44 Q0 0 0 44 V92 V96" fill="none" stroke="url(#fa-g)" stroke-width="96"/><path d="M-80 88 L80 88 L0 156 Z" fill="url(#fa-g)"/></svg><b>Any key</b>Wakes the menu.</li>
-                <li><span class="n">04</span><b>Main menu loop</b>The attract loop takes over.</li>
+                <li class="flow-arrow"><span class="n">03</span><svg class="fa-art" viewBox="-262 -64 362 226" aria-hidden="true" focusable="false"><g fill="#0B0B0C" stroke="#0B0B0C" stroke-width="12" stroke-linejoin="round"><path d="M-260 0 H-44 Q0 0 0 44 V92" fill="none" stroke-width="112"/><path d="M-80 88 L80 88 L0 156 Z"/></g><path d="M-260 0 H-44 Q0 0 0 44 V92 V96" fill="none" stroke="#FFFF00" stroke-width="96"/><path d="M-80 88 L80 88 L0 156 Z" fill="#FFFF00"/></svg><b>Any key</b>Wakes the menu.</li>
+                <li><span class="n">04</span><b>Main menu loop</b>The attract loop takes over.<svg class="fa-art fa-waves" viewBox="-48 0 96 54" aria-hidden="true" focusable="false"><g fill="none" stroke-linecap="round"><g class="w w1"><path d="M-16 8 Q0 20 16 8" stroke="#0B0B0C" stroke-width="10"/><path d="M-16 8 Q0 20 16 8" stroke="#00FF00" stroke-width="5"/></g><g class="w w2"><path d="M-28 24 Q0 36 28 24" stroke="#0B0B0C" stroke-width="10"/><path d="M-28 24 Q0 36 28 24" stroke="#00FF00" stroke-width="5"/></g><g class="w w3"><path d="M-40 40 Q0 52 40 40" stroke="#0B0B0C" stroke-width="10"/><path d="M-40 40 Q0 52 40 40" stroke="#00FF00" stroke-width="5"/></g></g></svg></li>
               </ol>
-              <div class="clips clips-1 reveal"><figure class="clip"><video src="media/ng-intro.mp4" poster="img/ng-intro.webp" muted loop playsinline preload="none" aria-label="In-engine capture of the intro. The team name in tire tracks, then W-Dawg's cyan car circles the Nitro Guzzler logo as it settles on the white void."></video><figcaption><b>In engine</b> The intro, during my last polish push. The team name, then W-Dawg circles the logo as it lands.</figcaption></figure></div>
+              <div class="clips clips-1 tv-wrap reveal"><figure class="clip tv"><span class="tv-set"><svg class="tv-ant" viewBox="0 0 80 48" aria-hidden="true" focusable="false"><g stroke-linecap="round" fill="none"><path d="M40 46 L14 8 M40 46 L66 8" stroke="#0B0B0C" stroke-width="9"/><path d="M40 46 L14 8 M40 46 L66 8" stroke="#00FF00" stroke-width="3.5"/></g><circle cx="14" cy="8" r="6" fill="#00FF00" stroke="#0B0B0C" stroke-width="3.5"/><circle cx="66" cy="8" r="6" fill="#00FF00" stroke="#0B0B0C" stroke-width="3.5"/><path d="M26 48 Q40 34 54 48 Z" fill="#0B0B0C"/></svg><video src="media/ng-intro.mp4" poster="img/ng-intro.webp" muted loop playsinline preload="none" aria-label="In-engine capture of the intro. The team name in tire tracks, then W-Dawg's cyan car circles the Nitro Guzzler logo as it settles on the white void."></video></span><figcaption><b>In engine</b> The intro, during my last polish push. The team name, then W-Dawg circles the logo as it lands.</figcaption></figure></div>
               <div class="media-slot reveal">Intro capture goes here: livery-colored cars before the glass pane, in-game textures after</div>
             </section>
 
