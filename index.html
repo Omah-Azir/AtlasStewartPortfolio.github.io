@@ -33,7 +33,7 @@ html,body{margin:0}
   /* Project palettes (each one is a single deliberate look) */
   --coj-bg:#281E12; --coj-panel:#3A2E22; --coj-tab:#514741; --coj-ink:#E9DFCC; --coj-ink2:#BBA88D; --coj-rule:#5A4B3A; --coj-accent:#E1B45A;
   --ng-bg:#F5F5F4; --ng-panel:#EEEEEC; --ng-tab:#E1E1DE; --ng-ink:#0B0B0C; --ng-ink2:#3A3A3E; --ng-rule:#D2D2CF; --ng-accent:#0B0B0C;
-  --liv-1:#F77FB0; --liv-2:#F5D547; --liv-3:#7FD3E8; --liv-4:#B6FF3B;
+  --liv-1:#FF00FF; --liv-2:#FFFF00; --liv-3:#00FFFF; --liv-4:#00FF00;
   --noc-bg:#06100A; --noc-panel:#0C1E14; --noc-tab:#123222; --noc-ink:#D3F2DB; --noc-ink2:#8CC9A0; --noc-rule:#1C4A31; --noc-accent:#62E893;
   --en-bg:#2D3A4B; --en-panel:#38495C; --en-tab:#52677F; --en-ink:#FEFCFB; --en-ink2:#C8DCEB; --en-rule:#4A5D73; --en-accent:#E3FBFF;
   --mc-bg:#EDF1EA; --mc-panel:#E0E7DC; --mc-tab:#C9D4C3; --mc-ink:#17201A; --mc-ink2:#46554A; --mc-rule:#BFCBB9; --mc-accent:#2D7A3D;
@@ -695,11 +695,11 @@ h2{font-weight:300}
 .hype li{display:inline-flex;align-items:baseline;gap:.4rem;padding:.3rem .7rem .32rem .6rem;border-radius:999px;font-size:.84rem;line-height:1.3;color:var(--ink-2);
   background:color-mix(in srgb,var(--sheet) 70%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--rule)}
 .hype li::before{content:"";align-self:center;width:.5rem;height:.5rem;border-radius:50%;background:var(--hc,#00FFFF);box-shadow:0 0 0 1px rgba(11,11,12,.35),0 0 8px var(--hc,#00FFFF)}
-.hype li:nth-child(4n+2){--hc:#FF5FA2}.hype li:nth-child(4n+3){--hc:#FFD93B}.hype li:nth-child(4n+4){--hc:#B6FF3B}
+.hype li:nth-child(4n+2){--hc:#FF00FF}.hype li:nth-child(4n+3){--hc:#FFFF00}.hype li:nth-child(4n+4){--hc:#00FF00}
 .hype b{font-family:var(--font-display);font-stretch:var(--display-stretch);font-style:var(--display-style);font-weight:900;font-size:.98rem;color:var(--ink)}
 .hype .hype-steam{border-color:var(--ink);color:var(--ink)}
 /* Nitro Guzzler: vector menu stage */
-.vx-wrap{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(1rem,3vw,2rem);align-items:start;--c-prep:#00FFFF;--c-settings:#FFD93B;--c-pit:#FF5FA2;--c-credits:#B6FF3B}
+.vx-wrap{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(1rem,3vw,2rem);align-items:start;--c-prep:#00FFFF;--c-settings:#FFFF00;--c-pit:#FF00FF;--c-credits:#00FF00}
 .vx-stage{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.82),rgba(245,245,244,.6));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--rule);box-shadow:inset 0 1px 0 #fff,0 20px 44px -30px rgba(11,11,12,.45)}
 .vx{position:absolute;inset:0;color:var(--c);opacity:.8;transition:opacity .3s var(--ease),filter .3s var(--ease);--ol:rgba(11,11,12,.8);filter:drop-shadow(0 0 .6px var(--ol)) drop-shadow(0 0 .6px var(--ol))}
 .vx-prep{--c:var(--c-prep)}.vx-settings{--c:var(--c-settings)}.vx-pit{--c:var(--c-pit)}.vx-credits{--c:var(--c-credits)}
@@ -749,12 +749,12 @@ h2{font-weight:300}
 #case-nitro-guzzler .chapter{--c-r:#00FFFF;position:relative;padding:clamp(1.25rem,3vw,2.25rem) clamp(1rem,3vw,2.25rem) clamp(1.25rem,3vw,2.25rem) 9.5rem;border-radius:6px;
   background:color-mix(in srgb,var(--c-r) 13%,rgba(252,252,251,.8));border:1px solid color-mix(in srgb,var(--c-r) 55%,rgba(11,11,12,.25));border-top:5px solid var(--c-r);
   box-shadow:0 18px 40px -26px color-mix(in srgb,var(--c-r) 60%,rgba(11,11,12,.6))}
-#case-nitro-guzzler .chapter:nth-child(4n+3){--c-r:#FF5FA2}
-#case-nitro-guzzler .chapter:nth-child(4n+4){--c-r:#FFD93B}
-#case-nitro-guzzler .chapter:nth-child(4n+5){--c-r:#B6FF3B}
+#case-nitro-guzzler .chapter:nth-child(4n+3){--c-r:#FF00FF}
+#case-nitro-guzzler .chapter:nth-child(4n+4){--c-r:#FFFF00}
+#case-nitro-guzzler .chapter:nth-child(4n+5){--c-r:#00FF00}
 #case-nitro-guzzler .chapter>h2,#case-nitro-guzzler .chapter>h3{justify-self:start;background:linear-gradient(transparent 62%,color-mix(in srgb,var(--c-r) 70%,transparent) 62% 92%,transparent 92%)}
 #case-nitro-guzzler .toc a{border-left:4px solid var(--tc,#00FFFF)}
-#case-nitro-guzzler .toc a:nth-child(4n+2){--tc:#FF5FA2}#case-nitro-guzzler .toc a:nth-child(4n+3){--tc:#FFD93B}#case-nitro-guzzler .toc a:nth-child(4n+4){--tc:#B6FF3B}
+#case-nitro-guzzler .toc a:nth-child(4n+2){--tc:#FF00FF}#case-nitro-guzzler .toc a:nth-child(4n+3){--tc:#FFFF00}#case-nitro-guzzler .toc a:nth-child(4n+4){--tc:#00FF00}
 .hype li{background:color-mix(in srgb,var(--hc,#00FFFF) 22%,rgba(252,252,251,.75))!important;border-color:color-mix(in srgb,var(--hc,#00FFFF) 60%,rgba(11,11,12,.3))!important}
 /* the rail that ties the small arrows together */
 #case-nitro-guzzler .chapter::before{content:"";position:absolute;z-index:1;left:1.59rem;top:-3.2rem;bottom:calc(3.2rem - clamp(4rem,7vw,6rem) - 10px);width:1.23rem;box-sizing:border-box;background:var(--c-r);border-inline:.25rem solid #0B0B0C;pointer-events:none}
@@ -814,8 +814,8 @@ h2{font-weight:300}
 #case-nitro-guzzler .story-sec::before{left:calc(1.59rem - 3.5rem - 3px)}
 #case-nitro-guzzler .story-sec .road-arrow{left:calc(1.1rem - 3.5rem - 3px)}
 #case-nitro-guzzler .story-sec>h3{font-weight:500;font-style:normal;font-stretch:90%;letter-spacing:0}
-#case-nitro-guzzler #ng-well{--c-r:#2F8CFF}#case-nitro-guzzler #ng-tricky{--c-r:#FF8A1F}#case-nitro-guzzler #ng-through{--c-r:#FF3B30}
-#case-nitro-guzzler .toc a[href="#ng-well"]{--tc:#2F8CFF}#case-nitro-guzzler .toc a[href="#ng-tricky"]{--tc:#FF8A1F}#case-nitro-guzzler .toc a[href="#ng-through"]{--tc:#FF3B30}
+#case-nitro-guzzler #ng-well{--c-r:#0000FF}#case-nitro-guzzler #ng-tricky{--c-r:#FF8000}#case-nitro-guzzler #ng-through{--c-r:#FF0000}
+#case-nitro-guzzler .toc a[href="#ng-well"]{--tc:#0000FF}#case-nitro-guzzler .toc a[href="#ng-tricky"]{--tc:#FF8000}#case-nitro-guzzler .toc a[href="#ng-through"]{--tc:#FF0000}
 @media (max-width:860px){#case-nitro-guzzler .story-sec{margin-left:1rem;margin-right:0!important}#case-nitro-guzzler .story-sec::before{left:calc(.53rem - 1rem - 3px)}#case-nitro-guzzler .story-sec .road-arrow{left:calc(.35rem - 1rem - 3px)}}
 .resume::before{content:none!important;display:none!important}
 .resume{background:none!important;border:0!important;box-shadow:none!important;padding:0!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background-image:none!important}
@@ -840,7 +840,7 @@ h2{font-weight:300}
 .why-lead{font-weight:600}
 .why-more{display:block;margin-top:.35rem;font-size:.95rem;opacity:.85}
 .status-line{display:flex;align-items:center;gap:.55rem;font-family:var(--font-mono);font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
-.status-line .dot{width:.55rem;height:.55rem;border-radius:50%;background:#FF8A1F;box-shadow:0 0 0 1px #0B0B0C}
+.status-line .dot{width:.55rem;height:.55rem;border-radius:50%;background:#FF8000;box-shadow:0 0 0 1px #0B0B0C}
 .clips-1{grid-template-columns:minmax(0,1fr)!important;max-width:960px}
 /* Process strip: the four things a UI + UX reviewer looks for, each linking to its section */
 .proc{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:.6rem;margin:1.25rem 0 2rem}
@@ -849,7 +849,7 @@ h2{font-weight:300}
 .proc b{font-family:var(--font-mono);font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
 .proc span{font-size:.95rem;line-height:1.4}
 #case-nitro-guzzler .proc a{background:#fff;border:2px solid #0B0B0C;border-left:6px solid #00FFFF}
-#case-nitro-guzzler .proc a:nth-child(2){border-left-color:#FF5FA2}#case-nitro-guzzler .proc a:nth-child(3){border-left-color:#FFD93B}#case-nitro-guzzler .proc a:nth-child(4){border-left-color:#B6FF3B}
+#case-nitro-guzzler .proc a:nth-child(2){border-left-color:#FF00FF}#case-nitro-guzzler .proc a:nth-child(3){border-left-color:#FFFF00}#case-nitro-guzzler .proc a:nth-child(4){border-left-color:#00FF00}
 /* Back to projects stays with you while you scroll a case study */
 .case-bar{position:sticky;top:10px;z-index:30;pointer-events:none;padding-block:.75rem}
 .case-bar > *{pointer-events:auto}
@@ -956,21 +956,23 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
 #case-chain-of-jewels .draw{--mark:#E1B45A}
 #case-chain-of-jewels .case figure img,#case-chain-of-jewels .draw-stage,#case-chain-of-jewels .compare,#case-chain-of-jewels figure > img{box-shadow:0 0 0 1px rgba(60,40,20,.5),0 18px 36px -22px rgba(40,25,10,.8)}
 #case-chain-of-jewels .todo{color:#4A3622}
-.flow{grid-template-columns:minmax(0,1fr) minmax(0,1fr) 7.5rem minmax(0,1fr);gap:10px;align-items:start}
-.flow li{padding:.7rem .85rem;font-size:.85rem}
+/* startup flow: hopscotch, 1 on top, 2 beside 3, the arrow turns down into 4 */
+.flow{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-areas:"one one" "two three" ". four";column-gap:clamp(1.5rem,5vw,3.5rem);row-gap:2rem;max-width:40rem;align-items:center}
+.flow li{padding:.7rem .9rem;font-size:.85rem;--fc:#00FFFF;background:#fff!important;border:2px solid #0B0B0C!important;border-left:6px solid var(--fc)!important;border-radius:4px;box-shadow:4px 4px 0 var(--fc),4px 4px 0 2px #0B0B0C!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
 .flow li b{font-size:1rem}
-.flow li:nth-child(2){margin-top:2.6rem}
-.flow li:nth-child(4){margin-top:0}
-.flow li.flow-arrow{background:none;border:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;padding:0;margin:.4rem -4px 0;text-align:center;justify-items:center;gap:.1rem;color:var(--ink-2)}
-.flow li.flow-arrow .fa-art{width:100%;max-width:7.5rem;height:auto;display:block;overflow:visible;filter:drop-shadow(0 6px 8px rgba(0,0,0,.18))}
-.flow li.flow-arrow b{font-size:.95rem}
-.flow li.flow-arrow .n{justify-self:start}
-@media (prefers-reduced-motion:no-preference){.flow li.flow-arrow .fa-art{animation:fa-nudge 2.4s var(--ease,ease) infinite}}
-@keyframes fa-nudge{0%,70%,100%{transform:translate(0,0)}80%{transform:translate(4px,-3px)}}
-@media (max-width:700px){.flow{grid-template-columns:minmax(0,1fr) 5.5rem minmax(0,1fr);gap:8px}
-.flow li:first-child{grid-column:1 / -1;justify-self:center;width:min(100%,15rem)}
-.flow li:nth-child(2){margin-top:1.6rem}
-.flow li.flow-arrow .fa-art{max-width:5.5rem}.flow li.flow-arrow{font-size:.78rem}}
+.flow li:nth-child(1){grid-area:one;justify-self:center;width:min(100%,19rem)}
+.flow li:nth-child(2){grid-area:two;--fc:#FF00FF}
+.flow li:nth-child(3){grid-area:three;--fc:#FFFF00;justify-self:center;width:min(100%,9rem)}
+.flow li:nth-child(4){justify-self:center;width:min(100%,14rem);margin-top:4.2rem}
+.flow li:nth-child(4){grid-area:four;--fc:#00FF00}
+.flow li.flow-arrow .fa-art{position:absolute;z-index:-1;width:22.625rem;height:14.125rem;left:calc(50% - 16.375rem);top:calc(50% - 4rem);overflow:visible;pointer-events:none}
+#case-nitro-guzzler .chapter{isolation:isolate}
+@media (max-width:700px){.flow{column-gap:1.4rem;row-gap:1.6rem}.flow li:nth-child(4){margin-top:2.6rem}.flow li{padding:.6rem .7rem;font-size:.8rem}.flow li:nth-child(3){width:min(100%,7.6rem)}.flow li.flow-arrow .fa-art{width:15.84rem;height:9.89rem;left:calc(50% - 11.46rem);top:calc(50% - 2.8rem)}}
+/* paint drips carry the last section's color into the next one */
+#case-nitro-guzzler .chapter.has-drip::after{content:"";position:absolute;z-index:-1;left:0;right:0;top:0;height:2.4rem;background:var(--c-p);pointer-events:none;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 40'%3E%3Cpath d='M0 0H220V8C212 8 210 12 210 18S206 26 203 22 200 10 190 9C176 8 178 30 170 34S160 28 161 18 158 9 146 9C130 9 134 14 128 15S118 10 104 9C92 8 94 24 88 26S80 20 80 13 74 8 62 8C46 8 50 36 42 38S32 30 33 20 28 8 16 8C6 8 6 10 0 10Z'/%3E%3C/svg%3E") 0 0/220px 100% repeat-x;
+          mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 40'%3E%3Cpath d='M0 0H220V8C212 8 210 12 210 18S206 26 203 22 200 10 190 9C176 8 178 30 170 34S160 28 161 18 158 9 146 9C130 9 134 14 128 15S118 10 104 9C92 8 94 24 88 26S80 20 80 13 74 8 62 8C46 8 50 36 42 38S32 30 33 20 28 8 16 8C6 8 6 10 0 10Z'/%3E%3C/svg%3E") 0 0/220px 100% repeat-x}
+#case-nitro-guzzler .chapter.has-drip::before{background:linear-gradient(var(--c-p),var(--c-r) 70%)}
 </style>
 <link rel="canonical" href="https://omah-azir.github.io/AtlasStewartPortfolio.github.io/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M3 9a2 2 0 0 1 2-2h8l3 3h11a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z' fill='%232A41C4'/%3E%3C/svg%3E">
@@ -1474,7 +1476,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
               <ol class="flow reveal" aria-label="Startup flow">
                 <li><span class="n">01</span><b>Intro</b>Plays once. Hold a button to skip.</li>
                 <li><span class="n">02</span><b>Ready loop</b>Waits for the player.</li>
-                <li class="flow-arrow"><span class="n">03</span><svg class="fa-art" viewBox="0 0 130 104" aria-hidden="true" focusable="false"><defs><linearGradient id="fa-g" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FFE98A"/><stop offset=".55" stop-color="#FFFBEA"/><stop offset="1" stop-color="#fff"/></linearGradient><pattern id="fa-dots" width="5" height="5" patternUnits="userSpaceOnUse"><circle cx="2.5" cy="2.5" r="1.1" fill="#0B0B0C"/></pattern><linearGradient id="fa-fade" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset=".6" stop-color="#fff" stop-opacity="0"/></linearGradient><mask id="fa-m"><rect width="130" height="104" fill="url(#fa-fade)"/></mask></defs><g class="fa-splat" fill="#0B0B0C"><circle cx="8" cy="20" r="3"/><circle cx="16" cy="12" r="1.6"/><circle cx="60" cy="96" r="2.4"/><circle cx="70" cy="90" r="1.3"/><circle cx="118" cy="82" r="2.2"/></g><g class="fa-shadow" transform="translate(6 6)" fill="#00FFFF" stroke="#00FFFF" stroke-width="10" stroke-linejoin="round"><path d="M22 100 V60 Q22 32 50 32 H82" fill="none" stroke-width="34"/><path d="M80 6 L122 37 L80 68 Z"/></g><g class="fa-ink" fill="#0B0B0C" stroke="#0B0B0C" stroke-width="10" stroke-linejoin="round"><path d="M22 100 V60 Q22 32 50 32 H82" fill="none" stroke-width="34"/><path d="M80 6 L122 37 L80 68 Z"/></g><g class="fa-fill"><path d="M22 100 V60 Q22 32 50 32 H84" fill="none" stroke="url(#fa-g)" stroke-width="24"/><path d="M80 6 L122 37 L80 68 Z" fill="url(#fa-g)"/><g mask="url(#fa-m)"><path d="M22 100 V60 Q22 32 50 32 H84" fill="none" stroke="url(#fa-dots)" stroke-width="24"/></g></g></svg><b>Any key</b>Wakes the menu.</li>
+                <li class="flow-arrow"><span class="n">03</span><svg class="fa-art" viewBox="-262 -64 362 226" aria-hidden="true" focusable="false"><defs><linearGradient id="fa-g" gradientUnits="userSpaceOnUse" x1="-220" y1="0" x2="0" y2="150"><stop offset="0" stop-color="#FF00FF"/><stop offset=".5" stop-color="#FFFF00"/><stop offset="1" stop-color="#00FF00"/></linearGradient></defs><g fill="#0B0B0C" stroke="#0B0B0C" stroke-width="12" stroke-linejoin="round"><path d="M-260 0 H-44 Q0 0 0 44 V92" fill="none" stroke-width="112"/><path d="M-80 88 L80 88 L0 156 Z"/></g><path d="M-260 0 H-44 Q0 0 0 44 V92 V96" fill="none" stroke="url(#fa-g)" stroke-width="96"/><path d="M-80 88 L80 88 L0 156 Z" fill="url(#fa-g)"/></svg><b>Any key</b>Wakes the menu.</li>
                 <li><span class="n">04</span><b>Main menu loop</b>The attract loop takes over.</li>
               </ol>
               <div class="clips clips-1 reveal"><figure class="clip"><video src="media/ng-intro.mp4" poster="img/ng-intro.webp" muted loop playsinline preload="none" aria-label="In-engine capture of the intro. The team name in tire tracks, then W-Dawg's cyan car circles the Nitro Guzzler logo as it settles on the white void."></video><figcaption><b>In engine</b> The intro, during my last polish push. The team name, then W-Dawg circles the logo as it lands.</figcaption></figure></div>
@@ -1978,6 +1980,10 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
 </script>
 
 <script>
+  (() => { const cs = [...document.querySelectorAll('#case-nitro-guzzler .chapter')];
+    cs.forEach((c, i) => { if (!i) return; const p = getComputedStyle(cs[i-1]).getPropertyValue('--c-r').trim();
+      const n = getComputedStyle(c).getPropertyValue('--c-r').trim(); if (p && p.toLowerCase() !== n.toLowerCase()) { c.style.setProperty('--c-p', p); c.classList.add('has-drip'); } }); })();
+
 (() => {
   const root = document.documentElement;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
