@@ -994,48 +994,74 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
 .ie-tv .tv-set{display:block;background:#0B0B0C;padding:clamp(.4rem,1.2vw,.7rem);border-radius:16px;box-shadow:5px 5px 0 #fff,5px 5px 0 2px #0B0B0C}
 .ie-tv video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:9px;background:#fff}
 .ie-link{position:relative;height:clamp(6.5rem,12vw,9rem);display:grid;place-items:center;pointer-events:none}
-.ie-link>svg{width:5.6rem;height:6.2rem;overflow:visible;--r:-52deg;transform:rotate(var(--r))}
-.ie-link.to-l>svg{--r:52deg}
-.ie-bolt polygon{fill:var(--lc,#FFFF00);stroke:#0B0B0C;stroke-width:5;stroke-linejoin:round;paint-order:stroke}
-.ie-cone path{stroke:#0B0B0C;stroke-width:4}
-.ie-link>img{width:12rem;height:auto;max-height:none;filter:drop-shadow(4px 4px 0 var(--lc,#FFFF00))}
-.ie-link.ie-curve>img{transform:rotate(28deg)}
-.ie-link.to-l.ie-curve>img{transform:scaleX(-1) rotate(28deg)}
-.ie-link.ie-drip>img{width:4.6rem;transform:rotate(140deg)}
-.ie-link.to-l.ie-drip>img{transform:rotate(-140deg)}
 .ie-lab{position:absolute;left:50%;top:50%;transform:translate(3.4rem,-50%);font-family:var(--font-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;background:#fff;color:#0B0B0C;border:2px solid #0B0B0C;padding:.2rem .5rem;white-space:nowrap;box-shadow:3px 3px 0 #0B0B0C}
 @media (max-width:760px){
   .ie-step{grid-template-columns:minmax(0,1fr);gap:.8rem}
   .ie-step.ie-r .ie-tv{order:0}
   .ie-link{height:7rem}
-  .ie-link>svg{width:4.4rem;height:5rem}
   .ie-lab{left:auto;right:0;transform:translateY(-50%);font-size:.62rem;letter-spacing:.1em}
-  .ie-link>svg,.ie-link.to-l>svg{--r:0deg}
-  .ie-link.ie-curve>img,.ie-link.to-l.ie-curve>img{transform:rotate(90deg);width:6rem}
-  .ie-link.ie-drip>img,.ie-link.to-l.ie-drip>img{transform:rotate(180deg)}
 }
-/* early settings, clickable */
-.ss{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;max-width:40rem;margin:1rem 0 1.75rem}
-.ss-t{position:relative;aspect-ratio:1;padding:0;border:2px solid #0B0B0C;border-radius:4px;background:#fff;cursor:pointer;overflow:hidden;box-shadow:4px 4px 0 #0B0B0C;transition:transform .15s var(--ease),box-shadow .15s var(--ease)}
-.ss-t img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity .2s var(--ease)}
-.ss-t .ss-on{opacity:0}
-.ss-t span{position:absolute;left:.5rem;bottom:.5rem;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:#fff;color:#0B0B0C;border:2px solid #0B0B0C;padding:.15rem .45rem}
-.ss-t:hover .ss-on,.ss-t:focus-visible .ss-on,.ss-t[aria-pressed="true"] .ss-on{opacity:1}
-.ss-t:hover .ss-off,.ss-t:focus-visible .ss-off,.ss-t[aria-pressed="true"] .ss-off{opacity:0}
-.ss-t[aria-pressed="true"]{box-shadow:5px 5px 0 var(--tc),5px 5px 0 2px #0B0B0C;transform:translate(-2px,-2px)}
-.ss-t[aria-pressed="true"] span{background:var(--tc)}
-.ss-t:focus-visible{outline:3px solid #0B0B0C;outline-offset:3px}
-/* visual settings: layers, then before and after */
-.vs-layers,.vs-ba{display:grid;align-items:center;gap:.6rem;margin:1rem 0 1.5rem}
-.vs-layers{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr)}
-.vs-ba{grid-template-columns:minmax(0,1fr) 3rem minmax(0,1fr);align-items:start}.vs-ba .vs-arrow{margin-top:3.2rem}
-.vs-layers figure,.vs-ba figure{margin:0;display:grid;gap:.35rem}
-.vs-layers img,.vs-ba img{width:100%;height:auto;display:block;background:#fff;border:2px solid #0B0B0C;border-radius:4px}
-.vs-layers figcaption{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase}
-.vs-ba figcaption{font-size:.85rem}.vs-ba figcaption b{display:block;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase}
-.vs-op{font-family:var(--font-mono);font-weight:700;font-size:1.4rem}
-.vs-arrow svg{width:100%;height:auto;display:block}
-@media (max-width:700px){.vs-layers{grid-template-columns:minmax(0,1fr)}.vs-op{justify-self:center;line-height:1}.vs-ba{grid-template-columns:minmax(0,1fr)}.vs-arrow,.vs-ba .vs-arrow{justify-self:center;width:2.6rem;margin:0;transform:rotate(90deg)}}
+/* settings, four ways */
+.sx-wrap{display:grid;gap:1rem;margin:1rem 0 1.75rem}
+.sx-stage{position:relative;aspect-ratio:4/3;border:3px solid #0B0B0C;border-radius:6px;background:#fff;overflow:hidden}
+.sx-sheet{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.32;filter:grayscale(1)}
+.sx{position:absolute;width:30%;aspect-ratio:1;padding:0;cursor:pointer;background:color-mix(in srgb,var(--c) 10%,#fff);border:4px solid var(--c);outline:2px solid #0B0B0C;border-radius:4px;overflow:hidden;opacity:.85;transition:opacity .2s var(--ease),transform .2s var(--ease),box-shadow .2s var(--ease)}
+.sx.q-ul{left:3%;top:4%}.sx.q-ur{right:3%;top:4%}.sx.q-dl{left:3%;bottom:4%}.sx.q-dr{right:3%;bottom:4%}
+.sx img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity .2s var(--ease)}
+.sx .sx-on{opacity:0}
+.sx-word{position:absolute;left:.4rem;right:.4rem;bottom:.4rem;font-family:var(--font-display);font-weight:800;font-style:italic;font-size:clamp(.85rem,1.6vw,1.15rem);line-height:1.1;color:#0B0B0C;background:#fff;border:2px solid #0B0B0C;padding:.2rem .4rem;text-align:left}
+.sx-stage[data-on="visual"] .sx[data-k="visual"],.sx-stage[data-on="access"] .sx[data-k="access"],.sx-stage[data-on="return"] .sx[data-k="return"],.sx-stage[data-on="audio"] .sx[data-k="audio"]{opacity:1;z-index:1;transform:scale(1.04);box-shadow:6px 6px 0 var(--c),6px 6px 0 2px #0B0B0C}
+.sx-stage[data-on="visual"] .sx[data-k="visual"] .sx-on,.sx-stage[data-on="access"] .sx[data-k="access"] .sx-on,.sx-stage[data-on="return"] .sx[data-k="return"] .sx-on,.sx-stage[data-on="audio"] .sx[data-k="audio"] .sx-on{opacity:1}
+.sx-stage[data-on="visual"] .sx[data-k="visual"] .sx-off,.sx-stage[data-on="access"] .sx[data-k="access"] .sx-off,.sx-stage[data-on="return"] .sx[data-k="return"] .sx-off,.sx-stage[data-on="audio"] .sx[data-k="audio"] .sx-off{opacity:0}
+.sx-stage[data-on="visual"] .sx[data-k="visual"] .sx-word,.sx-stage[data-on="access"] .sx[data-k="access"] .sx-word,.sx-stage[data-on="return"] .sx[data-k="return"] .sx-word,.sx-stage[data-on="audio"] .sx[data-k="audio"] .sx-word{background:var(--c)}
+.sx:focus-visible{outline:3px solid #0B0B0C;outline-offset:3px}
+.sx-side{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:.9rem;align-items:start}
+.sx-keys{display:grid;grid-template-columns:1fr 1fr;gap:.45rem}
+.sx-key{font:inherit;font-family:var(--font-display);font-weight:800;font-style:italic;font-size:1.05rem;line-height:1.15;text-align:left;padding:.5rem .7rem;cursor:pointer;background:#fff;color:#0B0B0C;border:2px solid #0B0B0C;border-left:7px solid var(--c);border-radius:4px}
+.sx-key[aria-pressed="true"]{background:var(--c)}
+.sx-panel{background:#fff;border:2px solid #0B0B0C;border-radius:4px;padding:1rem 1.1rem}
+.sx-std{font-family:var(--font-mono);font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;margin:0}
+@media (max-width:760px){.sx-side{grid-template-columns:minmax(0,1fr)}.sx-word{font-size:.64rem;padding:.15rem .3rem}.sx{width:40%}.sx-stage{aspect-ratio:1}}
+/* visual settings: layers with in-engine popups, then a slider over the hood */
+.vs-layers{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:.6rem;margin:1rem 0 1.75rem}
+.vs-layers figure{margin:0;display:grid;gap:.35rem;position:relative;cursor:help}
+.vs-layers img{width:100%;height:auto;display:block;background:#fff;border:2px solid #0B0B0C;border-radius:4px;transition:box-shadow .15s var(--ease),transform .15s var(--ease)}
+.vs-layers figure:hover img,.vs-layers figure:focus-visible img{transform:translate(-2px,-2px);box-shadow:5px 5px 0 #00FFFF,5px 5px 0 2px #0B0B0C}
+.vs-layers figure:focus-visible{outline:3px solid #0B0B0C;outline-offset:4px}
+.vs-layers figcaption{font-family:var(--font-mono);font-size:.85rem;letter-spacing:.08em;text-transform:uppercase}
+.vs-op{font-family:var(--font-mono);font-weight:700;font-size:1.6rem}
+.pop{position:absolute;z-index:5;left:50%;bottom:calc(100% + .6rem);width:min(17rem,70vw);transform:translate(-50%,.4rem);opacity:0;visibility:hidden;pointer-events:none;background:#fff;color:#0B0B0C;border:2px solid #0B0B0C;border-radius:4px;box-shadow:4px 4px 0 #00FFFF,4px 4px 0 2px #0B0B0C;padding:.6rem .75rem;font-family:var(--font-body);font-size:1rem;line-height:1.4;text-align:left;text-transform:none;letter-spacing:0;font-weight:400;transition:opacity .15s var(--ease),transform .15s var(--ease)}
+.pop b{display:block;font-family:var(--font-mono);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.2rem}
+.vs-pop:hover .pop,.vs-pop:focus-visible .pop,.vs-pin:hover .pop,.vs-pin:focus-visible .pop{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.vs-cmp{margin:1rem 0 1.75rem;display:grid;gap:.6rem}
+.vs-frame{position:relative;border:3px solid #0B0B0C;border-radius:6px;aspect-ratio:1038/580;background:#fff}
+.vs-frame>img,.vs-after img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:3px}
+.vs-after{position:absolute;inset:0;clip-path:inset(0 0 0 var(--pos))}
+.vs-line{position:absolute;top:0;bottom:0;left:var(--pos);width:4px;margin-left:-2px;background:#00FFFF;box-shadow:0 0 0 2px #0B0B0C;pointer-events:none}
+.vs-tag{position:absolute;top:.5rem;font-family:var(--font-mono);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;background:#fff;border:2px solid #0B0B0C;padding:.1rem .45rem}
+.vs-tag-b{left:.5rem}.vs-tag-a{right:.5rem}
+.vs-pin{position:absolute;z-index:3;width:2.2rem;height:2.2rem;margin:-1.1rem 0 0 -1.1rem;border-radius:50%;padding:0;cursor:help;background:#00FFFF;color:#0B0B0C;border:3px solid #0B0B0C;font-family:var(--font-mono);font-weight:700;font-size:1rem;box-shadow:3px 3px 0 #0B0B0C}
+.vs-pin:focus-visible{outline:3px solid #0B0B0C;outline-offset:3px}
+.vs-range{width:100%;accent-color:#0B0B0C;height:1.6rem;cursor:ew-resize}
+.vs-note{font-size:1rem;margin:0}
+@media (max-width:700px){.vs-layers{grid-template-columns:minmax(0,1fr)}.vs-op{justify-self:center;line-height:1}.pop{bottom:auto;top:calc(100% + .5rem)}}
+/* walkthrough: each step boxed in its color; clean icon arrows (Tabler Icons, MIT) */
+.ie-step{border:3px solid #0B0B0C;border-radius:6px;background:color-mix(in srgb,var(--sc) 12%,#fff);box-shadow:7px 7px 0 var(--sc),7px 7px 0 3px #0B0B0C;padding:clamp(.9rem,2.5vw,1.5rem)}
+.ie-ico{width:5.4rem;height:5.4rem;overflow:visible;transform:rotate(var(--r,0deg)) scaleX(var(--fx,1))}
+.ie-fill path{fill:var(--lc);stroke:#0B0B0C;stroke-width:1.5;stroke-linejoin:round;paint-order:stroke}
+.ie-line path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ie-line .k{stroke:#0B0B0C;stroke-width:5.2}.ie-line .c{stroke:var(--lc);stroke-width:2.6}
+.ie-link.ie-bolt.to-r .ie-ico{--fx:-1}
+.ie-link.ie-arc .ie-ico{--r:180deg}.ie-link.ie-arc.to-r .ie-ico{--fx:-1}
+.ie-link.ie-lines.to-r .ie-ico{--r:-35deg}.ie-link.ie-lines.to-l .ie-ico{--r:35deg}
+@media (max-width:760px){.ie-ico{width:4.4rem;height:4.4rem}.ie-link .ie-ico{--r:0deg!important}.ie-link.ie-arc .ie-ico{--r:180deg!important}}
+/* bigger, easier text on Nitro Guzzler */
+#case-nitro-guzzler .chapter p,#case-nitro-guzzler .pts li,#case-nitro-guzzler .why dd,#case-nitro-guzzler .compass-panel p:not(.vx-color):not(.sx-std){font-size:1.18rem;line-height:1.6}
+#case-nitro-guzzler .chapter p.lede{font-size:1.35rem}
+#case-nitro-guzzler .notes li,#case-nitro-guzzler .ie-txt p,#case-nitro-guzzler .flow li,#case-nitro-guzzler p.small,#case-nitro-guzzler .team-card p,#case-nitro-guzzler .status-line{font-size:1.1rem;line-height:1.55}
+#case-nitro-guzzler .ie-txt h3{font-size:1.5rem}
+#case-nitro-guzzler figcaption{font-size:1rem;line-height:1.5}
+#case-nitro-guzzler figcaption b,#case-nitro-guzzler .why dt,#case-nitro-guzzler .n,#case-nitro-guzzler .ie-lab,#case-nitro-guzzler .toc a,#case-nitro-guzzler .vx-color,#case-nitro-guzzler .t-tag,#case-nitro-guzzler .team-role,#case-nitro-guzzler .hud-label,#case-nitro-guzzler .cl-go,#case-nitro-guzzler .eyebrow{font-size:.85rem}
 /* paint drips on the rail: the last section's color runs down into the next one, just before its arrow */
 #case-nitro-guzzler .chapter.has-drip::before{top:-5.2rem}
 #case-nitro-guzzler .chapter.has-drip::after{content:"";position:absolute;z-index:1;left:1.84rem;width:.73rem;top:-5.2rem;height:3.2rem;background:var(--c-p);pointer-events:none;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H20V12C20 16 19 30 16.5 30S13 22 13 17 11 13 9 15 8 24 5.5 24 3 15 0 13Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H20V12C20 16 19 30 16.5 30S13 22 13 17 11 13 9 15 8 24 5.5 24 3 15 0 13Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat}
@@ -1533,23 +1559,42 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
                   <figcaption>With drawovers. Visual, Gameplay + Accessibility, Audio and Rewind each get their own spot.</figcaption>
                 </figure>
               </div>
-              <h3>Early settings, clickable</h3>
-              <p>Before settings moved onto the car, I painted each page as its own piece. <em>Pick one</em> to light it up the way it would in game. The others drop their color, so the selected page stands out.</p>
-              <div class="ss reveal" role="group" aria-label="Early settings pages. Pick one to select it."><button type="button" class="ss-t" style="--tc:#00FFFF" aria-pressed="true"><img class="ss-off" src="img/ng-set-visual-off.webp" alt="" width="560" height="560" loading="lazy"><img class="ss-on" src="img/ng-set-visual-on.webp" alt="" width="560" height="560" loading="lazy"><span>Visual</span></button><button type="button" class="ss-t" style="--tc:#FF00FF" aria-pressed="false"><img class="ss-off" src="img/ng-set-access-off.webp" alt="" width="560" height="560" loading="lazy"><img class="ss-on" src="img/ng-set-access-on.webp" alt="" width="560" height="560" loading="lazy"><span>Gameplay + Accessibility</span></button><button type="button" class="ss-t" style="--tc:#FFFF00" aria-pressed="false"><img class="ss-off" src="img/ng-set-audio-off.webp" alt="" width="560" height="560" loading="lazy"><img class="ss-on" src="img/ng-set-audio-on.webp" alt="" width="560" height="560" loading="lazy"><span>Audio</span></button><button type="button" class="ss-t" style="--tc:#00FF00" aria-pressed="false"><img class="ss-off" src="img/ng-set-return-off.webp" alt="" width="560" height="560" loading="lazy"><img class="ss-on" src="img/ng-set-return-on.webp" alt="" width="560" height="560" loading="lazy"><span>Return</span></button></div>
+              <h3>Settings, four ways</h3>
+              <p>I laid the four new settings pages over the original paintover sheet, one in each direction. Every page keeps its name on screen whether it's lit or not. <em>Hover one</em> and it wakes up in color, just like the main menu, while the rest stay grey.</p>
+              <div class="sx-wrap reveal">
+                <div class="sx-stage" data-on="visual">
+                  <img class="sx-sheet" src="img/ng-settings-labels.webp" width="1600" height="944" loading="lazy" alt="">
+                  <button type="button" class="sx q-ul" data-k="visual" style="--c:#00FFFF" aria-label="Visual"><img class="sx-off" src="img/ng-set-visual-off.webp" alt="" width="560" height="560" loading="lazy"><img class="sx-on" src="img/ng-set-visual-on.webp" alt="" width="560" height="560" loading="lazy"><span class="sx-word">Visual</span></button><button type="button" class="sx q-ur" data-k="access" style="--c:#FF00FF" aria-label="Gameplay + Accessibility"><img class="sx-off" src="img/ng-set-access-off.webp" alt="" width="560" height="560" loading="lazy"><img class="sx-on" src="img/ng-set-access-on.webp" alt="" width="560" height="560" loading="lazy"><span class="sx-word">Gameplay + Accessibility</span></button><button type="button" class="sx q-dl" data-k="return" style="--c:#00FF00" aria-label="Return"><img class="sx-off" src="img/ng-set-return-off.webp" alt="" width="560" height="560" loading="lazy"><img class="sx-on" src="img/ng-set-return-on.webp" alt="" width="560" height="560" loading="lazy"><span class="sx-word">Return</span></button><button type="button" class="sx q-dr" data-k="audio" style="--c:#FFFF00" aria-label="Audio"><img class="sx-off" src="img/ng-set-audio-off.webp" alt="" width="560" height="560" loading="lazy"><img class="sx-on" src="img/ng-set-audio-on.webp" alt="" width="560" height="560" loading="lazy"><span class="sx-word">Audio</span></button>
+                </div>
+                <div class="sx-side">
+                  <div class="sx-keys" role="group" aria-label="Settings pages"><button type="button" class="sx-key" data-k="visual" style="--c:#00FFFF" aria-pressed="true">Visual</button><button type="button" class="sx-key" data-k="access" style="--c:#FF00FF" aria-pressed="false">Gameplay + Accessibility</button><button type="button" class="sx-key" data-k="return" style="--c:#00FF00" aria-pressed="false">Return</button><button type="button" class="sx-key" data-k="audio" style="--c:#FFFF00" aria-pressed="false">Audio</button></div>
+                  <div class="compass-panel sx-panel" aria-live="polite">
+                    <h3 id="sx-name">Visual</h3>
+                    <p class="sx-std" id="sx-std">Up left · cyan 00FFFF</p>
+                    <p id="sx-text">On the hood. Display settings such as monitor size. Hovering the hood pops the Visual title up off the car.</p>
+                  </div>
+                </div>
+              </div>
               <div class="clips clips-1 reveal"><figure class="clip"><video src="media/ng-to-settings.mp4" poster="img/ng-to-settings.webp" muted loop playsinline preload="none" aria-label="In-engine capture. The camera cuts to W-Dawg's car, where Settings is spray-painted on the ground in yellow and etched along the car's side, then swings around behind the car."></video><figcaption><b>Into Settings</b> Picking Settings cuts to the car. The word is sprayed on the ground and etched along the side.</figcaption></figure></div>
               <h3>Visual settings, a newer style</h3>
               <p>The Visual page is a <em>newer style</em>. I built it in three layers and placed them on the hood in a drawover. It may get mixed in with the other pages. <strong>The A/B tests will show which way players lean.</strong></p>
               <div class="vs-layers reveal">
-                <figure><img src="img/ng-vs-poke.webp" width="1038" height="580" loading="lazy" alt="Layer one. Black and white concentric rings and circles across the top, with a white swoosh and the word Visual cut out of them."><figcaption>Title</figcaption></figure>
+                <figure class="vs-pop" tabindex="0" aria-describedby="vsp-title"><img src="img/ng-vs-poke.webp" width="1038" height="580" loading="lazy" alt="Layer one. Black and white concentric rings across the top, with a white swoosh and the word Visual cut out of them."><figcaption>Title</figcaption><span class="pop" role="tooltip" id="vsp-title"><b>In engine</b>Pokes up off the hood when you hover it, so you know the hood is live.</span></figure>
                 <span class="vs-op" aria-hidden="true">+</span>
-                <figure><img src="img/ng-vs-window.webp" width="1038" height="580" loading="lazy" alt="Layer two. A black ink splat with spray lines, halftone dots and rings, with a clean white rectangle cut out of the middle for the options."><figcaption>Window</figcaption></figure>
+                <figure class="vs-pop" tabindex="0" aria-describedby="vsp-window"><img src="img/ng-vs-window.webp" width="1038" height="580" loading="lazy" alt="Layer two. A black ink splat with spray lines, halftone dots and rings, with a clean white rectangle cut out of the middle for the options."><figcaption>Window</figcaption><span class="pop" role="tooltip" id="vsp-window"><b>In engine</b>Opens when you pick the hood. The white cut-out is where the Visual options list sits.</span></figure>
                 <span class="vs-op" aria-hidden="true">+</span>
-                <figure><img src="img/ng-vs-hood.webp" width="1038" height="580" loading="lazy" alt="Layer three. A black panel of oval halftone dots and splatter with sparkles, the word Settings in white script and black rings below."><figcaption>Hood art</figcaption></figure>
+                <figure class="vs-pop" tabindex="0" aria-describedby="vsp-hood"><img src="img/ng-vs-hood.webp" width="1038" height="580" loading="lazy" alt="Layer three. A black panel of oval halftone dots and splatter with sparkles, the word Settings in white script and black rings below."><figcaption>Hood art</figcaption><span class="pop" role="tooltip" id="vsp-hood"><b>In engine</b>Stays etched on the hood. It's the resting state you see before any hover.</span></figure>
               </div>
-              <div class="vs-ba reveal">
-                <figure><img src="img/ng-vs-pre.webp" width="1038" height="580" loading="lazy" alt="In-editor view looking down at W-Dawg's cyan hood before the drawover, with the hood's own stripe and heart decal."><figcaption><b>Before</b> The bare hood in the editor.</figcaption></figure>
-                <span class="vs-arrow" aria-hidden="true"><svg viewBox="0 0 60 40" focusable="false"><path d="M4 20 H38 M30 6 L50 20 L30 34" fill="none" stroke="#0B0B0C" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 20 H38 M30 6 L50 20 L30 34" fill="none" stroke="#00FFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                <figure><img src="img/ng-vs-drawover.webp" width="1038" height="580" loading="lazy" alt="The three layers stacked over the hood in the editor: rings and circles, the Visual title, the ink window, and the Settings script with sparkles, shown mirrored as the camera sees them."><figcaption><b>After</b> The three layers drawn over the hood.</figcaption></figure>
+              <div class="vs-cmp reveal" style="--pos:25%">
+                <div class="vs-frame">
+                  <img src="img/ng-vs-pre.webp" width="1038" height="580" loading="lazy" alt="Before. In-editor view looking down at W-Dawg's cyan hood, with the hood's own stripe and heart decal.">
+                  <div class="vs-after"><img src="img/ng-vs-drawover.webp" width="1038" height="580" loading="lazy" alt="After. The three layers stacked over the hood: rings and circles, the Visual title, the ink window, and the Settings script with sparkles, shown mirrored as the camera sees them."></div>
+                  <span class="vs-line" aria-hidden="true"></span>
+                  <span class="vs-tag vs-tag-b" aria-hidden="true">Before</span><span class="vs-tag vs-tag-a" aria-hidden="true">After</span>
+                  <button type="button" class="vs-pin" style="left:60%;top:24%" aria-describedby="vspin-title"><span aria-hidden="true">1</span><span class="sr-only">Title</span><span class="pop" role="tooltip" id="vspin-title"><b>Title</b>Pokes up off the hood when you hover it, so you know the hood is live.</span></button><button type="button" class="vs-pin" style="left:40%;top:72%" aria-describedby="vspin-window"><span aria-hidden="true">2</span><span class="sr-only">Window</span><span class="pop" role="tooltip" id="vspin-window"><b>Window</b>Opens when you pick the hood. The white cut-out is where the Visual options list sits.</span></button><button type="button" class="vs-pin" style="left:66%;top:58%" aria-describedby="vspin-hood"><span aria-hidden="true">3</span><span class="sr-only">Hood art</span><span class="pop" role="tooltip" id="vspin-hood"><b>Hood art</b>Stays etched on the hood. It's the resting state you see before any hover.</span></button>
+                </div>
+                <input class="vs-range" type="range" min="0" max="100" value="25" aria-label="Slide between the bare hood and the drawover">
+                <p class="vs-note">Drag to compare the bare hood with the drawover. Hover the numbers to see what each layer does in engine.</p>
               </div>
             </section>
 
@@ -1559,15 +1604,15 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
               <p>Each clip sits beside the step it shows. The arrows are the transitions, labeled with what moves you along.</p>
               <ol class="ie reveal" aria-label="The first minute, step by step">
 <li class="ie-step" style="--sc:#00FFFF"><div class="ie-tv"><svg class="ie-burst" viewBox="-6 -6 212 142" aria-hidden="true" focusable="false"><polygon points="182.9,65.0 196.8,76.6 186.3,86.4 192.6,101.7 174.9,108.7 170.0,124.3 139.1,115.3 128.7,129.6 107.4,115.8 90.7,129.1 77.3,116.0 52.9,125.6 40.8,115.2 8.0,118.7 22.2,95.8 2.9,89.1 13.5,75.3 -6.4,65.0 14.1,54.7 0.8,40.4 12.3,30.3 16.2,16.1 37.1,11.7 51.7,2.9 77.1,13.4 91.1,3.3 107.7,12.1 129.8,-2.0 139.8,13.8 171.8,4.2 176.0,20.7 196.1,26.9 185.1,43.9 195.7,53.5"/></svg><span class="tv-set"><video src="media/ng-ie-intro.mp4" poster="img/ng-ie-intro.webp" muted loop playsinline preload="none" aria-label="In-engine capture. The Grease Monkeys name written in black tire tracks on the white floor, then the camera drifts over the Nitro Guzzler logo as W-Dawg drives past."></video></span></div><div class="ie-txt"><span class="n">01</span><h3>Intro</h3><p>The team name lands in tire tracks. Then the camera drifts across the logo as W-Dawg tears past. It plays once, and holding a button skips it.</p></div></li>
-<li class="ie-link ie-bolt to-r" style="--lc:#FF00FF" aria-hidden="true"><svg class="ie-bolt" viewBox="-30 -6 120 132" aria-hidden="true" focusable="false"><g class="ie-cone" fill="none" stroke-linecap="round"><path d="M10 6 Q30 18 50 6"/><path d="M0 -2 Q30 22 60 -2"/></g><polygon points="38,0 12,52 30,52 18,84 4,84 30,122 56,84 41,84 56,42 37,42 54,0"/></svg><span class="ie-lab">Automatic</span></li>
+<li class="ie-link ie-bolt to-r" style="--lc:#FF00FF" aria-hidden="true"><svg class="ie-ico ie-fill" viewBox="-1 -1 26 26" aria-hidden="true" focusable="false"><path d="M13 2l.018 .001l.016 .001l.083 .005l.011 .002h.011l.038 .009l.052 .008l.016 .006l.011 .001l.029 .011l.052 .014l.019 .009l.015 .004l.028 .014l.04 .017l.021 .012l.022 .01l.023 .015l.031 .017l.034 .024l.018 .011l.013 .012l.024 .017l.038 .034l.022 .017l.008 .01l.014 .012l.036 .041l.026 .027l.006 .009c.12 .147 .196 .322 .218 .513l.001 .012l.002 .041l.004 .064v6h5a1 1 0 0 1 .868 1.497l-.06 .091l-8 11c-.568 .783 -1.808 .38 -1.808 -.588v-6h-5a1 1 0 0 1 -.868 -1.497l.06 -.091l8 -11l.01 -.013l.018 -.024l.033 -.038l.018 -.022l.009 -.008l.013 -.014l.04 -.036l.028 -.026l.008 -.006a1 1 0 0 1 .402 -.199l.011 -.001l.027 -.005l.074 -.013l.011 -.001l.041 -.002z"/></svg><span class="ie-lab">Automatic</span></li>
 <li class="ie-step ie-r" style="--sc:#FF00FF"><div class="ie-tv"><svg class="ie-burst" viewBox="-6 -6 212 142" aria-hidden="true" focusable="false"><polygon points="182.9,65.0 196.8,76.6 186.3,86.4 192.6,101.7 174.9,108.7 170.0,124.3 139.1,115.3 128.7,129.6 107.4,115.8 90.7,129.1 77.3,116.0 52.9,125.6 40.8,115.2 8.0,118.7 22.2,95.8 2.9,89.1 13.5,75.3 -6.4,65.0 14.1,54.7 0.8,40.4 12.3,30.3 16.2,16.1 37.1,11.7 51.7,2.9 77.1,13.4 91.1,3.3 107.7,12.1 129.8,-2.0 139.8,13.8 171.8,4.2 176.0,20.7 196.1,26.9 185.1,43.9 195.7,53.5"/></svg><span class="tv-set"><video src="media/ng-ie-ready.mp4" poster="img/ng-ie-ready.webp" muted loop playsinline preload="none" aria-label="In-engine capture. W-Dawg's cyan car circles the Nitro Guzzler logo on the white void."></video></span></div><div class="ie-txt"><span class="n">02</span><h3>Ready loop</h3><p>W-Dawg circles the logo and waits. Nothing is asked of the player yet.</p></div></li>
-<li class="ie-link ie-curve to-l" style="--lc:#FFFF00" aria-hidden="true"><img class="ie-gr" src="img/ng-gr-curve.webp" alt="" width="700" height="525" loading="lazy"><span class="ie-lab">Any key</span></li>
+<li class="ie-link ie-arc to-l" style="--lc:#FFFF00" aria-hidden="true"><svg class="ie-ico ie-line" viewBox="-1 -1 26 26" aria-hidden="true" focusable="false"><path class="k" d="M10 7l4 -4l4 4"/><path class="k" d="M14 3v4.394a6.737 6.737 0 0 1 -3 5.606a6.737 6.737 0 0 0 -3 5.606v2.394"/><path class="c" d="M10 7l4 -4l4 4"/><path class="c" d="M14 3v4.394a6.737 6.737 0 0 1 -3 5.606a6.737 6.737 0 0 0 -3 5.606v2.394"/></svg><span class="ie-lab">Any key</span></li>
 <li class="ie-step" style="--sc:#FFFF00"><div class="ie-tv"><svg class="ie-burst" viewBox="-6 -6 212 142" aria-hidden="true" focusable="false"><polygon points="182.9,65.0 196.8,76.6 186.3,86.4 192.6,101.7 174.9,108.7 170.0,124.3 139.1,115.3 128.7,129.6 107.4,115.8 90.7,129.1 77.3,116.0 52.9,125.6 40.8,115.2 8.0,118.7 22.2,95.8 2.9,89.1 13.5,75.3 -6.4,65.0 14.1,54.7 0.8,40.4 12.3,30.3 16.2,16.1 37.1,11.7 51.7,2.9 77.1,13.4 91.1,3.3 107.7,12.1 129.8,-2.0 139.8,13.8 171.8,4.2 176.0,20.7 196.1,26.9 185.1,43.9 195.7,53.5"/></svg><span class="tv-set"><video src="media/ng-ie-anykey.mp4" poster="img/ng-ie-anykey.webp" muted loop playsinline preload="none" aria-label="In-engine capture. The view pulls back from the logo and the main menu options appear around it in grey."></video></span></div><div class="ie-txt"><span class="n">03</span><h3>Any key</h3><p>One press pulls the view back. The four options paint in around the logo.</p></div></li>
-<li class="ie-link ie-bolt to-r" style="--lc:#00FF00" aria-hidden="true"><svg class="ie-bolt" viewBox="-30 -6 120 132" aria-hidden="true" focusable="false"><g class="ie-cone" fill="none" stroke-linecap="round"><path d="M10 6 Q30 18 50 6"/><path d="M0 -2 Q30 22 60 -2"/></g><polygon points="38,0 12,52 30,52 18,84 4,84 30,122 56,84 41,84 56,42 37,42 54,0"/></svg><span class="ie-lab">Automatic</span></li>
+<li class="ie-link ie-bolt to-r" style="--lc:#00FF00" aria-hidden="true"><svg class="ie-ico ie-fill" viewBox="-1 -1 26 26" aria-hidden="true" focusable="false"><path d="M13 2l.018 .001l.016 .001l.083 .005l.011 .002h.011l.038 .009l.052 .008l.016 .006l.011 .001l.029 .011l.052 .014l.019 .009l.015 .004l.028 .014l.04 .017l.021 .012l.022 .01l.023 .015l.031 .017l.034 .024l.018 .011l.013 .012l.024 .017l.038 .034l.022 .017l.008 .01l.014 .012l.036 .041l.026 .027l.006 .009c.12 .147 .196 .322 .218 .513l.001 .012l.002 .041l.004 .064v6h5a1 1 0 0 1 .868 1.497l-.06 .091l-8 11c-.568 .783 -1.808 .38 -1.808 -.588v-6h-5a1 1 0 0 1 -.868 -1.497l.06 -.091l8 -11l.01 -.013l.018 -.024l.033 -.038l.018 -.022l.009 -.008l.013 -.014l.04 -.036l.028 -.026l.008 -.006a1 1 0 0 1 .402 -.199l.011 -.001l.027 -.005l.074 -.013l.011 -.001l.041 -.002z"/></svg><span class="ie-lab">Automatic</span></li>
 <li class="ie-step ie-r" style="--sc:#00FF00"><div class="ie-tv"><svg class="ie-burst" viewBox="-6 -6 212 142" aria-hidden="true" focusable="false"><polygon points="182.9,65.0 196.8,76.6 186.3,86.4 192.6,101.7 174.9,108.7 170.0,124.3 139.1,115.3 128.7,129.6 107.4,115.8 90.7,129.1 77.3,116.0 52.9,125.6 40.8,115.2 8.0,118.7 22.2,95.8 2.9,89.1 13.5,75.3 -6.4,65.0 14.1,54.7 0.8,40.4 12.3,30.3 16.2,16.1 37.1,11.7 51.7,2.9 77.1,13.4 91.1,3.3 107.7,12.1 129.8,-2.0 139.8,13.8 171.8,4.2 176.0,20.7 196.1,26.9 185.1,43.9 195.7,53.5"/></svg><span class="tv-set"><video src="media/ng-ie-menu.mp4" poster="img/ng-ie-menu.webp" muted loop playsinline preload="none" aria-label="In-engine capture of the main menu. Prep Ride lights up cyan, Pit Crew magenta, Credits green and Settings yellow as each is hovered, while the others stay grey."></video></span></div><div class="ie-txt"><span class="n">04</span><h3>Main menu loop</h3><p>Hover an option and it lights up in its racer's color. The rest stay grey, so the choice stands out.</p></div></li>
-<li class="ie-link ie-drip to-l" style="--lc:#00FFFF" aria-hidden="true"><img class="ie-gr" src="img/ng-gr-drip.webp" alt="" width="700" height="525" loading="lazy"><span class="ie-lab">Select Settings</span></li>
+<li class="ie-link ie-lines to-l" style="--lc:#00FFFF" aria-hidden="true"><svg class="ie-ico ie-line" viewBox="-1 -1 26 26" aria-hidden="true" focusable="false"><path class="k" d="M15 12h3.586a1 1 0 0 1 .707 1.707l-6.586 6.586a1 1 0 0 1 -1.414 0l-6.586 -6.586a1 1 0 0 1 .707 -1.707h3.586v-3h6v3"/><path class="k" d="M15 3h-6"/><path class="k" d="M15 6h-6"/><path class="c" d="M15 12h3.586a1 1 0 0 1 .707 1.707l-6.586 6.586a1 1 0 0 1 -1.414 0l-6.586 -6.586a1 1 0 0 1 .707 -1.707h3.586v-3h6v3"/><path class="c" d="M15 3h-6"/><path class="c" d="M15 6h-6"/></svg><span class="ie-lab">Select Settings</span></li>
 <li class="ie-step" style="--sc:#00FFFF"><div class="ie-tv"><svg class="ie-burst" viewBox="-6 -6 212 142" aria-hidden="true" focusable="false"><polygon points="182.9,65.0 196.8,76.6 186.3,86.4 192.6,101.7 174.9,108.7 170.0,124.3 139.1,115.3 128.7,129.6 107.4,115.8 90.7,129.1 77.3,116.0 52.9,125.6 40.8,115.2 8.0,118.7 22.2,95.8 2.9,89.1 13.5,75.3 -6.4,65.0 14.1,54.7 0.8,40.4 12.3,30.3 16.2,16.1 37.1,11.7 51.7,2.9 77.1,13.4 91.1,3.3 107.7,12.1 129.8,-2.0 139.8,13.8 171.8,4.2 176.0,20.7 196.1,26.9 185.1,43.9 195.7,53.5"/></svg><span class="tv-set"><video src="media/ng-ie-dive.mp4" poster="img/ng-ie-dive.webp" muted loop playsinline preload="none" aria-label="In-engine capture. The camera follows W-Dawg's car out of the menu across the white floor while a yellow Settings tag is sprayed in the corner."></video></span></div><div class="ie-txt"><span class="n">05</span><h3>Into Settings</h3><p>The camera chases W-Dawg out into the white void, and Settings gets sprayed across the frame.</p></div></li>
-<li class="ie-link ie-bolt to-r" style="--lc:#FF00FF" aria-hidden="true"><svg class="ie-bolt" viewBox="-30 -6 120 132" aria-hidden="true" focusable="false"><g class="ie-cone" fill="none" stroke-linecap="round"><path d="M10 6 Q30 18 50 6"/><path d="M0 -2 Q30 22 60 -2"/></g><polygon points="38,0 12,52 30,52 18,84 4,84 30,122 56,84 41,84 56,42 37,42 54,0"/></svg><span class="ie-lab">Automatic</span></li>
+<li class="ie-link ie-bolt to-r" style="--lc:#FF00FF" aria-hidden="true"><svg class="ie-ico ie-fill" viewBox="-1 -1 26 26" aria-hidden="true" focusable="false"><path d="M13 2l.018 .001l.016 .001l.083 .005l.011 .002h.011l.038 .009l.052 .008l.016 .006l.011 .001l.029 .011l.052 .014l.019 .009l.015 .004l.028 .014l.04 .017l.021 .012l.022 .01l.023 .015l.031 .017l.034 .024l.018 .011l.013 .012l.024 .017l.038 .034l.022 .017l.008 .01l.014 .012l.036 .041l.026 .027l.006 .009c.12 .147 .196 .322 .218 .513l.001 .012l.002 .041l.004 .064v6h5a1 1 0 0 1 .868 1.497l-.06 .091l-8 11c-.568 .783 -1.808 .38 -1.808 -.588v-6h-5a1 1 0 0 1 -.868 -1.497l.06 -.091l8 -11l.01 -.013l.018 -.024l.033 -.038l.018 -.022l.009 -.008l.013 -.014l.04 -.036l.028 -.026l.008 -.006a1 1 0 0 1 .402 -.199l.011 -.001l.027 -.005l.074 -.013l.011 -.001l.041 -.002z"/></svg><span class="ie-lab">Automatic</span></li>
 <li class="ie-step ie-r" style="--sc:#FF00FF"><div class="ie-tv"><svg class="ie-burst" viewBox="-6 -6 212 142" aria-hidden="true" focusable="false"><polygon points="182.9,65.0 196.8,76.6 186.3,86.4 192.6,101.7 174.9,108.7 170.0,124.3 139.1,115.3 128.7,129.6 107.4,115.8 90.7,129.1 77.3,116.0 52.9,125.6 40.8,115.2 8.0,118.7 22.2,95.8 2.9,89.1 13.5,75.3 -6.4,65.0 14.1,54.7 0.8,40.4 12.3,30.3 16.2,16.1 37.1,11.7 51.7,2.9 77.1,13.4 91.1,3.3 107.7,12.1 129.8,-2.0 139.8,13.8 171.8,4.2 176.0,20.7 196.1,26.9 185.1,43.9 195.7,53.5"/></svg><span class="tv-set"><video src="media/ng-ie-car.mp4" poster="img/ng-ie-car.webp" muted loop playsinline preload="none" aria-label="In-engine capture. W-Dawg's car beside a brick block, with Settings sprayed on the ground in yellow and etched along the car's side."></video></span></div><div class="ie-txt"><span class="n">06</span><h3>Settings on the car</h3><p>The camera settles on the car. Each group of settings is etched right onto it.</p></div></li>
               </ol>
             </section>
@@ -2082,8 +2127,20 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
 </script>
 
 <script>
-  document.querySelectorAll('.ss').forEach(g => g.addEventListener('click', e => { const b = e.target.closest('.ss-t'); if (!b) return;
-    g.querySelectorAll('.ss-t').forEach(t => t.setAttribute('aria-pressed', String(t === b))); }));
+  /* settings, four ways: hover or focus wakes a page, like the main menu */
+  const sxInfo = {
+    visual:['Visual','Up left · cyan 00FFFF','On the hood. Display settings such as monitor size. Hovering the hood pops the Visual title up off the car.'],
+    access:['Gameplay + Accessibility','Up right · magenta FF00FF','Along the side of the car. Gameplay and accessibility toggles, like turning the HUD on or off.'],
+    return:['Return','Down left · green 00FF00','On the ground beside the car, so you can see it as the camera whips around. Takes you back to the main menu.'],
+    audio:['Audio','Down right · yellow FFFF00','In the open trunk. Volume for each type of sound.']
+  };
+  const sxStage = document.querySelector('.sx-stage');
+  const sxPick = k => { if (!sxStage || sxStage.dataset.on === k) return; sxStage.dataset.on = k;
+    document.querySelectorAll('.sx-key').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.k === k)));
+    const d = sxInfo[k]; document.getElementById('sx-name').textContent = d[0]; document.getElementById('sx-std').textContent = d[1]; document.getElementById('sx-text').textContent = d[2]; };
+  document.querySelectorAll('.sx,.sx-key').forEach(b => ['pointerenter','focus'].forEach(ev => b.addEventListener(ev, () => sxPick(b.dataset.k))));
+  /* hood drawover slider */
+  document.querySelectorAll('.vs-cmp').forEach(c => { const r = c.querySelector('.vs-range'); r.addEventListener('input', () => c.style.setProperty('--pos', r.value + '%')); });
 
   (() => { const cs = [...document.querySelectorAll('#case-nitro-guzzler .chapter')];
     cs.forEach((c, i) => { if (!i) return; const p = getComputedStyle(cs[i-1]).getPropertyValue('--c-r').trim();
