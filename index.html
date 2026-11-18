@@ -981,6 +981,61 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
 @media (max-width:700px){.flow{column-gap:1.4rem}.flow li{padding:.6rem .7rem;font-size:.8rem}.flow li:nth-child(1){margin-bottom:7.2rem}.flow li:nth-child(3){width:min(100%,7.6rem)}.flow li:nth-child(4){margin-top:2.6rem}
 .flow li.flow-arrow .fa-art{width:15.84rem;height:9.89rem;left:calc(50% - 11.46rem);top:calc(50% - 2.8rem)}
 .flow .fa-auto{width:6.6rem;height:9.8rem;left:calc(50% - 3.3rem);top:calc(100% - 1.2rem)}}
+/* the first minute, in engine: TVs cut out of lightning, linked by bolts and graffiti arrows */
+.ie{list-style:none;margin:2rem 0 0;padding:0;display:grid;gap:0}
+.ie-step{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(1.25rem,4vw,2.5rem);align-items:center}
+.ie-step.ie-r .ie-tv{order:2}
+.ie-txt .n{font-family:var(--font-mono);font-size:.75rem;letter-spacing:.12em;display:inline-block;background:var(--sc);color:#0B0B0C;border:2px solid #0B0B0C;padding:.05rem .4rem;margin-bottom:.4rem}
+.ie-txt h3{margin:.1rem 0 .35rem;font-size:1.25rem}
+.ie-txt p{margin:0;font-size:.95rem}
+.ie-tv{position:relative;isolation:isolate;padding:clamp(.9rem,3vw,1.6rem)}
+.ie-burst{position:absolute;inset:0;width:100%;height:100%;z-index:-1;overflow:visible}
+.ie-burst polygon{fill:var(--sc);stroke:#0B0B0C;stroke-width:3;stroke-linejoin:round}
+.ie-tv .tv-set{display:block;background:#0B0B0C;padding:clamp(.4rem,1.2vw,.7rem);border-radius:16px;box-shadow:5px 5px 0 #fff,5px 5px 0 2px #0B0B0C}
+.ie-tv video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:9px;background:#fff}
+.ie-link{position:relative;height:clamp(6.5rem,12vw,9rem);display:grid;place-items:center;pointer-events:none}
+.ie-link>svg{width:5.6rem;height:6.2rem;overflow:visible;--r:-52deg;transform:rotate(var(--r))}
+.ie-link.to-l>svg{--r:52deg}
+.ie-bolt polygon{fill:var(--lc,#FFFF00);stroke:#0B0B0C;stroke-width:5;stroke-linejoin:round;paint-order:stroke}
+.ie-cone path{stroke:#0B0B0C;stroke-width:4}
+.ie-link>img{width:12rem;height:auto;max-height:none;filter:drop-shadow(4px 4px 0 var(--lc,#FFFF00))}
+.ie-link.ie-curve>img{transform:rotate(28deg)}
+.ie-link.to-l.ie-curve>img{transform:scaleX(-1) rotate(28deg)}
+.ie-link.ie-drip>img{width:4.6rem;transform:rotate(140deg)}
+.ie-link.to-l.ie-drip>img{transform:rotate(-140deg)}
+.ie-lab{position:absolute;left:50%;top:50%;transform:translate(3.4rem,-50%);font-family:var(--font-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;background:#fff;color:#0B0B0C;border:2px solid #0B0B0C;padding:.2rem .5rem;white-space:nowrap;box-shadow:3px 3px 0 #0B0B0C}
+@media (max-width:760px){
+  .ie-step{grid-template-columns:minmax(0,1fr);gap:.8rem}
+  .ie-step.ie-r .ie-tv{order:0}
+  .ie-link{height:7rem}
+  .ie-link>svg{width:4.4rem;height:5rem}
+  .ie-lab{left:auto;right:0;transform:translateY(-50%);font-size:.62rem;letter-spacing:.1em}
+  .ie-link>svg,.ie-link.to-l>svg{--r:0deg}
+  .ie-link.ie-curve>img,.ie-link.to-l.ie-curve>img{transform:rotate(90deg);width:6rem}
+  .ie-link.ie-drip>img,.ie-link.to-l.ie-drip>img{transform:rotate(180deg)}
+}
+/* early settings, clickable */
+.ss{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;max-width:40rem;margin:1rem 0 1.75rem}
+.ss-t{position:relative;aspect-ratio:1;padding:0;border:2px solid #0B0B0C;border-radius:4px;background:#fff;cursor:pointer;overflow:hidden;box-shadow:4px 4px 0 #0B0B0C;transition:transform .15s var(--ease),box-shadow .15s var(--ease)}
+.ss-t img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity .2s var(--ease)}
+.ss-t .ss-on{opacity:0}
+.ss-t span{position:absolute;left:.5rem;bottom:.5rem;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:#fff;color:#0B0B0C;border:2px solid #0B0B0C;padding:.15rem .45rem}
+.ss-t:hover .ss-on,.ss-t:focus-visible .ss-on,.ss-t[aria-pressed="true"] .ss-on{opacity:1}
+.ss-t:hover .ss-off,.ss-t:focus-visible .ss-off,.ss-t[aria-pressed="true"] .ss-off{opacity:0}
+.ss-t[aria-pressed="true"]{box-shadow:5px 5px 0 var(--tc),5px 5px 0 2px #0B0B0C;transform:translate(-2px,-2px)}
+.ss-t[aria-pressed="true"] span{background:var(--tc)}
+.ss-t:focus-visible{outline:3px solid #0B0B0C;outline-offset:3px}
+/* visual settings: layers, then before and after */
+.vs-layers,.vs-ba{display:grid;align-items:center;gap:.6rem;margin:1rem 0 1.5rem}
+.vs-layers{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr)}
+.vs-ba{grid-template-columns:minmax(0,1fr) 3rem minmax(0,1fr);align-items:start}.vs-ba .vs-arrow{margin-top:3.2rem}
+.vs-layers figure,.vs-ba figure{margin:0;display:grid;gap:.35rem}
+.vs-layers img,.vs-ba img{width:100%;height:auto;display:block;background:#fff;border:2px solid #0B0B0C;border-radius:4px}
+.vs-layers figcaption{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase}
+.vs-ba figcaption{font-size:.85rem}.vs-ba figcaption b{display:block;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase}
+.vs-op{font-family:var(--font-mono);font-weight:700;font-size:1.4rem}
+.vs-arrow svg{width:100%;height:auto;display:block}
+@media (max-width:700px){.vs-layers{grid-template-columns:minmax(0,1fr)}.vs-op{justify-self:center;line-height:1}.vs-ba{grid-template-columns:minmax(0,1fr)}.vs-arrow,.vs-ba .vs-arrow{justify-self:center;width:2.6rem;margin:0;transform:rotate(90deg)}}
 /* paint drips on the rail: the last section's color runs down into the next one, just before its arrow */
 #case-nitro-guzzler .chapter.has-drip::before{top:-5.2rem}
 #case-nitro-guzzler .chapter.has-drip::after{content:"";position:absolute;z-index:1;left:1.84rem;width:.73rem;top:-5.2rem;height:3.2rem;background:var(--c-p);pointer-events:none;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H20V12C20 16 19 30 16.5 30S13 22 13 17 11 13 9 15 8 24 5.5 24 3 15 0 13Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H20V12C20 16 19 30 16.5 30S13 22 13 17 11 13 9 15 8 24 5.5 24 3 15 0 13Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat}
@@ -1392,7 +1447,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
         </defs></svg>
         <div class="why-wrap"><dl class="why" aria-label="The reasoning"><div><dt>Goal</dt><dd>Take the main menu I was handed and make it part of the game world.</dd></div><div><dt>Pain points</dt><dd>My first plan, a blended camera over a stack of flat 2D menus, didn't fit the game. Data Tables kept breaking when they pointed at things placed in the level.</dd></div><div><dt>My role</dt><dd>Creative Director, <strong>UI + UX</strong>. I own all of the UI and draw the UI art.</dd></div><div><dt>Decision</dt><dd>Rebuilt it around what the menu really is. One camera director hard cuts between Level Sequences, and buttons sit on 3D surfaces. Structs replaced the Data Table. Plain option names replaced in-world ones, because those cost usability.</dd></div><div><dt>Evidence</dt><dd><a class="why-lead" href="#ng-ab">A/B testing the main menu</a><span class="why-more"><a href="#ng-compass">Menu art, each direction explained</a> · <a href="#ng-garage">Settings paintover</a> · <a href="#ng-build">How it's built</a></span></dd></div><div><dt>Outcome</dt><dd>Level references stopped breaking. Mouse, gamepad and keyboard share one activation path, so one fix covers all three. Adding the three Garage hotspots took three rows of data and no new code.</dd></div></dl><nav class="proc" aria-label="Process"><a href="#ng-void"><b>Journey</b><span>Boot to main menu, step by step</span></a><a href="#ng-garage"><b>Wireframes</b><span>Settings paintover with drawovers</span></a><a href="#ng-compass"><b>Prototype</b><span>Main menu running in engine, each direction explained</span></a><a href="#ng-ab"><b>Testing</b><span>A/B tests on two builds of the menu</span></a></nav></div>
         <div class="case-layout">
-          <nav class="toc" aria-label="Nitro Guzzler sections"><a href="#ng-part">My part</a><a href="#ng-ab">A/B tests</a><a href="#ng-compass">Menu art</a><a href="#ng-garage">Garage</a><a href="#ng-void">White void</a><a href="#ng-goal">Goal</a><a href="#ng-build">How it's built</a><a href="#ng-premise">Premise</a><a href="#ng-time">Timeline</a><a href="#ng-trailer">Trailer</a><a href="#ng-ai">AI use</a><a href="#ng-story">My story</a><a href="#ng-well">What went well</a><a href="#ng-tricky">What was tricky</a><a href="#ng-through">What I worked through</a><a href="#ng-team">The team</a></nav>
+          <nav class="toc" aria-label="Nitro Guzzler sections"><a href="#ng-part">My part</a><a href="#ng-ab">A/B tests</a><a href="#ng-compass">Menu art</a><a href="#ng-garage">Garage</a><a href="#ng-engine">In engine</a><a href="#ng-void">White void</a><a href="#ng-goal">Goal</a><a href="#ng-build">How it's built</a><a href="#ng-premise">Premise</a><a href="#ng-time">Timeline</a><a href="#ng-trailer">Trailer</a><a href="#ng-ai">AI use</a><a href="#ng-story">My story</a><a href="#ng-well">What went well</a><a href="#ng-tricky">What was tricky</a><a href="#ng-through">What I worked through</a><a href="#ng-team">The team</a></nav>
           <div class="chapters">
             <div class="ng-spine" aria-hidden="true"><i class="ng-shaft"></i><i class="ng-head"></i></div>
             <section class="chapter" id="ng-part" aria-labelledby="ng-part-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
@@ -1478,8 +1533,43 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
                   <figcaption>With drawovers. Visual, Gameplay + Accessibility, Audio and Rewind each get their own spot.</figcaption>
                 </figure>
               </div>
+              <h3>Early settings, clickable</h3>
+              <p>Before settings moved onto the car, I painted each page as its own piece. <em>Pick one</em> to light it up the way it would in game. The others drop their color, so the selected page stands out.</p>
+              <div class="ss reveal" role="group" aria-label="Early settings pages. Pick one to select it."><button type="button" class="ss-t" style="--tc:#00FFFF" aria-pressed="true"><img class="ss-off" src="img/ng-set-visual-off.webp" alt="" width="560" height="560" loading="lazy"><img class="ss-on" src="img/ng-set-visual-on.webp" alt="" width="560" height="560" loading="lazy"><span>Visual</span></button><button type="button" class="ss-t" style="--tc:#FF00FF" aria-pressed="false"><img class="ss-off" src="img/ng-set-access-off.webp" alt="" width="560" height="560" loading="lazy"><img class="ss-on" src="img/ng-set-access-on.webp" alt="" width="560" height="560" loading="lazy"><span>Gameplay + Accessibility</span></button><button type="button" class="ss-t" style="--tc:#FFFF00" aria-pressed="false"><img class="ss-off" src="img/ng-set-audio-off.webp" alt="" width="560" height="560" loading="lazy"><img class="ss-on" src="img/ng-set-audio-on.webp" alt="" width="560" height="560" loading="lazy"><span>Audio</span></button><button type="button" class="ss-t" style="--tc:#00FF00" aria-pressed="false"><img class="ss-off" src="img/ng-set-return-off.webp" alt="" width="560" height="560" loading="lazy"><img class="ss-on" src="img/ng-set-return-on.webp" alt="" width="560" height="560" loading="lazy"><span>Return</span></button></div>
               <div class="clips clips-1 reveal"><figure class="clip"><video src="media/ng-to-settings.mp4" poster="img/ng-to-settings.webp" muted loop playsinline preload="none" aria-label="In-engine capture. The camera cuts to W-Dawg's car, where Settings is spray-painted on the ground in yellow and etched along the car's side, then swings around behind the car."></video><figcaption><b>Into Settings</b> Picking Settings cuts to the car. The word is sprayed on the ground and etched along the side.</figcaption></figure></div>
-              <div class="media-slot reveal">Before/after goes here: W-Dawg's bare hood vs. the hood with Visual settings etched in</div>
+              <h3>Visual settings, a newer style</h3>
+              <p>The Visual page is a <em>newer style</em>. I built it in three layers and placed them on the hood in a drawover. It may get mixed in with the other pages. <strong>The A/B tests will show which way players lean.</strong></p>
+              <div class="vs-layers reveal">
+                <figure><img src="img/ng-vs-poke.webp" width="1038" height="580" loading="lazy" alt="Layer one. Black and white concentric rings and circles across the top, with a white swoosh and the word Visual cut out of them."><figcaption>Title</figcaption></figure>
+                <span class="vs-op" aria-hidden="true">+</span>
+                <figure><img src="img/ng-vs-window.webp" width="1038" height="580" loading="lazy" alt="Layer two. A black ink splat with spray lines, halftone dots and rings, with a clean white rectangle cut out of the middle for the options."><figcaption>Window</figcaption></figure>
+                <span class="vs-op" aria-hidden="true">+</span>
+                <figure><img src="img/ng-vs-hood.webp" width="1038" height="580" loading="lazy" alt="Layer three. A black panel of oval halftone dots and splatter with sparkles, the word Settings in white script and black rings below."><figcaption>Hood art</figcaption></figure>
+              </div>
+              <div class="vs-ba reveal">
+                <figure><img src="img/ng-vs-pre.webp" width="1038" height="580" loading="lazy" alt="In-editor view looking down at W-Dawg's cyan hood before the drawover, with the hood's own stripe and heart decal."><figcaption><b>Before</b> The bare hood in the editor.</figcaption></figure>
+                <span class="vs-arrow" aria-hidden="true"><svg viewBox="0 0 60 40" focusable="false"><path d="M4 20 H38 M30 6 L50 20 L30 34" fill="none" stroke="#0B0B0C" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 20 H38 M30 6 L50 20 L30 34" fill="none" stroke="#00FFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <figure><img src="img/ng-vs-drawover.webp" width="1038" height="580" loading="lazy" alt="The three layers stacked over the hood in the editor: rings and circles, the Visual title, the ink window, and the Settings script with sparkles, shown mirrored as the camera sees them."><figcaption><b>After</b> The three layers drawn over the hood.</figcaption></figure>
+              </div>
+            </section>
+
+            <section class="chapter" id="ng-engine" aria-labelledby="ng-engine-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
+              <h2 id="ng-engine-h">The first minute, in engine</h2>
+              <p>My part was bringing the player into the story. The intro is the first thing anyone sees, so it had to show the game's <em>attitude</em> right away. <strong>My goal was to get our core design pillars across before the first race.</strong></p>
+              <p>Each clip sits beside the step it shows. The arrows are the transitions, labeled with what moves you along.</p>
+              <ol class="ie reveal" aria-label="The first minute, step by step">
+<li class="ie-step" style="--sc:#00FFFF"><div class="ie-tv"><svg class="ie-burst" viewBox="-6 -6 212 142" aria-hidden="true" focusable="false"><polygon points="182.9,65.0 196.8,76.6 186.3,86.4 192.6,101.7 174.9,108.7 170.0,124.3 139.1,115.3 128.7,129.6 107.4,115.8 90.7,129.1 77.3,116.0 52.9,125.6 40.8,115.2 8.0,118.7 22.2,95.8 2.9,89.1 13.5,75.3 -6.4,65.0 14.1,54.7 0.8,40.4 12.3,30.3 16.2,16.1 37.1,11.7 51.7,2.9 77.1,13.4 91.1,3.3 107.7,12.1 129.8,-2.0 139.8,13.8 171.8,4.2 176.0,20.7 196.1,26.9 185.1,43.9 195.7,53.5"/></svg><span class="tv-set"><video src="media/ng-ie-intro.mp4" poster="img/ng-ie-intro.webp" muted loop playsinline preload="none" aria-label="In-engine capture. The Grease Monkeys name written in black tire tracks on the white floor, then the camera drifts over the Nitro Guzzler logo as W-Dawg drives past."></video></span></div><div class="ie-txt"><span class="n">01</span><h3>Intro</h3><p>The team name lands in tire tracks. Then the camera drifts across the logo as W-Dawg tears past. It plays once, and holding a button skips it.</p></div></li>
+<li class="ie-link ie-bolt to-r" style="--lc:#FF00FF" aria-hidden="true"><svg class="ie-bolt" viewBox="-30 -6 120 132" aria-hidden="true" focusable="false"><g class="ie-cone" fill="none" stroke-linecap="round"><path d="M10 6 Q30 18 50 6"/><path d="M0 -2 Q30 22 60 -2"/></g><polygon points="38,0 12,52 30,52 18,84 4,84 30,122 56,84 41,84 56,42 37,42 54,0"/></svg><span class="ie-lab">Automatic</span></li>
+<li class="ie-step ie-r" style="--sc:#FF00FF"><div class="ie-tv"><svg class="ie-burst" viewBox="-6 -6 212 142" aria-hidden="true" focusable="false"><polygon points="182.9,65.0 196.8,76.6 186.3,86.4 192.6,101.7 174.9,108.7 170.0,124.3 139.1,115.3 128.7,129.6 107.4,115.8 90.7,129.1 77.3,116.0 52.9,125.6 40.8,115.2 8.0,118.7 22.2,95.8 2.9,89.1 13.5,75.3 -6.4,65.0 14.1,54.7 0.8,40.4 12.3,30.3 16.2,16.1 37.1,11.7 51.7,2.9 77.1,13.4 91.1,3.3 107.7,12.1 129.8,-2.0 139.8,13.8 171.8,4.2 176.0,20.7 196.1,26.9 185.1,43.9 195.7,53.5"/></svg><span class="tv-set"><video src="media/ng-ie-ready.mp4" poster="img/ng-ie-ready.webp" muted loop playsinline preload="none" aria-label="In-engine capture. W-Dawg's cyan car circles the Nitro Guzzler logo on the white void."></video></span></div><div class="ie-txt"><span class="n">02</span><h3>Ready loop</h3><p>W-Dawg circles the logo and waits. Nothing is asked of the player yet.</p></div></li>
+<li class="ie-link ie-curve to-l" style="--lc:#FFFF00" aria-hidden="true"><img class="ie-gr" src="img/ng-gr-curve.webp" alt="" width="700" height="525" loading="lazy"><span class="ie-lab">Any key</span></li>
+<li class="ie-step" style="--sc:#FFFF00"><div class="ie-tv"><svg class="ie-burst" viewBox="-6 -6 212 142" aria-hidden="true" focusable="false"><polygon points="182.9,65.0 196.8,76.6 186.3,86.4 192.6,101.7 174.9,108.7 170.0,124.3 139.1,115.3 128.7,129.6 107.4,115.8 90.7,129.1 77.3,116.0 52.9,125.6 40.8,115.2 8.0,118.7 22.2,95.8 2.9,89.1 13.5,75.3 -6.4,65.0 14.1,54.7 0.8,40.4 12.3,30.3 16.2,16.1 37.1,11.7 51.7,2.9 77.1,13.4 91.1,3.3 107.7,12.1 129.8,-2.0 139.8,13.8 171.8,4.2 176.0,20.7 196.1,26.9 185.1,43.9 195.7,53.5"/></svg><span class="tv-set"><video src="media/ng-ie-anykey.mp4" poster="img/ng-ie-anykey.webp" muted loop playsinline preload="none" aria-label="In-engine capture. The view pulls back from the logo and the main menu options appear around it in grey."></video></span></div><div class="ie-txt"><span class="n">03</span><h3>Any key</h3><p>One press pulls the view back. The four options paint in around the logo.</p></div></li>
+<li class="ie-link ie-bolt to-r" style="--lc:#00FF00" aria-hidden="true"><svg class="ie-bolt" viewBox="-30 -6 120 132" aria-hidden="true" focusable="false"><g class="ie-cone" fill="none" stroke-linecap="round"><path d="M10 6 Q30 18 50 6"/><path d="M0 -2 Q30 22 60 -2"/></g><polygon points="38,0 12,52 30,52 18,84 4,84 30,122 56,84 41,84 56,42 37,42 54,0"/></svg><span class="ie-lab">Automatic</span></li>
+<li class="ie-step ie-r" style="--sc:#00FF00"><div class="ie-tv"><svg class="ie-burst" viewBox="-6 -6 212 142" aria-hidden="true" focusable="false"><polygon points="182.9,65.0 196.8,76.6 186.3,86.4 192.6,101.7 174.9,108.7 170.0,124.3 139.1,115.3 128.7,129.6 107.4,115.8 90.7,129.1 77.3,116.0 52.9,125.6 40.8,115.2 8.0,118.7 22.2,95.8 2.9,89.1 13.5,75.3 -6.4,65.0 14.1,54.7 0.8,40.4 12.3,30.3 16.2,16.1 37.1,11.7 51.7,2.9 77.1,13.4 91.1,3.3 107.7,12.1 129.8,-2.0 139.8,13.8 171.8,4.2 176.0,20.7 196.1,26.9 185.1,43.9 195.7,53.5"/></svg><span class="tv-set"><video src="media/ng-ie-menu.mp4" poster="img/ng-ie-menu.webp" muted loop playsinline preload="none" aria-label="In-engine capture of the main menu. Prep Ride lights up cyan, Pit Crew magenta, Credits green and Settings yellow as each is hovered, while the others stay grey."></video></span></div><div class="ie-txt"><span class="n">04</span><h3>Main menu loop</h3><p>Hover an option and it lights up in its racer's color. The rest stay grey, so the choice stands out.</p></div></li>
+<li class="ie-link ie-drip to-l" style="--lc:#00FFFF" aria-hidden="true"><img class="ie-gr" src="img/ng-gr-drip.webp" alt="" width="700" height="525" loading="lazy"><span class="ie-lab">Select Settings</span></li>
+<li class="ie-step" style="--sc:#00FFFF"><div class="ie-tv"><svg class="ie-burst" viewBox="-6 -6 212 142" aria-hidden="true" focusable="false"><polygon points="182.9,65.0 196.8,76.6 186.3,86.4 192.6,101.7 174.9,108.7 170.0,124.3 139.1,115.3 128.7,129.6 107.4,115.8 90.7,129.1 77.3,116.0 52.9,125.6 40.8,115.2 8.0,118.7 22.2,95.8 2.9,89.1 13.5,75.3 -6.4,65.0 14.1,54.7 0.8,40.4 12.3,30.3 16.2,16.1 37.1,11.7 51.7,2.9 77.1,13.4 91.1,3.3 107.7,12.1 129.8,-2.0 139.8,13.8 171.8,4.2 176.0,20.7 196.1,26.9 185.1,43.9 195.7,53.5"/></svg><span class="tv-set"><video src="media/ng-ie-dive.mp4" poster="img/ng-ie-dive.webp" muted loop playsinline preload="none" aria-label="In-engine capture. The camera follows W-Dawg's car out of the menu across the white floor while a yellow Settings tag is sprayed in the corner."></video></span></div><div class="ie-txt"><span class="n">05</span><h3>Into Settings</h3><p>The camera chases W-Dawg out into the white void, and Settings gets sprayed across the frame.</p></div></li>
+<li class="ie-link ie-bolt to-r" style="--lc:#FF00FF" aria-hidden="true"><svg class="ie-bolt" viewBox="-30 -6 120 132" aria-hidden="true" focusable="false"><g class="ie-cone" fill="none" stroke-linecap="round"><path d="M10 6 Q30 18 50 6"/><path d="M0 -2 Q30 22 60 -2"/></g><polygon points="38,0 12,52 30,52 18,84 4,84 30,122 56,84 41,84 56,42 37,42 54,0"/></svg><span class="ie-lab">Automatic</span></li>
+<li class="ie-step ie-r" style="--sc:#FF00FF"><div class="ie-tv"><svg class="ie-burst" viewBox="-6 -6 212 142" aria-hidden="true" focusable="false"><polygon points="182.9,65.0 196.8,76.6 186.3,86.4 192.6,101.7 174.9,108.7 170.0,124.3 139.1,115.3 128.7,129.6 107.4,115.8 90.7,129.1 77.3,116.0 52.9,125.6 40.8,115.2 8.0,118.7 22.2,95.8 2.9,89.1 13.5,75.3 -6.4,65.0 14.1,54.7 0.8,40.4 12.3,30.3 16.2,16.1 37.1,11.7 51.7,2.9 77.1,13.4 91.1,3.3 107.7,12.1 129.8,-2.0 139.8,13.8 171.8,4.2 176.0,20.7 196.1,26.9 185.1,43.9 195.7,53.5"/></svg><span class="tv-set"><video src="media/ng-ie-car.mp4" poster="img/ng-ie-car.webp" muted loop playsinline preload="none" aria-label="In-engine capture. W-Dawg's car beside a brick block, with Settings sprayed on the ground in yellow and etched along the car's side."></video></span></div><div class="ie-txt"><span class="n">06</span><h3>Settings on the car</h3><p>The camera settles on the car. Each group of settings is etched right onto it.</p></div></li>
+              </ol>
             </section>
 
             <section class="chapter" id="ng-void" aria-labelledby="ng-void-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
@@ -1992,6 +2082,9 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
 </script>
 
 <script>
+  document.querySelectorAll('.ss').forEach(g => g.addEventListener('click', e => { const b = e.target.closest('.ss-t'); if (!b) return;
+    g.querySelectorAll('.ss-t').forEach(t => t.setAttribute('aria-pressed', String(t === b))); }));
+
   (() => { const cs = [...document.querySelectorAll('#case-nitro-guzzler .chapter')];
     cs.forEach((c, i) => { if (!i) return; const p = getComputedStyle(cs[i-1]).getPropertyValue('--c-r').trim();
       const n = getComputedStyle(c).getPropertyValue('--c-r').trim(); if (p && p.toLowerCase() !== n.toLowerCase()) { c.style.setProperty('--c-p', p); c.classList.add('has-drip'); } }); })();
@@ -2129,7 +2222,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
     if (e.isIntersecting && !reduce.matches){ if (v.preload === 'none') v.preload = 'auto'; v.play().catch(()=>{}); }
     else v.pause();
   }), {threshold: .25});
-  document.querySelectorAll('.clips video').forEach(v => clipIO.observe(v));
+  document.querySelectorAll('.clips video, .ie video').forEach(v => clipIO.observe(v));
 
   /* ---------- video loops: respect reduced motion, hover-play on cards ---------- */
   const ngLoop = document.getElementById('ng-loop');
