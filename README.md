@@ -4,7 +4,7 @@ Game UI/UX portfolio for Atlas Stewart. Live at https://omah-azir.github.io/Atla
 
 Hand-built static site. No build step, no framework.
 
-- `index.html`: the whole site. Home, Projects deck, About and Contact in one scroll; each case study opens full screen at its own anchor (`#nitro-guzzler`, `#chain-of-jewels`, `#noc-6000`, `#enshahtenti`, `#minecraft-project`).
+- `index.html`: the whole site. Home, Projects deck, About and Contact in one scroll; each case study opens full screen at its own anchor (`#nitro-guzzler`, `#chain-of-jewels`, `#horns-of-deliverance`, `#enshahtenti`, `#minecraft-project`).
 - `img/`: web-optimized images.
 - `llms.txt`: plain-text summary for AI tools and screeners.
 - `robots.txt`, `sitemap.xml`: search engine discovery.
