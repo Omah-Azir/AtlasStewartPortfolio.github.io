@@ -1670,7 +1670,6 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
               <div class="clips clips-1 reveal" aria-label="The chip's HUD during a fight">
                 <figure class="clip"><video src="media/hod-hud.mp4" poster="img/hod-hud.webp" muted loop playsinline preload="none" aria-label="A grey hallway fight. HUD panels at the edges show the countdown, a Premium ad, the step counter and the ammo permit warning, and enemies are boxed in green."></video><figcaption><b>The chip's HUD</b> Countdown, ad, step counter and ammo permit, all talking at once.</figcaption></figure>
               </div>
-              <p class="todo">Does a dose change the countdown, your health or the chip's grip in numbers, or only what you see? Add it if you know.</p>
             </section>
             <section class="chapter" id="hod-signal" aria-labelledby="hod-signal-h">
               <h2 id="hod-signal-h">Taking a dose</h2>
@@ -1701,7 +1700,12 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             </section>
             <section class="chapter" id="hod-state" aria-labelledby="hod-state-h">
               <h2 id="hod-state-h">How it plays with the game state</h2>
+              <p>A dose does more than change the picture. It moves real numbers, and those numbers pull against each other.</p>
               <ul class="notes reveal">
+                <li><b>More use, more healing</b>Each dose heals you, and it heals you more the more you use.</li>
+                <li><b>More use, a harder trip</b>Every reuse makes the trip heavier, and that raises the game's difficulty. The heal and the danger climb together.</li>
+                <li><b>Tolerance forces variety</b>Stick with one drug because you like how it plays, and you slowly need more of it. So you keep switching.</li>
+                <li><b>Random pickups</b>You can't plan a favorite. You take what the run gives you, so every switch is also a new set of rules for sight and navigation.</li>
                 <li><b>The controls never change</b>Every effect lands on sight and navigation. You relearn the level, not the game.</li>
                 <li><b>Dose is a dial</b>One drug pixelates the world after a single bump. Another takes a few bumps before the color drains. Each drug has its own threshold, so you learn each one's curve.</li>
                 <li><b>Mixing is its own state</b>Two pills aren't two effects added up. They make a new and worse state, with a maze for a level.</li>
@@ -1713,10 +1717,12 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             </section>
             <section class="chapter" id="hod-gamified" aria-labelledby="hod-gamified-h">
               <h2 id="hod-gamified-h">How it gamifies drug use</h2>
-              <p>From what I played, a dose never shows up as a number. There's no buff bar or timer for a high. You read it through your eyes: what the world looks like, and how you get out of it.</p>
+              <p>There's no buff bar or timer for a high. You feel it through your eyes, while the numbers move underneath. The loop looks a lot like real use, turned into rules.</p>
               <ul class="pts">
-                <li><strong>The reward</strong> is pushing back against the chip.</li>
-                <li><strong>The cost</strong> is your read on the level, not your health bar.</li>
+                <li><strong>The reward</strong> is healing that grows with every dose, and a push back against the chip.</li>
+                <li><strong>The cost</strong> is a harder trip each time, which makes the whole game harder, and your read on the level.</li>
+                <li><strong>Tolerance</strong> means comfort runs out. The drug you like stops being enough.</li>
+                <li><strong>Random supply</strong> means you can't settle. You adapt to whatever you find.</li>
                 <li><strong>The gamble</strong> is mixing, with the worst state in the game as the downside.</li>
                 <li><strong>The framing</strong> keeps it from feeling clean. The <strong>HUD</strong> calls every dose contraband while you depend on it.</li>
               </ul>
@@ -1729,6 +1735,8 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
                 <li>States that change how you find your way, not how you control your character.</li>
                 <li>Datamosh, pixelation and loss of focus as feedback for what a character is going through.</li>
                 <li>Mixing as a new state with its own rules.</li>
+                <li>A reward and a cost that rise together, so using more is never a free win.</li>
+                <li>Tolerance that pushes players off their favorite playstyle.</li>
                 <li>A <strong>HUD</strong> voice that frames the mechanic, like the chip calling your drugs contraband.</li>
                 <li>Wayfinding from things in the world, like blood, before arrows.</li>
                 <li>A choice about heavy visual effects before the first run.</li>
