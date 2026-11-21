@@ -1003,6 +1003,15 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
 #case-nitro-guzzler .ie-txt h3{font-size:1.5rem}
 #case-nitro-guzzler figcaption{font-size:1rem;line-height:1.5}
 #case-nitro-guzzler figcaption b,#case-nitro-guzzler .why dt,#case-nitro-guzzler .n,#case-nitro-guzzler .ie-lab,#case-nitro-guzzler .toc a,#case-nitro-guzzler .vx-color,#case-nitro-guzzler .t-tag,#case-nitro-guzzler .team-role,#case-nitro-guzzler .hud-label,#case-nitro-guzzler .cl-go,#case-nitro-guzzler .eyebrow{font-size:.85rem}
+/* Horns of Deliverance: dose table */
+.dose-wrap{overflow-x:auto;margin:1rem 0 1.5rem;border:1px solid var(--rule);border-radius:6px}
+.dose{width:100%;border-collapse:collapse;font-size:1rem;line-height:1.45}
+.dose th,.dose td{padding:.7rem .85rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--rule)}
+.dose thead th{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);font-weight:500}
+.dose tbody th{color:var(--accent);font-weight:700;white-space:nowrap}
+.dose tbody tr:last-child>*{border-bottom:0}
+.dose td:nth-child(2){white-space:nowrap;color:var(--ink-2)}
+@media (max-width:700px){.dose,.dose tbody,.dose tr,.dose th,.dose td{display:block}.dose thead{display:none}.dose tr{padding:.6rem .8rem;border-bottom:1px solid var(--rule)}.dose th,.dose td{padding:.15rem 0;border:0}.dose td:nth-child(4){color:var(--accent)}}
 /* paint drips on the rail: the last section's color runs down into the next one, just before its arrow */
 #case-nitro-guzzler .chapter.has-drip::before{top:-5.2rem}
 #case-nitro-guzzler .chapter.has-drip::after{content:"";position:absolute;z-index:1;left:1.84rem;width:.73rem;top:-5.2rem;height:3.2rem;background:var(--c-p);pointer-events:none;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H20V12C20 16 19 30 16.5 30S13 22 13 17 11 13 9 15 8 24 5.5 24 3 15 0 13Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H20V12C20 16 19 30 16.5 30S13 22 13 17 11 13 9 15 8 24 5.5 24 3 15 0 13Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat}
@@ -1125,16 +1134,16 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             </span>
           </span>
         </a>
-        <a role="listitem" class="file" data-p="horns-of-deliverance" href="#horns-of-deliverance" aria-label="Horns of Deliverance. A UX and game feel deep dive into an early access roguelike shooter. Open case study.">
+        <a role="listitem" class="file" data-p="horns-of-deliverance" href="#horns-of-deliverance" aria-label="Horns of Deliverance. A game feel deep dive into how an early access shooter turns drug use into a system. Open case study.">
           <span class="file-tab" aria-hidden="true">05 · Deep dive</span>
           <span class="file-face">
             <span class="file-media" aria-hidden="true"><img src="img/hod-shrooms.webp" alt="" width="960" height="540" loading="lazy"><video class="hover-vid" src="media/hod-shrooms.mp4" muted loop playsinline preload="none" poster="img/hod-shrooms.webp"></video></span>
             <span class="file-body">
-              <span class="chip">UX deep dive</span>
+              <span class="chip">Game feel deep dive</span>
               <span class="file-title">Horns of Deliverance</span>
-              <span class="file-line">A shooter where a brainchip is your HUD. What works, and what I'd change.</span>
+              <span class="file-line">How a shooter turns drug use into game feel, and what each dose does to the run.</span>
               <span class="file-more">
-                <dl><dt>Focus</dt><dd>HUD, onboarding, game feel</dd><dt>Method</dt><dd>Play session, voice notes</dd></dl>
+                <dl><dt>Focus</dt><dd>Drug system, game feel, HUD</dd><dt>Method</dt><dd>Play session, voice notes</dd></dl>
                 <span class="open">Open file →</span>
               </span>
             </span>
@@ -1628,128 +1637,109 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
       <div class="inner">
         <div class="case-bar"><a class="btn ghost close" href="#projects">← Back to projects</a></div>
         <header class="case-hero morph-target">
-          <p class="eyebrow">UX deep dive · Not my game</p>
+          <p class="eyebrow">Game feel deep dive · Not my game</p>
           <h1 id="hod-title" tabindex="-1">Horns of Deliverance</h1>
-          <p class="lede">A roguelike shooter where the chip in your head draws your <strong>HUD</strong>, and wants you dead. You take drugs to jam it. I played up to the boss and took notes out loud. This is what its <strong>UX</strong> and game feel taught me.</p>
+          <p class="lede">A roguelike shooter where the chip in your head draws your <strong>HUD</strong> and wants you dead, and <em>drugs are how you fight it</em>. I played up to the boss and took notes out loud. This page follows one system: how the game tells you what a drug is, how you take it, and what each dose does to the run.</p>
           <dl class="glance">
-            <div><dt>Type</dt><dd>UX + game feel deep dive</dd></div>
+            <div><dt>Type</dt><dd>Game feel deep dive</dd></div>
             <div><dt>Game</dt><dd>Early access roguelike shooter by schemesmith</dd></div>
+            <div><dt>Focus</dt><dd>The drug system, from signal to game state</dd></div>
             <div><dt>Method</dt><dd>Recorded play, notes by voice</dd></div>
-            <div><dt>My role</dt><dd>Player and critic</dd></div>
           </dl>
         </header>
         <div class="case-layout">
-          <nav class="toc" aria-label="Horns of Deliverance sections"><a href="#hod-part">What I did</a><a href="#hod-onboard">First minutes</a><a href="#hod-hud">HUD</a><a href="#hod-menu">Item menu</a><a href="#hod-states">Altered states</a><a href="#hod-loop">Run loop</a><a href="#hod-take">Take and leave</a><a href="#hod-story">My story</a></nav>
+          <nav class="toc" aria-label="Horns of Deliverance sections"><a href="#hod-part">What I did</a><a href="#hod-chip">Drugs vs the chip</a><a href="#hod-signal">Taking a dose</a><a href="#hod-dose">What a dose does</a><a href="#hod-state">Game state</a><a href="#hod-gamified">Gamified use</a><a href="#hod-take">Take and leave</a><a href="#hod-story">My story</a></nav>
           <div class="chapters">
             <section class="chapter" id="hod-part" aria-labelledby="hod-part-h">
               <h2 id="hod-part-h">What I did</h2>
               <ul class="contrib reveal">
-                <li><a class="contrib-link" href="#hod-states"><span class="cl-t">Played the early access build from first launch into the boss fight, and recorded it.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
-                <li><a class="contrib-link" href="#hod-menu"><span class="cl-t">Said my reactions out loud as I played, then sorted them into what works and what I'd change.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
-                <li><a class="contrib-link" href="#hod-take"><span class="cl-t">Turned each finding into a rule I can reuse in my own <strong>HUD</strong> and menu work.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
+                <li><a class="contrib-link" href="#hod-dose"><span class="cl-t">Played the early access build from first launch into the boss fight, and recorded it.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
+                <li><a class="contrib-link" href="#hod-signal"><span class="cl-t">Said my reactions out loud, then traced each drug from how the game shows it, to how you take it, to what it does to the run.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
+                <li><a class="contrib-link" href="#hod-take"><span class="cl-t">Turned each finding into a rule for my own <strong>game feel</strong> and <strong>HUD</strong> work.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
               </ul>
               <p>Horns of Deliverance belongs to its developer, schemesmith. I had no part in making it. Everything here is my read as a player, from my own recordings of one early access build.</p>
             </section>
-            <section class="chapter" id="hod-onboard" aria-labelledby="hod-onboard-h">
-              <h2 id="hod-onboard-h">The first minutes</h2>
+            <section class="chapter" id="hod-chip" aria-labelledby="hod-chip-h">
+              <h2 id="hod-chip-h">Drugs against the chip</h2>
+              <p>The chip draws your <strong>HUD</strong>, and it's counting down to your execution. Drugs are how you push back. So every dose is two things at once. To you it's resistance. To the <strong>HUD</strong> it's a violation.</p>
               <ul class="notes reveal">
-                <li><b>Three warnings in a row</b>A launch settings warning, then two content warnings, back to back. That's three stops before anything happens.</li>
-                <li><b>A room as a menu</b>Play, Computer, Options, Credits and Quit sit over a dingy bedroom. A chair is wedged behind the locked door. The room tells you who you are before any text does.</li>
-                <li><b>The camera leans to the cursor</b>Move the mouse and the view turns a little toward it. A small touch that makes a menu feel like a place.</li>
-                <li><b>A computer inside the menu</b>The computer is an old desktop with its own apps. One is a notepad with story. Another is a gallery of the weapons you've collected.</li>
-                <li><b>Accessibility up front</b>Standard or No Visuals comes right after the warnings, then difficulty. The easier setting says what it changes: less damage, slower enemies.</li>
+                <li><b>The chip calls them contraband</b>Your drug inventory sits under a notice telling you to dispose of controlled substances right away. The same voice that counts your steps and sells you Premium is the one you're breaking.</li>
+                <li><b>A countdown sets the pressure</b>The <strong>HUD</strong> opens friendly, with good afternoon and no new notifications. Then it turns: one pending command, user execution, and a timer.</li>
+                <li><b>The chip fights back</b>As it loses its grip, its own panels scramble into smears of colored bars. The thing you're fighting breaks on screen.</li>
               </ul>
-              <p>One snag. After I picked a difficulty, the notepad I had already read came up again.</p>
-              <div class="clips clips-2 reveal" aria-label="Main menu and in-menu computer">
-                <figure class="clip"><video src="media/hod-menu.mp4" poster="img/hod-menu.webp" muted loop playsinline preload="none" aria-label="The title menu, with Play, Computer, Options, Credits and Quit over a dim bedroom, then the Standard or No Visuals mode choice."></video><figcaption><b>The bedroom menu</b> The title sits over the room you wake up in.</figcaption></figure>
-                <figure class="clip"><video src="media/hod-computer.mp4" poster="img/hod-computer.webp" muted loop playsinline preload="none" aria-label="An old computer monitor in the bedroom. Its collection app lists a handgun, rifle, shotgun and sword."></video><figcaption><b>The computer</b> An old desktop with a collection app and a notepad.</figcaption></figure>
+              <div class="clips clips-1 reveal" aria-label="The chip's HUD during a fight">
+                <figure class="clip"><video src="media/hod-hud.mp4" poster="img/hod-hud.webp" muted loop playsinline preload="none" aria-label="A grey hallway fight. HUD panels at the edges show the countdown, a Premium ad, the step counter and the ammo permit warning, and enemies are boxed in green."></video><figcaption><b>The chip's HUD</b> Countdown, ad, step counter and ammo permit, all talking at once.</figcaption></figure>
               </div>
+              <p class="todo">Does a dose change the countdown, your health or the chip's grip in numbers, or only what you see? Add it if you know.</p>
             </section>
-            <section class="chapter" id="hod-hud" aria-labelledby="hod-hud-h">
-              <h2 id="hod-hud-h">A HUD that sells to you</h2>
-              <p>The chip in your head draws the <strong>HUD</strong>. It talks like a wellness product, even while it's trying to kill you. Every readout does a real job, dressed up as corporate copy.</p>
-              <ul class="notes reveal">
-                <li><b>A friendly greeting</b>It opens with good afternoon, the time and no new notifications. Then the tone turns: one pending command, user execution, and a countdown.</li>
-                <li><b>Ammo as a permit</b>Your ammo count reads as a warning that bullets were detected in your magazine, and you need the correct permit.</li>
-                <li><b>Drugs as contraband</b>Your drug inventory sits under a notice telling you to dispose of controlled substances right away.</li>
-                <li><b>A fitness tracker</b>Steps and a wellness score, under a line that says to stick to your goals.</li>
-                <li><b>An ad</b>A pop-up asks if you've tried Premium, for fewer distractions and more productivity.</li>
-                <li><b>Outlines and orders</b>Enemies get boxed in green. Big red text gives orders like break their grip.</li>
-                <li><b>It breaks down</b>As the chip fights back, its panels scramble into smears of colored bars.</li>
-              </ul>
-              <p>The satire is sharp, and the panels sit well at the edges of the view. The cost is reading. Wordy warnings are slow to scan in a fight, so I learned the shape and color of each panel and stopped reading them. The glass look itself felt generic to me.</p>
-              <p>There are two layers of UI. The computer in the bedroom is an object in the world. The chip's <strong>HUD</strong> is an overlay only your character sees. Both belong to the fiction, but they are different kinds of UI.</p>
-              <div class="clips clips-1 reveal" aria-label="HUD during a fight">
-                <figure class="clip"><video src="media/hod-hud.mp4" poster="img/hod-hud.webp" muted loop playsinline preload="none" aria-label="A grey hallway fight. HUD panels at the edges show the countdown, a Premium ad, the step counter and the ammo permit warning, and enemies are boxed in green."></video><figcaption><b>The HUD in a fight</b> The countdown, the ad, the step counter and the ammo permit, all at once.</figcaption></figure>
-              </div>
-            </section>
-            <section class="chapter" id="hod-menu" aria-labelledby="hod-menu-h">
-              <h2 id="hod-menu-h">The item menu</h2>
-              <p>Press Q and your character lifts the item up to their face to look at it. I like that. It fills part of the view and gives the item weight. But the menu only shows up after the animation, about a second later.</p>
-              <p>That wait made me want to hold Q. Holding Q uses the item right away. So my natural instinct triggered the wrong action. To switch items I then had to scroll and press F to confirm, all while shooting.</p>
+            <section class="chapter" id="hod-signal" aria-labelledby="hod-signal-h">
+              <h2 id="hod-signal-h">Taking a dose</h2>
+              <p>Press Q and your character lifts the item up to their face. You see the pill or the mushroom as a thing in your hand before you see it as a choice. That gives a dose weight. But the menu only shows up after the animation, about a second later.</p>
+              <p>That wait made me want to hold Q. Holding Q takes the item right away. So my instinct to wait for the menu became an <em>accidental dose</em>. To pick a different one I had to scroll and press F to confirm, all while shooting.</p>
+              <p>In most games a misread input wastes an item. Here it changes what you see for the rest of the level. That raises the stakes on the input.</p>
               <ul class="contrib reveal">
-                <li>Show the menu the moment Q goes down.</li>
+                <li>Show the menu the moment Q goes down, and keep the lift as the animation behind it.</li>
                 <li>Let scrolling do the selecting. No confirm press in the middle of a fight.</li>
+                <li>Make taking a dose a deliberate hold, never the fallback for an impatient one.</li>
               </ul>
               <div class="clips clips-1 reveal" aria-label="Examining an item">
-                <figure class="clip"><video src="media/hod-examine.mp4" poster="img/hod-examine.webp" muted loop playsinline preload="none" aria-label="The player's hand raises an item up close to the camera before the selection menu appears."></video><figcaption><b>The examine</b> The item comes up to your face first. The menu waits for it.</figcaption></figure>
+                <figure class="clip"><video src="media/hod-examine.mp4" poster="img/hod-examine.webp" muted loop playsinline preload="none" aria-label="The player's hand raises an item up close to the camera before the selection menu appears."></video><figcaption><b>The lift</b> The item comes up to your face first. The menu waits for it.</figcaption></figure>
               </div>
             </section>
-            <section class="chapter" id="hod-states" aria-labelledby="hod-states-h">
-              <h2 id="hod-states-h">Altered states</h2>
-              <p>Each drug changes how you see, and how you find your way out. The controls never change. This is where the game feel is strongest.</p>
-              <ul class="notes reveal">
-                <li><b>Mushrooms</b>A psychedelic world takes over your vision. You play the same game with the same controls, but you follow dots to the exit, and the enemies are floating eyeballs. Aiming down sights zooms in and pulls your view into focus.</li>
-                <li><b>Black and white</b>After a few bumps of one drug, the world drains to black and white. You follow a blood trail to the exit. That did more for me than an arrow.</li>
-                <li><b>Pixelated</b>After a single bump of another, the world pixelates until you can't read it.</li>
-                <li><b>Datamosh</b>Mixing pills pushed my character into a depressive episode. The screen datamoshes, text says you're going the wrong way and that they've stolen your future, and the level turns into a maze. It's the best effect in the game.</li>
-                <li><b>Edges only</b>At one point the world flattened into red and cyan outlines.</li>
-                <li><b>Blur and stun</b>Your vision blurs often, which makes sniping hard. I'd rather lose focus than gain blur. A focus shift reads as something happening to your body. A blur reads as a filter. Stuns could hit harder visually.</li>
-              </ul>
-              <p>What makes these work is that each one swaps the way you navigate, not the controls. Dots, blood, nothing at all. You relearn the level, not the game.</p>
+            <section class="chapter" id="hod-dose" aria-labelledby="hod-dose-h">
+              <h2 id="hod-dose-h">What a dose does</h2>
+              <p>Every state hits what you see and how you find the exit. None of them touch the controls.</p>
+              <div class="dose-wrap reveal"><table class="dose">
+                <thead><tr><th scope="col">Drug</th><th scope="col">Dose</th><th scope="col">What you see</th><th scope="col">How you find the exit</th></tr></thead>
+                <tbody><tr><th scope="row">Mushrooms</th><td>Not noted</td><td>A psychedelic world. Enemies become floating eyeballs. Aiming down sights pulls the view into focus.</td><td>Follow the dots</td></tr><tr><th scope="row">One drug</th><td>A few bumps</td><td>The world drains to black and white.</td><td>Follow a blood trail</td></tr><tr><th scope="row">Another drug</th><td>One bump</td><td>The world pixelates until you can't read it.</td><td>You lose the read</td></tr><tr><th scope="row">Mixing pills</th><td>Two at once</td><td>A depressive episode. The screen datamoshes and text says you're going the wrong way and that they've stolen your future.</td><td>The level turns into a maze</td></tr><tr><th scope="row">Edges only</th><td>Unclear what set it off</td><td>Red and cyan outlines replace the room.</td><td>Not noted</td></tr></tbody>
+              </table></div>
               <div class="clips reveal" aria-label="Three altered states">
                 <figure class="clip"><video src="media/hod-shrooms.mp4" poster="img/hod-shrooms.webp" muted loop playsinline preload="none" aria-label="A rainbow psychedelic tunnel with a floating eyeball enemy and large text asking a question."></video><figcaption><b>Mushrooms</b> Eyeballs for enemies, dots for a path.</figcaption></figure>
-                <figure class="clip"><video src="media/hod-datamosh.mp4" poster="img/hod-datamosh.webp" muted loop playsinline preload="none" aria-label="A grey hallway smears and breaks into datamosh color as red text appears."></video><figcaption><b>Datamosh</b> The hallway smears apart.</figcaption></figure>
+                <figure class="clip"><video src="media/hod-datamosh.mp4" poster="img/hod-datamosh.webp" muted loop playsinline preload="none" aria-label="A grey hallway smears and breaks into datamosh color as red text appears."></video><figcaption><b>Mixing pills</b> The hallway smears apart.</figcaption></figure>
                 <figure class="clip"><video src="media/hod-outline.mp4" poster="img/hod-outline.webp" muted loop playsinline preload="none" aria-label="The whole view turns red with cyan edge lines tracing the walls and furniture."></video><figcaption><b>Edges only</b> Red and cyan outlines replace the room.</figcaption></figure>
               </div>
             </section>
-            <section class="chapter" id="hod-loop" aria-labelledby="hod-loop-h">
-              <h2 id="hod-loop-h">The run loop</h2>
+            <section class="chapter" id="hod-state" aria-labelledby="hod-state-h">
+              <h2 id="hod-state-h">How it plays with the game state</h2>
               <ul class="notes reveal">
-                <li><b>Upgrades</b>Between levels you float in a black void with pink diamonds. Hover over a blob to read it, like take less damage or reduced recoil, then follow the green arrow on. One looked selected before I chose, and I wasn't sure what my pick did.</li>
-                <li><b>Rising cost</b>Each level starts you at lower health, so you take more at the start.</li>
-                <li><b>Rooms built live</b>A loading screen counts rooms as it builds them. Levels move from hallways to a foggy street to server rooms.</li>
-                <li><b>The boss</b>Big red text tells you where to shoot, like the eye on top of the machine.</li>
-                <li><b>Death screen</b>A cut to black. Then cause of death, a tip that fits it, the level you reached, the money banked and time spent.</li>
-                <li><b>The room changes</b>Back in the bedroom, the lights and layout shift as you progress.</li>
-                <li><b>Shop</b>Money upgrades the handgun or saves toward a shotgun, on an equip screen with a slow thud like a heartbeat. A sword is listed. I couldn't tell if it replaces melee or is its own weapon.</li>
-                <li><b>Shooting</b>Headshots kill at once. Ragdolls, recoil and smoke make each shot land.</li>
+                <li><b>The controls never change</b>Every effect lands on sight and navigation. You relearn the level, not the game.</li>
+                <li><b>Dose is a dial</b>One drug pixelates the world after a single bump. Another takes a few bumps before the color drains. Each drug has its own threshold, so you learn each one's curve.</li>
+                <li><b>Mixing is its own state</b>Two pills aren't two effects added up. They make a new and worse state, with a maze for a level.</li>
+                <li><b>The wayfinding layer swaps</b>Dots, a blood trail, a maze or nothing. The exit stays the goal while the way you read it changes.</li>
+                <li><b>Enemies change shape</b>On mushrooms they're eyeballs. The threat is the same, but you have to learn the new silhouette.</li>
+                <li><b>A tool to cut through</b>Aiming down sights pulls the trip into focus. The game gives back a little control at the moment you need it.</li>
+                <li><b>Blur is the weak spot</b>Your vision blurs often, which makes sniping hard. A loss of focus reads as something happening to your body. A blur reads as a filter.</li>
               </ul>
-              <div class="clips clips-2 reveal" aria-label="Upgrade screen and death screen">
-                <figure class="clip"><video src="media/hod-upgrade.mp4" poster="img/hod-upgrade.webp" muted loop playsinline preload="none" aria-label="A black void with pink diamonds and floating striped shapes. Hovering one shows its upgrade name, and a green arrow points onward."></video><figcaption><b>Upgrades</b> Hover to read, then follow the arrow.</figcaption></figure>
-                <figure class="clip"><video src="media/hod-death.mp4" poster="img/hod-death.webp" muted loop playsinline preload="none" aria-label="A black death screen: you didn't make it, the cause of death, a tip, the level reached, money deposited and time spent."></video><figcaption><b>Death screen</b> Cause, tip, level, money, time.</figcaption></figure>
-              </div>
+            </section>
+            <section class="chapter" id="hod-gamified" aria-labelledby="hod-gamified-h">
+              <h2 id="hod-gamified-h">How it gamifies drug use</h2>
+              <p>From what I played, a dose never shows up as a number. There's no buff bar or timer for a high. You read it through your eyes: what the world looks like, and how you get out of it.</p>
+              <ul class="pts">
+                <li><strong>The reward</strong> is pushing back against the chip.</li>
+                <li><strong>The cost</strong> is your read on the level, not your health bar.</li>
+                <li><strong>The gamble</strong> is mixing, with the worst state in the game as the downside.</li>
+                <li><strong>The framing</strong> keeps it from feeling clean. The <strong>HUD</strong> calls every dose contraband while you depend on it.</li>
+              </ul>
+              <p>The game also asks before any of this hits the screen. A Standard or No Visuals choice comes right after the content warnings.</p>
             </section>
             <section class="chapter" id="hod-take" aria-labelledby="hod-take-h">
               <h2 id="hod-take-h">What I'd take and what I'd leave</h2>
               <p>What I'd take into my own work:</p>
               <ul class="contrib reveal">
                 <li>States that change how you find your way, not how you control your character.</li>
-                <li>Datamosh, pixelation and loss of focus as feedback for a character's state.</li>
-                <li>A <strong>HUD</strong> with a voice, where each readout says something about the world.</li>
-                <li>A menu that is a place, leans toward the cursor and changes as the game does.</li>
-                <li>Accessibility options before the game starts, with plain words on what each one changes.</li>
-                <li>A death screen that teaches: cause, tip, distance, time.</li>
+                <li>Datamosh, pixelation and loss of focus as feedback for what a character is going through.</li>
+                <li>Mixing as a new state with its own rules.</li>
+                <li>A <strong>HUD</strong> voice that frames the mechanic, like the chip calling your drugs contraband.</li>
                 <li>Wayfinding from things in the world, like blood, before arrows.</li>
+                <li>A choice about heavy visual effects before the first run.</li>
               </ul>
               <p>What I'd leave or change:</p>
               <ul class="contrib reveal">
                 <li>A delay between a button press and its menu.</li>
+                <li>Holding a button to use, when holding is also how a player waits.</li>
                 <li>A confirm press while the player is fighting.</li>
                 <li>Long sentences where a fighting player needs a glance.</li>
                 <li>Blur where a focus shift would say more.</li>
-                <li>Shop items that don't say what they replace.</li>
-                <li>The pace. Short runs and restarts suit this game. My own taste runs slower and longer.</li>
               </ul>
             </section>
             <section class="chapter" id="hod-story" aria-labelledby="hod-story-h">
@@ -2069,7 +2059,7 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
   "award":"Least Dusty Platformer award, Bigmode 2023 Game Jam, for UnDuster (released on Steam)","knowsAbout":["Game UI design","UX design","HUD design","Diegetic UI","Style guides","Level design","Unreal Engine Blueprints","Figma","Unity","Maya","Krita"]},
  {"@type":"CreativeWork","name":"Nitro Guzzler","creator":{"@id":"#atlas"},"description":"Redline-inspired racing experience set in a post-apocalypse (Death Valley, 2012) and broadcast on intergalactic TV, built in Unreal Engine 5.5 by a 31-person student team, the Grease Monkeys. Atlas Stewart is Creative Director and UI + UX designer and designed a diegetic main menu: an attract-loop camera director, settings etched onto the car, and compass-style spray-painted menu arrows. Releasing on Steam in December 2026."},
  {"@type":"CreativeWork","name":"Chain of Jewels","creator":{"@id":"#atlas"},"description":"Team project (team of 5): a style guide built from a moodboard, then a complete game UI in Figma (main menu, jewel shop, skill forge, battle)."},
- {"@type":"CreativeWork","name":"Horns of Deliverance: UX and game feel deep dive","creator":{"@id":"#atlas"},"description":"A player-side UX and game feel deep dive into the early access roguelike shooter Horns of Deliverance: onboarding, the brainchip HUD, the item menu, altered-state effects and the run loop. Atlas did not work on the game."},
+ {"@type":"CreativeWork","name":"Horns of Deliverance: UX and game feel deep dive","creator":{"@id":"#atlas"},"description":"A player-side game feel deep dive into the early access roguelike shooter Horns of Deliverance, focused on its drug system: how the brainchip HUD frames drugs, how a dose is taken, what each dose does to sight and navigation, and how the game turns drug use into a system. Atlas did not work on the game."},
  {"@type":"CreativeWork","name":"Enhshahtén:ti","creator":{"@id":"#atlas"},"description":"Solo first-person combat feel and HUD project in Unreal Engine 5. Three levels each of a bow attack (a'én:na) and a crow special attack (iotiwísto), plus three levels of player damage feedback, each with distinct VFX, audio, animation and HUD feedback. Feather crosshair whose three plume sections show each ability level's cooldown. Qualitative audience testing on the pitch and early builds, followed by playtests. Built in Unreal Engine 5."},"description":"Solo game feel deep dive into making each level of attack, the amount of damage and the player's health state feel different. Includes style, weapon and power mood boards, health UI tests over a greybox, and an Animus-inspired UI palette tested against environment colors."},
  {"@type":"CreativeWork","name":"MC UI Redesign","creator":{"@id":"#atlas"},"description":"A redesign of the Minecraft inventory screen, wireframed flat and then overlaid on the live game."}
 ]}
