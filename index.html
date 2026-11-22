@@ -1475,9 +1475,9 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
           <radialGradient id="ng-htg"><stop offset="0" stop-color="#fff"/><stop offset=".55" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
           <mask id="ng-htm" maskContentUnits="objectBoundingBox"><rect width="1" height="1" fill="url(#ng-htg)"/></mask>
         </defs></svg>
-        <div class="why-wrap"><dl class="why" aria-label="The reasoning"><div><dt>Goal</dt><dd>Take the main menu I was handed and make it part of the game world.</dd></div><div><dt>Pain points</dt><dd>My first plan, a blended camera over a stack of flat 2D menus, didn't fit the game. Data Tables kept breaking when they pointed at things placed in the level.</dd></div><div><dt>My role</dt><dd>Creative Director, <strong>UI + UX</strong>. I own all of the UI and draw the UI art.</dd></div><div><dt>Decision</dt><dd>Rebuilt it around what the menu really is. One camera director hard cuts between Level Sequences, and buttons sit on 3D surfaces. Structs replaced the Data Table.</dd></div><div><dt>Evidence</dt><dd><a class="why-lead" href="#ng-engine">The first minute, in engine</a><span class="why-more"><a href="#ng-compass">Menu art, each direction explained</a> · <a href="#ng-garage">Drawovers, before and after</a> · <a href="#ng-build">How it's built</a> · <a href="#ng-ab">A/B testing the main menu</a></span></dd></div><div><dt>Outcome</dt><dd>Level references stopped breaking. Adding the three Garage hotspots took three rows of data and no new code.</dd></div></dl><nav class="proc" aria-label="Process"><a href="#ng-engine"><b>Journey</b><span>Intro to the main menu, step by step in engine</span></a><a href="#ng-garage"><b>Wireframes</b><span>Drawovers, before and after</span></a><a href="#ng-compass"><b>Prototype</b><span>Main menu running in engine, each direction explained</span></a><a href="#ng-ab"><b>Testing</b><span>A/B tests on two builds of the menu</span></a></nav></div>
+        <div class="why-wrap"><dl class="why" aria-label="The reasoning"><div><dt>Goal</dt><dd>Take the main menu I was handed and make it part of the game world.</dd></div><div><dt>Pain points</dt><dd>My first plan, a blended camera over a stack of flat 2D menus, didn't fit the game. Data Tables kept breaking when they pointed at things placed in the level.</dd></div><div><dt>My role</dt><dd>Creative Director, <strong>UI + UX</strong>. I own all of the UI and draw the UI art.</dd></div><div><dt>Decision</dt><dd>Rebuilt it around what the menu really is. One camera director hard cuts between Level Sequences, and buttons sit on 3D surfaces. Structs replaced the Data Table.</dd></div><div><dt>Evidence</dt><dd><a class="why-lead" href="#ng-engine">The first minute, in engine</a><span class="why-more"><a href="#ng-compass">Menu art, each direction explained</a> · <a href="#ng-garage">Drawovers, before and after</a> · <a href="#ng-build">How it's built</a></span></dd></div><div><dt>Outcome</dt><dd>Level references stopped breaking. Adding the three Garage hotspots took three rows of data and no new code.</dd></div></dl><nav class="proc" aria-label="Process"><a href="#ng-engine"><b>Journey</b><span>Intro to the main menu, step by step in engine</span></a><a href="#ng-garage"><b>Wireframes</b><span>Drawovers, before and after</span></a><a href="#ng-compass"><b>Prototype</b><span>Main menu running in engine, each direction explained</span></a><a href="#ng-ab"><b>Testing</b><span>A/B tests on two builds of the menu</span></a></nav></div>
         <div class="case-layout">
-          <nav class="toc" aria-label="Nitro Guzzler sections"><a href="#ng-part">My part</a><a href="#ng-engine">In engine</a><a href="#ng-compass">Menu art</a><a href="#ng-garage">Garage</a><a href="#ng-goal">Goal</a><a href="#ng-build">How it's built</a><a href="#ng-premise">Premise</a><a href="#ng-time">Timeline</a><a href="#ng-ai">AI use</a><a href="#ng-story">My story</a><a href="#ng-tricky">What was tricky</a><a href="#ng-through">What I worked through</a><a href="#ng-team">The team</a><a href="#ng-ab">A/B tests</a></nav>
+          <nav class="toc" aria-label="Nitro Guzzler sections"><a href="#ng-part">My part</a><a href="#ng-engine">In engine</a><a href="#ng-compass">Menu art</a><a href="#ng-garage">Garage</a><a href="#ng-goal">Goal</a><a href="#ng-build">How it's built</a><a href="#ng-premise">Premise</a><a href="#ng-time">Timeline</a><a href="#ng-ai">AI use</a><a href="#ng-team">The team</a></nav>
           <div class="chapters">
             <div class="ng-spine" aria-hidden="true"><i class="ng-shaft"></i><i class="ng-head"></i></div>
             <section class="chapter" id="ng-part" aria-labelledby="ng-part-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
@@ -1486,7 +1486,7 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
                 <li><a class="contrib-link" href="#ng-compass"><span class="cl-t">Drawing all of the UI art myself in vector graphics, starting with the main menu.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
                 <li><a class="contrib-link" href="#ng-engine"><span class="cl-t">Designed the main menu and intro as one space, and wrote the game plan and shot list for it.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
                 <li><a class="contrib-link" href="#ng-build"><span class="cl-t">Built the menu's camera director in <strong>Blueprints</strong> and wrote an <strong>Unreal Engine 5.5</strong> <strong>implementation guide</strong> for the team.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
-                <li><a class="contrib-link" href="#ng-through"><span class="cl-t">Co-produced the team from the start with one other <strong>producer</strong>, and built it on <strong>proactive communication</strong>.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
+                <li><a class="contrib-link" href="#ng-team"><span class="cl-t">Co-produced the team from the start with one other <strong>producer</strong>, and built it on <strong>proactive communication</strong>.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
               </ul>
             </section>
 
@@ -1576,33 +1576,18 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
 
             <section class="chapter" id="ng-build" aria-labelledby="ng-build-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
               <h2 id="ng-build-h">How it's built in Unreal</h2>
-              <p>A 3D main menu in a white void, built in <strong>Blueprint</strong>. The camera hard cuts between Level Sequences and never blends. Menu items are <strong>UMG</strong> widgets placed on surfaces in the world, like the arrows on the ground and the car's paint. They're separate objects that navigate as one screen.</p>
+              <p class="lede">I built the whole menu out of small, simple functions and data, so it scales. A new screen is a new row, not new code.</p>
               <ul class="stat-row reveal" aria-label="By the numbers">
                 <li><b>17</b><span>menu buttons</span></li>
                 <li><b>8</b><span>settings rows</span></li>
-                <li><b>20</b><span>director functions</span></li>
+                <li><b>20</b><span>small director functions</span></li>
                 <li><b>69</b><span>credit rows, built at runtime</span></li>
               </ul>
-              <h3>The director</h3>
               <ul class="notes reveal">
-                <li><b>One Blueprint owns the menu</b>BP_MenuCameraDirector holds every destination: Ready, Main, the Settings pages, Credits, Pit Crew, Prep Ride and Start Game. A Victory screen is set up the same way.</li>
-                <li><b>Structs over a Data Table</b>Data Tables can't hold references to actors placed in the level. So each destination is a struct with eight fields: its tag, its parent, its sequence, its buttons, its info panels, whether it loops, its playback speed and its return sequence.</li>
-                <li><b>Hierarchy by tag</b>Each destination stores its parent tag, so a submenu is just more rows. Back reads that data, so it needs no special logic.</li>
-                <li><b>Sequences hold their last frame</b>A destination's sequence plays once and holds. Loops chain off On Finished, like the Prep Ride transition into the car loop.</li>
-              </ul>
-              <h3>Navigation and Back</h3>
-              <ul class="notes reveal">
-                <li><b>One activation path</b>A mouse click raycasts into the widgets. Gamepad and keyboard step through an ordered list by direction, scoring the nearest button. Both end in the same Interact call.</li>
-                <li><b>One Back for everything</b>GoUp stops any running loop, climbs past loop destinations and hides the buttons. Then it plays the return sequence if there is one, or reverses its own. When that finishes, the parent shows and restarts its loop.</li>
-              </ul>
-              <h3>Settings and button feel</h3>
-              <ul class="notes reveal">
-                <li><b>The Game Instance owns the values</b>Step, set, clamp or wrap, then save to one Settings slot. The rows are Master, Music, SFX, Ambience, Subtitles, Subtitle Size, Show HUD and Reset Defaults.</li>
-                <li><b>One interface for every widget</b>BPI_MenuWidget lets the director highlight, label and update any button or row type the same way.</li>
-                <li><b>Sliders are sine waves</b>Each slider is one hologram material. A UV mask draws the fill, and the wave scrolls faster while the value is changing.</li>
-                <li><b>Highlights ease</b>Each button has its own material on a 3D plate. The highlight rises fast and falls slow, so the button you pick lifts and the one you leave fades. An idle breath pulse finishes its cycle before it stops.</li>
-                <li><b>Credits and Victory share a widget</b>Credits are built at runtime from a data table, sorted by kind: logo, header, person, line or gap. Victory is a child of the same widget with its own seven rows and a hook for score and race time.</li>
-                <li><b>Cheap per frame</b>Each button costs one interpolation and two parameter updates a frame. Camera moves are authored sequences with no runtime blending. It runs smoothly in the editor, and I haven't profiled frame times yet.</li>
+                <li><b>Every screen is a row</b>One <strong>Blueprint</strong> director holds every destination as a struct: its tag, its parent, its sequence and its buttons. Adding the three Garage hotspots took three rows and no new code.</li>
+                <li><b>One Back for everything</b>Each row knows its parent, so a single GoUp function handles Back on every screen, including loops and return sequences.</li>
+                <li><b>One input path</b>Mouse raycasts, gamepad and keyboard all end in the same Interact call. One fix covers all three.</li>
+                <li><b>One interface, one material</b>Every button and settings row talks to the director through one interface. Sliders are a single hologram material driven by one value. Credits and the Victory screen share one widget, fed by data tables.</li>
               </ul>
             </section>
 
@@ -1633,32 +1618,6 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
               <p>AI was a tool during development, and I used it to further my education on the subject. I used it for bug fixing, for notes and secretary help, for compiling lists and for grammar checks on documents.</p>
             </section>
 
-            <section class="chapter" id="ng-story" aria-labelledby="ng-story-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
-              <h2 id="ng-story-h">My story</h2>
-              <p>Almost every choice I make for the menu lands on someone else's work too.</p>
-            </section>
-
-            <section class="chapter story-sec" id="ng-tricky" aria-labelledby="ng-tricky-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
-              <h3 id="ng-tricky-h">What was tricky</h3>
-              <p>We were dropped right in. There was a serious lack of preproduction and design time, so nothing was settled before the building started. That fractured the team early, because every discipline was learning new systems and a new engine at once.</p>
-              <p>There was a lot of <em><strong>scope</strong></em> and a lot of turmoil.</p>
-              <ul class="pts">
-                <li>We had very few artists for what we needed, and many were first-time artists.</li>
-                <li>Our CS students had never worked in <strong>Unreal</strong> because of how the classes are set up, so they learned it on top of their other work.</li>
-                <li>That meant design couldn't get as technical as it needed to.</li>
-                <li>Some people took on more than they had the experience for yet.</li>
-                <li>A few big changes and mix-ups landed mid-development.</li>
-              </ul>
-              <p>On the menu, I built half the system on the wrong assumption. I had seven sections of the <strong>implementation guide</strong> done before the design settled on hard cuts and buttons that live on the car itself.</p>
-            </section>
-
-            <section class="chapter story-sec" id="ng-through" aria-labelledby="ng-through-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
-              <h3 id="ng-through-h">What I worked through</h3>
-              <p>What kept the team from blowing up was the foundation. As the first <strong>producer</strong>, with one other producer, I built the team on <strong>proactive communication</strong>.</p>
-              <p>Then we refactored over the summer and came back as the largest team in DigiPen history, 31 people.</p>
-              <p>On the menu, I stopped patching the old plan and rebuilt it around the real design. <a href="#ng-build">How it's built</a> shows the result.</p>
-            </section>
-
             <section class="chapter" id="ng-team" aria-labelledby="ng-team-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
               <h2 id="ng-team-h">The team around the UI</h2>
               <p>Nitro Guzzler is made by the Grease Monkeys. The menu only works because of what the other departments build. Here's who the UI leans on.</p>
@@ -1684,17 +1643,6 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
                   <p>Most of the team works in C++. I build the menu logic in Blueprints on top of their systems.</p>
                 </li>
               </ul>
-            </section>
-
-            <section class="chapter" id="ng-ab" aria-labelledby="ng-ab-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
-              <h2 id="ng-ab-h">A/B testing the main menu</h2>
-              <p>A <strong>user research</strong> test to pick between two directions for the menu in my last polish push. <em>A</em> uses animated transitions. <em>B</em> uses white-flash hard cuts. One bool switches between them, so the same testers can run both.</p>
-              <ul class="pts">
-                <li><em>Usability.</em> Completion, time on task and wrong turns.</li>
-                <li><em>Engagement.</em> Player ratings for which version feels cooler.</li>
-                <li><em>Production.</em> Tech hours each version still needs, against the time left.</li>
-              </ul>
-              <p class="status-line"><span class="dot" aria-hidden="true"></span>Set up, with a shared sheet ready. Results come after the sessions.</p>
             </section>
 
           </div>
