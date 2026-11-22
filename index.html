@@ -1024,6 +1024,12 @@ section.projects{overflow-x:clip}
 .dc-dose{display:block;font-family:var(--font-mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);margin:.1rem 0 .35rem}
 .dc-text{padding:.9rem}
 @media (max-width:860px){.dcards{grid-template-columns:minmax(0,1fr)}}
+/* résumé preview: the real page, no blur or darkening on hover */
+.resume-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.resume-view:hover .resume-img,.resume-view:focus-visible .resume-img{transform:none!important;filter:none!important}
+.resume-view:hover .resume-cover,.resume-view:focus-visible .resume-cover{background:transparent!important}
+/* project card chips wrap instead of cutting off */
+.file .chip{white-space:normal!important;overflow:visible!important;text-overflow:clip!important;max-width:100%;line-height:1.35;text-align:left}
 /* paint drips on the rail: the last section's color runs down into the next one, just before its arrow */
 #case-nitro-guzzler .chapter.has-drip::before{top:-5.2rem}
 #case-nitro-guzzler .chapter.has-drip::after{content:"";position:absolute;z-index:1;left:1.84rem;width:.73rem;top:-5.2rem;height:3.2rem;background:var(--c-p);pointer-events:none;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H20V12C20 16 19 30 16.5 30S13 22 13 17 11 13 9 15 8 24 5.5 24 3 15 0 13Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H20V12C20 16 19 30 16.5 30S13 22 13 17 11 13 9 15 8 24 5.5 24 3 15 0 13Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat}
@@ -1073,7 +1079,7 @@ section.projects{overflow-x:clip}
       <div class="status">
         <p class="now reloc"><span class="pin-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg></span><span>Redmond, WA · <b>Open to relocate</b></span></p>
       </div>
-      <svg class="atlas-bg bigword" viewBox="0 0 1000 250" preserveAspectRatio="none" aria-hidden="true" focusable="false"><defs><linearGradient id="atlas-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity=".2"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><text x="4" y="232" textLength="992" lengthAdjust="spacingAndGlyphs" font-size="300" font-weight="800" fill="url(#atlas-g)" stroke="currentColor" stroke-opacity=".32" stroke-width="1.5">ATLAS</text></svg>
+      <svg class="atlas-bg bigword" viewBox="0 0 1000 250" preserveAspectRatio="none" aria-hidden="true" focusable="false"><defs><linearGradient id="atlas-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity=".2"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient><filter id="bw-o" x="-2%" y="-10%" width="104%" height="120%" color-interpolation-filters="sRGB"><feMorphology in="SourceAlpha" operator="dilate" radius="1.4" result="d"/><feComposite in="d" in2="SourceAlpha" operator="out" result="ring"/><feFlood flood-color="#63D9D9" flood-opacity=".38"/><feComposite in2="ring" operator="in"/></filter></defs><text x="4" y="232" textLength="992" lengthAdjust="spacingAndGlyphs" font-size="300" font-weight="800" fill="#000" filter="url(#bw-o)">ATLAS</text><text x="4" y="232" textLength="992" lengthAdjust="spacingAndGlyphs" font-size="300" font-weight="800" fill="url(#atlas-g)">ATLAS</text></svg>
       <div class="intro-grid">
         <div class="intro-copy">
           <p class="lede">I design <em><strong>UI + UX</strong></em> for games. That means user experience, user interface, game feel, HUDs and information architecture. I'm all about the <em>process</em>. I start in <em>greybox</em>, then <em>iterate</em>, and repeat.</p>
@@ -1089,7 +1095,7 @@ section.projects{overflow-x:clip}
 
   <section class="wrap band projects" id="projects" aria-labelledby="projects-title">
     <div class="inner">
-      <svg class="bigword " viewBox="0 0 1000 250" preserveAspectRatio="none" aria-hidden="true" focusable="false"><text x="4" y="232" textLength="992" lengthAdjust="spacingAndGlyphs" font-size="300" font-weight="800" fill="url(#atlas-g)" stroke="currentColor" stroke-opacity=".32" stroke-width="1.5">PROJECTS</text></svg>
+      <svg class="bigword " viewBox="0 0 1000 250" preserveAspectRatio="none" aria-hidden="true" focusable="false"><text x="4" y="232" textLength="992" lengthAdjust="spacingAndGlyphs" font-size="300" font-weight="800" fill="#000" filter="url(#bw-o)">PROJECTS</text><text x="4" y="232" textLength="992" lengthAdjust="spacingAndGlyphs" font-size="300" font-weight="800" fill="url(#atlas-g)">PROJECTS</text></svg>
       <h2 id="projects-title" class="sr-only">Projects</h2>
       <div class="deck" role="list">
         <a role="listitem" class="file" data-p="nitro-guzzler" href="#nitro-guzzler" aria-label="Nitro Guzzler. I'm Creative Director and UI + UX designer on this 31-person racing experience. Open case study.">
@@ -1134,14 +1140,14 @@ section.projects{overflow-x:clip}
             </span>
           </span>
         </a>
-        <a role="listitem" class="file" data-p="minecraft-project" href="#minecraft-project" aria-label="MC UI Redesign. An inventory screen redesign, wireframed over the live game. Open case study.">
+        <a role="listitem" class="file" data-p="minecraft-project" href="#minecraft-project" aria-label="MC UI Redesign. An inventory redesign that was showcased at Mojang. Open case study.">
           <span class="file-tab" aria-hidden="true">04 · MC UI Redesign</span>
           <span class="file-face">
             <span class="file-media"><img src="img/mc-ingame.webp" alt="" width="1600" height="900" loading="lazy" style="object-position:center"></span>
             <span class="file-body">
-              <span class="chip">UI redesign</span>
+              <span class="chip">Showcased at Mojang</span>
               <span class="file-title">MC UI Redesign</span>
-              <span class="file-line">An inventory screen redesign, wireframed right over the live game.</span>
+              <span class="file-line">An inventory redesign for players who run out of room. It won, and Mojang saw it.</span>
               <span class="file-more"><dl><dt>Focus</dt><dd>Inventory layout</dd><dt>Built</dt><dd>Wireframe, in-game overlay</dd></dl><span class="open">Open file →</span></span>
             </span>
           </span>
@@ -1167,7 +1173,7 @@ section.projects{overflow-x:clip}
 
   <section class="wrap band" id="resume" aria-labelledby="more-title">
     <div class="inner">
-      <svg class="bigword " viewBox="0 0 1000 250" preserveAspectRatio="none" aria-hidden="true" focusable="false"><text x="4" y="232" textLength="992" lengthAdjust="spacingAndGlyphs" font-size="300" font-weight="800" fill="url(#atlas-g)" stroke="currentColor" stroke-opacity=".32" stroke-width="1.5">ABOUT</text></svg>
+      <svg class="bigword " viewBox="0 0 1000 250" preserveAspectRatio="none" aria-hidden="true" focusable="false"><text x="4" y="232" textLength="992" lengthAdjust="spacingAndGlyphs" font-size="300" font-weight="800" fill="#000" filter="url(#bw-o)">ABOUT</text><text x="4" y="232" textLength="992" lengthAdjust="spacingAndGlyphs" font-size="300" font-weight="800" fill="url(#atlas-g)">ABOUT</text></svg>
       <div class="about-grid">
         <div class="about-copy reveal">
           <h2 id="more-title" class="sr-only">About</h2>
@@ -1181,22 +1187,7 @@ section.projects{overflow-x:clip}
         </div>
         <aside class="resume reveal" aria-labelledby="resume-title">
           <h3 id="resume-title" class="sr-only">My résumé</h3>
-          <a class="resume-view" href="https://drive.google.com/file/d/1YiB4TUytKC5HxxYsFp5sX9tJaJlAxgy4/view?usp=sharing" target="_blank" rel="noopener" aria-label="Open my résumé in a new tab">
-            <span class="resume-sheet">
-              <span class="rs-head"><b>Atlas Stewart</b><em>UI + UX Design</em><small>Redmond, WA · Open to relocate</small></span>
-              <span class="rs-sec"><i>Experience</i>
-                <span class="rs-row"><b>Creative Director, UI + UX</b><small>Nitro Guzzler · 31-person team · Steam, Dec 2026</small></span>
-                <span class="rs-row"><b>Game Design Instructor</b><small>DigiPen Open World</small></span>
-              </span>
-              <span class="rs-sec"><i>Recognition</i>
-                <span class="rs-row"><b>UnDuster · Bigmode 2023 Game Jam</b><small>Least Dusty Platformer award · on Steam</small></span>
-              </span>
-              <span class="rs-sec"><i>Education</i>
-                <span class="rs-row"><b>DigiPen Institute of Technology</b><small>Game design, UI + UX</small></span>
-              </span>
-              <span class="rs-lines" aria-hidden="true"><span></span><span></span><span></span></span>
-            </span>
-            <span class="resume-cover" aria-hidden="true"><span class="open-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg><span>Open résumé</span></span></span>
+          <a class="resume-view" href="img/atlas-stewart-resume.jpg" target="_blank" rel="noopener" aria-label="Open my résumé in a new tab"><img class="resume-img" src="img/resume-preview.webp" width="900" height="1164" loading="lazy" alt="Atlas Stewart's résumé: UI + UX Designer. Design experience on Nitro Guzzler, Chain of Jewels, Repente and UnDuster, teaching at DigiPen Open World, education, awards and skills."><span class="resume-cover" aria-hidden="true"><span class="open-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg><span>Open résumé</span></span></span>
           </a>
         </aside>
       </div>
@@ -1981,16 +1972,17 @@ section.projects{overflow-x:clip}
       <div class="inner">
         <div class="case-bar"><a class="btn ghost close" href="#projects">← Back to projects</a></div>
         <header class="case-hero morph-target">
-          <p class="eyebrow">Case study · Inventory redesign</p>
+          <p class="eyebrow">Case study · Inventory redesign · Showcased at Mojang</p>
           <h1 id="mc-title" tabindex="-1">MC UI Redesign</h1>
-          <p class="lede">A redesign of the Minecraft inventory screen. I wireframed it flat first. Then I laid it over the live game.</p>
+          <p class="lede">A redesign of the Minecraft inventory screen, made as my final for a UX class. The professor is a lead UI designer at <strong>Mojang</strong>. The top three projects from each section were shown at Mojang while they were working on their own UI and HUD redesigns. Mine won and was showcased there.</p>
           <dl class="glance">
             <div><dt>Focus</dt><dd>Inventory layout</dd></div>
             <div><dt>Built</dt><dd>Flat wireframe, in-game overlay</dd></div>
+            <div><dt>Result</dt><dd>Won, showcased at Mojang</dd></div>
           </dl>
         </header>
         <div class="case-layout">
-          <nav class="toc" aria-label="MC UI Redesign sections"><a href="#mc-part">My part</a><a href="#mc-flat">Wireframe</a><a href="#mc-live">In the game</a></nav>
+          <nav class="toc" aria-label="MC UI Redesign sections"><a href="#mc-part">My part</a><a href="#mc-why">The problem</a><a href="#mc-flat">Wireframe</a><a href="#mc-live">In the game</a></nav>
           <div class="chapters">
             <section class="chapter" id="mc-part" aria-labelledby="mc-part-h">
               <h2 id="mc-part-h">My contributions</h2>
@@ -1998,6 +1990,11 @@ section.projects{overflow-x:clip}
                 <li><a class="contrib-link" href="#mc-flat"><span class="cl-t">Wireframed a new inventory layout.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
                 <li><a class="contrib-link" href="#mc-live"><span class="cl-t">Laid the <strong>wireframe</strong> over the live game to check it in context.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
               </ul>
+            </section>
+            <section class="chapter" id="mc-why" aria-labelledby="mc-why-h">
+              <h2 id="mc-why-h">The problem</h2>
+              <p>Minecraft keeps adding items and blocks, and players often don't have the space to use them all. When you're building, you're limited to what fits. In combat, you can't keep every tool you'd want at hand.</p>
+              <p>So the redesign is about room. I wireframed it flat first, then laid it over the live game to check it in context.</p>
             </section>
             <section class="chapter" id="mc-flat" aria-labelledby="mc-flat-h">
               <h2 id="mc-flat-h">Flat wireframe</h2>
@@ -2036,7 +2033,7 @@ section.projects{overflow-x:clip}
  {"@type":"CreativeWork","name":"Chain of Jewels","creator":{"@id":"#atlas"},"description":"Team project (team of 5): a style guide built from a moodboard, then a complete game UI in Figma (main menu, jewel shop, skill forge, battle)."},
  {"@type":"CreativeWork","name":"Horns of Deliverance: UX and game feel deep dive","creator":{"@id":"#atlas"},"description":"A player-side game feel deep dive into the early access roguelike shooter Horns of Deliverance, focused on its drug system: how the brainchip HUD frames drugs, how a dose is taken, what each dose does to sight and navigation, and how the game turns drug use into a system. Atlas did not work on the game."},
  {"@type":"CreativeWork","name":"Enhshahtén:ti","creator":{"@id":"#atlas"},"description":"Solo first-person combat feel and HUD project in Unreal Engine 5. Three levels each of a bow attack (a'én:na) and a crow special attack (iotiwísto), plus three levels of player damage feedback, each with distinct VFX, audio, animation and HUD feedback. Feather crosshair whose three plume sections show each ability level's cooldown. Qualitative audience testing on the pitch and early builds, followed by playtests. Built in Unreal Engine 5."},"description":"Solo game feel deep dive into making each level of attack, the amount of damage and the player's health state feel different. Includes style, weapon and power mood boards, health UI tests over a greybox, and an Animus-inspired UI palette tested against environment colors."},
- {"@type":"CreativeWork","name":"MC UI Redesign","creator":{"@id":"#atlas"},"description":"A redesign of the Minecraft inventory screen, wireframed flat and then overlaid on the live game."}
+ {"@type":"CreativeWork","name":"MC UI Redesign","creator":{"@id":"#atlas"},"description":"A Minecraft inventory redesign made as a UX class final. It won and was showcased at Mojang during their UI and HUD redesigns."}
 ]}
 </script>
 
