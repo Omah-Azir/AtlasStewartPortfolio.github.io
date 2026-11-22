@@ -1077,6 +1077,26 @@ li.lit,li.lit b{font-style:italic;font-weight:700}
 #case-minecraft-project .lede{font-size:1.3rem}
 #case-minecraft-project figcaption{font-size:1rem}
 #case-minecraft-project .draw-notes{font-size:1.05rem}
+/* pinned notes overlay the image on wider screens */
+.hot-wrap{position:relative}
+@media (min-width:701px){
+  .hot-wrap .notes{position:absolute;inset:0;display:block!important;pointer-events:none;margin:0}
+  .hot-wrap .notes li{position:absolute;left:var(--x);top:var(--y);width:min(19rem,36%);opacity:0!important;transform:translateY(6px);transition:opacity .2s var(--ease),transform .2s var(--ease);box-shadow:0 14px 30px -12px rgba(0,0,0,.7)!important;z-index:3;background:#2A2017!important;color:#F3EAD8!important}
+  .hot-wrap .notes li.lit{opacity:1!important;transform:none}
+  .hot-wrap:has(li.lit) .pin:not(.on){opacity:.3}
+  .hot-wrap:has(li.lit) .hot>img{filter:brightness(.55);transition:filter .2s var(--ease)}
+}
+/* Nitro Guzzler: the clips are the work, so they get the room */
+#case-nitro-guzzler .inner{max-width:min(1560px,100%)}
+#case-nitro-guzzler .case-layout{grid-template-columns:170px minmax(0,1fr)}
+@media (min-width:861px){#case-nitro-guzzler .chapter{padding-left:6.5rem}}
+#case-nitro-guzzler .ie-step{grid-template-columns:minmax(0,2.3fr) minmax(0,1fr);gap:clamp(1rem,2.5vw,2rem)}
+#case-nitro-guzzler .ie-tv{padding:clamp(.6rem,1.6vw,1.1rem)}
+#case-nitro-guzzler .clips-1{max-width:none}
+#case-nitro-guzzler .clips-1 video,#case-nitro-guzzler .clips video{width:100%}
+#case-nitro-guzzler .dv-pair{gap:1rem}
+#case-nitro-guzzler .chapter>p,#case-nitro-guzzler .chapter>.lede{max-width:70ch}
+@media (max-width:760px){#case-nitro-guzzler .ie-step{grid-template-columns:minmax(0,1fr)}}
 /* paint drips on the rail: the last section's color runs down into the next one, just before its arrow */
 #case-nitro-guzzler .chapter.has-drip::before{top:-5.2rem}
 #case-nitro-guzzler .chapter.has-drip::after{content:"";position:absolute;z-index:1;left:1.84rem;width:.73rem;top:-5.2rem;height:3.2rem;background:var(--c-p);pointer-events:none;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H20V12C20 16 19 30 16.5 30S13 22 13 17 11 13 9 15 8 24 5.5 24 3 15 0 13Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H20V12C20 16 19 30 16.5 30S13 22 13 17 11 13 9 15 8 24 5.5 24 3 15 0 13Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat}
@@ -1356,7 +1376,8 @@ li.lit,li.lit b{font-style:italic;font-weight:700}
 
             <section class="chapter" id="coj-menu" aria-labelledby="coj-menu-h">
               <h2 id="coj-menu-h">Main menu art pass</h2>
-              <p class="lede">Tap the numbered pins to see why each part sits where it does.</p>
+              <p class="lede">Hover or tap a numbered pin to see why that part sits where it does.</p>
+              <div class="hot-wrap">
               <figure class="hot reveal" id="hot">
                 <img src="img/coj-main-menu.webp" width="1600" height="736" loading="lazy" alt="Chain of Jewels main menu: the title over four large jewel shapes, a single large Campaign button in the center, a row of five buttons below (Shops, Crafting, Book of Chains, Rewards, Quit), player portrait with level and XP top left, energy 65 of 100 and coin count top right, audio and settings buttons in the bottom corners.">
                 <button class="pin" type="button" style="left:24%;top:23%" data-note="1" aria-pressed="false" aria-label="Note 1: player state">1</button>
@@ -1364,14 +1385,16 @@ li.lit,li.lit b{font-style:italic;font-weight:700}
                 <button class="pin" type="button" style="left:66%;top:59%" data-note="3" aria-pressed="false" aria-label="Note 3: primary action">3</button>
                 <button class="pin" type="button" style="left:6%;top:76%" data-note="4" aria-pressed="false" aria-label="Note 4: secondary destinations">4</button>
                 <button class="pin" type="button" style="left:93%;top:86%" data-note="5" aria-pressed="false" aria-label="Note 5: utilities">5</button>
+
               </figure>
               <ol class="notes" aria-label="Main menu notes">
-                <li id="note-1"><span class="n">01</span><b>Who you are</b>Portrait, level and XP stay pinned top left on every screen.</li>
-                <li id="note-2"><span class="n">02</span><b>What you have</b>Energy and coins stay top right. So you always know what you can spend.</li>
-                <li id="note-3"><span class="n">03</span><b>One obvious next step</b>Campaign is the only big button, and it gets its own panel.</li>
-                <li id="note-4"><span class="n">04</span><b>Everything else, equal</b>Shops, Crafting, Book of Chains, Rewards and Quit share one row and one size.</li>
-                <li id="note-5"><span class="n">05</span><b>Out of the way</b>Audio and settings sit in the corners. Easy to reach and easy to ignore.</li>
+                <li id="note-1" style="--x:27%;--y:8%"><span class="n">01</span><b>Who you are</b>Portrait, level and XP stay pinned top left on every screen.</li>
+                <li id="note-2" style="--x:50%;--y:10%"><span class="n">02</span><b>What you have</b>Energy and coins stay top right. So you always know what you can spend.</li>
+                <li id="note-3" style="--x:34%;--y:40%"><span class="n">03</span><b>One obvious next step</b>Campaign is the only big button, and it gets its own panel.</li>
+                <li id="note-4" style="--x:10%;--y:36%"><span class="n">04</span><b>Everything else, equal</b>Shops, Crafting, Book of Chains, Rewards and Quit share one row and one size.</li>
+                <li id="note-5" style="--x:62%;--y:52%"><span class="n">05</span><b>Out of the way</b>Audio and settings sit in the corners. Easy to reach and easy to ignore.</li>
               </ol>
+              </div>
             </section>
 
             <section class="chapter" id="coj-screens" aria-labelledby="coj-screens-h">
@@ -2073,9 +2096,10 @@ li.lit,li.lit b{font-style:italic;font-weight:700}
             </section>
             <section class="chapter" id="mc-live" aria-labelledby="mc-live-h">
               <h2 id="mc-live-h">Wireframe over the live game</h2>
+              <p>I turned down the opacity of the inventory and the HUD on purpose. You can still see the world while your menu is open, so a creeper can't sneak up on you while you sort. The look and sizing stay close to Minecraft's own assets, so it still reads as Minecraft.</p>
               <figure class="reveal">
                 <img src="img/mc-ingame.webp" width="1600" height="900" loading="lazy" alt="The same inventory wireframe shown as a see-through panel over a Minecraft world with trees, hills and a lake. The health and hunger bars and the hotbar sit below it.">
-                <figcaption>The wireframe as a see-through panel over the world. I kept the opacity, sizing and look of Minecraft's own assets so it still reads as Minecraft.</figcaption>
+                <figcaption>The wireframe as a see-through panel over the world.</figcaption>
               </figure>
             </section>
             <section class="chapter" id="mc-next" aria-labelledby="mc-next-h">
@@ -2204,12 +2228,12 @@ li.lit,li.lit b{font-style:italic;font-weight:700}
   /* ---------- hotspots ---------- */
   document.querySelectorAll('.pin').forEach(pin => {
     const note = document.getElementById('note-' + pin.dataset.note);
-    const lit = on => { note.classList.toggle('lit', on); };
+    const lit = on => { note.classList.toggle('lit', on); pin.classList.toggle('on', on); };
     pin.addEventListener('mouseenter', () => lit(true));
     pin.addEventListener('mouseleave', () => { if (pin.getAttribute('aria-pressed') !== 'true') lit(false); });
     pin.addEventListener('click', () => {
       const on = pin.getAttribute('aria-pressed') !== 'true';
-      document.querySelectorAll('.pin').forEach(p => { p.setAttribute('aria-pressed','false'); document.getElementById('note-'+p.dataset.note).classList.remove('lit'); });
+      document.querySelectorAll('.pin').forEach(p => { p.setAttribute('aria-pressed','false'); p.classList.remove('on'); document.getElementById('note-'+p.dataset.note).classList.remove('lit'); });
       pin.setAttribute('aria-pressed', on ? 'true' : 'false'); lit(on);
       if (on && matchMedia('(max-width:860px)').matches) note.scrollIntoView({block:'nearest', behavior: reduce.matches?'instant':'smooth'});
     });
