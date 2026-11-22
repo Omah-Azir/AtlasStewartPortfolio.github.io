@@ -1050,6 +1050,15 @@ section.projects{overflow-x:clip}
 .tool-grid.sw .tool{display:flex!important;align-items:center;gap:.6rem;padding:.6rem .75rem!important;border-radius:4px}
 .tool-grid.sw .tool svg{width:1.35rem;height:1.35rem;flex:none;fill:var(--accent)}
 .tool-grid.sw .tool b{font-size:.95rem;font-weight:600}
+/* drawovers: hovering one callout dims the rest; the live one goes bold italic */
+.has-hot .d-label:not(.hot),.has-hot .draw-lines line:not(.hot){opacity:.22!important}
+.has-hot .d-box:not(.hot){opacity:.45}
+.d-label.hot,.d-label.hot b{font-style:italic;font-weight:700}
+.d-label.hot{opacity:1!important}
+.draw:has(.hot) figcaption,.draw:has(.hot) .draw-notes li:not(.hot){opacity:.4;transition:opacity .2s var(--ease)}
+.draw-notes li.hot{font-style:italic;font-weight:700}
+ul:has(> li.lit) > li:not(.lit),ol:has(> li.lit) > li:not(.lit){opacity:.3;transition:opacity .2s var(--ease)}
+li.lit,li.lit b{font-style:italic;font-weight:700}
 /* paint drips on the rail: the last section's color runs down into the next one, just before its arrow */
 #case-nitro-guzzler .chapter.has-drip::before{top:-5.2rem}
 #case-nitro-guzzler .chapter.has-drip::after{content:"";position:absolute;z-index:1;left:1.84rem;width:.73rem;top:-5.2rem;height:3.2rem;background:var(--c-p);pointer-events:none;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H20V12C20 16 19 30 16.5 30S13 22 13 17 11 13 9 15 8 24 5.5 24 3 15 0 13Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H20V12C20 16 19 30 16.5 30S13 22 13 17 11 13 9 15 8 24 5.5 24 3 15 0 13Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat}
@@ -1223,7 +1232,7 @@ section.projects{overflow-x:clip}
     <div class="inner">
       <h2 id="contact-title" class="reveal">Continue?<span class="caret" aria-hidden="true"></span></h2>
       <ul class="contact-list">
-        <li><span class="k">Phone</span><a class="v" id="phone-v" href="tel:+14256208472">(425) 620-8472</a><button class="copy" type="button" data-copy="#phone-v">Copy</button></li>
+        <li><span class="k">Phone</span><a class="v" id="phone-v" href="tel:+14252608472">(425) 260-8472</a><button class="copy" type="button" data-copy="#phone-v">Copy</button></li>
         <li><span class="k">Email</span><a class="v" id="email-v" href="mailto:atlasgamedeveloper@gmail.com">atlasgamedeveloper@gmail.com</a><button class="copy" type="button" data-copy="#email-v">Copy</button></li>
         <li><span class="k">LinkedIn</span><a class="v" href="https://www.linkedin.com/in/atlas-stewart-3a333a33a" target="_blank" rel="noopener">linkedin.com/in/atlas-stewart-3a333a33a ↗</a></li>
         <li><span class="k">Linktree</span><a class="v" href="https://linktr.ee/atlasgamedeveloper" target="_blank" rel="noopener">linktr.ee/atlasgamedeveloper ↗</a></li>
@@ -2073,7 +2082,7 @@ section.projects{overflow-x:clip}
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
- {"@type":"Person","@id":"#atlas","name":"Atlas Stewart","jobTitle":"UI + UX Designer (Games)","homeLocation":{"@type":"Place","name":"Redmond, Washington"},"description":"Open to relocate.","email":"mailto:atlasgamedeveloper@gmail.com","telephone":"+1-425-620-8472","sameAs":["https://www.linkedin.com/in/atlas-stewart-3a333a33a","https://linktr.ee/atlasgamedeveloper"],"affiliation":{"@type":"CollegeOrUniversity","name":"DigiPen Institute of Technology"},
+ {"@type":"Person","@id":"#atlas","name":"Atlas Stewart","jobTitle":"UI + UX Designer (Games)","homeLocation":{"@type":"Place","name":"Redmond, Washington"},"description":"Open to relocate.","email":"mailto:atlasgamedeveloper@gmail.com","telephone":"+1-425-260-8472","sameAs":["https://www.linkedin.com/in/atlas-stewart-3a333a33a","https://linktr.ee/atlasgamedeveloper"],"affiliation":{"@type":"CollegeOrUniversity","name":"DigiPen Institute of Technology"},
   "award":"Least Dusty Platformer award, Bigmode 2023 Game Jam, for UnDuster (released on Steam)","knowsAbout":["Game UI design","UX design","HUD design","Diegetic UI","Style guides","Level design","Unreal Engine Blueprints","Figma","Unity","Maya","Krita"]},
  {"@type":"CreativeWork","name":"Nitro Guzzler","creator":{"@id":"#atlas"},"description":"Redline-inspired racing experience set in a post-apocalypse (Death Valley, 2012) and broadcast on intergalactic TV, built in Unreal Engine 5.5 by a 31-person student team, the Grease Monkeys. Atlas Stewart is Creative Director and UI + UX designer and designed a diegetic main menu: an attract-loop camera director, settings etched onto the car, and compass-style spray-painted menu arrows. Releasing on Steam in December 2026."},
  {"@type":"CreativeWork","name":"Chain of Jewels","creator":{"@id":"#atlas"},"description":"Team project (team of 5): a style guide built from a moodboard, then a complete game UI in Figma (main menu, jewel shop, skill forge, battle)."},
