@@ -1003,15 +1003,6 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
 #case-nitro-guzzler .ie-txt h3{font-size:1.5rem}
 #case-nitro-guzzler figcaption{font-size:1rem;line-height:1.5}
 #case-nitro-guzzler figcaption b,#case-nitro-guzzler .why dt,#case-nitro-guzzler .n,#case-nitro-guzzler .ie-lab,#case-nitro-guzzler .toc a,#case-nitro-guzzler .vx-color,#case-nitro-guzzler .t-tag,#case-nitro-guzzler .team-role,#case-nitro-guzzler .hud-label,#case-nitro-guzzler .cl-go,#case-nitro-guzzler .eyebrow{font-size:.85rem}
-/* Horns of Deliverance: dose table */
-.dose-wrap{overflow-x:auto;margin:1rem 0 1.5rem;border:1px solid var(--rule);border-radius:6px}
-.dose{width:100%;border-collapse:collapse;font-size:1rem;line-height:1.45}
-.dose th,.dose td{padding:.7rem .85rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--rule)}
-.dose thead th{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);font-weight:500}
-.dose tbody th{color:var(--accent);font-weight:700;white-space:nowrap}
-.dose tbody tr:last-child>*{border-bottom:0}
-.dose td:nth-child(2){white-space:nowrap;color:var(--ink-2)}
-@media (max-width:700px){.dose,.dose tbody,.dose tr,.dose th,.dose td{display:block}.dose thead{display:none}.dose tr{padding:.6rem .8rem;border-bottom:1px solid var(--rule)}.dose th,.dose td{padding:.15rem 0;border:0}.dose td:nth-child(4){color:var(--accent)}}
 /* project cards: bigger, readable labels */
 .file .chip{font-size:.9rem;letter-spacing:.08em;padding:.35rem .8rem}
 .file-tab{font-size:.9rem!important;letter-spacing:.12em}
@@ -1024,6 +1015,15 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
 .intro-copy{text-align:left}
 section.projects{overflow-x:clip}
 .deck{margin-inline:auto}
+/* Horns of Deliverance: one card per drug */
+.dcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1rem 0 1.75rem}
+.dc{margin:0;display:grid;align-content:start;gap:.6rem;background:var(--panel);border:1px solid var(--rule);border-radius:6px;padding:.6rem .6rem .9rem}
+.dc video{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:4px;display:block;background:#000}
+.dc figcaption{font-family:var(--font-body);font-size:1rem;line-height:1.5;padding:0 .3rem;color:var(--ink)}
+.dc figcaption b{display:block;font-family:var(--font-mono);font-size:1.05rem;color:var(--accent)}
+.dc-dose{display:block;font-family:var(--font-mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);margin:.1rem 0 .35rem}
+.dc-text{padding:.9rem}
+@media (max-width:860px){.dcards{grid-template-columns:minmax(0,1fr)}}
 /* paint drips on the rail: the last section's color runs down into the next one, just before its arrow */
 #case-nitro-guzzler .chapter.has-drip::before{top:-5.2rem}
 #case-nitro-guzzler .chapter.has-drip::after{content:"";position:absolute;z-index:1;left:1.84rem;width:.73rem;top:-5.2rem;height:3.2rem;background:var(--c-p);pointer-events:none;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H20V12C20 16 19 30 16.5 30S13 22 13 17 11 13 9 15 8 24 5.5 24 3 15 0 13Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H20V12C20 16 19 30 16.5 30S13 22 13 17 11 13 9 15 8 24 5.5 24 3 15 0 13Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat}
@@ -1076,7 +1076,7 @@ section.projects{overflow-x:clip}
       <svg class="atlas-bg bigword" viewBox="0 0 1000 250" preserveAspectRatio="none" aria-hidden="true" focusable="false"><defs><linearGradient id="atlas-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity=".2"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><text x="4" y="232" textLength="992" lengthAdjust="spacingAndGlyphs" font-size="300" font-weight="800" fill="url(#atlas-g)" stroke="currentColor" stroke-opacity=".32" stroke-width="1.5">ATLAS</text></svg>
       <div class="intro-grid">
         <div class="intro-copy">
-          <p class="lede">I design <em><strong>UI + UX</strong></em> for games. That means <em><strong>user experience</strong></em>, <em><strong>user interface</strong></em>, <em>game feel</em>, <em>HUDs</em> and <em>information architecture</em>. I'm all about the <em>process</em>. I start in <em>greybox</em>, then <em>iterate</em>, and repeat.</p>
+          <p class="lede">I design <em><strong>UI + UX</strong></em> for games. That means user experience, user interface, game feel, HUDs and information architecture. I'm all about the <em>process</em>. I start in <em>greybox</em>, then <em>iterate</em>, and repeat.</p>
           <div class="intro-actions">
             <a class="btn" href="#projects">See my work ↓</a>
             <a class="btn ghost" href="https://drive.google.com/file/d/1YiB4TUytKC5HxxYsFp5sX9tJaJlAxgy4/view?usp=sharing" target="_blank" rel="noopener">Résumé ↗</a>
@@ -1369,7 +1369,7 @@ section.projects{overflow-x:clip}
                 <li class="story-card"><b>What went well</b><p>It came together, and we got a great grade on it. It was all in Figma, and I learned a ton.</p></li>
                 <li class="story-card"><b>What was tricky</b><p>It was a small class in a hybrid setup, and we picked teams from whoever was there. It was an earlier-year class, so some classmates left the program partway through and attendance thinned out. Production lagged, tension went up, and the work landed unevenly. Another teammate and I ended up carrying a lot of it.</p></li>
                 <li class="story-card"><b>How I worked through it</b><p>I put my head down and got to the work. Newer UI + UX designers who aren't artists don't always catch the small stuff, like layout and kerning. That small stuff is what makes separate screens feel like one game.</p></li>
-                <li class="story-card"><b>What I'll carry forward</b><p>This was an early lesson in team dynamics. I learned how hybrid schedules work, and how lagging production can raise tensions and make workloads unfair. I also learned when to stop waiting and just apply myself.</p></li>
+                <li class="story-card"><b>What I'll carry forward</b><p>It was my first real look at team dynamics. A hybrid schedule let production slip, and the slip turned into tension and uneven work. I also learned when to stop waiting on people and just do it.</p></li>
               </ol>
             </section>
           </div>
@@ -1505,7 +1505,7 @@ section.projects{overflow-x:clip}
               <h2 id="ng-goal-h">A menu inside the game world</h2>
               <p>I wanted the menu to feel like you're already in the game. So I borrowed from the Batman Arkham menus. The camera cycles through shots on its own. It pulls you in and shows you the characters before your first race.</p>
               <ul class="notes reveal">
-                <li><b>Racers up front</b>Players get invested in the racers, so I built the menu around them.</li>
+                <li><b>Racers up front</b>I want players attached to the racers before the first race, so the menu is built around them.</li>
               </ul>
             </section>
 
@@ -1550,7 +1550,7 @@ section.projects{overflow-x:clip}
 
             <section class="chapter" id="ng-story" aria-labelledby="ng-story-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
               <h2 id="ng-story-h">My story</h2>
-              <p>Every choice I make for the menu touches someone else's work, from the camera to the cars to the sound.</p>
+              <p>Almost every choice I make for the menu lands on someone else's work too.</p>
             </section>
 
             <section class="chapter story-sec" id="ng-tricky" aria-labelledby="ng-tricky-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
@@ -1562,7 +1562,7 @@ section.projects{overflow-x:clip}
                 <li>Our CS students had never worked in <strong>Unreal</strong> because of how the classes are set up, so they learned it on top of their other work.</li>
                 <li>That meant design couldn't get as technical as it needed to.</li>
                 <li>Some people took on more than they had the experience for yet.</li>
-                <li>A few crucial changes and mix-ups landed mid-development.</li>
+                <li>A few big changes and mix-ups landed mid-development.</li>
               </ul>
               <p>On the menu, I built half the system on the wrong assumption. I had seven sections of the <strong>implementation guide</strong> done before the design settled on hard cuts and buttons that live on the car itself.</p>
             </section>
@@ -1576,7 +1576,7 @@ section.projects{overflow-x:clip}
 
             <section class="chapter" id="ng-team" aria-labelledby="ng-team-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
               <h2 id="ng-team-h">The team around the UI</h2>
-              <p>Nitro Guzzler is made by the Grease Monkeys. The menu only works because of what the other departments build. Here's who the UI leans on, and where to see their side of it.</p>
+              <p>Nitro Guzzler is made by the Grease Monkeys. The menu only works because of what the other departments build. Here's who the UI leans on.</p>
               <ul class="team reveal">
                 <li class="team-card">
                   <span class="team-role">Leadership</span>
@@ -1609,7 +1609,7 @@ section.projects{overflow-x:clip}
                 <li><em>Engagement.</em> Which version feels cooler and makes players want to stay?</li>
                 <li><em>Production.</em> An internal number crunch on time left against the tasks each version still needs.</li>
               </ul>
-              <p class="status-line"><span class="dot" aria-hidden="true"></span>In progress. Results go here once the sessions are run.</p>
+              <p class="status-line"><span class="dot" aria-hidden="true"></span>Sessions are in progress.</p>
             </section>
 
           </div>
@@ -1626,7 +1626,7 @@ section.projects{overflow-x:clip}
         <header class="case-hero morph-target">
           <p class="eyebrow">Game feel deep dive · Not my game</p>
           <h1 id="hod-title" tabindex="-1">Horns of Deliverance</h1>
-          <p class="lede">A roguelike shooter where the chip in your head draws your <strong>HUD</strong> and wants you dead, and <em>drugs are how you fight it</em>. I played up to the boss and took notes out loud. This page follows one system: how the game tells you what a drug is, how you take it, and what each dose does to the run.</p>
+          <p class="lede">A roguelike shooter where the chip in your head draws your <strong>HUD</strong> and wants you dead, and <em>drugs are how you fight it</em>. I played up to the boss and took notes out loud. This page follows one system, the drugs, from how the game shows them to what a dose does to your run.</p>
           <dl class="glance">
             <div><dt>Type</dt><dd>Game feel deep dive</dd></div>
             <div><dt>Game</dt><dd>Early access roguelike shooter by schemesmith</dd></div>
@@ -1635,23 +1635,23 @@ section.projects{overflow-x:clip}
           </dl>
         </header>
         <div class="case-layout">
-          <nav class="toc" aria-label="Horns of Deliverance sections"><a href="#hod-part">What I did</a><a href="#hod-chip">Drugs vs the chip</a><a href="#hod-signal">Taking a dose</a><a href="#hod-dose">What a dose does</a><a href="#hod-state">Game state</a><a href="#hod-hold">Why it holds</a><a href="#hod-gamified">Gamified use</a><a href="#hod-take">Take and leave</a><a href="#hod-story">My story</a></nav>
+          <nav class="toc" aria-label="Horns of Deliverance sections"><a href="#hod-part">What I did</a><a href="#hod-chip">Drugs vs the chip</a><a href="#hod-signal">Taking a dose</a><a href="#hod-dose">What a dose does</a><a href="#hod-hold">Why it holds</a><a href="#hod-gamified">Gamified use</a><a href="#hod-take">Take and leave</a><a href="#hod-story">My story</a></nav>
           <div class="chapters">
             <section class="chapter" id="hod-part" aria-labelledby="hod-part-h">
               <h2 id="hod-part-h">What I did</h2>
               <ul class="contrib reveal">
                 <li><a class="contrib-link" href="#hod-dose"><span class="cl-t">Played the early access build from first launch into the boss fight, and recorded it.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
-                <li><a class="contrib-link" href="#hod-signal"><span class="cl-t">Said my reactions out loud, then traced each drug from how the game shows it, to how you take it, to what it does to the run.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
+                <li><a class="contrib-link" href="#hod-signal"><span class="cl-t">Said my reactions out loud, then traced each drug from the HUD to what a dose does to the run.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
                 <li><a class="contrib-link" href="#hod-take"><span class="cl-t">Turned each finding into a rule for my own <strong>game feel</strong> and <strong>HUD</strong> work.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
               </ul>
               <p>Horns of Deliverance belongs to its developer, schemesmith. I had no part in making it. Everything here is my read as a player, from my own recordings of one early access build.</p>
             </section>
             <section class="chapter" id="hod-chip" aria-labelledby="hod-chip-h">
               <h2 id="hod-chip-h">Drugs against the chip</h2>
-              <p>The chip draws your <strong>HUD</strong>, and it's counting down to your execution. Drugs are how you push back. So every dose is two things at once. To you it's resistance. To the <strong>HUD</strong> it's a violation.</p>
+              <p>The chip draws your HUD, and it's counting down to your execution. Drugs are how you push back, and the chip's own HUD treats every dose like a crime.</p>
               <ul class="notes reveal">
                 <li><b>The chip calls them contraband</b>Your drug inventory sits under a notice telling you to dispose of controlled substances right away. The same voice that counts your steps and sells you Premium is the one you're breaking.</li>
-                <li><b>A countdown sets the pressure</b>The <strong>HUD</strong> opens friendly, with good afternoon and no new notifications. Then it turns: one pending command, user execution, and a timer.</li>
+                <li><b>A countdown sets the pressure</b>The <strong>HUD</strong> opens friendly, with good afternoon and no new notifications. Then it turns to one pending command, user execution, and a timer.</li>
                 <li><b>The chip fights back</b>As it loses its grip, its own panels scramble into smears of colored bars. The thing you're fighting breaks on screen.</li>
               </ul>
               <div class="clips clips-1 reveal" aria-label="The chip's HUD during a fight">
@@ -1662,11 +1662,11 @@ section.projects{overflow-x:clip}
               <h2 id="hod-signal-h">Taking a dose</h2>
               <p>Press Q and your character lifts the item up to their face. You see the pill or the mushroom as a thing in your hand before you see it as a choice. That gives a dose weight. But the menu only shows up after the animation, about a second later.</p>
               <p>That wait made me want to hold Q. Holding Q takes the item right away. So my instinct to wait for the menu became an <em>accidental dose</em>. To pick a different one I had to scroll and press F to confirm, all while shooting.</p>
-              <p>In most games a misread input wastes an item. Here it changes what you see for the rest of the level. That raises the stakes on the input.</p>
+              <p>A wrong press changes what you see for the rest of the level. That makes this the one input that most needs to be safe.</p>
               <ul class="contrib reveal">
                 <li>Show the menu the moment Q goes down, and keep the lift as the animation behind it.</li>
                 <li>Let scrolling do the selecting. No confirm press in the middle of a fight.</li>
-                <li>Make taking a dose a deliberate hold, never the fallback for an impatient one.</li>
+                <li>Give taking a dose its own deliberate input, so waiting can never trigger it.</li>
               </ul>
               <div class="clips clips-1 reveal" aria-label="Examining an item">
                 <figure class="clip"><video src="media/hod-examine.mp4" poster="img/hod-examine.webp" muted loop playsinline preload="none" aria-label="The player's hand raises an item up close to the camera before the selection menu appears."></video><figcaption><b>The lift</b> The item comes up to your face first. The menu waits for it.</figcaption></figure>
@@ -1674,50 +1674,38 @@ section.projects{overflow-x:clip}
             </section>
             <section class="chapter" id="hod-dose" aria-labelledby="hod-dose-h">
               <h2 id="hod-dose-h">What a dose does</h2>
-              <p>Every state hits what you see and how you find the exit. None of them touch the controls.</p>
-              <div class="dose-wrap reveal"><table class="dose">
-                <thead><tr><th scope="col">Drug</th><th scope="col">Dose</th><th scope="col">What you see</th><th scope="col">How you find the exit</th></tr></thead>
-                <tbody><tr><th scope="row">Mushrooms</th><td>Not noted</td><td>A psychedelic dream state. Working servers light up, and winged enemies show up for you to destroy. Aiming down sights pulls the view into focus.</td><td>Follow the glowing orbs</td></tr><tr><th scope="row">Delirants</th><td>A few bumps</td><td>The world drains to black and white.</td><td>Follow a blood trail</td></tr><tr><th scope="row">Party Powder</th><td>Not noted</td><td>A huge floating arrow appears above your head.</td><td>Follow the arrow</td></tr><tr><th scope="row">Another drug</th><td>One bump</td><td>The world pixelates until you can't read it.</td><td>You lose the read</td></tr><tr><th scope="row">Mixing pills</th><td>Two at once</td><td>A depressive episode. The screen datamoshes and text says you're going the wrong way and that they've stolen your future.</td><td>The level turns into a maze</td></tr><tr><th scope="row">Edges only</th><td>Unclear what set it off</td><td>Red and cyan outlines replace the room.</td><td>Not noted</td></tr></tbody>
-              </table></div>
-              <div class="clips reveal" aria-label="Three altered states">
-                <figure class="clip"><video src="media/hod-shrooms.mp4" poster="img/hod-shrooms.webp" muted loop playsinline preload="none" aria-label="A rainbow psychedelic tunnel with a floating eyeball enemy and large text asking a question."></video><figcaption><b>Mushrooms</b> Winged enemies to destroy, glowing orbs for a path.</figcaption></figure>
-                <figure class="clip"><video src="media/hod-datamosh.mp4" poster="img/hod-datamosh.webp" muted loop playsinline preload="none" aria-label="A grey hallway smears and breaks into datamosh color as red text appears."></video><figcaption><b>Mixing pills</b> The hallway smears apart.</figcaption></figure>
-                <figure class="clip"><video src="media/hod-outline.mp4" poster="img/hod-outline.webp" muted loop playsinline preload="none" aria-label="The whole view turns red with cyan edge lines tracing the walls and furniture."></video><figcaption><b>Edges only</b> Red and cyan outlines replace the room.</figcaption></figure>
-              </div>
-            </section>
-            <section class="chapter" id="hod-state" aria-labelledby="hod-state-h">
-              <h2 id="hod-state-h">How it plays with the game state</h2>
-              <p>A dose does more than change the picture. It moves real numbers, and those numbers pull against each other.</p>
+              <p>Each drug changes what you see and how you find the exit. The controls stay the same the whole time.</p>
+              <div class="dcards reveal"><figure class="dc"><video src="media/hod-shrooms.mp4" poster="img/hod-shrooms.webp" muted loop playsinline preload="none" aria-label="A rainbow psychedelic tunnel with a floating eyeball enemy and large text asking a question."></video><figcaption><b>Mushrooms</b><span class="dc-dose">Dose not noted</span>A psychedelic dream state. Working servers light up and winged enemies show up to shoot. You follow glowing orbs to the exit, and aiming down sights pulls the view back into focus.</figcaption></figure><figure class="dc"><video src="media/hod-datamosh.mp4" poster="img/hod-datamosh.webp" muted loop playsinline preload="none" aria-label="A grey hallway smears and breaks into datamosh color as red text appears."></video><figcaption><b>Mixing pills</b><span class="dc-dose">Two at once</span>Your character falls into a depressive episode. The screen datamoshes, red text says you're going the wrong way and that they've stolen your future, and the level turns into a maze.</figcaption></figure><figure class="dc"><video src="media/hod-outline.mp4" poster="img/hod-outline.webp" muted loop playsinline preload="none" aria-label="The whole view turns red with cyan edge lines tracing the walls and furniture."></video><figcaption><b>Edges only</b><span class="dc-dose">Trigger unclear</span>The room flattens into red and cyan outlines. I'm not sure what set it off.</figcaption></figure><figure class="dc dc-text"><figcaption><b>Delirants</b><span class="dc-dose">A few bumps</span>The world drains to black and white, and a trail of blood on the floor leads you to the objective. That worked on me better than an arrow did.</figcaption></figure><figure class="dc dc-text"><figcaption><b>Party Powder</b><span class="dc-dose">Dose not noted</span>A huge floating arrow appears over your head and points down the right path.</figcaption></figure><figure class="dc dc-text"><figcaption><b>Overdose</b><span class="dc-dose">Too much of anything</span>The world pixelates until you can't read it.</figcaption></figure></div>
+              <h3>What it does to the run</h3>
               <ul class="notes reveal">
-                <li><b>More use, more healing</b>Each dose heals you, and it heals you more the more you use.</li>
-                <li><b>More use, a harder trip</b>Every reuse makes the trip heavier, and that raises the game's difficulty. The heal and the danger climb together.</li>
-                <li><b>Tolerance forces variety</b>Stick with one drug because you like how it plays, and you slowly need more of it. So you keep switching.</li>
-                <li><b>Random pickups</b>You can't plan a favorite. You take what the run gives you, so every switch is also a new set of rules for sight and navigation.</li>
-                <li><b>The controls never change</b>Every effect lands on sight and navigation. You relearn the level, not the game.</li>
-                <li><b>Dose is a dial</b>One drug pixelates the world after a single bump. Another takes a few bumps before the color drains. Each drug has its own threshold, so you learn each one's curve.</li>
-                <li><b>Mixing is its own state</b>Two pills aren't two effects added up. They make a new and worse state, with a maze for a level.</li>
-                <li><b>The wayfinding layer swaps</b>Glowing orbs, a blood trail, a giant arrow, a maze or nothing. The exit stays the goal while the way you read it changes.</li>
-                <li><b>The level changes what matters</b>On mushrooms, working servers light up and winged enemies show up to destroy. The trip changes what you look for, not only how it looks.</li>
-                <li><b>A tool to cut through</b>Aiming down sights pulls the trip into focus. The game gives back a little control at the moment you need it.</li>
-                <li><b>Blur is the weak spot</b>Your vision blurs often, which makes sniping hard. A loss of focus reads as something happening to your body. A blur reads as a filter.</li>
+                <li><b>More use, more healing</b>Each dose heals you, and the heal grows the more you use.</li>
+                <li><b>A harder trip</b>Every reuse makes the trip heavier and raises the difficulty. The heal and the danger go up together.</li>
+                <li><b>Tolerance</b>Stay on one drug because you like how it plays and you'll slowly need more of it. So I kept switching.</li>
+                <li><b>Random pickups</b>You can't plan around a favorite. You take what the run hands you, and each switch means new rules for reading the level.</li>
+                <li><b>Controls stay put</b>Every effect lands on sight and navigation. The thing you relearn is the level.</li>
+                <li><b>Thresholds</b>Delirants take a few bumps before the color drains. Too much of anything and you overdose.</li>
+                <li><b>Mixing</b>Two pills at once give you a worse state with its own rules, and a maze for a level.</li>
+                <li><b>Wayfinding swaps</b>Orbs, blood, a giant arrow, a maze. The exit stays the goal and the way you read it keeps changing.</li>
+                <li><b>A way to cut through</b>Aiming down sights pulls the trip into focus for a second, right when you need to land a shot.</li>
+                <li><b>Blur</b>Vision blurs a lot, which made sniping hard. I'd rather the game pull focus. A focus shift feels like your body. A blur feels like a filter laid on top.</li>
               </ul>
             </section>
             <section class="chapter" id="hod-hold" aria-labelledby="hod-hold-h">
               <h2 id="hod-hold-h">Why it still holds together</h2>
               <p>Sometimes taking playability away expands an experience. This game goes further. It rug-pulls the game out from under you. Keeping the <em>control scheme</em> is the only way I can see to keep that cohesive. It's still the same game, with the same goals.</p>
-              <p>The extremes only work because the base game is simple. That isn't an excuse, though. It's a choice. The core systems run on simple heuristics, so the player has <strong>cognitive load</strong> to spare when the screen falls apart.</p>
+              <p>The extremes only work because the base game is simple. That's not an excuse. The game chose it. The core systems run on simple heuristics, so the player has <strong>cognitive load</strong> to spare when the screen falls apart.</p>
               <p>And every effect makes sense in the story. Any game can take notes on building systems that are this <em>narratively understandable</em>. Even through obstacles that would normally be obtuse and frustrating, there's still a playable game underneath.</p>
             </section>
             <section class="chapter" id="hod-gamified" aria-labelledby="hod-gamified-h">
               <h2 id="hod-gamified-h">How it gamifies drug use</h2>
-              <p>There's no buff bar or timer for a high. You feel it through your eyes, while the numbers move underneath. The loop looks a lot like real use, turned into rules.</p>
+              <p>There's no buff bar or timer for a high. You feel it through your eyes, while the numbers move underneath. It plays a lot like real use, written as rules.</p>
               <ul class="pts">
                 <li><strong>The reward</strong> is healing that grows with every dose, and a push back against the chip.</li>
                 <li><strong>The cost</strong> is a harder trip each time, which makes the whole game harder, and your read on the level.</li>
                 <li><strong>Tolerance</strong> means comfort runs out. The drug you like stops being enough.</li>
                 <li><strong>Random supply</strong> means you can't settle. You adapt to whatever you find.</li>
                 <li><strong>The gamble</strong> is mixing, with the worst state in the game as the downside.</li>
-                <li><strong>The framing</strong> keeps it from feeling clean. The <strong>HUD</strong> calls every dose contraband while you depend on it.</li>
+                <li><strong>The framing</strong> never lets up. The HUD calls every dose contraband the whole time you depend on it.</li>
               </ul>
               <p>The game also asks before any of this hits the screen. A Standard or No Visuals choice comes right after the content warnings.</p>
             </section>
@@ -1725,10 +1713,10 @@ section.projects{overflow-x:clip}
               <h2 id="hod-take-h">What I'd take and what I'd leave</h2>
               <p>What I'd take into my own work:</p>
               <ul class="contrib reveal">
-                <li>States that change how you find your way, not how you control your character.</li>
+                <li>States that change how you find your way while the controls stay the same.</li>
                 <li>Datamosh, pixelation and loss of focus as feedback for what a character is going through.</li>
                 <li>Mixing as a new state with its own rules.</li>
-                <li>A reward and a cost that rise together, so using more is never a free win.</li>
+                <li>A reward and a cost that rise together, so using more always costs something.</li>
                 <li>Tolerance that pushes players off their favorite playstyle.</li>
                 <li>A <strong>HUD</strong> voice that frames the mechanic, like the chip calling your drugs contraband.</li>
                 <li>Wayfinding from things in the world, like blood, before arrows.</li>
@@ -1747,7 +1735,7 @@ section.projects{overflow-x:clip}
               <h2 id="hod-story-h">My story</h2>
               <ol class="story reveal">
                 <li class="story-card"><b>What went well</b><p>Talking out loud while I played caught reactions I would have lost by writing afterward.</p></li>
-                <li class="story-card"><b>What was tricky</b><p>Telling taste apart from usability. The glass <strong>HUD</strong> is a taste call. The Q menu delay is a usability problem.</p></li>
+                <li class="story-card"><b>What was tricky</b><p>Telling taste apart from usability. The glass HUD is a taste call. The Q menu delay is a usability problem.</p></li>
                 <li class="story-card"><b>How I worked through it</b><p>I wrote each note the same way: what the game does, what I felt, and what I'd do. Then I checked my notes against the recording.</p></li>
                 <li class="story-card"><b>What I'll carry forward</b><p>How much I can get away with. Game feel can survive a lot, as long as it's designed for that from the very start.</p></li>
               </ol>
@@ -1775,21 +1763,21 @@ section.projects{overflow-x:clip}
             <div><dt>Built</dt><dd>2 attack modes × 3 levels</dd></div>
           </dl>
         </header>
-        <div class="why-wrap"><dl class="why" aria-label="The reasoning"><div><dt>Goal</dt><dd>Make it feel like a finished game. Hit reactions, camera shake, VFX, sound and the HUD all had to carry the polish players expect from a shipped game, across three levels of every attack and three levels of getting hit.</dd></div><div><dt>Pain points</dt><dd>Testers couldn't see through the crosshair to the target. The arrow count read like any shooter's ammo, and getting hit blended into the snow.</dd></div><div><dt>My role</dt><dd>Everything. Solo, in <strong>Unreal Engine 5</strong>.</dd></div><div><dt>Decision</dt><dd>I treated each level as its own feel pass, with its own hit reaction, camera shake, VFX and sound. Then I sorted testers' notes into what I could act on and what was too much for the time. The biggest change was the crosshair. The feather fan became the cooldown too, one plume per ability level. Sound got priority over polish.</dd></div><div><dt>Evidence</dt><dd><a href="#en-tests">Audience testing notes</a> · <a href="#en-hud">HUD wireframes with drawovers</a> · <a href="#en-feel">In-engine clips</a></dd></div><div><dt>Outcome</dt><dd>All three levels of both attacks worked, each with its own sound, VFX and art, and the TA called out the audio. The HUD's functionality came last and wasn't working in the graded build. That's the scope lesson.</dd></div></dl><nav class="proc" aria-label="Process"><a href="#en-flow"><b>Journey</b><span>How each HUD change plays out, in four beats</span></a><a href="#en-hud"><b>Wireframes</b><span>Bow mode and crow mode HUD</span></a><a href="#en-feel"><b>Prototype</b><span>Built and captured in Unreal Engine 5</span></a><a href="#en-tests"><b>Testing</b><span>Audience testing, then playtests</span></a></nav></div>
+        <div class="why-wrap"><dl class="why" aria-label="The reasoning"><div><dt>Goal</dt><dd>Make it feel like a finished game. Hit reactions, camera shake, VFX, sound and the HUD all had to feel shipped, across three levels of every attack and three levels of getting hit.</dd></div><div><dt>Pain points</dt><dd>Testers couldn't see through the crosshair to the target. The arrow count read like any shooter's ammo, and getting hit blended into the snow.</dd></div><div><dt>My role</dt><dd>Everything. Solo, in <strong>Unreal Engine 5</strong>.</dd></div><div><dt>Decision</dt><dd>I treated each level as its own feel pass, with its own hit reaction, camera shake, VFX and sound. Then I sorted testers' notes into what I could act on and what was too much for the time. The biggest change was the crosshair. The feather fan became the cooldown too, one plume per ability level. Sound got priority over polish.</dd></div><div><dt>Evidence</dt><dd><a href="#en-tests">Audience testing notes</a> · <a href="#en-hud">HUD wireframes with drawovers</a> · <a href="#en-feel">In-engine clips</a></dd></div><div><dt>Outcome</dt><dd>All three levels of both attacks worked, each with its own sound, VFX and art, and the TA called out the audio. The HUD's functionality came last and wasn't working in the graded build. That's the scope lesson.</dd></div></dl><nav class="proc" aria-label="Process"><a href="#en-flow"><b>Journey</b><span>How each HUD change plays out, in four beats</span></a><a href="#en-hud"><b>Wireframes</b><span>Bow mode and crow mode HUD</span></a><a href="#en-feel"><b>Prototype</b><span>Built and captured in Unreal Engine 5</span></a><a href="#en-tests"><b>Testing</b><span>Audience testing, then playtests</span></a></nav></div>
         <div class="case-layout">
           <nav class="toc" aria-label="Enhshahtén:ti sections"><a href="#en-short">Sneak Peek</a><a href="#en-hud">The HUD</a><a href="#en-feel">Three levels</a><a href="#en-flow">How it updates</a><a href="#en-tests">Audience testing</a><a href="#en-part">My part</a><a href="#en-story">My story</a><a href="#en-boards">Research</a><a href="#en-color">Color</a><a href="#en-review">Review</a></nav>
           <div class="chapters">
             <section class="chapter" id="en-short" aria-labelledby="en-short-h">
               <h2 id="en-short-h">Sneak Peek</h2>
               <div class="tldr reveal">
-                <div class="tl"><span class="tl-k">What I built</span><p>Two attack modes, a bow and a murder of crows, with three levels each. Plus three levels of getting hit. Solo in <strong>Unreal Engine 5</strong>, from <strong>VFX</strong> and UI to animation, audio and code.</p><a href="#en-feel">See the levels ↓</a></div>
-                <div class="tl"><span class="tl-k">How I thought about it</span><p>The <strong>HUD</strong> shows how you feel instead of handing you bars. The crosshair is a feather fan, and its plumes are the cooldowns.</p><a href="#en-hud">See the HUD ↓</a></div>
+                <div class="tl"><span class="tl-k">What I built</span><p>Two attack modes, a bow and a murder of crows, with three levels each. Plus three levels of getting hit. Solo in Unreal Engine 5, from VFX and UI to animation, audio and code.</p><a href="#en-feel">See the levels ↓</a></div>
+                <div class="tl"><span class="tl-k">How I thought about it</span><p>The HUD shows how you feel. There are no bars. The crosshair is a feather fan, and its plumes are the cooldowns.</p><a href="#en-hud">See the HUD ↓</a></div>
                 <div class="tl tl-warn"><span class="tl-k">What went wrong</span><p>Scope. Everyone knew it was overscoped from the pitch, me included. It ended in a crunch, and the build crashed the morning of grading.</p><a href="#en-story">Read my story ↓</a></div>
               </div>
             </section>
             <section class="chapter" id="en-hud" aria-labelledby="en-hud-h">
               <h2 id="en-hud-h">Feather crosshair and HUD</h2>
-              <p>You're stuck in a corporate fever dream, so the <strong>HUD</strong> is high contrast against the snow, with soft edges that blur clean information into something dreamlike. Feathers stand for the crows, flint heads stand for your arrows, and your health is a fluid trapped in a container.</p>
+              <p>You're stuck in a corporate fever dream, so the HUD is high contrast against the snow, with soft edges that blur clean information into something dreamlike. Feathers stand for the crows, flint heads stand for your arrows, and your health is a fluid trapped in a container.</p>
               <figure class="draw reveal en-xhair">
                 <div class="draw-stage"><img src="img/en-feather.webp" width="1000" height="600" loading="lazy" alt="The final crosshair: a blue grey fan of feathers shaped like an open collar, split into three plume sections, with a small dark star above it as the aim point."></div>
                 <ol class="draw-notes">
@@ -1821,7 +1809,7 @@ section.projects{overflow-x:clip}
 
             <section class="chapter" id="en-feel" aria-labelledby="en-feel-h">
               <h2 id="en-feel-h">Three levels of attack and damage</h2>
-              <p>There are two attack modes, not six attacks. Think of it like switching weapons. Each mode has a light, medium and heavy version, and each version had to look, sound and hit differently. The bow should feel lethal, heavy and stealthy, like one shot is enough. The crows should feel trained, intense and quick, a simple whistle and point followed by something brutal.</p>
+              <p>There are two attack modes, and you switch between them like weapons. Each mode has a light, medium and heavy version, and each version had to look, sound and hit differently. The bow should feel heavy and lethal, like one shot is enough. The crows are a whistle and a point, then something brutal.</p>
               <div class="wt-tabs reveal" role="tablist" aria-label="Attack mode">
                 <button type="button" role="tab" aria-selected="true" aria-controls="en-w-bow" data-mode="en-w-bow"><b>a'én:na</b><small>Bow</small></button>
                 <button type="button" role="tab" aria-selected="false" aria-controls="en-w-crow" data-mode="en-w-crow"><b>iotiwísto</b><small>Snow birds</small></button>
@@ -1836,7 +1824,7 @@ section.projects{overflow-x:clip}
                 <figure class="clip"><video src="media/en-soul.mp4" poster="img/en-soul.webp" muted loop playsinline preload="none" aria-label="Bright snowy clearing. A soldier walks toward the player, then turns pale and outlined as hits drain him, while the crosshair stays locked on."></video><figcaption><b>Taking their soul</b> Each hit drains the soldier toward white, so damage reads on the enemy itself.</figcaption></figure>
                 <figure class="clip"><video src="media/en-kill.mp4" poster="img/en-kill.webp" muted loop playsinline preload="none" aria-label="A soldier, already pale, takes a final arrow, collapses into a white heap and fades."></video><figcaption><b>The kill</b> One last shot and he folds into the snow.</figcaption></figure>
               </div>
-              <p>Getting hurt is cold instead of bloody. You're freezing, slipping deeper into the coma. A heavy hit doesn't shake the camera at all. It just goes white, rings, and fades into chanting.</p>
+              <p>Getting hurt is cold. You're freezing, slipping deeper into the coma. A heavy hit doesn't shake the camera at all. It just goes white, rings, and fades into chanting.</p>
                           <h3>Crow special VFX</h3>
               <div class="clips clips-3 reveal" aria-label="Crow special VFX, three levels">
                 <figure class="clip"><video src="media/en-crows-light.mp4" poster="img/en-crows-light.webp" muted loop playsinline preload="none" aria-label="Light crow VFX: a small swirl of wind and a few dark feathers circling low to the ground."></video><figcaption><b>Level 1</b> No slash. The crows harass the target, an annoying debuff.</figcaption></figure>
@@ -1848,13 +1836,13 @@ section.projects{overflow-x:clip}
 
             <section class="chapter" id="en-flow" aria-labelledby="en-flow-h">
               <h2 id="en-flow-h">HUD feedback in four beats</h2>
-              <p>I planned each <strong>HUD</strong> element as four beats. Something grabs your attention, something signals the change, the change happens, and it settles.</p>
+              <p>I planned each HUD element as four beats. Something grabs your attention, something signals the change, the change happens, and it settles.</p>
               <div class="fl-grid reveal"><div class="fl"><h3>Health</h3><p class="fl-sub">Soul fluid in a container, top left</p><ol class="fl-steps"><li><span class="fl-k">Attract</span>A splashy slash sound. Exposure jumps and a white vignette hits.</li><li><span class="fl-k">Signal</span>The fluid flashes with extra glow.</li><li><span class="fl-k">Update</span>The lost part greys out and wisps away like smoke.</li><li><span class="fl-k">Resolve</span>The fluid settles, sloshing in a smaller space.</li></ol></div><div class="fl"><h3>Enemy health</h3><p class="fl-sub">Drawn right on their body</p><ol class="fl-steps"><li><span class="fl-k">Attract</span>They grunt and react to the thunk of the arrow.</li><li><span class="fl-k">Signal</span>An outline appears on them.</li><li><span class="fl-k">Update</span>A glowing white overlay fills them as they get "consumed by damage."</li><li><span class="fl-k">Resolve</span>Below half, they switch to a damaged state.</li></ol></div><div class="fl"><h3>Arrows</h3><p class="fl-sub">Flint heads, bottom left</p><ol class="fl-steps"><li><span class="fl-k">Attract</span>The bow drops as the arrow leaves with its trail.</li><li><span class="fl-k">Signal</span>One glowing arrowhead leaves and the rest shift over.</li><li><span class="fl-k">Update</span>A reload "cathunk."</li><li><span class="fl-k">Resolve</span>The bow comes back up.</li></ol></div><div class="fl"><h3>Cooldown</h3><p class="fl-sub">The plumes on the crosshair</p><ol class="fl-steps"><li><span class="fl-k">Attract</span>The feathers glow for the level you picked and shake as the target gets marked.</li><li><span class="fl-k">Signal</span>Wisps escape the glow.</li><li><span class="fl-k">Update</span>The feathers go black and the glow drains into grey smoke.</li><li><span class="fl-k">Resolve</span>The smoke clears and the glow slowly charges back up.</li></ol><p class="fl-note">From Prof. Cagle: give it a signifier when it hits full power, like a sound or a flash.</p></div></div>
             </section>
 
             <section class="chapter" id="en-tests" aria-labelledby="en-tests-h">
               <h2 id="en-tests-h">Audience testing</h2>
-              <p>Before and during early production I ran qualitative sessions, closer to the <strong>audience testing</strong> and polling studios do before they commit to a game. I presented the pitch and early builds to artists, level designers, UX designers and people who'd never played Assassin's Creed or Far Cry, and polled how it felt. More <strong>playtests</strong> came later, once there was more to play. The aesthetic landed early. Most of the notes were about the <strong>HUD</strong>.</p>
+              <p>Before and during early production I ran qualitative sessions, closer to the <strong>audience testing</strong> and polling studios do before they commit to a game. I presented the pitch and early builds to artists, level designers, UX designers and people who'd never played Assassin's Creed or Far Cry, and polled how it felt. More <strong>playtests</strong> came later, once there was more to play. The aesthetic landed early. Most of the notes were about the HUD.</p>
               <ul class="quotes reveal">
                 <li>"It is very you. Which is good because that means you know how it should be."</li>
                 <li>"Ancient dark feel."</li>
@@ -1866,7 +1854,7 @@ section.projects{overflow-x:clip}
               <h3 class="sub-h">What I took from it</h3>
               <ul class="notes reveal">
                 <li><b>Crosshair too big</b>Two testers said they couldn't see through it to the target.</li>
-                <li><b>Numbers read as ammo</b>"Numbers are too traditional ammo theming." Arrows left should be silhouettes, not text.</li>
+                <li><b>Numbers read as ammo</b>"Numbers are too traditional ammo theming." Arrows left should be silhouettes.</li>
                 <li><b>Health blends in</b>It needs a tint when you're hit so it pops off the snow.</li>
                 <li><b>Draw like a bowstring</b>For the heavy shot, pull the FOV back as you draw and snap it forward on release.</li>
                 <li><b>Sound first</b>"Biggest sound for the bow is that dead air whoosh thunk next to your ear." Crow calls blend into the arrow's whistle.</li>
@@ -1895,7 +1883,7 @@ section.projects{overflow-x:clip}
             <section class="chapter story-sec" id="en-well" aria-labelledby="en-well-h">
               <h3 id="en-well-h"><span class="story-n">01</span>What went well</h3>
               <p>The core design held up. From the first pitch to the final build I barely had to iterate on it. The look I was chasing landed too. People called it dreamy, cold and ethereal, which is exactly where I was aiming.</p>
-              <p>All three levels of both attacks worked, each with its own custom sound, <strong>VFX</strong> and art. Damage reads on the enemy itself. As you hit them, their soul fills up and you take it. And watching a tester yell "He noticed me!" told me the enemy behavior was reading.</p>
+              <p>All three levels of both attacks worked, each with its own custom sound, VFX and art. Damage reads on the enemy itself. As you hit them, their soul fills up and you take it. And watching a tester yell "He noticed me!" told me the enemy behavior was reading.</p>
             </section>
             <section class="chapter story-sec" id="en-tricky" aria-labelledby="en-tricky-h">
               <h3 id="en-tricky-h"><span class="story-n">02</span>What was tricky</h3>
@@ -1911,15 +1899,15 @@ section.projects{overflow-x:clip}
             </section>
             <section class="chapter story-sec" id="en-through" aria-labelledby="en-through-h">
               <h3 id="en-through-h"><span class="story-n">03</span>What I worked through</h3>
-              <p>The brief was about feedback, not functionality. But the template we were given was hard to work with, so real feedback meant building the functionality too. It was practice for studio work, fitting into someone else's template and design patterns, even ones I didn't fully understand yet. I also cut the war hatchet I'd planned, since the brief didn't ask for it, and put that time into the three levels.</p>
+              <p>The brief was about feedback. The template we were given was hard to work with, though, so real feedback meant building the functionality too. It was practice for studio work, fitting into someone else's template and design patterns, even ones I didn't fully understand yet. I also cut the war hatchet I'd planned, since the brief didn't ask for it, and put that time into the three levels.</p>
               <p>I sorted every <a href="#en-tests">test note</a> into what I could act on and what was way too much for the time I had. The biggest change was the crosshair. The feather fan became the cooldown too, with one plume for each ability level, so the thing you aim with tells you what's ready.</p>
               <p>With no team to hand things to, I had to pick my battles. Sound got priority, because a playtester was right. It can look rough as long as it sounds like it's tearing through the air. That showed in review, where the TA called out the audio work.</p>
             </section>
             <section class="chapter story-sec" id="en-next" aria-labelledby="en-next-h">
               <h3 id="en-next-h"><span class="story-n">04</span>What I'll carry forward</h3>
-              <p>I don't have to carry all of it. Even on a simple project I can choose to simplify, and spend the early design time on what the brief needs instead of a whole world around it.</p>
-              <p>Next project, every system works before any of them gets pretty. Early art can still happen, but as one timeboxed pass, not after every system.</p>
-              <p>And the UI goes in early, even if it's ugly. I spent this project planning to focus on UI and ended up doing it last. Next time the <strong>HUD</strong> works first, so testers react to it instead of a placeholder.</p>
+              <p>I don't have to carry all of it. Even on a simple project I can choose to simplify, and spend the early design time on what the brief needs and leave the world for later.</p>
+              <p>Next project, every system works before any of them gets pretty. Early art can still happen as one timeboxed pass.</p>
+              <p>And the UI goes in early, even if it's ugly. I spent this project planning to focus on UI and ended up doing it last. Next time the HUD works first, so testers react to the real thing.</p>
             </section>
             <section class="chapter" id="en-boards" aria-labelledby="en-boards-h">
               <h2 id="en-boards-h">Research mood boards</h2>
@@ -1942,8 +1930,8 @@ section.projects{overflow-x:clip}
 
             <section class="chapter" id="en-color" aria-labelledby="en-color-h">
               <h2 id="en-color-h">HUD and world palettes</h2>
-              <p>The <strong>HUD</strong> lives in strict blue greys. The greys in the middle are for near misses and hits. Grey fits a world where you're freezing and losing consciousness. The blues stand out against the reds, yellows and tans of the French soldiers, and against the deep cool tones of the winter forest.</p>
-              <p class="pal-label"><strong>HUD</strong></p>
+              <p>The HUD lives in strict blue greys. The greys in the middle are for near misses and hits. Grey fits a world where you're freezing and losing consciousness. The blues stand out against the reds, yellows and tans of the French soldiers, and against the deep cool tones of the winter forest.</p>
+              <p class="pal-label">HUD</p>
               <ul class="swatches reveal" aria-label="HUD palette. Activate a swatch to copy its hex code.">
                 <li><button class="swatch" type="button" data-hex="#FEFCFB"><i style="background:#FEFCFB"></i><span>#FEFCFB</span></button></li>
                 <li><button class="swatch" type="button" data-hex="#E3FBFF"><i style="background:#E3FBFF"></i><span>#E3FBFF</span></button></li>
@@ -1972,7 +1960,7 @@ section.projects{overflow-x:clip}
             <section class="chapter" id="en-review" aria-labelledby="en-review-h">
               <h2 id="en-review-h">Faculty review</h2>
               <blockquote class="review reveal">
-                <p>"This is a really interesting theme that I want you to lean into as hard as possible. Good references. … Your <strong>HUD</strong> concepting is super solid and, honestly, makes this project one that I'm excited to see how it gets implemented."</p>
+                <p>"This is a really interesting theme that I want you to lean into as hard as possible. Good references. … Your HUD concepting is super solid and, honestly, makes this project one that I'm excited to see how it gets implemented."</p>
                 <footer>Prof. Cagle, faculty</footer>
               </blockquote>
               <blockquote class="review reveal">
@@ -2191,7 +2179,7 @@ section.projects{overflow-x:clip}
     if (e.isIntersecting && !reduce.matches){ if (v.preload === 'none') v.preload = 'auto'; v.play().catch(()=>{}); }
     else v.pause();
   }), {threshold: .25});
-  document.querySelectorAll('.clips video, .ie video').forEach(v => clipIO.observe(v));
+  document.querySelectorAll('.clips video, .ie video, .dcards video').forEach(v => clipIO.observe(v));
 
   /* ---------- video loops: respect reduced motion, hover-play on cards ---------- */
   const ngLoop = document.getElementById('ng-loop');
