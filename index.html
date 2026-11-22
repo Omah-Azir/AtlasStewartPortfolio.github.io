@@ -1012,6 +1012,13 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
 .dose tbody tr:last-child>*{border-bottom:0}
 .dose td:nth-child(2){white-space:nowrap;color:var(--ink-2)}
 @media (max-width:700px){.dose,.dose tbody,.dose tr,.dose th,.dose td{display:block}.dose thead{display:none}.dose tr{padding:.6rem .8rem;border-bottom:1px solid var(--rule)}.dose th,.dose td{padding:.15rem 0;border:0}.dose td:nth-child(4){color:var(--accent)}}
+/* project cards: bigger, readable labels */
+.file .chip{font-size:.9rem;letter-spacing:.08em;padding:.35rem .8rem}
+.file-tab{font-size:.9rem!important;letter-spacing:.12em}
+.file-line{font-size:1.15rem!important;line-height:1.5}
+.file-more dt{font-size:.85rem!important}
+.file-more dd{font-size:1.05rem!important}
+.file .open{font-size:.9rem!important}
 /* paint drips on the rail: the last section's color runs down into the next one, just before its arrow */
 #case-nitro-guzzler .chapter.has-drip::before{top:-5.2rem}
 #case-nitro-guzzler .chapter.has-drip::after{content:"";position:absolute;z-index:1;left:1.84rem;width:.73rem;top:-5.2rem;height:3.2rem;background:var(--c-p);pointer-events:none;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H20V12C20 16 19 30 16.5 30S13 22 13 17 11 13 9 15 8 24 5.5 24 3 15 0 13Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H20V12C20 16 19 30 16.5 30S13 22 13 17 11 13 9 15 8 24 5.5 24 3 15 0 13Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat}
@@ -1391,7 +1398,6 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             <li class="hype-steam"><b>Steam</b><span>December 2026</span></li>
             <li><b>All</b><span>UI art drawn by me, in vector</span></li>
           </ul>
-          <p class="todo">Steam page link goes on the Steam chip once the page is live.</p>
           <div class="stripes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
         </header>
         <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
@@ -1399,9 +1405,9 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
           <radialGradient id="ng-htg"><stop offset="0" stop-color="#fff"/><stop offset=".55" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
           <mask id="ng-htm" maskContentUnits="objectBoundingBox"><rect width="1" height="1" fill="url(#ng-htg)"/></mask>
         </defs></svg>
-        <div class="why-wrap"><dl class="why" aria-label="The reasoning"><div><dt>Goal</dt><dd>Take the main menu I was handed and make it part of the game world.</dd></div><div><dt>Pain points</dt><dd>My first plan, a blended camera over a stack of flat 2D menus, didn't fit the game. Data Tables kept breaking when they pointed at things placed in the level.</dd></div><div><dt>My role</dt><dd>Creative Director, <strong>UI + UX</strong>. I own all of the UI and draw the UI art.</dd></div><div><dt>Decision</dt><dd>Rebuilt it around what the menu really is. One camera director hard cuts between Level Sequences, and buttons sit on 3D surfaces. Structs replaced the Data Table.</dd></div><div><dt>Evidence</dt><dd><a class="why-lead" href="#ng-engine">The first minute, in engine</a><span class="why-more"><a href="#ng-compass">Menu art, each direction explained</a> · <a href="#ng-garage">Drawovers, before and after</a> · <a href="#ng-build">How it's built</a> · <a href="#ng-ab">A/B testing the main menu</a></span></dd></div><div><dt>Outcome</dt><dd>Level references stopped breaking. Adding the three Garage hotspots took three rows of data and no new code.</dd></div></dl><nav class="proc" aria-label="Process"><a href="#ng-engine"><b>Journey</b><span>Intro to the car, step by step in engine</span></a><a href="#ng-garage"><b>Wireframes</b><span>Drawovers, before and after</span></a><a href="#ng-compass"><b>Prototype</b><span>Main menu running in engine, each direction explained</span></a><a href="#ng-ab"><b>Testing</b><span>A/B tests on two builds of the menu</span></a></nav></div>
+        <div class="why-wrap"><dl class="why" aria-label="The reasoning"><div><dt>Goal</dt><dd>Take the main menu I was handed and make it part of the game world.</dd></div><div><dt>Pain points</dt><dd>My first plan, a blended camera over a stack of flat 2D menus, didn't fit the game. Data Tables kept breaking when they pointed at things placed in the level.</dd></div><div><dt>My role</dt><dd>Creative Director, <strong>UI + UX</strong>. I own all of the UI and draw the UI art.</dd></div><div><dt>Decision</dt><dd>Rebuilt it around what the menu really is. One camera director hard cuts between Level Sequences, and buttons sit on 3D surfaces. Structs replaced the Data Table.</dd></div><div><dt>Evidence</dt><dd><a class="why-lead" href="#ng-engine">The first minute, in engine</a><span class="why-more"><a href="#ng-compass">Menu art, each direction explained</a> · <a href="#ng-garage">Drawovers, before and after</a> · <a href="#ng-build">How it's built</a> · <a href="#ng-ab">A/B testing the main menu</a></span></dd></div><div><dt>Outcome</dt><dd>Level references stopped breaking. Adding the three Garage hotspots took three rows of data and no new code.</dd></div></dl><nav class="proc" aria-label="Process"><a href="#ng-engine"><b>Journey</b><span>Intro to the main menu, step by step in engine</span></a><a href="#ng-garage"><b>Wireframes</b><span>Drawovers, before and after</span></a><a href="#ng-compass"><b>Prototype</b><span>Main menu running in engine, each direction explained</span></a><a href="#ng-ab"><b>Testing</b><span>A/B tests on two builds of the menu</span></a></nav></div>
         <div class="case-layout">
-          <nav class="toc" aria-label="Nitro Guzzler sections"><a href="#ng-part">My part</a><a href="#ng-engine">In engine</a><a href="#ng-compass">Menu art</a><a href="#ng-garage">Garage</a><a href="#ng-goal">Goal</a><a href="#ng-build">How it's built</a><a href="#ng-premise">Premise</a><a href="#ng-time">Timeline</a><a href="#ng-trailer">Trailer</a><a href="#ng-ai">AI use</a><a href="#ng-story">My story</a><a href="#ng-well">What went well</a><a href="#ng-tricky">What was tricky</a><a href="#ng-through">What I worked through</a><a href="#ng-team">The team</a><a href="#ng-ab">A/B tests</a></nav>
+          <nav class="toc" aria-label="Nitro Guzzler sections"><a href="#ng-part">My part</a><a href="#ng-engine">In engine</a><a href="#ng-compass">Menu art</a><a href="#ng-garage">Garage</a><a href="#ng-goal">Goal</a><a href="#ng-build">How it's built</a><a href="#ng-premise">Premise</a><a href="#ng-time">Timeline</a><a href="#ng-ai">AI use</a><a href="#ng-story">My story</a><a href="#ng-tricky">What was tricky</a><a href="#ng-through">What I worked through</a><a href="#ng-team">The team</a><a href="#ng-ab">A/B tests</a></nav>
           <div class="chapters">
             <div class="ng-spine" aria-hidden="true"><i class="ng-shaft"></i><i class="ng-head"></i></div>
             <section class="chapter" id="ng-part" aria-labelledby="ng-part-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
@@ -1410,7 +1416,6 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
                 <li><a class="contrib-link" href="#ng-compass"><span class="cl-t">Drawing all of the UI art myself in vector graphics, starting with the main menu.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
                 <li><a class="contrib-link" href="#ng-engine"><span class="cl-t">Designed the main menu and intro as one space, and wrote the game plan and shot list for it.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
                 <li><a class="contrib-link" href="#ng-build"><span class="cl-t">Built the menu's camera director in <strong>Blueprints</strong> and wrote an <strong>Unreal Engine 5.5</strong> <strong>implementation guide</strong> for the team.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
-                <li><a class="contrib-link" href="#ng-trailer"><span class="cl-t">Planned the trailer, wrote <strong>shot lists</strong> for two versions, and directed the artists who built the shots.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
                 <li><a class="contrib-link" href="#ng-through"><span class="cl-t">Co-produced the team from the start with one other <strong>producer</strong>, and built it on <strong>proactive communication</strong>.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
               </ul>
             </section>
@@ -1427,10 +1432,6 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
 <li class="ie-step" style="--sc:#FFFF00"><div class="ie-tv"><svg class="ie-burst" viewBox="-6 -6 212 142" aria-hidden="true" focusable="false"><polygon points="182.9,65.0 196.8,76.6 186.3,86.4 192.6,101.7 174.9,108.7 170.0,124.3 139.1,115.3 128.7,129.6 107.4,115.8 90.7,129.1 77.3,116.0 52.9,125.6 40.8,115.2 8.0,118.7 22.2,95.8 2.9,89.1 13.5,75.3 -6.4,65.0 14.1,54.7 0.8,40.4 12.3,30.3 16.2,16.1 37.1,11.7 51.7,2.9 77.1,13.4 91.1,3.3 107.7,12.1 129.8,-2.0 139.8,13.8 171.8,4.2 176.0,20.7 196.1,26.9 185.1,43.9 195.7,53.5"/></svg><span class="tv-set"><video src="media/ng-ie-anykey.mp4" poster="img/ng-ie-anykey.webp" muted loop playsinline preload="none" aria-label="In-engine capture. The view pulls back from the logo and the main menu options appear around it in grey."></video></span></div><div class="ie-txt"><span class="n">03</span><h3>Any key</h3><p>One press pulls the view back. The four options paint in around the logo.</p></div></li>
 <li class="ie-link ie-bolt to-r" style="--lc:#00FF00" aria-hidden="true"><svg class="ie-ico ie-fill" viewBox="-1 -1 26 26" aria-hidden="true" focusable="false"><path d="M13 2l.018 .001l.016 .001l.083 .005l.011 .002h.011l.038 .009l.052 .008l.016 .006l.011 .001l.029 .011l.052 .014l.019 .009l.015 .004l.028 .014l.04 .017l.021 .012l.022 .01l.023 .015l.031 .017l.034 .024l.018 .011l.013 .012l.024 .017l.038 .034l.022 .017l.008 .01l.014 .012l.036 .041l.026 .027l.006 .009c.12 .147 .196 .322 .218 .513l.001 .012l.002 .041l.004 .064v6h5a1 1 0 0 1 .868 1.497l-.06 .091l-8 11c-.568 .783 -1.808 .38 -1.808 -.588v-6h-5a1 1 0 0 1 -.868 -1.497l.06 -.091l8 -11l.01 -.013l.018 -.024l.033 -.038l.018 -.022l.009 -.008l.013 -.014l.04 -.036l.028 -.026l.008 -.006a1 1 0 0 1 .402 -.199l.011 -.001l.027 -.005l.074 -.013l.011 -.001l.041 -.002z"/></svg><span class="ie-lab">Automatic</span></li>
 <li class="ie-step ie-r" style="--sc:#00FF00"><div class="ie-tv"><svg class="ie-burst" viewBox="-6 -6 212 142" aria-hidden="true" focusable="false"><polygon points="182.9,65.0 196.8,76.6 186.3,86.4 192.6,101.7 174.9,108.7 170.0,124.3 139.1,115.3 128.7,129.6 107.4,115.8 90.7,129.1 77.3,116.0 52.9,125.6 40.8,115.2 8.0,118.7 22.2,95.8 2.9,89.1 13.5,75.3 -6.4,65.0 14.1,54.7 0.8,40.4 12.3,30.3 16.2,16.1 37.1,11.7 51.7,2.9 77.1,13.4 91.1,3.3 107.7,12.1 129.8,-2.0 139.8,13.8 171.8,4.2 176.0,20.7 196.1,26.9 185.1,43.9 195.7,53.5"/></svg><span class="tv-set"><video src="media/ng-ie-menu.mp4" poster="img/ng-ie-menu.webp" muted loop playsinline preload="none" aria-label="In-engine capture of the main menu. Prep Ride lights up cyan, Pit Crew magenta, Credits green and Settings yellow as each is hovered, while the others stay grey."></video></span></div><div class="ie-txt"><span class="n">04</span><h3>Main menu loop</h3><p>Hover an option and it lights up in its racer's color. The rest stay grey, so the choice stands out.</p></div></li>
-<li class="ie-link ie-lines to-l" style="--lc:#00FFFF" aria-hidden="true"><svg class="ie-ico ie-line" viewBox="-1 -1 26 26" aria-hidden="true" focusable="false"><path class="k" d="M15 12h3.586a1 1 0 0 1 .707 1.707l-6.586 6.586a1 1 0 0 1 -1.414 0l-6.586 -6.586a1 1 0 0 1 .707 -1.707h3.586v-3h6v3"/><path class="k" d="M15 3h-6"/><path class="k" d="M15 6h-6"/><path class="c" d="M15 12h3.586a1 1 0 0 1 .707 1.707l-6.586 6.586a1 1 0 0 1 -1.414 0l-6.586 -6.586a1 1 0 0 1 .707 -1.707h3.586v-3h6v3"/><path class="c" d="M15 3h-6"/><path class="c" d="M15 6h-6"/></svg><span class="ie-lab">Select Settings</span></li>
-<li class="ie-step" style="--sc:#00FFFF"><div class="ie-tv"><svg class="ie-burst" viewBox="-6 -6 212 142" aria-hidden="true" focusable="false"><polygon points="182.9,65.0 196.8,76.6 186.3,86.4 192.6,101.7 174.9,108.7 170.0,124.3 139.1,115.3 128.7,129.6 107.4,115.8 90.7,129.1 77.3,116.0 52.9,125.6 40.8,115.2 8.0,118.7 22.2,95.8 2.9,89.1 13.5,75.3 -6.4,65.0 14.1,54.7 0.8,40.4 12.3,30.3 16.2,16.1 37.1,11.7 51.7,2.9 77.1,13.4 91.1,3.3 107.7,12.1 129.8,-2.0 139.8,13.8 171.8,4.2 176.0,20.7 196.1,26.9 185.1,43.9 195.7,53.5"/></svg><span class="tv-set"><video src="media/ng-ie-dive.mp4" poster="img/ng-ie-dive.webp" muted loop playsinline preload="none" aria-label="In-engine capture. The camera follows W-Dawg's car out of the menu across the white floor while a yellow Settings tag is sprayed in the corner."></video></span></div><div class="ie-txt"><span class="n">05</span><h3>Into Settings</h3><p>The camera chases W-Dawg out into the white void, and Settings gets sprayed across the frame.</p></div></li>
-<li class="ie-link ie-bolt to-r" style="--lc:#FF00FF" aria-hidden="true"><svg class="ie-ico ie-fill" viewBox="-1 -1 26 26" aria-hidden="true" focusable="false"><path d="M13 2l.018 .001l.016 .001l.083 .005l.011 .002h.011l.038 .009l.052 .008l.016 .006l.011 .001l.029 .011l.052 .014l.019 .009l.015 .004l.028 .014l.04 .017l.021 .012l.022 .01l.023 .015l.031 .017l.034 .024l.018 .011l.013 .012l.024 .017l.038 .034l.022 .017l.008 .01l.014 .012l.036 .041l.026 .027l.006 .009c.12 .147 .196 .322 .218 .513l.001 .012l.002 .041l.004 .064v6h5a1 1 0 0 1 .868 1.497l-.06 .091l-8 11c-.568 .783 -1.808 .38 -1.808 -.588v-6h-5a1 1 0 0 1 -.868 -1.497l.06 -.091l8 -11l.01 -.013l.018 -.024l.033 -.038l.018 -.022l.009 -.008l.013 -.014l.04 -.036l.028 -.026l.008 -.006a1 1 0 0 1 .402 -.199l.011 -.001l.027 -.005l.074 -.013l.011 -.001l.041 -.002z"/></svg><span class="ie-lab">Automatic</span></li>
-<li class="ie-step ie-r" style="--sc:#FF00FF"><div class="ie-tv"><svg class="ie-burst" viewBox="-6 -6 212 142" aria-hidden="true" focusable="false"><polygon points="182.9,65.0 196.8,76.6 186.3,86.4 192.6,101.7 174.9,108.7 170.0,124.3 139.1,115.3 128.7,129.6 107.4,115.8 90.7,129.1 77.3,116.0 52.9,125.6 40.8,115.2 8.0,118.7 22.2,95.8 2.9,89.1 13.5,75.3 -6.4,65.0 14.1,54.7 0.8,40.4 12.3,30.3 16.2,16.1 37.1,11.7 51.7,2.9 77.1,13.4 91.1,3.3 107.7,12.1 129.8,-2.0 139.8,13.8 171.8,4.2 176.0,20.7 196.1,26.9 185.1,43.9 195.7,53.5"/></svg><span class="tv-set"><video src="media/ng-ie-car.mp4" poster="img/ng-ie-car.webp" muted loop playsinline preload="none" aria-label="In-engine capture. W-Dawg's car beside a brick block, with Settings sprayed on the ground in yellow and etched along the car's side."></video></span></div><div class="ie-txt"><span class="n">06</span><h3>Settings on the car</h3><p>The camera settles on the car. Each group of settings is etched right onto it.</p></div></li>
               </ol>
             </section>
 
@@ -1531,18 +1532,9 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
                 <li class="done"><span class="t-tag">Done</span><b>Settings, Art Zoo and Audio Zoo</b><p>Base functionality is in for the Audio, Visual and Accessibility panels and both zoos.</p></li>
                 <li class="done"><span class="t-tag">Done</span><b>Menu and intro designed</b><p>Game plan, shot list and menu map written, then rebuilt once the hard cut design settled.</p></li>
                 <li class="done"><span class="t-tag">Done</span><b>Intro and attract loop in engine</b><p>The Sequencer intro hands off to the menu loop.</p></li>
-                <li class="done"><span class="t-tag">Done</span><b>Trailer shot lists</b><p>Two versions written and handed to art.</p></li>
                 <li class="is-now"><span class="t-tag">Now</span><b>Last polish push</b><p>Art passes on every screen, and a user research test to pick between two directions.</p></li>
                 <li class="ship"><span class="t-tag">Dec 2026</span><b>Ships on Steam</b><p>The full team's release.</p></li>
               </ol>
-              <p class="todo">Add the month for each step if you want real dates on this.</p>
-            </section>
-
-            <section class="chapter" id="ng-trailer" aria-labelledby="ng-trailer-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
-              <h2 id="ng-trailer-h">Trailer</h2>
-              <p>I based the trailer's structure on the Need for Speed Most Wanted trailer. Mine follows W-Dawg drifting through the menus and intro I built. I wrote the <strong>shot lists</strong> and an artist made the shots.</p>
-              <p>I set up <strong>shot lists</strong> for two versions. The first is the one I submitted. The second is a more complex trailer. Art didn't have time to set dress it before the submission deadline, so it's still on the list.</p>
-              <div class="media-slot reveal">Trailer goes here: W-Dawg drifts through Nitro Guzzler's main menu and intro</div>
             </section>
 
             <section class="chapter" id="ng-ai" aria-labelledby="ng-ai-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
@@ -1554,12 +1546,6 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
             <section class="chapter" id="ng-story" aria-labelledby="ng-story-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
               <h2 id="ng-story-h">My story</h2>
               <p>Every choice I make for the menu touches someone else's work, from the camera to the cars to the sound.</p>
-            </section>
-
-            <section class="chapter story-sec" id="ng-well" aria-labelledby="ng-well-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
-              <h3 id="ng-well-h">What went well</h3>
-              <p>I'm proud of what we made in those first two semesters, with the team we had. And the team held together.</p>
-              <p class="todo">One concrete moment: a playtest, a review or a teammate's reaction that showed you it was working.</p>
             </section>
 
             <section class="chapter story-sec" id="ng-tricky" aria-labelledby="ng-tricky-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
@@ -1596,19 +1582,16 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
                   <span class="team-role">Art</span>
                   <b>Artists</b>
                   <p>They built the trailer shots. The Art Zoo entry on the main menu leads into a level that shows off their work.</p>
-                  <p class="todo">Links to the trailer artist and the decal artist, plus an Art Zoo capture.</p>
                 </li>
                 <li class="team-card">
                   <span class="team-role">Audio</span>
                   <b>Audio</b>
                   <p>I handed them the full VO script and bark list. The settings menu gives each of their sound types its own volume control, and the Audio Zoo entry leads into a level built for their work.</p>
-                  <p class="todo">Links to the audio team's work and an Audio Zoo capture.</p>
                 </li>
                 <li class="team-card">
                   <span class="team-role">Engineering</span>
                   <b>Programmers</b>
                   <p>Most of the team works in C++. I build the menu logic in Blueprints on top of their systems.</p>
-                  <p class="todo">Link to a programmer's portfolio or the team's tech page.</p>
                 </li>
               </ul>
             </section>
@@ -1622,7 +1605,6 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
                 <li><em>Production.</em> An internal number crunch on time left against the tasks each version still needs.</li>
               </ul>
               <p class="status-line"><span class="dot" aria-hidden="true"></span>In progress. Results go here once the sessions are run.</p>
-              <div class="media-slot reveal">A/B results: version A vs version B, task times, ratings and the call it led to</div>
             </section>
 
           </div>
@@ -1756,7 +1738,6 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
                 <li class="story-card"><b>What went well</b><p>Talking out loud while I played caught reactions I would have lost by writing afterward.</p></li>
                 <li class="story-card"><b>What was tricky</b><p>Telling taste apart from usability. The glass <strong>HUD</strong> is a taste call. The Q menu delay is a usability problem.</p></li>
                 <li class="story-card"><b>How I worked through it</b><p>I wrote each note the same way: what the game does, what I felt, and what I'd do. Then I checked my notes against the recording.</p></li>
-                <li class="story-card pending"><b>What I'll carry forward</b><p class="todo">How you will use what you learned on the next project.</p></li>
               </ol>
             </section>
           </div>
@@ -2005,12 +1986,11 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
           <p class="lede">A redesign of the Minecraft inventory screen. I wireframed it flat first. Then I laid it over the live game.</p>
           <dl class="glance">
             <div><dt>Focus</dt><dd>Inventory layout</dd></div>
-            <div class="pending"><dt>Team</dt><dd>(to add)</dd></div>
             <div><dt>Built</dt><dd>Flat wireframe, in-game overlay</dd></div>
           </dl>
         </header>
         <div class="case-layout">
-          <nav class="toc" aria-label="MC UI Redesign sections"><a href="#mc-part">My part</a><a href="#mc-flat">Wireframe</a><a href="#mc-live">In the game</a><a href="#mc-why">My thinking</a><a href="#mc-story">My story</a></nav>
+          <nav class="toc" aria-label="MC UI Redesign sections"><a href="#mc-part">My part</a><a href="#mc-flat">Wireframe</a><a href="#mc-live">In the game</a></nav>
           <div class="chapters">
             <section class="chapter" id="mc-part" aria-labelledby="mc-part-h">
               <h2 id="mc-part-h">My contributions</h2>
@@ -2037,19 +2017,6 @@ section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
                 <img src="img/mc-ingame.webp" width="1600" height="900" loading="lazy" alt="The same inventory wireframe shown as a see-through panel over a Minecraft world with trees, hills and a lake. The health and hunger bars and the hotbar sit below it.">
                 <figcaption>The wireframe as a see-through panel over the world.</figcaption>
               </figure>
-            </section>
-            <section class="chapter pending" id="mc-why" aria-labelledby="mc-why-h">
-              <h2 id="mc-why-h">Layout reasoning</h2>
-              <p class="todo">What problem you were solving with the default inventory, what the diamond links and the ABC button do, why the panel is see-through, and what you'd change next.</p>
-            </section>
-            <section class="chapter pending" id="mc-story" aria-labelledby="mc-story-h">
-              <h2 id="mc-story-h">My story</h2>
-              <ol class="story reveal">
-                <li class="story-card pending"><b>What went well</b><p class="todo">What went well, in your words.</p></li>
-                <li class="story-card pending"><b>What was tricky</b><p class="todo">What was tricky or slowed you down.</p></li>
-                <li class="story-card pending"><b>How I worked through it</b><p class="todo">How you worked through it in the moment, and which other departments or teammates you worked with.</p></li>
-                <li class="story-card pending"><b>What I'll carry forward</b><p class="todo">How you will use what you learned on the next project.</p></li>
-              </ol>
             </section>
           </div>
         </div>
