@@ -1087,9 +1087,12 @@ li.lit,li.lit b{font-style:italic;font-weight:700}
   .hot-wrap:has(li.lit) .hot>img{filter:brightness(.55);transition:filter .2s var(--ease)}
 }
 /* Nitro Guzzler: the clips are the work, so they get the room */
-#case-nitro-guzzler .inner{max-width:min(1560px,100%)}
-#case-nitro-guzzler .case-layout{grid-template-columns:170px minmax(0,1fr)}
-@media (min-width:861px){#case-nitro-guzzler .chapter{padding-left:6.5rem}}
+#views article#case-nitro-guzzler{max-width:min(1640px,100%)!important;margin-inline:auto}
+article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100%;margin-inline:auto}
+@media (min-width:861px){article#case-nitro-guzzler .case-layout{grid-template-columns:clamp(150px,12vw,190px) minmax(0,1fr)}#case-nitro-guzzler .chapter{padding-left:clamp(4.5rem,6vw,6.5rem)}}
+@media (max-width:860px){article#case-nitro-guzzler .case-layout{grid-template-columns:minmax(0,1fr)!important}}
+@media (max-width:600px){#case-nitro-guzzler .chapters{padding-inline:0}#case-nitro-guzzler .chapter{padding:1rem .8rem 1.2rem 2.6rem!important}#case-nitro-guzzler .ie-step{padding:.7rem!important}#case-nitro-guzzler .ie-tv{padding:.45rem!important}}
+#case-nitro-guzzler .ie-tv{min-width:min(260px,100%)}
 #case-nitro-guzzler .ie-step{grid-template-columns:minmax(0,2.3fr) minmax(0,1fr);gap:clamp(1rem,2.5vw,2rem)}
 #case-nitro-guzzler .ie-tv{padding:clamp(.6rem,1.6vw,1.1rem)}
 #case-nitro-guzzler .ie-step,#case-nitro-guzzler .ie-step.ie-r{grid-template-columns:minmax(0,1fr)!important}
@@ -1099,6 +1102,11 @@ li.lit,li.lit b{font-style:italic;font-weight:700}
 #case-nitro-guzzler .dv-pair{gap:1rem}
 #case-nitro-guzzler .chapter>p,#case-nitro-guzzler .chapter>.lede{max-width:70ch}
 @media (max-width:760px){#case-nitro-guzzler .ie-step{grid-template-columns:minmax(0,1fr)}}
+/* NG build stats */
+.stat-row{list-style:none;margin:.5rem 0 1rem;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:10px}
+.stat-row li{border:2px solid #0B0B0C;border-radius:4px;background:#fff;padding:.7rem .9rem;box-shadow:4px 4px 0 var(--c-r,#00FFFF),4px 4px 0 2px #0B0B0C}
+.stat-row b{display:block;font-size:2rem;line-height:1;font-weight:800}
+.stat-row span{font-size:.95rem}
 /* paint drips on the rail: the last section's color runs down into the next one, just before its arrow */
 #case-nitro-guzzler .chapter.has-drip::before{top:-5.2rem}
 #case-nitro-guzzler .chapter.has-drip::after{content:"";position:absolute;z-index:1;left:1.84rem;width:.73rem;top:-5.2rem;height:3.2rem;background:var(--c-p);pointer-events:none;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H20V12C20 16 19 30 16.5 30S13 22 13 17 11 13 9 15 8 24 5.5 24 3 15 0 13Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H20V12C20 16 19 30 16.5 30S13 22 13 17 11 13 9 15 8 24 5.5 24 3 15 0 13Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat}
@@ -1568,13 +1576,33 @@ li.lit,li.lit b{font-style:italic;font-weight:700}
 
             <section class="chapter" id="ng-build" aria-labelledby="ng-build-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
               <h2 id="ng-build-h">How it's built in Unreal</h2>
+              <p>A 3D main menu in a white void, built in <strong>Blueprint</strong>. The camera hard cuts between Level Sequences and never blends. Menu items are <strong>UMG</strong> widgets placed on surfaces in the world, like the arrows on the ground and the car's paint. They're separate objects that navigate as one screen.</p>
+              <ul class="stat-row reveal" aria-label="By the numbers">
+                <li><b>17</b><span>menu buttons</span></li>
+                <li><b>8</b><span>settings rows</span></li>
+                <li><b>20</b><span>director functions</span></li>
+                <li><b>69</b><span>credit rows, built at runtime</span></li>
+              </ul>
+              <h3>The director</h3>
               <ul class="notes reveal">
-                <li><b>One camera director</b>One Blueprint holds every menu destination as a row of data. Each row stores where Back goes. So there's no special case logic for Back.</li>
-                <li><b>Structs over a Data Table</b>Data Tables fight with references to actors placed in the level, so destinations are an array of structs.</li>
-                <li><b>Hierarchy by tag</b>Each destination has a parent tag, so a sub-menu is just more rows under it.</li>
-                <li><b>Widgets on surfaces</b><strong>UMG</strong> widgets sit on 3D surfaces as Widget Components. They're physically separate but navigate as one screen.</li>
-                <li><b>One activation path</b>Mouse clicks hit the UI through a raycast. Gamepad and keyboard step through an ordered list. Both call the same function.</li>
-                <li><b>Back plays in reverse</b>Each destination sequence plays once and holds its last frame. Back plays it in reverse, reusing the game's rewind component.</li>
+                <li><b>One Blueprint owns the menu</b>BP_MenuCameraDirector holds every destination: Ready, Main, the Settings pages, Credits, Pit Crew, Prep Ride and Start Game. A Victory screen is set up the same way.</li>
+                <li><b>Structs over a Data Table</b>Data Tables can't hold references to actors placed in the level. So each destination is a struct with eight fields: its tag, its parent, its sequence, its buttons, its info panels, whether it loops, its playback speed and its return sequence.</li>
+                <li><b>Hierarchy by tag</b>Each destination stores its parent tag, so a submenu is just more rows. Back reads that data, so it needs no special logic.</li>
+                <li><b>Sequences hold their last frame</b>A destination's sequence plays once and holds. Loops chain off On Finished, like the Prep Ride transition into the car loop.</li>
+              </ul>
+              <h3>Navigation and Back</h3>
+              <ul class="notes reveal">
+                <li><b>One activation path</b>A mouse click raycasts into the widgets. Gamepad and keyboard step through an ordered list by direction, scoring the nearest button. Both end in the same Interact call.</li>
+                <li><b>One Back for everything</b>GoUp stops any running loop, climbs past loop destinations and hides the buttons. Then it plays the return sequence if there is one, or reverses its own. When that finishes, the parent shows and restarts its loop.</li>
+              </ul>
+              <h3>Settings and button feel</h3>
+              <ul class="notes reveal">
+                <li><b>The Game Instance owns the values</b>Step, set, clamp or wrap, then save to one Settings slot. The rows are Master, Music, SFX, Ambience, Subtitles, Subtitle Size, Show HUD and Reset Defaults.</li>
+                <li><b>One interface for every widget</b>BPI_MenuWidget lets the director highlight, label and update any button or row type the same way.</li>
+                <li><b>Sliders are sine waves</b>Each slider is one hologram material. A UV mask draws the fill, and the wave scrolls faster while the value is changing.</li>
+                <li><b>Highlights ease</b>Each button has its own material on a 3D plate. The highlight rises fast and falls slow, so the button you pick lifts and the one you leave fades. An idle breath pulse finishes its cycle before it stops.</li>
+                <li><b>Credits and Victory share a widget</b>Credits are built at runtime from a data table, sorted by kind: logo, header, person, line or gap. Victory is a child of the same widget with its own seven rows and a hook for score and race time.</li>
+                <li><b>Cheap per frame</b>Each button costs one interpolation and two parameter updates a frame. Camera moves are authored sequences with no runtime blending. It runs smoothly in the editor, and I haven't profiled frame times yet.</li>
               </ul>
             </section>
 
@@ -1660,13 +1688,13 @@ li.lit,li.lit b{font-style:italic;font-weight:700}
 
             <section class="chapter" id="ng-ab" aria-labelledby="ng-ab-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
               <h2 id="ng-ab-h">A/B testing the main menu</h2>
-              <p>A <strong>user research</strong> test to pick between two directions for the menu in my last polish push. Two custom builds, switched with one <strong>on/off bool</strong>, so the same testers can run both.</p>
+              <p>A <strong>user research</strong> test to pick between two directions for the menu in my last polish push. <em>A</em> uses animated transitions. <em>B</em> uses white-flash hard cuts. One bool switches between them, so the same testers can run both.</p>
               <ul class="pts">
-                <li><em>Usability.</em> Can players find what they need, and how long does it take?</li>
-                <li><em>Engagement.</em> Which version feels cooler and makes players want to stay?</li>
-                <li><em>Production.</em> An internal number crunch on time left against the tasks each version still needs.</li>
+                <li><em>Usability.</em> Completion, time on task and wrong turns.</li>
+                <li><em>Engagement.</em> Player ratings for which version feels cooler.</li>
+                <li><em>Production.</em> Tech hours each version still needs, against the time left.</li>
               </ul>
-              <p class="status-line"><span class="dot" aria-hidden="true"></span>Sessions are in progress.</p>
+              <p class="status-line"><span class="dot" aria-hidden="true"></span>Set up, with a shared sheet ready. Results come after the sessions.</p>
             </section>
 
           </div>
