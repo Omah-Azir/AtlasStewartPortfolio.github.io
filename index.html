@@ -1030,6 +1030,26 @@ section.projects{overflow-x:clip}
 .resume-view:hover .resume-cover,.resume-view:focus-visible .resume-cover{background:transparent!important}
 /* project card chips wrap instead of cutting off */
 .file .chip{white-space:normal!important;overflow:visible!important;text-overflow:clip!important;max-width:100%;line-height:1.35;text-align:left}
+/* note boxes: each one tinted from its project's palette, roomier text */
+.notes{grid-template-columns:repeat(auto-fill,minmax(min(100%,15.5rem),1fr))!important;gap:.7rem!important}
+.notes li{display:block!important;padding:.85rem 1rem!important;border-radius:6px!important;border:1px solid var(--nc)!important;border-left:6px solid var(--nc)!important;background:color-mix(in srgb,var(--nc) var(--nt,16%),var(--nb,var(--panel)))!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;box-shadow:none!important;color:var(--ink);line-height:1.5}
+.notes li b{display:block;margin:0 0 .3rem;color:var(--nh,var(--ink))}
+.notes li:nth-child(4n+1){--nc:var(--n1)}.notes li:nth-child(4n+2){--nc:var(--n2)}.notes li:nth-child(4n+3){--nc:var(--n3)}.notes li:nth-child(4n+4){--nc:var(--n4)}
+#case-nitro-guzzler{--n1:#00FFFF;--n2:#FF00FF;--n3:#FFFF00;--n4:#00FF00;--nb:#FFFFFF;--nt:22%}
+#case-nitro-guzzler .notes li{border:2px solid #0B0B0C!important;border-left:7px solid var(--nc)!important;color:#0B0B0C}
+#case-chain-of-jewels{--n1:#E1B45A;--n2:#C9774A;--n3:#9FA36A;--n4:#B08968;--nb:#3A2E22;--nt:20%}
+#case-chain-of-jewels .notes li,#case-chain-of-jewels .notes li b{color:#F3EAD8!important}
+#case-horns-of-deliverance{--n1:#FF6B93;--n2:#63E6FF;--n3:#FFD166;--n4:#B388FF;--nb:#1E1222;--nt:18%}
+#case-enshahtenti{--n1:#E3FBFF;--n2:#9CB7CC;--n3:#C8DCEB;--n4:#A4AFC3;--nb:#38495C;--nt:16%}
+#case-minecraft-project{--n1:#2D7A3D;--n2:#8A5A2B;--n3:#2F6FB5;--n4:#B8860B;--nb:#FFFFFF;--nt:14%}
+/* MC chart */
+.mc-chart{margin:1rem 0 1.25rem;max-width:760px}
+.mc-chart img{width:100%;height:auto;display:block;background:#fff;border:1px solid var(--rule);border-radius:6px}
+/* software: small name + logo boxes */
+.tool-grid.sw{grid-template-columns:repeat(auto-fill,minmax(10.5rem,1fr))!important;gap:8px!important}
+.tool-grid.sw .tool{display:flex!important;align-items:center;gap:.6rem;padding:.6rem .75rem!important;border-radius:4px}
+.tool-grid.sw .tool svg{width:1.35rem;height:1.35rem;flex:none;fill:var(--accent)}
+.tool-grid.sw .tool b{font-size:.95rem;font-weight:600}
 /* paint drips on the rail: the last section's color runs down into the next one, just before its arrow */
 #case-nitro-guzzler .chapter.has-drip::before{top:-5.2rem}
 #case-nitro-guzzler .chapter.has-drip::after{content:"";position:absolute;z-index:1;left:1.84rem;width:.73rem;top:-5.2rem;height:3.2rem;background:var(--c-p);pointer-events:none;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H20V12C20 16 19 30 16.5 30S13 22 13 17 11 13 9 15 8 24 5.5 24 3 15 0 13Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H20V12C20 16 19 30 16.5 30S13 22 13 17 11 13 9 15 8 24 5.5 24 3 15 0 13Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat}
@@ -1194,13 +1214,7 @@ section.projects{overflow-x:clip}
 
       <div class="tools reveal">
         <p class="eyebrow">Software I'm proficient in</p>
-        <ul class="tool-grid">
-          <li class="tool"><span class="mono-mark" aria-hidden="true">Fi</span><div><b>Figma</b><span>UI design</span></div></li>
-          <li class="tool"><span class="mono-mark" aria-hidden="true">Ue</span><div><b>Unreal Engine</b><span>Engine · Blueprints</span></div></li>
-          <li class="tool"><span class="mono-mark" aria-hidden="true">Un</span><div><b>Unity</b><span>Engine</span></div></li>
-          <li class="tool"><span class="mono-mark" aria-hidden="true">Ma</span><div><b>Maya</b><span>3D</span></div></li>
-          <li class="tool"><span class="mono-mark" aria-hidden="true">Kr</span><div><b>Krita</b><span>2D art</span></div></li>
-        </ul>
+        <ul class="tool-grid sw"><li class="tool"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z"/></svg><b>Figma</b></li><li class="tool"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0a12 12 0 1012 12A12 12 0 0012 0zm0 23.52A11.52 11.52 0 1123.52 12 11.52 11.52 0 0112 23.52zm7.13-9.791c-.206.997-1.126 3.557-4.06 4.942l-1.179-1.325-1.988 2a7.338 7.338 0 01-5.804-2.978 2.859 2.859 0 00.65.123c.326.006.678-.114.678-.66v-5.394a.89.89 0 00-1.116-.89c-.92.212-1.656 2.509-1.656 2.509a7.304 7.304 0 012.528-5.597 7.408 7.408 0 013.73-1.721c-1.006.573-1.57 1.507-1.57 2.29 0 1.262.76 1.109.984.923v7.28a1.157 1.157 0 00.148.256 1.075 1.075 0 00.88.445c.76 0 1.747-.868 1.747-.868V9.172c0-.6-.452-1.324-.905-1.572 0 0 .838-.149 1.484.346a5.537 5.537 0 01.387-.425c1.508-1.48 2.929-1.902 4.112-2.112 0 0-2.151 1.69-2.151 3.96 0 1.687.043 5.801.043 5.801.799.771 1.986-.342 3.059-1.441Z"/></svg><b>Unreal Engine 5</b></li><li class="tool"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12.9288 4.2939 3.7997 2.1929c.1366.077.1415.2905 0 .3675l-4.515 2.6076a.4192.4192 0 0 1-.4246 0L7.274 6.8543c-.139-.0745-.1415-.293 0-.3675l3.7972-2.193V0L1.3758 5.5977V16.793l3.7177-2.1456v-4.3858c-.0025-.1565.1813-.2682.318-.1838l4.5148 2.6076a.4252.4252 0 0 1 .2136.3676v5.2127c.0025.1565-.1813.2682-.3179.1838l-3.7996-2.1929-3.7178 2.1457L12 24l9.6954-5.5977-3.7178-2.1457-3.7996 2.1929c-.1341.082-.3229-.0248-.3179-.1838V13.053c0-.1565.087-.2956.2136-.3676l4.5149-2.6076c.134-.082.3228.0224.3179.1838v4.3858l3.7177 2.1456V5.5977L12.9288 0Z"/></svg><b>Unity</b></li><li class="tool"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m7.386 14.957 2.279-1.316-.576-.333A1.48 1.48 0 0 1 8.334 12c0-.262.073-.915.755-1.308l10.31-5.953a1.49 1.49 0 0 1 1.51 0c.228.13.755.52.755 1.308v11.906c0 .788-.527 1.178-.754 1.308s-.828.393-1.51 0l-2.732-1.577-2.334 1.348 3.899 2.251a3.81 3.81 0 0 0 3.845 0A3.81 3.81 0 0 0 24 17.953V6.047a3.81 3.81 0 0 0-1.922-3.33 3.83 3.83 0 0 0-1.923-.52c-.66 0-1.32.173-1.922.52L7.923 8.67A3.81 3.81 0 0 0 6 12c0 1.17.51 2.234 1.386 2.956zm9.228-5.913-2.279 1.316.576.333c.682.393.755 1.046.755 1.308 0 .263-.073.915-.755 1.308l-10.31 5.954a1.49 1.49 0 0 1-1.51 0 1.48 1.48 0 0 1-.755-1.308V6.047c0-.788.527-1.178.754-1.308s.828-.393 1.51 0l2.732 1.577 2.334-1.348-3.899-2.251a3.81 3.81 0 0 0-3.845 0A3.81 3.81 0 0 0 0 6.047v11.906c0 1.39.72 2.635 1.922 3.33a3.83 3.83 0 0 0 1.923.52c.66 0 1.32-.173 1.922-.52l10.31-5.953A3.81 3.81 0 0 0 18 12c0-1.17-.51-2.234-1.386-2.956"/></svg><b>Perforce</b></li><li class="tool"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13.09 23.549a1.54 1.54 0 0 1-2.18 0L.451 13.089a1.54 1.54 0 0 1 0-2.179l7.191-7.19 2.733 2.733a1.85 1.85 0 0 0 .964 2.326v6.66a1.849 1.849 0 1 0 1.54 0V8.957l2.508 2.508a1.85 1.85 0 1 0 1.09-1.09l-2.634-2.634a1.85 1.85 0 0 0-2.378-2.377L8.73 2.63 10.91.451a1.54 1.54 0 0 1 2.179 0l10.459 10.46a1.54 1.54 0 0 1 0 2.179z"/></svg><b>Git</b></li><li class="tool"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.51 13.214c.046-.8.438-1.506 1.03-2.006a3.424 3.424 0 0 1 2.212-.79c.85 0 1.631.3 2.211.79.592.5.983 1.206 1.028 2.005.045.823-.285 1.586-.865 2.153a3.389 3.389 0 0 1-2.374.938 3.393 3.393 0 0 1-2.376-.938c-.58-.567-.91-1.33-.865-2.152M7.35 14.831c.006.314.106.922.256 1.398a7.372 7.372 0 0 0 1.593 2.757 8.227 8.227 0 0 0 2.787 2.001 8.947 8.947 0 0 0 3.66.76 8.964 8.964 0 0 0 3.657-.772 8.285 8.285 0 0 0 2.785-2.01 7.428 7.428 0 0 0 1.592-2.762 6.964 6.964 0 0 0 .25-3.074 7.123 7.123 0 0 0-1.016-2.779 7.764 7.764 0 0 0-1.852-2.043h.002L13.566 2.55l-.02-.015c-.492-.378-1.319-.376-1.86.002-.547.382-.609 1.015-.123 1.415l-.001.001 3.126 2.543-9.53.01h-.013c-.788.001-1.545.518-1.695 1.172-.154.665.38 1.217 1.2 1.22V8.9l4.83-.01-8.62 6.617-.034.025c-.813.622-1.075 1.658-.563 2.313.52.667 1.625.668 2.447.004L7.414 14s-.069.52-.063.831zm12.09 1.741c-.97.988-2.326 1.548-3.795 1.55-1.47.004-2.827-.552-3.797-1.538a4.51 4.51 0 0 1-1.036-1.622 4.282 4.282 0 0 1 .282-3.519 4.702 4.702 0 0 1 1.153-1.371c.942-.768 2.141-1.183 3.396-1.185 1.256-.002 2.455.41 3.398 1.175.48.391.87.854 1.152 1.367a4.28 4.28 0 0 1 .522 1.706 4.236 4.236 0 0 1-.239 1.811 4.54 4.54 0 0 1-1.035 1.626"/></svg><b>Blender</b></li><li class="tool"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4.348 0 .69 2.203v16.875l3.657-2.203h17.297V1.219c0-.67-.551-1.219-1.22-1.219H4.349zm18.297 3.75v14.125H4.627l-1.943 1.17v3.736c0 .67.55 1.219 1.218 1.219H23.31V3.75h-.664zm-14.471.025h2.937l1.885 7.508 1.977-7.48-.012-.028h2.857v9.354h-2.216v-6.04l-1.565 6.026v.014h-2.203l-1.656-6.28v6.28H8.174V3.775zm1.33 14.762h1.18l1.068 3.543h-.902l-.217-.773H9.568l-.197.773h-.88l1.013-3.543zm1.918 0h.932l.648 1.494.643-1.494h.894l-1.113 2.133v1.41h-.887v-1.406l-1.117-2.137zm3.826 0h1.18l1.068 3.543h-.9l-.217-.773h-1.065l-.197.773h-.88l1.011-3.543zm-5.156.582-.362 1.53h.73l-.368-1.53zm5.744 0-.36 1.53h.73l-.37-1.53z"/></svg><b>Maya</b></li><li class="tool"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.5598.683c-1.096.244-2.1812.5831-3.1983 1.0951.023.8981.081 1.7582.199 2.6323-.395.253-.81.47-1.178.766-.375.288-.7581.564-1.0971.9011-.6781-.448-1.3962-.869-2.1352-1.2411C1.3532 5.6934.608 6.6186 0 7.6546c.458.7411.936 1.4352 1.4521 2.0942h.014v6.3565c.012 0 .023 0 .035.003l3.8963.376c.204.02.364.184.378.3891l.12 1.7201 3.3994.242.234-1.587c.03-.206.207-.358.415-.358h4.1114c.208 0 .385.152.415.358l.234 1.587 3.3993-.242.12-1.72a.4196.4196 0 01.378-.3891l3.8954-.376c.012 0 .023-.003.035-.003v-.5071h.002V9.7498h.014c.516-.659.994-1.3531 1.4521-2.0942-.608-1.036-1.3541-1.9611-2.1512-2.8192-.739.372-1.4571.793-2.1352 1.2411-.339-.337-.721-.613-1.096-.901-.369-.296-.7841-.5131-1.1781-.7661.117-.8741.175-1.7342.199-2.6323-1.0171-.512-2.1012-.851-3.1983-1.095-.438.736-.838 1.533-1.1871 2.3121-.414-.069-.829-.094-1.2461-.099h-.016c-.417.005-.832.03-1.2461.099-.349-.779-.749-1.576-1.1881-2.3121l.001-.001zM6.4765 9.9889c1.2971 0 2.3492 1.0511 2.3492 2.3482s-1.052 2.3482-2.3492 2.3482c-1.296 0-2.3482-1.051-2.3482-2.3482 0-1.297 1.0511-2.3482 2.3482-2.3482zm11.049 0c1.296 0 2.3482 1.0511 2.3482 2.3482s-1.0511 2.3482-2.3482 2.3482-2.3492-1.051-2.3492-2.3482c0-1.297 1.051-2.3482 2.3492-2.3482zm-10.824.9301c-.861 0-1.559.698-1.559 1.5591s.698 1.5582 1.559 1.5582c.8611 0 1.5592-.698 1.5592-1.5582 0-.86-.697-1.559-1.5591-1.559zm10.598 0c-.8611 0-1.5582.698-1.5582 1.5591s.697 1.5582 1.5581 1.5582c.8611 0 1.5592-.698 1.5592-1.5582 0-.86-.697-1.559-1.5592-1.559zm-5.2985.453c.417 0 .757.308.757.6871v2.1622c0 .379-.339.687-.757.687s-.756-.308-.756-.687V12.059c0-.379.339-.687.756-.687zM1.4601 16.9464c.002.377.006.789.006.871 0 3.7014 4.6944 5.4795 10.5269 5.5005h.014c5.8325-.02 10.5259-1.7991 10.5259-5.5004 0-.084.005-.495.007-.871l-3.5023.338-.121 1.729a.421.421 0 01-.389.3901l-4.1814.296a.4203.4203 0 01-.415-.358l-.238-1.6141h-3.3863l-.238 1.6141a.4192.4192 0 01-.4451.357l-4.1513-.296c-.208-.015-.375-.181-.389-.389l-.12-1.7292-3.5044-.337z"/></svg><b>Godot</b></li><li class="tool"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M.012 11.994 12.006 0l11.982 12.006h-6.831l-5.163-5.151-5.151 5.151 5.163 5.151v-5.151h5.151v6.903L12.006 24z"/></svg><b>GameMaker</b></li><li class="tool"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M.652.76a.625.625 0 00-.5.246c-.352.448-.035.898.362 1.262.206.189 1.77 1.794 3.428 3.527a11.054 11.054 0 011.815-1.983C3.667 2.515 1.694 1.266 1.461 1.1 1.201.914.917.762.652.76zm5.105 3.052c1.848 1.148 3.786 2.332 4.693 2.84 1.469.821 3.758 2.684 4.092 4.434.535.466 2.182 1.916 2.596 2.413.698-.211 1.518.133 2.06 1.12.866 1.583.227 3.747-1.968 4.988a5.42 5.42 0 01-.296.267l.296-.267c1.14-1.468-.714-2.44-1.175-3.864a2.06 2.06 0 01-.11-.78c-.533-.282-2.11-1.452-2.795-1.965-1.801.16-4.207-1.773-5.35-3.08-.7-.802-2.32-2.517-3.858-4.123a11.052 11.052 0 00-2.046 6.393A11.052 11.052 0 1012.948 1.136c-2.64.004-5.19.954-7.19 2.676zm8.71 7.552c-.515.126-.968.831-1.118 1.306-.038.115-.04.303.066.342.802.592 1.556 1.168 2.4 1.7.162-.393.746-.963 1.096-1.2zm-11.53 1.639c.812 1.898 5.798 7.17 12.06 2.695a2.07 2.07 0 00.114.715c.46 1.42 2.36 2.427 1.238 3.89-2.135 1.364-5 1.201-6.989.528-3.558-1.204-5.914-4.332-6.424-7.828zm13.782.7a.771.771 0 00-.065.049c-.004.003-.008.008-.011.008.003-.003.007-.008.01-.008.024-.015.044-.034.066-.048z"/></svg><b>Krita</b></li></ul>
       </div>
     </div>
   </section>
@@ -1480,9 +1494,9 @@ section.projects{overflow-x:clip}
               <p>Each pair is where I started and the drawover I made on top of it.</p>
               <div class="dv reveal">
                 <figure class="dv-pair">
-                  <div class="dv-shot"><img src="img/ng-settings-photobash.webp" width="1600" height="900" loading="lazy" alt="Before. Photobash concept on a white background: black and blue vector shapes burst out from the center, rings, halftone dots, star badges, paint splatter and blue arrows."><span class="dv-tag">Before</span></div>
-                  <div class="dv-shot"><img src="img/ng-settings-labels.webp" width="1600" height="944" loading="lazy" alt="After. The same concept faded behind W-Dawg's cyan car, with drawover labels for Visual Settings, Gameplay plus Accessibility, Audio Settings and Rewind."><span class="dv-tag dv-after">After</span></div>
-                  <figcaption><b>Settings around the car</b> The paintover, then labels for where each group of settings sits.</figcaption>
+                  <div class="dv-shot"><img src="img/ng-settings-before.webp" width="1600" height="869" loading="lazy" alt="Before. An in-engine capture of W-Dawg's cyan car beside a wooden crate on the white floor, with a soft white fog around the car."><span class="dv-tag">Before</span></div>
+                  <div class="dv-shot"><img src="img/ng-settings-labels.webp" width="1600" height="944" loading="lazy" alt="Original concept. A photobash faded behind W-Dawg's cyan car, with drawover labels for Visual Settings, Gameplay plus Accessibility, Audio Settings and Rewind."><span class="dv-tag dv-after">Original concept</span></div>
+                  <figcaption><b>Settings around the car</b> The car in engine, then my original concept with labels for where each group of settings sits.</figcaption>
                 </figure>
                 <figure class="dv-pair">
                   <div class="dv-shot"><img src="img/ng-vs-pre.webp" width="1038" height="580" loading="lazy" alt="Before. In-editor view looking down at W-Dawg's cyan hood, with the hood's own stripe and heart decal."><span class="dv-tag">Before</span></div>
@@ -1982,19 +1996,40 @@ section.projects{overflow-x:clip}
           </dl>
         </header>
         <div class="case-layout">
-          <nav class="toc" aria-label="MC UI Redesign sections"><a href="#mc-part">My part</a><a href="#mc-why">The problem</a><a href="#mc-flat">Wireframe</a><a href="#mc-live">In the game</a></nav>
+          <nav class="toc" aria-label="MC UI Redesign sections"><a href="#mc-part">My part</a><a href="#mc-why">The problem</a><a href="#mc-research">Research</a><a href="#mc-flat">Wireframe</a><a href="#mc-live">In the game</a><a href="#mc-next">Next</a></nav>
           <div class="chapters">
             <section class="chapter" id="mc-part" aria-labelledby="mc-part-h">
               <h2 id="mc-part-h">My contributions</h2>
               <ul class="contrib reveal">
-                <li><a class="contrib-link" href="#mc-flat"><span class="cl-t">Wireframed a new inventory layout.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
-                <li><a class="contrib-link" href="#mc-live"><span class="cl-t">Laid the <strong>wireframe</strong> over the live game to check it in context.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
+                <li><a class="contrib-link" href="#mc-research"><span class="cl-t">Read about 50 community posts from Reddit, the Minecraft Feedback site, mod pages and YouTube comments, and sorted them by hand into themes.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
+                <li><a class="contrib-link" href="#mc-research"><span class="cl-t">Compared the inventory UI of Terraria, Starbound, LEGO Worlds and Vintage Story.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
+                <li><a class="contrib-link" href="#mc-why"><span class="cl-t">Wrote the problem statement and two player personas.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
+                <li><a class="contrib-link" href="#mc-flat"><span class="cl-t">Wireframed the new inventory, then laid it over the live game to check it in context.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
               </ul>
             </section>
             <section class="chapter" id="mc-why" aria-labelledby="mc-why-h">
               <h2 id="mc-why-h">The problem</h2>
-              <p>Minecraft keeps adding items and blocks, and players often don't have the space to use them all. When you're building, you're limited to what fits. In combat, you can't keep every tool you'd want at hand.</p>
-              <p>So the redesign is about room. I wireframed it flat first, then laid it over the live game to check it in context.</p>
+              <p class="lede">Minecraft's UI isn't keeping up with how much happens in survival, or with how many blocks are in the game now.</p>
+              <p>Players run out of room. When you're building, you're limited to what fits. In combat, you can't keep every tool you need at hand. My rule going in was to add function and keep the simplicity players already like about it.</p>
+              <ul class="notes reveal">
+                <li><b>The Young Explorer</b>Newer to games, learned by watching older siblings, plays default survival. A small inventory and not much know-how can leave them overwhelmed. Sorting helps them find things, and backup equipment keeps them alive in longer fights.</li>
+                <li><b>The Hardcore Survivalist</b>Plays for hard feats and clutches, and leans on mods because vanilla doesn't help enough. They want less time sorting and digging for gear mid-fight, and a way to dump junk without a trip back to the lava at base.</li>
+              </ul>
+            </section>
+            <section class="chapter" id="mc-research" aria-labelledby="mc-research-h">
+              <h2 id="mc-research-h">Research</h2>
+              <p>I sorted about 50 posts by hand. It's a sample I coded myself, not a formal survey, but the themes were clear.</p>
+              <figure class="reveal mc-chart">
+                <img src="img/mc-themes.webp" width="1200" height="616" loading="lazy" alt="Bar chart of inventory feedback themes from about 50 community posts. Inventory clutter and sorting issues lead with about 34 mentions, then hotbar and quick access problems, lack of customization, UI overload on small screens, and positive comments about the simple UI.">
+                <figcaption>Clutter and sorting came up most, then the hotbar. Some posts praised how simple the UI already is, so that had to survive.</figcaption>
+              </figure>
+              <ul class="notes reveal">
+                <li><b>Terraria</b>Clear sections for crafting, inventory and equipment, plus UI scale options. It gets cluttered with lots of items and runs small on consoles.</li>
+                <li><b>Starbound</b>A second layer of hotbar slots gives more quick access. Fonts run small on TVs, and new players can find it a lot.</li>
+                <li><b>LEGO Worlds</b>Big, friendly icons grouped by tool. Some icons have no labels, so players can't tell what they do.</li>
+                <li><b>Vintage Story</b>Several inventory windows open at once, with drag and drop and stack splitting. Deep, with a steep learning curve and some scaling problems.</li>
+              </ul>
+              <p>What I took from them: more quick-access slots, grouped tools and room to manage items, without the clutter or unlabeled icons.</p>
             </section>
             <section class="chapter" id="mc-flat" aria-labelledby="mc-flat-h">
               <h2 id="mc-flat-h">Flat wireframe</h2>
@@ -2002,18 +2037,29 @@ section.projects{overflow-x:clip}
                 <div class="draw-stage"><img src="img/mc-wireframe.webp" width="1100" height="1045" loading="lazy" alt="Greyscale inventory wireframe. Top left, a column of four armor slots beside a large dark character preview. Top right, a two by two crafting grid joined by a line to one output slot. Below, a row of four buttons: a blank slot, a green recipe book, an ABC text icon and a salmon colored square. Then three rows of ten storage slots, a row of nine, and a lighter bottom row of nine. Diamond markers on four slots in the third row connect by vertical lines to the first four slots of the bottom row. A small node icon sits at the bottom right."></div>
                 <ol class="draw-notes">
                   <li data-box="4,4,10,40" data-at="17,8"><b>Armor</b> Four slots, stacked by the character.</li>
-                  <li data-box="51,9,40,21" data-at="76,30"><b>Craft to the right</b> The 2x2 grid feeds one result slot.</li>
-                  <li data-box="4,55,37,43" data-at="45,58"><b>Linked slots</b> Diamonds tie four slots to the bottom row.</li>
+                  <li data-box="51,9,40,21" data-at="72,24"><b>Craft to the right</b> The 2x2 grid feeds one result slot.</li>
+                  <li data-box="59,34,9,10" data-at="44,47"><b>Autosort</b> Each click sorts again, rotating through alphabetical, color and item type.</li>
+                  <li data-box="68,34,9,10" data-at="79,37"><b>Trash</b> Drag an item in. Dropping the next one on top asks you to confirm.</li>
+                  <li data-box="4,67,37,31" data-at="40,55"><b>Auto-replace</b> The four diamond slots hold backup gear, linked to hotbar slots 1 to 4. When a tool breaks, the next one drops in. Mining, it saves time. In combat, it can save your life.</li>
+                  <li data-box="87,84,7,7" data-at="55,75"><b>Two hotbars</b> This button or a hotkey swaps between two hotbars, and the hotbar shows which one is up.</li>
                 </ol>
-                <figcaption><span>The flat wireframe with my notes.</span><button class="draw-toggle" type="button" aria-pressed="true">Hide notes</button></figcaption>
+                <figcaption><span>The flat wireframe with my notes. The panel sits closer together, fits more slots and keeps the 1 to 9 hotbar the same size.</span><button class="draw-toggle" type="button" aria-pressed="true">Hide notes</button></figcaption>
               </figure></div>
             </section>
             <section class="chapter" id="mc-live" aria-labelledby="mc-live-h">
               <h2 id="mc-live-h">Wireframe over the live game</h2>
               <figure class="reveal">
                 <img src="img/mc-ingame.webp" width="1600" height="900" loading="lazy" alt="The same inventory wireframe shown as a see-through panel over a Minecraft world with trees, hills and a lake. The health and hunger bars and the hotbar sit below it.">
-                <figcaption>The wireframe as a see-through panel over the world.</figcaption>
+                <figcaption>The wireframe as a see-through panel over the world. I kept the opacity, sizing and look of Minecraft's own assets so it still reads as Minecraft.</figcaption>
               </figure>
+            </section>
+            <section class="chapter" id="mc-next" aria-labelledby="mc-next-h">
+              <h2 id="mc-next-h">Next</h2>
+              <ul class="pts">
+                <li><strong>Playtest</strong> new spots for the buttons, more inventory slots, and an even more compact version.</li>
+                <li><strong>Reveal</strong> it to a bigger group than the playtesters to get more data.</li>
+                <li><strong>Polish</strong> whatever wins up to the Minecraft standard.</li>
+              </ul>
             </section>
           </div>
         </div>
