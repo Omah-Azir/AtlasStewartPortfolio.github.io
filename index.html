@@ -7,7 +7,7 @@
 <meta name="description" content="Atlas Stewart is a game UI + UX designer. See how he designed Nitro Guzzler's main menu, the Chain of Jewels UI, a Minecraft inventory redesign and more.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martian+Mono:wdth,wght@75..112.5,100..800&family=Hanken+Grotesk:ital,wght@0,300..800;1,300..800&family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&family=Alegreya:wght@500;700;800&family=Kalam:wght@400;700&family=Nunito:wght@400..900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martian+Mono:wdth,wght@75..112.5,100..800&family=Hanken+Grotesk:ital,wght@0,300..800;1,300..800&family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&family=Alegreya:wght@500;700;800&family=Kalam:wght@400;700&family=Nunito:wght@400..900&family=Pixelify+Sans:wght@500;700&display=swap">
 <style>
 html,body{margin:0}
 [hidden]{display:none!important}
@@ -1059,6 +1059,24 @@ section.projects{overflow-x:clip}
 .draw-notes li.hot{font-style:italic;font-weight:700}
 ul:has(> li.lit) > li:not(.lit),ol:has(> li.lit) > li:not(.lit){opacity:.3;transition:opacity .2s var(--ease)}
 li.lit,li.lit b{font-style:italic;font-weight:700}
+/* software: square tiles like the project cards */
+.tool-grid.sw{grid-template-columns:repeat(auto-fill,minmax(8.5rem,1fr))!important;gap:12px!important}
+.tool-grid.sw .tool{display:grid!important;place-items:center;align-content:center;gap:.7rem;aspect-ratio:1;padding:1rem!important;text-align:center;border-radius:6px}
+.tool-grid.sw .tool svg{width:2.8rem;height:2.8rem}
+.tool-grid.sw .tool b{font-size:1.1rem;line-height:1.2}
+@media (max-width:600px){.tool-grid.sw{grid-template-columns:repeat(3,minmax(0,1fr))!important}.tool-grid.sw .tool svg{width:2.2rem;height:2.2rem}.tool-grid.sw .tool b{font-size:.95rem}}
+/* résumé grows on big screens */
+@media (min-width:1500px){#resume .inner{max-width:1320px}#resume .about-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr)}}
+@media (min-width:1800px){#resume .inner{max-width:1440px}}
+/* MC UI Redesign: Minecraft-style titles and bigger text */
+#case-minecraft-project h2,#case-minecraft-project h1,#case-minecraft-project .notes li b,#case-minecraft-project .d-label b{font-family:"Pixelify Sans",var(--font-mono);font-weight:700;letter-spacing:.01em}
+#case-minecraft-project .d-label{--mark:#E9F2E4;font-size:1.05rem;max-width:min(32%,290px);background:rgba(28,28,28,.88)}
+#case-minecraft-project .d-label b{color:#E9F2E4;font-size:1.25em}
+#case-minecraft-project .d-num{background:#C6C6C6;color:#1E1E1E;border-color:#3A3A3A}
+#case-minecraft-project .chapter p,#case-minecraft-project .notes li,#case-minecraft-project .pts li,#case-minecraft-project .cl-t{font-size:1.15rem;line-height:1.6}
+#case-minecraft-project .lede{font-size:1.3rem}
+#case-minecraft-project figcaption{font-size:1rem}
+#case-minecraft-project .draw-notes{font-size:1.05rem}
 /* paint drips on the rail: the last section's color runs down into the next one, just before its arrow */
 #case-nitro-guzzler .chapter.has-drip::before{top:-5.2rem}
 #case-nitro-guzzler .chapter.has-drip::after{content:"";position:absolute;z-index:1;left:1.84rem;width:.73rem;top:-5.2rem;height:3.2rem;background:var(--c-p);pointer-events:none;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H20V12C20 16 19 30 16.5 30S13 22 13 17 11 13 9 15 8 24 5.5 24 3 15 0 13Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H20V12C20 16 19 30 16.5 30S13 22 13 17 11 13 9 15 8 24 5.5 24 3 15 0 13Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat}
@@ -2045,12 +2063,10 @@ li.lit,li.lit b{font-style:italic;font-weight:700}
 <div style="max-width:720px">              <figure class="draw reveal">
                 <div class="draw-stage"><img src="img/mc-wireframe.webp" width="1100" height="1045" loading="lazy" alt="Greyscale inventory wireframe. Top left, a column of four armor slots beside a large dark character preview. Top right, a two by two crafting grid joined by a line to one output slot. Below, a row of four buttons: a blank slot, a green recipe book, an ABC text icon and a salmon colored square. Then three rows of ten storage slots, a row of nine, and a lighter bottom row of nine. Diamond markers on four slots in the third row connect by vertical lines to the first four slots of the bottom row. A small node icon sits at the bottom right."></div>
                 <ol class="draw-notes">
-                  <li data-box="4,4,10,40" data-at="17,8"><b>Armor</b> Four slots, stacked by the character.</li>
-                  <li data-box="51,9,40,21" data-at="72,24"><b>Craft to the right</b> The 2x2 grid feeds one result slot.</li>
-                  <li data-box="59,34,9,10" data-at="44,47"><b>Autosort</b> Each click sorts again, rotating through alphabetical, color and item type.</li>
+                  <li data-box="59,34,9,10" data-at="12,6"><b>Autosort</b> Each click sorts again, rotating through alphabetical, color and item type.</li>
                   <li data-box="68,34,9,10" data-at="79,37"><b>Trash</b> Drag an item in. Dropping the next one on top asks you to confirm.</li>
-                  <li data-box="4,67,37,31" data-at="40,55"><b>Auto-replace</b> The four diamond slots hold backup gear, linked to hotbar slots 1 to 4. When a tool breaks, the next one drops in. Mining, it saves time. In combat, it can save your life.</li>
-                  <li data-box="87,84,7,7" data-at="55,75"><b>Two hotbars</b> This button or a hotkey swaps between two hotbars, and the hotbar shows which one is up.</li>
+                  <li data-box="4,67,37,31" data-at="12,40"><b>Auto-replace</b> The four diamond slots hold backup gear, linked to hotbar slots 1 to 4. When a tool breaks, the next one drops in. Mining, it saves time. In combat, it can save your life.</li>
+                  <li data-box="87,84,7,7" data-at="50,60"><b>Two hotbars</b> This button or a hotkey swaps between two hotbars, and the hotbar shows which one is up.</li>
                 </ol>
                 <figcaption><span>The flat wireframe with my notes. The panel sits closer together, fits more slots and keeps the 1 to 9 hotbar the same size.</span><button class="draw-toggle" type="button" aria-pressed="true">Hide notes</button></figcaption>
               </figure></div>
