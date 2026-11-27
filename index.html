@@ -55,7 +55,7 @@ html,body{margin:0}
 html{scroll-behavior:smooth;scroll-padding-top:calc(var(--tabs-h) + env(safe-area-inset-top,0px) + 12px)}
 body{background:var(--desk);color:var(--ink);font-family:var(--font-body);font-stretch:87.5%;font-size:1.0625rem;line-height:1.6;transition:background-color .5s var(--ease),color .5s var(--ease)}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--desk)}
-body.case-open{overflow:hidden}
+html.case-open,body.case-open{overflow:hidden!important;overscroll-behavior:none}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
@@ -2229,13 +2229,14 @@ html{font-size:clamp(100%,0.86rem + 0.42vw,125%)}
     document.querySelectorAll('.case').forEach(a => a.hidden = a.dataset.id !== id);
     root.dataset.project = id;
     views.hidden = false; views.scrollTop = 0;
-    document.body.classList.add('case-open');
+    document.body.classList.add('case-open'); document.documentElement.classList.add('case-open');
+    requestAnimationFrame(() => { views.scrollTop = 0; requestAnimationFrame(() => { views.scrollTop = 0; }); });
     page.inert = true;
     current = id;
     document.querySelectorAll('.nav .tab').forEach(t => t.setAttribute('aria-current', t.dataset.sec === 'projects' ? 'true' : 'false'));
     const ngLoop = ngLoopEl();
     if (ngLoop){ if (id === 'nitro-guzzler' && !reduce.matches) ngLoop.play().catch(()=>{}); else ngLoop.pause(); }
-    const h = document.querySelector('#case-' + id + ' h1'); h && h.focus({preventScroll:true});
+    const h = document.querySelector('#case-' + id + ' h1'); h && h.focus({preventScroll:true}); views.scrollTop = 0;
   }
   function open(id, card){
     if (!ids.includes(id)) return;
@@ -2251,7 +2252,7 @@ html{font-size:clamp(100%,0.86rem + 0.42vw,125%)}
     if (!current) return;
     const done = () => {
       views.hidden = true; delete root.dataset.project; const nl = ngLoopEl(); nl && nl.pause();
-      document.body.classList.remove('case-open'); page.inert = false; current = null;
+      document.body.classList.remove('case-open'); document.documentElement.classList.remove('case-open'); page.inert = false; current = null;
       if (target){ const el = document.getElementById(target); el && el.scrollIntoView({behavior:'instant'}); }
       lastCard && lastCard.focus({preventScroll:true});
     };
