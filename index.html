@@ -2238,8 +2238,16 @@ html{font-size:clamp(100%,0.86rem + 0.42vw,125%)}
     if (ngLoop){ if (id === 'nitro-guzzler' && !reduce.matches) ngLoop.play().catch(()=>{}); else ngLoop.pause(); }
     const h = document.querySelector('#case-' + id + ' h1'); h && h.focus({preventScroll:true}); views.scrollTop = 0;
   }
+  const stopScroll = e => { if (!e.target.closest || !e.target.closest('#views') || views.hidden) e.preventDefault(); };
+  const stopKeys = e => { if (views.hidden && ['ArrowDown','ArrowUp','PageDown','PageUp','Home','End',' '].includes(e.key)) e.preventDefault(); };
+  function lockPage(on){
+    document.documentElement.classList.toggle('case-open', on); document.body.classList.toggle('case-open', on);
+    const m = on ? 'addEventListener' : 'removeEventListener';
+    window[m]('wheel', stopScroll, {passive:false}); window[m]('touchmove', stopScroll, {passive:false}); window[m]('keydown', stopKeys);
+  }
   function open(id, card){
     if (!ids.includes(id)) return;
+    lockPage(true);
     lastCard = card || document.querySelector('.file[data-p="' + id + '"]');
     const hero = document.querySelector('#case-' + id + ' .morph-target');
     if (card && document.startViewTransition && !reduce.matches && !current){
@@ -2252,7 +2260,7 @@ html{font-size:clamp(100%,0.86rem + 0.42vw,125%)}
     if (!current) return;
     const done = () => {
       views.hidden = true; delete root.dataset.project; const nl = ngLoopEl(); nl && nl.pause();
-      document.body.classList.remove('case-open'); document.documentElement.classList.remove('case-open'); page.inert = false; current = null;
+      lockPage(false); page.inert = false; current = null;
       if (target){ const el = document.getElementById(target); el && el.scrollIntoView({behavior:'instant'}); }
       lastCard && lastCard.focus({preventScroll:true});
     };
