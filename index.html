@@ -890,7 +890,7 @@ h2{font-weight:300}
 section.band.projects{padding-top:clamp(2rem,4vw,3rem)}
 .projects .deck-head{margin-bottom:1.4rem}
 @media (max-width:860px){.intro-grid{grid-template-columns:1fr}.intro-facts{display:none}}
-@media (max-width:560px){.nav .tab[data-sec="resume"]{display:none}.intro .lede{font-size:1.02rem}.intro-actions .btn{padding:.6rem .95rem}}
+@media (max-width:560px){.intro .lede{font-size:1.02rem}.intro-actions .btn{padding:.6rem .95rem}}
 
 /* ================= Nitro Guzzler: team, timeline, story ================= */
 .team{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}
@@ -1151,8 +1151,8 @@ html{font-size:clamp(100%,0.86rem + 0.42vw,125%)}
 .nav{margin-left:auto}
 .nav .tab{font-size:clamp(.85rem,.7rem + .3vw,1.05rem)!important}
 .bar-status .now{font-size:clamp(.75rem,.65rem + .2vw,.95rem)}
-@media (max-width:560px){.tab-name{font-size:.95rem!important;letter-spacing:.03em}.nav .tab{font-size:.68rem!important;margin-inline:.3rem!important;letter-spacing:.04em!important}.tabs-inner{padding-inline:12px}}
-@media (max-width:380px){.tab-name{font-size:.82rem!important;letter-spacing:0}.nav .tab{margin-inline:.22rem!important}}
+@media (max-width:560px){.tab-name{font-size:.95rem!important;letter-spacing:.03em}.nav .tab{font-size:clamp(.5rem,2.6vw,.68rem)!important;margin-inline:clamp(.12rem,.9vw,.3rem)!important;letter-spacing:.02em!important;padding-inline:0!important}.nav{overflow:visible!important;flex:none}.tabs-inner{padding-inline:12px}}
+
 /* software sub-tabs */
 .sw-tabs{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 .9rem}
 .sw-tabs button{font:inherit;font-family:var(--font-mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;padding:.45rem .85rem;border-radius:999px;cursor:pointer;background:transparent;color:var(--ink-2);border:1px solid var(--edge)}
