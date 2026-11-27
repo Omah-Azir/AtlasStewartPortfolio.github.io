@@ -1107,6 +1107,42 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
 .stat-row li{border:2px solid #0B0B0C;border-radius:4px;background:#fff;padding:.7rem .9rem;box-shadow:4px 4px 0 var(--c-r,#00FFFF),4px 4px 0 2px #0B0B0C}
 .stat-row b{display:block;font-size:2rem;line-height:1;font-weight:800}
 .stat-row span{font-size:.95rem}
+/* problem-solving stages: every section says which step it is, and steps look different */
+.stage{margin:0 0 -.4rem;justify-self:start;display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-mono);font-size:.82rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:.3rem .75rem .3rem .55rem;border-radius:999px;border:1.5px solid currentColor;color:var(--accent)}
+.stage i{width:.62rem;height:.62rem;border-radius:2px;background:currentColor;display:inline-block}
+[data-stage="problem"] .stage i{transform:rotate(45deg)}
+[data-stage="research"] .stage i,[data-stage="observe"] .stage i{border-radius:50%}
+[data-stage="result"] .stage i,[data-stage="takeaway"] .stage i{clip-path:polygon(0 0,100% 50%,0 100%)}
+[data-stage="role"] .stage i,[data-stage="team"] .stage i,[data-stage="context"] .stage i,[data-stage="reflect"] .stage i{background:transparent;border:2px solid currentColor;border-radius:50%}
+.chapter[data-stage="problem"]{position:relative}
+.chapter[data-stage="problem"]::after{content:"";position:absolute;left:0;right:0;top:0;height:10px;border-radius:inherit;background:repeating-linear-gradient(-45deg,var(--accent) 0 12px,transparent 12px 24px);opacity:.85;pointer-events:none}
+.chapter[data-stage="research"],.chapter[data-stage="observe"]{background-image:radial-gradient(color-mix(in srgb,var(--accent) 30%,transparent) 1.2px,transparent 1.4px)!important;background-size:18px 18px!important}
+.chapter[data-stage="plan"],.chapter[data-stage="analyze"]{background-image:linear-gradient(color-mix(in srgb,var(--accent) 16%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--accent) 16%,transparent) 1px,transparent 1px)!important;background-size:24px 24px!important}
+.chapter[data-stage="test"],.chapter[data-stage="iterate"]{outline:2px dashed color-mix(in srgb,var(--accent) 60%,transparent);outline-offset:-10px}
+.chapter[data-stage="result"],.chapter[data-stage="takeaway"]{box-shadow:inset 0 0 0 3px color-mix(in srgb,var(--accent) 55%,transparent)}
+.chapter[data-stage="reflect"],.chapter[data-stage="context"]{background:transparent!important;border-color:transparent!important;box-shadow:none!important;backdrop-filter:none!important}
+.chapter[data-stage="reflect"]>h2,.chapter[data-stage="context"]>h2{font-size:clamp(1.6rem,3vw,2.2rem)}
+/* Nitro Guzzler keeps its boxes; stages change the fill */
+#case-nitro-guzzler .stage{color:#0B0B0C;background:var(--c-r);border:2px solid #0B0B0C;margin-left:clamp(4.2rem,6vw,5.2rem)}
+@media (max-width:860px){#case-nitro-guzzler .stage{margin-left:0}}
+#case-nitro-guzzler .chapter[data-stage="problem"]::after{height:14px;background:repeating-linear-gradient(-45deg,#0B0B0C 0 12px,var(--c-r) 12px 24px);opacity:1;border-radius:0}
+#case-nitro-guzzler .chapter[data-stage="problem"]{background:#fff!important}
+#case-nitro-guzzler .chapter[data-stage="research"],#case-nitro-guzzler .chapter[data-stage="plan"]{background-color:color-mix(in srgb,var(--c-r) 10%,#fff)!important}
+#case-nitro-guzzler .chapter[data-stage="plan"]{background-image:linear-gradient(color-mix(in srgb,var(--c-r) 35%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--c-r) 35%,transparent) 1px,transparent 1px)!important}
+#case-nitro-guzzler .chapter[data-stage="build"]{background:#fff!important;background-image:linear-gradient(color-mix(in srgb,var(--c-r) 28%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--c-r) 28%,transparent) 1px,transparent 1px)!important;background-size:32px 32px!important}
+#case-nitro-guzzler .chapter[data-stage="result"]{background:#fff!important;box-shadow:10px 10px 0 #0B0B0C!important}
+#case-nitro-guzzler .chapter[data-stage="iterate"]{outline:3px dashed #0B0B0C;outline-offset:-12px}
+#case-nitro-guzzler .chapter[data-stage="context"],#case-nitro-guzzler .chapter[data-stage="team"]{background:color-mix(in srgb,var(--c-r) 6%,#fff)!important;border-width:2px!important;box-shadow:none!important}
+/* clean up stray edges: offset shadows only on the bottom-right, no peeking TV burst */
+#case-nitro-guzzler .chapter{box-shadow:6px 6px 0 var(--c-r),9px 9px 0 #0B0B0C!important}
+.ie-step{box-shadow:6px 6px 0 var(--sc),9px 9px 0 #0B0B0C!important}
+.stat-row li{box-shadow:4px 4px 0 var(--c-r,#00FFFF),6px 6px 0 #0B0B0C!important}
+.dv-shot:nth-child(2) img{box-shadow:5px 5px 0 #00FFFF,8px 8px 0 #0B0B0C!important}
+#case-nitro-guzzler .ie-burst{display:none}
+.ie-tv .tv-set{box-shadow:none!important}
+/* tool tiles without a logo */
+.tglyph{width:2.8rem;height:2.8rem;display:grid;place-items:center;border-radius:8px;border:2px solid var(--accent);color:var(--accent);font-family:var(--font-mono);font-weight:700;font-size:1.15rem}
+@media (max-width:600px){.tglyph{width:2.2rem;height:2.2rem;font-size:.95rem}}
 /* paint drips on the rail: the last section's color runs down into the next one, just before its arrow */
 #case-nitro-guzzler .chapter.has-drip::before{top:-5.2rem}
 #case-nitro-guzzler .chapter.has-drip::after{content:"";position:absolute;z-index:1;left:1.84rem;width:.73rem;top:-5.2rem;height:3.2rem;background:var(--c-p);pointer-events:none;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H20V12C20 16 19 30 16.5 30S13 22 13 17 11 13 9 15 8 24 5.5 24 3 15 0 13Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H20V12C20 16 19 30 16.5 30S13 22 13 17 11 13 9 15 8 24 5.5 24 3 15 0 13Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat}
@@ -1271,7 +1307,7 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
 
       <div class="tools reveal">
         <p class="eyebrow">Software I'm proficient in</p>
-        <ul class="tool-grid sw"><li class="tool"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z"/></svg><b>Figma</b></li><li class="tool"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0a12 12 0 1012 12A12 12 0 0012 0zm0 23.52A11.52 11.52 0 1123.52 12 11.52 11.52 0 0112 23.52zm7.13-9.791c-.206.997-1.126 3.557-4.06 4.942l-1.179-1.325-1.988 2a7.338 7.338 0 01-5.804-2.978 2.859 2.859 0 00.65.123c.326.006.678-.114.678-.66v-5.394a.89.89 0 00-1.116-.89c-.92.212-1.656 2.509-1.656 2.509a7.304 7.304 0 012.528-5.597 7.408 7.408 0 013.73-1.721c-1.006.573-1.57 1.507-1.57 2.29 0 1.262.76 1.109.984.923v7.28a1.157 1.157 0 00.148.256 1.075 1.075 0 00.88.445c.76 0 1.747-.868 1.747-.868V9.172c0-.6-.452-1.324-.905-1.572 0 0 .838-.149 1.484.346a5.537 5.537 0 01.387-.425c1.508-1.48 2.929-1.902 4.112-2.112 0 0-2.151 1.69-2.151 3.96 0 1.687.043 5.801.043 5.801.799.771 1.986-.342 3.059-1.441Z"/></svg><b>Unreal Engine 5</b></li><li class="tool"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12.9288 4.2939 3.7997 2.1929c.1366.077.1415.2905 0 .3675l-4.515 2.6076a.4192.4192 0 0 1-.4246 0L7.274 6.8543c-.139-.0745-.1415-.293 0-.3675l3.7972-2.193V0L1.3758 5.5977V16.793l3.7177-2.1456v-4.3858c-.0025-.1565.1813-.2682.318-.1838l4.5148 2.6076a.4252.4252 0 0 1 .2136.3676v5.2127c.0025.1565-.1813.2682-.3179.1838l-3.7996-2.1929-3.7178 2.1457L12 24l9.6954-5.5977-3.7178-2.1457-3.7996 2.1929c-.1341.082-.3229-.0248-.3179-.1838V13.053c0-.1565.087-.2956.2136-.3676l4.5149-2.6076c.134-.082.3228.0224.3179.1838v4.3858l3.7177 2.1456V5.5977L12.9288 0Z"/></svg><b>Unity</b></li><li class="tool"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m7.386 14.957 2.279-1.316-.576-.333A1.48 1.48 0 0 1 8.334 12c0-.262.073-.915.755-1.308l10.31-5.953a1.49 1.49 0 0 1 1.51 0c.228.13.755.52.755 1.308v11.906c0 .788-.527 1.178-.754 1.308s-.828.393-1.51 0l-2.732-1.577-2.334 1.348 3.899 2.251a3.81 3.81 0 0 0 3.845 0A3.81 3.81 0 0 0 24 17.953V6.047a3.81 3.81 0 0 0-1.922-3.33 3.83 3.83 0 0 0-1.923-.52c-.66 0-1.32.173-1.922.52L7.923 8.67A3.81 3.81 0 0 0 6 12c0 1.17.51 2.234 1.386 2.956zm9.228-5.913-2.279 1.316.576.333c.682.393.755 1.046.755 1.308 0 .263-.073.915-.755 1.308l-10.31 5.954a1.49 1.49 0 0 1-1.51 0 1.48 1.48 0 0 1-.755-1.308V6.047c0-.788.527-1.178.754-1.308s.828-.393 1.51 0l2.732 1.577 2.334-1.348-3.899-2.251a3.81 3.81 0 0 0-3.845 0A3.81 3.81 0 0 0 0 6.047v11.906c0 1.39.72 2.635 1.922 3.33a3.83 3.83 0 0 0 1.923.52c.66 0 1.32-.173 1.922-.52l10.31-5.953A3.81 3.81 0 0 0 18 12c0-1.17-.51-2.234-1.386-2.956"/></svg><b>Perforce</b></li><li class="tool"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13.09 23.549a1.54 1.54 0 0 1-2.18 0L.451 13.089a1.54 1.54 0 0 1 0-2.179l7.191-7.19 2.733 2.733a1.85 1.85 0 0 0 .964 2.326v6.66a1.849 1.849 0 1 0 1.54 0V8.957l2.508 2.508a1.85 1.85 0 1 0 1.09-1.09l-2.634-2.634a1.85 1.85 0 0 0-2.378-2.377L8.73 2.63 10.91.451a1.54 1.54 0 0 1 2.179 0l10.459 10.46a1.54 1.54 0 0 1 0 2.179z"/></svg><b>Git</b></li><li class="tool"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.51 13.214c.046-.8.438-1.506 1.03-2.006a3.424 3.424 0 0 1 2.212-.79c.85 0 1.631.3 2.211.79.592.5.983 1.206 1.028 2.005.045.823-.285 1.586-.865 2.153a3.389 3.389 0 0 1-2.374.938 3.393 3.393 0 0 1-2.376-.938c-.58-.567-.91-1.33-.865-2.152M7.35 14.831c.006.314.106.922.256 1.398a7.372 7.372 0 0 0 1.593 2.757 8.227 8.227 0 0 0 2.787 2.001 8.947 8.947 0 0 0 3.66.76 8.964 8.964 0 0 0 3.657-.772 8.285 8.285 0 0 0 2.785-2.01 7.428 7.428 0 0 0 1.592-2.762 6.964 6.964 0 0 0 .25-3.074 7.123 7.123 0 0 0-1.016-2.779 7.764 7.764 0 0 0-1.852-2.043h.002L13.566 2.55l-.02-.015c-.492-.378-1.319-.376-1.86.002-.547.382-.609 1.015-.123 1.415l-.001.001 3.126 2.543-9.53.01h-.013c-.788.001-1.545.518-1.695 1.172-.154.665.38 1.217 1.2 1.22V8.9l4.83-.01-8.62 6.617-.034.025c-.813.622-1.075 1.658-.563 2.313.52.667 1.625.668 2.447.004L7.414 14s-.069.52-.063.831zm12.09 1.741c-.97.988-2.326 1.548-3.795 1.55-1.47.004-2.827-.552-3.797-1.538a4.51 4.51 0 0 1-1.036-1.622 4.282 4.282 0 0 1 .282-3.519 4.702 4.702 0 0 1 1.153-1.371c.942-.768 2.141-1.183 3.396-1.185 1.256-.002 2.455.41 3.398 1.175.48.391.87.854 1.152 1.367a4.28 4.28 0 0 1 .522 1.706 4.236 4.236 0 0 1-.239 1.811 4.54 4.54 0 0 1-1.035 1.626"/></svg><b>Blender</b></li><li class="tool"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4.348 0 .69 2.203v16.875l3.657-2.203h17.297V1.219c0-.67-.551-1.219-1.22-1.219H4.349zm18.297 3.75v14.125H4.627l-1.943 1.17v3.736c0 .67.55 1.219 1.218 1.219H23.31V3.75h-.664zm-14.471.025h2.937l1.885 7.508 1.977-7.48-.012-.028h2.857v9.354h-2.216v-6.04l-1.565 6.026v.014h-2.203l-1.656-6.28v6.28H8.174V3.775zm1.33 14.762h1.18l1.068 3.543h-.902l-.217-.773H9.568l-.197.773h-.88l1.013-3.543zm1.918 0h.932l.648 1.494.643-1.494h.894l-1.113 2.133v1.41h-.887v-1.406l-1.117-2.137zm3.826 0h1.18l1.068 3.543h-.9l-.217-.773h-1.065l-.197.773h-.88l1.011-3.543zm-5.156.582-.362 1.53h.73l-.368-1.53zm5.744 0-.36 1.53h.73l-.37-1.53z"/></svg><b>Maya</b></li><li class="tool"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.5598.683c-1.096.244-2.1812.5831-3.1983 1.0951.023.8981.081 1.7582.199 2.6323-.395.253-.81.47-1.178.766-.375.288-.7581.564-1.0971.9011-.6781-.448-1.3962-.869-2.1352-1.2411C1.3532 5.6934.608 6.6186 0 7.6546c.458.7411.936 1.4352 1.4521 2.0942h.014v6.3565c.012 0 .023 0 .035.003l3.8963.376c.204.02.364.184.378.3891l.12 1.7201 3.3994.242.234-1.587c.03-.206.207-.358.415-.358h4.1114c.208 0 .385.152.415.358l.234 1.587 3.3993-.242.12-1.72a.4196.4196 0 01.378-.3891l3.8954-.376c.012 0 .023-.003.035-.003v-.5071h.002V9.7498h.014c.516-.659.994-1.3531 1.4521-2.0942-.608-1.036-1.3541-1.9611-2.1512-2.8192-.739.372-1.4571.793-2.1352 1.2411-.339-.337-.721-.613-1.096-.901-.369-.296-.7841-.5131-1.1781-.7661.117-.8741.175-1.7342.199-2.6323-1.0171-.512-2.1012-.851-3.1983-1.095-.438.736-.838 1.533-1.1871 2.3121-.414-.069-.829-.094-1.2461-.099h-.016c-.417.005-.832.03-1.2461.099-.349-.779-.749-1.576-1.1881-2.3121l.001-.001zM6.4765 9.9889c1.2971 0 2.3492 1.0511 2.3492 2.3482s-1.052 2.3482-2.3492 2.3482c-1.296 0-2.3482-1.051-2.3482-2.3482 0-1.297 1.0511-2.3482 2.3482-2.3482zm11.049 0c1.296 0 2.3482 1.0511 2.3482 2.3482s-1.0511 2.3482-2.3482 2.3482-2.3492-1.051-2.3492-2.3482c0-1.297 1.051-2.3482 2.3492-2.3482zm-10.824.9301c-.861 0-1.559.698-1.559 1.5591s.698 1.5582 1.559 1.5582c.8611 0 1.5592-.698 1.5592-1.5582 0-.86-.697-1.559-1.5591-1.559zm10.598 0c-.8611 0-1.5582.698-1.5582 1.5591s.697 1.5582 1.5581 1.5582c.8611 0 1.5592-.698 1.5592-1.5582 0-.86-.697-1.559-1.5592-1.559zm-5.2985.453c.417 0 .757.308.757.6871v2.1622c0 .379-.339.687-.757.687s-.756-.308-.756-.687V12.059c0-.379.339-.687.756-.687zM1.4601 16.9464c.002.377.006.789.006.871 0 3.7014 4.6944 5.4795 10.5269 5.5005h.014c5.8325-.02 10.5259-1.7991 10.5259-5.5004 0-.084.005-.495.007-.871l-3.5023.338-.121 1.729a.421.421 0 01-.389.3901l-4.1814.296a.4203.4203 0 01-.415-.358l-.238-1.6141h-3.3863l-.238 1.6141a.4192.4192 0 01-.4451.357l-4.1513-.296c-.208-.015-.375-.181-.389-.389l-.12-1.7292-3.5044-.337z"/></svg><b>Godot</b></li><li class="tool"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M.012 11.994 12.006 0l11.982 12.006h-6.831l-5.163-5.151-5.151 5.151 5.163 5.151v-5.151h5.151v6.903L12.006 24z"/></svg><b>GameMaker</b></li><li class="tool"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M.652.76a.625.625 0 00-.5.246c-.352.448-.035.898.362 1.262.206.189 1.77 1.794 3.428 3.527a11.054 11.054 0 011.815-1.983C3.667 2.515 1.694 1.266 1.461 1.1 1.201.914.917.762.652.76zm5.105 3.052c1.848 1.148 3.786 2.332 4.693 2.84 1.469.821 3.758 2.684 4.092 4.434.535.466 2.182 1.916 2.596 2.413.698-.211 1.518.133 2.06 1.12.866 1.583.227 3.747-1.968 4.988a5.42 5.42 0 01-.296.267l.296-.267c1.14-1.468-.714-2.44-1.175-3.864a2.06 2.06 0 01-.11-.78c-.533-.282-2.11-1.452-2.795-1.965-1.801.16-4.207-1.773-5.35-3.08-.7-.802-2.32-2.517-3.858-4.123a11.052 11.052 0 00-2.046 6.393A11.052 11.052 0 1012.948 1.136c-2.64.004-5.19.954-7.19 2.676zm8.71 7.552c-.515.126-.968.831-1.118 1.306-.038.115-.04.303.066.342.802.592 1.556 1.168 2.4 1.7.162-.393.746-.963 1.096-1.2zm-11.53 1.639c.812 1.898 5.798 7.17 12.06 2.695a2.07 2.07 0 00.114.715c.46 1.42 2.36 2.427 1.238 3.89-2.135 1.364-5 1.201-6.989.528-3.558-1.204-5.914-4.332-6.424-7.828zm13.782.7a.771.771 0 00-.065.049c-.004.003-.008.008-.011.008.003-.003.007-.008.01-.008.024-.015.044-.034.066-.048z"/></svg><b>Krita</b></li></ul>
+        <ul class="tool-grid sw"><li class="tool"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z"/></svg><b>Figma</b></li><li class="tool"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0a12 12 0 1012 12A12 12 0 0012 0zm0 23.52A11.52 11.52 0 1123.52 12 11.52 11.52 0 0112 23.52zm7.13-9.791c-.206.997-1.126 3.557-4.06 4.942l-1.179-1.325-1.988 2a7.338 7.338 0 01-5.804-2.978 2.859 2.859 0 00.65.123c.326.006.678-.114.678-.66v-5.394a.89.89 0 00-1.116-.89c-.92.212-1.656 2.509-1.656 2.509a7.304 7.304 0 012.528-5.597 7.408 7.408 0 013.73-1.721c-1.006.573-1.57 1.507-1.57 2.29 0 1.262.76 1.109.984.923v7.28a1.157 1.157 0 00.148.256 1.075 1.075 0 00.88.445c.76 0 1.747-.868 1.747-.868V9.172c0-.6-.452-1.324-.905-1.572 0 0 .838-.149 1.484.346a5.537 5.537 0 01.387-.425c1.508-1.48 2.929-1.902 4.112-2.112 0 0-2.151 1.69-2.151 3.96 0 1.687.043 5.801.043 5.801.799.771 1.986-.342 3.059-1.441Z"/></svg><b>Unreal Engine 5</b></li><li class="tool"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12.9288 4.2939 3.7997 2.1929c.1366.077.1415.2905 0 .3675l-4.515 2.6076a.4192.4192 0 0 1-.4246 0L7.274 6.8543c-.139-.0745-.1415-.293 0-.3675l3.7972-2.193V0L1.3758 5.5977V16.793l3.7177-2.1456v-4.3858c-.0025-.1565.1813-.2682.318-.1838l4.5148 2.6076a.4252.4252 0 0 1 .2136.3676v5.2127c.0025.1565-.1813.2682-.3179.1838l-3.7996-2.1929-3.7178 2.1457L12 24l9.6954-5.5977-3.7178-2.1457-3.7996 2.1929c-.1341.082-.3229-.0248-.3179-.1838V13.053c0-.1565.087-.2956.2136-.3676l4.5149-2.6076c.134-.082.3228.0224.3179.1838v4.3858l3.7177 2.1456V5.5977L12.9288 0Z"/></svg><b>Unity</b></li><li class="tool"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m7.386 14.957 2.279-1.316-.576-.333A1.48 1.48 0 0 1 8.334 12c0-.262.073-.915.755-1.308l10.31-5.953a1.49 1.49 0 0 1 1.51 0c.228.13.755.52.755 1.308v11.906c0 .788-.527 1.178-.754 1.308s-.828.393-1.51 0l-2.732-1.577-2.334 1.348 3.899 2.251a3.81 3.81 0 0 0 3.845 0A3.81 3.81 0 0 0 24 17.953V6.047a3.81 3.81 0 0 0-1.922-3.33 3.83 3.83 0 0 0-1.923-.52c-.66 0-1.32.173-1.922.52L7.923 8.67A3.81 3.81 0 0 0 6 12c0 1.17.51 2.234 1.386 2.956zm9.228-5.913-2.279 1.316.576.333c.682.393.755 1.046.755 1.308 0 .263-.073.915-.755 1.308l-10.31 5.954a1.49 1.49 0 0 1-1.51 0 1.48 1.48 0 0 1-.755-1.308V6.047c0-.788.527-1.178.754-1.308s.828-.393 1.51 0l2.732 1.577 2.334-1.348-3.899-2.251a3.81 3.81 0 0 0-3.845 0A3.81 3.81 0 0 0 0 6.047v11.906c0 1.39.72 2.635 1.922 3.33a3.83 3.83 0 0 0 1.923.52c.66 0 1.32-.173 1.922-.52l10.31-5.953A3.81 3.81 0 0 0 18 12c0-1.17-.51-2.234-1.386-2.956"/></svg><b>Perforce</b></li><li class="tool"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13.09 23.549a1.54 1.54 0 0 1-2.18 0L.451 13.089a1.54 1.54 0 0 1 0-2.179l7.191-7.19 2.733 2.733a1.85 1.85 0 0 0 .964 2.326v6.66a1.849 1.849 0 1 0 1.54 0V8.957l2.508 2.508a1.85 1.85 0 1 0 1.09-1.09l-2.634-2.634a1.85 1.85 0 0 0-2.378-2.377L8.73 2.63 10.91.451a1.54 1.54 0 0 1 2.179 0l10.459 10.46a1.54 1.54 0 0 1 0 2.179z"/></svg><b>Git</b></li><li class="tool"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.51 13.214c.046-.8.438-1.506 1.03-2.006a3.424 3.424 0 0 1 2.212-.79c.85 0 1.631.3 2.211.79.592.5.983 1.206 1.028 2.005.045.823-.285 1.586-.865 2.153a3.389 3.389 0 0 1-2.374.938 3.393 3.393 0 0 1-2.376-.938c-.58-.567-.91-1.33-.865-2.152M7.35 14.831c.006.314.106.922.256 1.398a7.372 7.372 0 0 0 1.593 2.757 8.227 8.227 0 0 0 2.787 2.001 8.947 8.947 0 0 0 3.66.76 8.964 8.964 0 0 0 3.657-.772 8.285 8.285 0 0 0 2.785-2.01 7.428 7.428 0 0 0 1.592-2.762 6.964 6.964 0 0 0 .25-3.074 7.123 7.123 0 0 0-1.016-2.779 7.764 7.764 0 0 0-1.852-2.043h.002L13.566 2.55l-.02-.015c-.492-.378-1.319-.376-1.86.002-.547.382-.609 1.015-.123 1.415l-.001.001 3.126 2.543-9.53.01h-.013c-.788.001-1.545.518-1.695 1.172-.154.665.38 1.217 1.2 1.22V8.9l4.83-.01-8.62 6.617-.034.025c-.813.622-1.075 1.658-.563 2.313.52.667 1.625.668 2.447.004L7.414 14s-.069.52-.063.831zm12.09 1.741c-.97.988-2.326 1.548-3.795 1.55-1.47.004-2.827-.552-3.797-1.538a4.51 4.51 0 0 1-1.036-1.622 4.282 4.282 0 0 1 .282-3.519 4.702 4.702 0 0 1 1.153-1.371c.942-.768 2.141-1.183 3.396-1.185 1.256-.002 2.455.41 3.398 1.175.48.391.87.854 1.152 1.367a4.28 4.28 0 0 1 .522 1.706 4.236 4.236 0 0 1-.239 1.811 4.54 4.54 0 0 1-1.035 1.626"/></svg><b>Blender</b></li><li class="tool"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4.348 0 .69 2.203v16.875l3.657-2.203h17.297V1.219c0-.67-.551-1.219-1.22-1.219H4.349zm18.297 3.75v14.125H4.627l-1.943 1.17v3.736c0 .67.55 1.219 1.218 1.219H23.31V3.75h-.664zm-14.471.025h2.937l1.885 7.508 1.977-7.48-.012-.028h2.857v9.354h-2.216v-6.04l-1.565 6.026v.014h-2.203l-1.656-6.28v6.28H8.174V3.775zm1.33 14.762h1.18l1.068 3.543h-.902l-.217-.773H9.568l-.197.773h-.88l1.013-3.543zm1.918 0h.932l.648 1.494.643-1.494h.894l-1.113 2.133v1.41h-.887v-1.406l-1.117-2.137zm3.826 0h1.18l1.068 3.543h-.9l-.217-.773h-1.065l-.197.773h-.88l1.011-3.543zm-5.156.582-.362 1.53h.73l-.368-1.53zm5.744 0-.36 1.53h.73l-.37-1.53z"/></svg><b>Maya</b></li><li class="tool"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.5598.683c-1.096.244-2.1812.5831-3.1983 1.0951.023.8981.081 1.7582.199 2.6323-.395.253-.81.47-1.178.766-.375.288-.7581.564-1.0971.9011-.6781-.448-1.3962-.869-2.1352-1.2411C1.3532 5.6934.608 6.6186 0 7.6546c.458.7411.936 1.4352 1.4521 2.0942h.014v6.3565c.012 0 .023 0 .035.003l3.8963.376c.204.02.364.184.378.3891l.12 1.7201 3.3994.242.234-1.587c.03-.206.207-.358.415-.358h4.1114c.208 0 .385.152.415.358l.234 1.587 3.3993-.242.12-1.72a.4196.4196 0 01.378-.3891l3.8954-.376c.012 0 .023-.003.035-.003v-.5071h.002V9.7498h.014c.516-.659.994-1.3531 1.4521-2.0942-.608-1.036-1.3541-1.9611-2.1512-2.8192-.739.372-1.4571.793-2.1352 1.2411-.339-.337-.721-.613-1.096-.901-.369-.296-.7841-.5131-1.1781-.7661.117-.8741.175-1.7342.199-2.6323-1.0171-.512-2.1012-.851-3.1983-1.095-.438.736-.838 1.533-1.1871 2.3121-.414-.069-.829-.094-1.2461-.099h-.016c-.417.005-.832.03-1.2461.099-.349-.779-.749-1.576-1.1881-2.3121l.001-.001zM6.4765 9.9889c1.2971 0 2.3492 1.0511 2.3492 2.3482s-1.052 2.3482-2.3492 2.3482c-1.296 0-2.3482-1.051-2.3482-2.3482 0-1.297 1.0511-2.3482 2.3482-2.3482zm11.049 0c1.296 0 2.3482 1.0511 2.3482 2.3482s-1.0511 2.3482-2.3482 2.3482-2.3492-1.051-2.3492-2.3482c0-1.297 1.051-2.3482 2.3492-2.3482zm-10.824.9301c-.861 0-1.559.698-1.559 1.5591s.698 1.5582 1.559 1.5582c.8611 0 1.5592-.698 1.5592-1.5582 0-.86-.697-1.559-1.5591-1.559zm10.598 0c-.8611 0-1.5582.698-1.5582 1.5591s.697 1.5582 1.5581 1.5582c.8611 0 1.5592-.698 1.5592-1.5582 0-.86-.697-1.559-1.5592-1.559zm-5.2985.453c.417 0 .757.308.757.6871v2.1622c0 .379-.339.687-.757.687s-.756-.308-.756-.687V12.059c0-.379.339-.687.756-.687zM1.4601 16.9464c.002.377.006.789.006.871 0 3.7014 4.6944 5.4795 10.5269 5.5005h.014c5.8325-.02 10.5259-1.7991 10.5259-5.5004 0-.084.005-.495.007-.871l-3.5023.338-.121 1.729a.421.421 0 01-.389.3901l-4.1814.296a.4203.4203 0 01-.415-.358l-.238-1.6141h-3.3863l-.238 1.6141a.4192.4192 0 01-.4451.357l-4.1513-.296c-.208-.015-.375-.181-.389-.389l-.12-1.7292-3.5044-.337z"/></svg><b>Godot</b></li><li class="tool"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M.012 11.994 12.006 0l11.982 12.006h-6.831l-5.163-5.151-5.151 5.151 5.163 5.151v-5.151h5.151v6.903L12.006 24z"/></svg><b>GameMaker</b></li><li class="tool"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M.652.76a.625.625 0 00-.5.246c-.352.448-.035.898.362 1.262.206.189 1.77 1.794 3.428 3.527a11.054 11.054 0 011.815-1.983C3.667 2.515 1.694 1.266 1.461 1.1 1.201.914.917.762.652.76zm5.105 3.052c1.848 1.148 3.786 2.332 4.693 2.84 1.469.821 3.758 2.684 4.092 4.434.535.466 2.182 1.916 2.596 2.413.698-.211 1.518.133 2.06 1.12.866 1.583.227 3.747-1.968 4.988a5.42 5.42 0 01-.296.267l.296-.267c1.14-1.468-.714-2.44-1.175-3.864a2.06 2.06 0 01-.11-.78c-.533-.282-2.11-1.452-2.795-1.965-1.801.16-4.207-1.773-5.35-3.08-.7-.802-2.32-2.517-3.858-4.123a11.052 11.052 0 00-2.046 6.393A11.052 11.052 0 1012.948 1.136c-2.64.004-5.19.954-7.19 2.676zm8.71 7.552c-.515.126-.968.831-1.118 1.306-.038.115-.04.303.066.342.802.592 1.556 1.168 2.4 1.7.162-.393.746-.963 1.096-1.2zm-11.53 1.639c.812 1.898 5.798 7.17 12.06 2.695a2.07 2.07 0 00.114.715c.46 1.42 2.36 2.427 1.238 3.89-2.135 1.364-5 1.201-6.989.528-3.558-1.204-5.914-4.332-6.424-7.828zm13.782.7a.771.771 0 00-.065.049c-.004.003-.008.008-.011.008.003-.003.007-.008.01-.008.024-.015.044-.034.066-.048z"/></svg><b>Krita</b></li><li class="tool"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M11.858 0c-.978.005-1.913.088-2.736.234C6.7.662 6.26 1.558 6.26 3.21v2.182h5.725v.727H4.111c-1.664 0-3.121 1-3.577 2.903-.526 2.181-.549 3.542 0 5.82.407 1.694 1.379 2.902 3.043 2.902h1.969v-2.616c0-1.89 1.635-3.557 3.576-3.557h5.72c1.591 0 2.862-1.31 2.862-2.91v-5.45c0-1.553-1.309-2.718-2.863-2.977A18 18 0 0 0 11.858 0M8.762 1.755c.591 0 1.074.491 1.074 1.095 0 .601-.483 1.087-1.074 1.087A1.08 1.08 0 0 1 7.688 2.85c0-.604.48-1.095 1.074-1.095m9.656 4.364v2.543c0 1.971-1.671 3.63-3.577 3.63H9.122c-1.566 0-2.862 1.34-2.862 2.91v5.452c0 1.551 1.349 2.464 2.862 2.91 1.813.532 3.55.628 5.72 0 1.44-.418 2.862-1.258 2.862-2.91V18.47h-5.719v-.727h8.582c1.664 0 2.284-1.16 2.862-2.903.598-1.793.573-3.518 0-5.819-.41-1.656-1.196-2.903-2.862-2.903zm-3.216 13.807a1.08 1.08 0 0 1 1.074 1.088c0 .604-.48 1.094-1.074 1.094-.592 0-1.075-.49-1.075-1.094 0-.601.483-1.088 1.075-1.088"/></svg><b>Python</b></li><li class="tool"><span class="tglyph" aria-hidden="true">Ps</span><b>Photoshop</b></li><li class="tool"><span class="tglyph" aria-hidden="true">Cc</span><b>Adobe Creative Cloud</b></li></ul>
       </div>
     </div>
   </section>
@@ -1316,7 +1352,8 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
             <a href="#coj-board">Moodboard</a><a href="#coj-palette">Palette</a><a href="#coj-frame">One frame</a><a href="#coj-menu">Main menu</a><a href="#coj-screens">Screens</a>
           <a href="#coj-story">My story</a></nav>
           <div class="chapters">
-            <section class="chapter" id="coj-part" aria-labelledby="coj-part-h">
+            <section class="chapter" id="coj-part" data-stage="role" aria-labelledby="coj-part-h">
+              <p class="stage" aria-hidden="true"><i></i>My role</p>
               <h2 id="coj-part-h">My contributions</h2>
               <ul class="contrib reveal">
                 <li><a class="contrib-link" href="#coj-board"><span class="cl-t">Built the <strong>moodboard</strong> and pulled the <strong>style guide</strong> out of it.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
@@ -1325,7 +1362,8 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
                 <li><a class="contrib-link" href="#coj-menu"><span class="cl-t">Designed my own screens in <strong>Figma</strong>, from <strong>greybox</strong> to art pass.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
               </ul>
             </section>
-            <section class="chapter" id="coj-board" aria-labelledby="coj-board-h">
+            <section class="chapter" id="coj-board" data-stage="research" aria-labelledby="coj-board-h">
+              <p class="stage" aria-hidden="true"><i></i>Research</p>
               <h2 id="coj-board-h">Research moodboard</h2>
               <p>I pulled inventory and armory screens from dark fantasy RPGs. I added a ledger style menu from a medieval strategy game, a jewel matching puzzle game, Gothic cathedral stonework and a chart of medieval manuscript inks. Then I laid it all over a scan of an old woven wall hanging.</p>
               <figure class="reveal">
@@ -1334,7 +1372,8 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
               </figure>
             </section>
 
-            <section class="chapter" id="coj-palette" aria-labelledby="coj-palette-h">
+            <section class="chapter" id="coj-palette" data-stage="plan" aria-labelledby="coj-palette-h">
+              <p class="stage" aria-hidden="true"><i></i>Plan</p>
               <h2 id="coj-palette-h">Style guide and palette</h2>
               <p>Every color in the UI comes off the <strong>moodboard</strong>. Warm greys handle structure. Earth tones handle surfaces and type. The bright jewel tones are saved for the jewels.</p>
               <ul class="swatches reveal" aria-label="Chain of Jewels core palette. Activate a swatch to copy its hex code.">
@@ -1349,7 +1388,8 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
               </ul>
             </section>
 
-            <section class="chapter" id="coj-frame" aria-labelledby="coj-frame-h">
+            <section class="chapter" id="coj-frame" data-stage="plan" aria-labelledby="coj-frame-h">
+              <p class="stage" aria-hidden="true"><i></i>Plan</p>
               <h2 id="coj-frame-h">One frame for every screen</h2>
               <p>Before any art, I locked one frame for every screen. Player info sits in the top corners. Navigation sits in the bottom corners. The middle is for whatever that screen is about. So players never have to relearn where things are.</p>
               <div class="reveal" style="display:grid;gap:.5rem">
@@ -1384,7 +1424,8 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
               </figure>
             </section>
 
-            <section class="chapter" id="coj-menu" aria-labelledby="coj-menu-h">
+            <section class="chapter" id="coj-menu" data-stage="solution" aria-labelledby="coj-menu-h">
+              <p class="stage" aria-hidden="true"><i></i>Solution</p>
               <h2 id="coj-menu-h">Main menu art pass</h2>
               <p class="lede">Hover or tap a numbered pin to see why that part sits where it does.</p>
               <div class="hot-wrap">
@@ -1407,7 +1448,8 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
               </div>
             </section>
 
-            <section class="chapter" id="coj-screens" aria-labelledby="coj-screens-h">
+            <section class="chapter" id="coj-screens" data-stage="iterate" aria-labelledby="coj-screens-h">
+              <p class="stage" aria-hidden="true"><i></i>Iterate</p>
               <h2 id="coj-screens-h">Shop, forge and battle screens</h2>
               <figure class="draw reveal">
                 <div class="draw-stage"><img src="img/coj-jewel-shop.webp" width="1600" height="736" loading="lazy" alt="Jewel Shop screen: a hanging wooden sign reading Jewel Shop, four jewel cards each with Type, Effect and Cost tags above, and one green Purchase button below. Main Menu and Back sit in the bottom corners."></div>
@@ -1428,7 +1470,8 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
               </figure>
             </section>
 
-            <section class="chapter" id="coj-story" aria-labelledby="coj-story-h">
+            <section class="chapter" id="coj-story" data-stage="reflect" aria-labelledby="coj-story-h">
+              <p class="stage" aria-hidden="true"><i></i>Reflect</p>
               <h2 id="coj-story-h">My story</h2>
               <ol class="story reveal">
                 <li class="story-card"><b>What went well</b><p>It came together, and we got a great grade on it. It was all in Figma, and I learned a ton.</p></li>
@@ -1475,22 +1518,44 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
           <radialGradient id="ng-htg"><stop offset="0" stop-color="#fff"/><stop offset=".55" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
           <mask id="ng-htm" maskContentUnits="objectBoundingBox"><rect width="1" height="1" fill="url(#ng-htg)"/></mask>
         </defs></svg>
-        <div class="why-wrap"><dl class="why" aria-label="The reasoning"><div><dt>Goal</dt><dd>Take the main menu I was handed and make it part of the game world.</dd></div><div><dt>Pain points</dt><dd>My first plan, a blended camera over a stack of flat 2D menus, didn't fit the game. Data Tables kept breaking when they pointed at things placed in the level.</dd></div><div><dt>My role</dt><dd>Creative Director, <strong>UI + UX</strong>. I own all of the UI and draw the UI art.</dd></div><div><dt>Decision</dt><dd>Rebuilt it around what the menu really is. One camera director hard cuts between Level Sequences, and buttons sit on 3D surfaces. Structs replaced the Data Table.</dd></div><div><dt>Evidence</dt><dd><a class="why-lead" href="#ng-engine">The first minute, in engine</a><span class="why-more"><a href="#ng-compass">Menu art, each direction explained</a> · <a href="#ng-garage">Drawovers, before and after</a> · <a href="#ng-build">How it's built</a></span></dd></div><div><dt>Outcome</dt><dd>Level references stopped breaking. Adding the three Garage hotspots took three rows of data and no new code.</dd></div></dl><nav class="proc" aria-label="Process"><a href="#ng-engine"><b>Journey</b><span>Intro to the main menu, step by step in engine</span></a><a href="#ng-garage"><b>Wireframes</b><span>Drawovers, before and after</span></a><a href="#ng-compass"><b>Prototype</b><span>Main menu running in engine, each direction explained</span></a></nav></div>
+        <div class="why-wrap"><dl class="why" aria-label="The reasoning"><div><dt>Problem</dt><dd>The original menus were unreadable: a blended camera over normal 2D UI. The team had no UI designers or artists, and the game was drifting into a hodgepodge of personal and small-group projects.</dd></div><div><dt>My role</dt><dd>I was a level designer and producer. I dropped both, stepped up as <strong>Creative Director</strong>, and took over all of the UI and UI art.</dd></div><div><dt>Decision</dt><dd>With our art lead, I locked one concise style guide. Then I rebuilt the menu from scratch inside the game world. A camera director hard cuts between Level Sequences, and the buttons sit on 3D surfaces.</dd></div><div><dt>Evidence</dt><dd><a class="why-lead" href="#ng-engine">The first minute, in engine</a><span class="why-more"><a href="#ng-compass">Menu art, each direction explained</a> · <a href="#ng-garage">Drawovers, before and after</a> · <a href="#ng-build">How it's built</a></span></dd></div><div><dt>Outcome</dt><dd>Level references stopped breaking. Adding the three Garage hotspots took three rows of data and no new code.</dd></div></dl><nav class="proc" aria-label="Process"><a href="#ng-engine"><b>Journey</b><span>Intro to the main menu, step by step in engine</span></a><a href="#ng-garage"><b>Wireframes</b><span>Drawovers, before and after</span></a><a href="#ng-compass"><b>Prototype</b><span>Main menu running in engine, each direction explained</span></a></nav></div>
         <div class="case-layout">
-          <nav class="toc" aria-label="Nitro Guzzler sections"><a href="#ng-part">My part</a><a href="#ng-engine">In engine</a><a href="#ng-compass">Menu art</a><a href="#ng-garage">Garage</a><a href="#ng-goal">Goal</a><a href="#ng-build">How it's built</a><a href="#ng-premise">Premise</a><a href="#ng-time">Timeline</a><a href="#ng-ai">AI use</a><a href="#ng-team">The team</a></nav>
+          <nav class="toc" aria-label="Nitro Guzzler sections"><a href="#ng-part">My part</a><a href="#ng-problem">The problem</a><a href="#ng-goal">Goal</a><a href="#ng-engine">In engine</a><a href="#ng-compass">Menu art</a><a href="#ng-garage">Garage</a><a href="#ng-build">How it's built</a><a href="#ng-time">Timeline</a><a href="#ng-premise">Premise</a><a href="#ng-team">The team</a><a href="#ng-ai">AI use</a></nav>
           <div class="chapters">
             <div class="ng-spine" aria-hidden="true"><i class="ng-shaft"></i><i class="ng-head"></i></div>
-            <section class="chapter" id="ng-part" aria-labelledby="ng-part-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
+            <section class="chapter" id="ng-part" data-stage="role" aria-labelledby="ng-part-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
+              <p class="stage" aria-hidden="true"><i></i>My role</p>
               <h2 id="ng-part-h">My contributions</h2>
               <ul class="contrib reveal">
                 <li><a class="contrib-link" href="#ng-compass"><span class="cl-t">Drawing all of the UI art myself in vector graphics, starting with the main menu.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
                 <li><a class="contrib-link" href="#ng-engine"><span class="cl-t">Designed the main menu and intro as one space, and wrote the game plan and shot list for it.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
                 <li><a class="contrib-link" href="#ng-build"><span class="cl-t">Built the menu's camera director in <strong>Blueprints</strong> and wrote an <strong>Unreal Engine 5.5</strong> <strong>implementation guide</strong> for the team.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
-                <li><a class="contrib-link" href="#ng-team"><span class="cl-t">Co-produced the team from the start with one other <strong>producer</strong>, and built it on <strong>proactive communication</strong>.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
+                <li><a class="contrib-link" href="#ng-problem"><span class="cl-t">Dropped my <strong>producer</strong> and <strong>level design</strong> roles to take over the UI, and stepped up as <strong>Creative Director</strong> to hold the team to one standard.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
+                <li><a class="contrib-link" href="#ng-compass"><span class="cl-t">Locked a concise, final <strong>style guide</strong> with our art lead.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
               </ul>
             </section>
-
-            <section class="chapter" id="ng-engine" aria-labelledby="ng-engine-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
+            <section class="chapter" id="ng-problem" data-stage="problem" aria-labelledby="ng-problem-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
+              <p class="stage" aria-hidden="true"><i></i>Problem</p>
+              <h2 id="ng-problem-h">The problem I stepped into</h2>
+              <p class="lede">The original menus were unreadable. They were a blended camera over normal 2D UI. I didn't build them. At the time I was a level designer and one of the producers.</p>
+              <p>We had no UI designers and no UI artists. And the game was slipping out of focus. It was turning into a hodgepodge of people's personal projects and small-group projects.</p>
+              <ul class="notes reveal">
+                <li><b>Dropped two roles</b>I gave up producing and level design to take on the UI full time.</li>
+                <li><b>Stepped up as Creative Director</b>I held everyone to the same standard so the game read as one experience again.</li>
+                <li><b>One style guide</b>I worked closely with our art lead to lock a concise, final style guide.</li>
+                <li><b>Rebuilt from scratch</b>I recreated the menu to fit the original design intent and style.</li>
+              </ul>
+            </section>
+            <section class="chapter" id="ng-goal" data-stage="plan" aria-labelledby="ng-goal-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
+              <p class="stage" aria-hidden="true"><i></i>Plan</p>
+              <h2 id="ng-goal-h">A menu inside the game world</h2>
+              <p>I wanted the menu to feel like you're already in the game. So I borrowed from the Batman Arkham menus. The camera cycles through shots on its own. It pulls you in and shows you the characters before your first race.</p>
+              <ul class="notes reveal">
+                <li><b>Racers up front</b>I want players attached to the racers before the first race, so the menu is built around them.</li>
+              </ul>
+            </section>
+            <section class="chapter" id="ng-engine" data-stage="solution" aria-labelledby="ng-engine-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
+              <p class="stage" aria-hidden="true"><i></i>Solution</p>
               <h2 id="ng-engine-h">The first minute, in engine</h2>
               <p>My part was bringing the player into the story. The intro is the first thing anyone sees, so it had to show the game's <em>attitude</em> right away. <strong>My goal was to get our core design pillars across before the first race.</strong></p>
               <p>Each clip sits on top of the step it shows. The arrows are the transitions, labeled with what moves you along.</p>
@@ -1504,8 +1569,8 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
 <li class="ie-step ie-r" style="--sc:#00FF00"><div class="ie-tv"><svg class="ie-burst" viewBox="-6 -6 212 142" aria-hidden="true" focusable="false"><polygon points="182.9,65.0 196.8,76.6 186.3,86.4 192.6,101.7 174.9,108.7 170.0,124.3 139.1,115.3 128.7,129.6 107.4,115.8 90.7,129.1 77.3,116.0 52.9,125.6 40.8,115.2 8.0,118.7 22.2,95.8 2.9,89.1 13.5,75.3 -6.4,65.0 14.1,54.7 0.8,40.4 12.3,30.3 16.2,16.1 37.1,11.7 51.7,2.9 77.1,13.4 91.1,3.3 107.7,12.1 129.8,-2.0 139.8,13.8 171.8,4.2 176.0,20.7 196.1,26.9 185.1,43.9 195.7,53.5"/></svg><span class="tv-set"><video src="media/ng-ie-menu.mp4" poster="img/ng-ie-menu.webp" muted loop playsinline preload="none" aria-label="In-engine capture of the main menu. Prep Ride lights up cyan, Pit Crew magenta, Credits green and Settings yellow as each is hovered, while the others stay grey."></video></span></div><div class="ie-txt"><span class="n">04</span><h3>Main menu loop</h3><p>Hover an option and it lights up in its racer's color. The rest stay grey, so the choice stands out.</p></div></li>
               </ol>
             </section>
-
-            <section class="chapter" id="ng-compass" aria-labelledby="ng-compass-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
+            <section class="chapter" id="ng-compass" data-stage="solution" aria-labelledby="ng-compass-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
+              <p class="stage" aria-hidden="true"><i></i>Solution</p>
               <h2 id="ng-compass-h">Main menu in vector art</h2>
               <p class="lede">The look mixes vectordelia with Redline's cinematic style, on the white concrete of the menu world. The four options sit like a compass. Pick one to wake it up.</p>
               <div class="clips clips-1 reveal"><figure class="clip"><video src="media/ng-menu-hover.mp4" poster="img/ng-menu-hover.webp" muted loop playsinline preload="none" aria-label="In-engine capture of the main menu. The cursor moves between the four options. Each one lights up in its racer color as it's hovered, Prep Ride in cyan, Credits in lime, Pit Crew in pink and Settings in yellow, while W-Dawg's car drives around the logo."></video><figcaption><b>In engine</b> W-Dawg drives the menu while each option is hovered.</figcaption></figure></div>
@@ -1541,8 +1606,8 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
               </ul>
               <p class="small">Quitting is themed too. Leaving the game brings up a "Racer Retiring" confirmation.</p>
             </section>
-
-            <section class="chapter" id="ng-garage" aria-labelledby="ng-garage-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
+            <section class="chapter" id="ng-garage" data-stage="iterate" aria-labelledby="ng-garage-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
+              <p class="stage" aria-hidden="true"><i></i>Iterate</p>
               <h2 id="ng-garage-h">Settings etched into the car</h2>
               <p>In the Garage, settings are hotspots right on W-Dawg's car. One Return button sits on the ground, so you can see it as the camera whips around.</p>
               <ul class="notes reveal">
@@ -1565,16 +1630,8 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
                 </figure>
               </div>
             </section>
-
-            <section class="chapter" id="ng-goal" aria-labelledby="ng-goal-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
-              <h2 id="ng-goal-h">A menu inside the game world</h2>
-              <p>I wanted the menu to feel like you're already in the game. So I borrowed from the Batman Arkham menus. The camera cycles through shots on its own. It pulls you in and shows you the characters before your first race.</p>
-              <ul class="notes reveal">
-                <li><b>Racers up front</b>I want players attached to the racers before the first race, so the menu is built around them.</li>
-              </ul>
-            </section>
-
-            <section class="chapter" id="ng-build" aria-labelledby="ng-build-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
+            <section class="chapter" id="ng-build" data-stage="build" aria-labelledby="ng-build-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
+              <p class="stage" aria-hidden="true"><i></i>Build</p>
               <h2 id="ng-build-h">How it's built in Unreal</h2>
               <p class="lede">I built the whole menu out of small, simple functions and data, so it scales. A new screen is a new row, not new code.</p>
               <ul class="stat-row reveal" aria-label="By the numbers">
@@ -1590,8 +1647,19 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
                 <li><b>One interface, one material</b>Every button and settings row talks to the director through one interface. Sliders are a single hologram material driven by one value. Credits and the Victory screen share one widget, fed by data tables.</li>
               </ul>
             </section>
-
-            <section class="chapter" id="ng-premise" aria-labelledby="ng-premise-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
+            <section class="chapter" id="ng-time" data-stage="result" aria-labelledby="ng-time-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
+              <p class="stage" aria-hidden="true"><i></i>Result</p>
+              <h2 id="ng-time-h">Production timeline</h2>
+              <ol class="timeline reveal">
+                <li class="done"><span class="t-tag">Done</span><b>Settings, Art Zoo and Audio Zoo</b><p>Base functionality is in for the Audio, Visual and Accessibility panels and both zoos.</p></li>
+                <li class="done"><span class="t-tag">Done</span><b>Menu and intro designed</b><p>Game plan, shot list and menu map, written from scratch.</p></li>
+                <li class="done"><span class="t-tag">Done</span><b>Intro and attract loop in engine</b><p>The Sequencer intro hands off to the menu loop.</p></li>
+                <li class="is-now"><span class="t-tag">Now</span><b>Last polish push</b><p>Art passes on every screen.</p></li>
+                <li class="ship"><span class="t-tag">Dec 2026</span><b>Ships on Steam</b><p>The full team's release.</p></li>
+              </ol>
+            </section>
+            <section class="chapter" id="ng-premise" data-stage="context" aria-labelledby="ng-premise-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
+              <p class="stage" aria-hidden="true"><i></i>Context</p>
               <h2 id="ng-premise-h">A race you can't lose</h2>
               <p>Nitro Guzzler started when a teammate showed me Redline and we both said we had to make this game. That was heading into junior year. It went combat first, then racing, then art first, then mecha, then a Mad Max version where you could get out of the car. We landed on a <strong>vertical slice</strong> racing experience, built around what a team can really make: one level, in Death Valley.</p>
               <ul class="notes reveal">
@@ -1600,25 +1668,8 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
                 <li><b>You don't even drive</b>Your AI girlfriend is the car, and she drives. You're the nepo baby of the intergalactic racing scene, and you get to revel in it.</li>
               </ul>
             </section>
-
-            <section class="chapter" id="ng-time" aria-labelledby="ng-time-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
-              <h2 id="ng-time-h">Production timeline</h2>
-              <ol class="timeline reveal">
-                <li class="done"><span class="t-tag">Done</span><b>Settings, Art Zoo and Audio Zoo</b><p>Base functionality is in for the Audio, Visual and Accessibility panels and both zoos.</p></li>
-                <li class="done"><span class="t-tag">Done</span><b>Menu and intro designed</b><p>Game plan, shot list and menu map written, then rebuilt once the hard cut design settled.</p></li>
-                <li class="done"><span class="t-tag">Done</span><b>Intro and attract loop in engine</b><p>The Sequencer intro hands off to the menu loop.</p></li>
-                <li class="is-now"><span class="t-tag">Now</span><b>Last polish push</b><p>Art passes on every screen, and a user research test to pick between two directions.</p></li>
-                <li class="ship"><span class="t-tag">Dec 2026</span><b>Ships on Steam</b><p>The full team's release.</p></li>
-              </ol>
-            </section>
-
-            <section class="chapter" id="ng-ai" aria-labelledby="ng-ai-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
-              <h2 id="ng-ai-h">How AI was used</h2>
-              <p>All of the art in Nitro Guzzler is human made.</p>
-              <p>AI was a tool during development, and I used it to further my education on the subject. I used it for bug fixing, for notes and secretary help, for compiling lists and for grammar checks on documents.</p>
-            </section>
-
-            <section class="chapter" id="ng-team" aria-labelledby="ng-team-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
+            <section class="chapter" id="ng-team" data-stage="team" aria-labelledby="ng-team-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
+              <p class="stage" aria-hidden="true"><i></i>Team</p>
               <h2 id="ng-team-h">The team around the UI</h2>
               <p>Nitro Guzzler is made by the Grease Monkeys. The menu only works because of what the other departments build. Here's who the UI leans on.</p>
               <ul class="team reveal">
@@ -1644,6 +1695,13 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
                 </li>
               </ul>
             </section>
+            <section class="chapter" id="ng-ai" data-stage="context" aria-labelledby="ng-ai-h"><svg class="road-arrow" viewBox="0 0 150 110" aria-hidden="true" focusable="false"><path class="ra-ink" d="M18 0 C 18 52, 34 80, 112 80 L 112 58 L 148 82 L 112 106 L 112 84"/><path class="ra-fill" d="M18 0 C 18 52, 34 80, 118 80"/><path class="ra-headf" d="M112 60 L 145 82 L 112 104 Z"/><path class="ra-gleam" pathLength="100" d="M18 0 C 18 52, 34 80, 140 81"/></svg>
+              <p class="stage" aria-hidden="true"><i></i>Context</p>
+              <h2 id="ng-ai-h">How AI was used</h2>
+              <p>All of the art in Nitro Guzzler is human made.</p>
+              <p>AI was a tool during development, and I used it to further my education on the subject. I used it for bug fixing, for notes and secretary help, for compiling lists and for grammar checks on documents.</p>
+            </section>
+
 
           </div>
         </div>
@@ -1670,7 +1728,8 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
         <div class="case-layout">
           <nav class="toc" aria-label="Horns of Deliverance sections"><a href="#hod-part">What I did</a><a href="#hod-chip">Drugs vs the chip</a><a href="#hod-signal">Taking a dose</a><a href="#hod-dose">What a dose does</a><a href="#hod-hold">Why it holds</a><a href="#hod-gamified">Gamified use</a><a href="#hod-take">Take and leave</a><a href="#hod-story">My story</a></nav>
           <div class="chapters">
-            <section class="chapter" id="hod-part" aria-labelledby="hod-part-h">
+            <section class="chapter" id="hod-part" data-stage="role" aria-labelledby="hod-part-h">
+              <p class="stage" aria-hidden="true"><i></i>My role</p>
               <h2 id="hod-part-h">What I did</h2>
               <ul class="contrib reveal">
                 <li><a class="contrib-link" href="#hod-dose"><span class="cl-t">Played the early access build from first launch into the boss fight, and recorded it.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
@@ -1679,7 +1738,8 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
               </ul>
               <p>Horns of Deliverance belongs to its developer, schemesmith. I had no part in making it. Everything here is my read as a player, from my own recordings of one early access build.</p>
             </section>
-            <section class="chapter" id="hod-chip" aria-labelledby="hod-chip-h">
+            <section class="chapter" id="hod-chip" data-stage="observe" aria-labelledby="hod-chip-h">
+              <p class="stage" aria-hidden="true"><i></i>Observe</p>
               <h2 id="hod-chip-h">Drugs against the chip</h2>
               <p>The chip draws your HUD, and it's counting down to your execution. Drugs are how you push back, and the chip's own HUD treats every dose like a crime.</p>
               <ul class="notes reveal">
@@ -1691,7 +1751,8 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
                 <figure class="clip"><video src="media/hod-hud.mp4" poster="img/hod-hud.webp" muted loop playsinline preload="none" aria-label="A grey hallway fight. HUD panels at the edges show the countdown, a Premium ad, the step counter and the ammo permit warning, and enemies are boxed in green."></video><figcaption><b>The chip's HUD</b> Countdown, ad, step counter and ammo permit, all talking at once.</figcaption></figure>
               </div>
             </section>
-            <section class="chapter" id="hod-signal" aria-labelledby="hod-signal-h">
+            <section class="chapter" id="hod-signal" data-stage="problem" aria-labelledby="hod-signal-h">
+              <p class="stage" aria-hidden="true"><i></i>Problem</p>
               <h2 id="hod-signal-h">Taking a dose</h2>
               <p>Press Q and your character lifts the item up to their face. You see the pill or the mushroom as a thing in your hand before you see it as a choice. That gives a dose weight. But the menu only shows up after the animation, about a second later.</p>
               <p>That wait made me want to hold Q. Holding Q takes the item right away. So my instinct to wait for the menu became an <em>accidental dose</em>. To pick a different one I had to scroll and press F to confirm, all while shooting.</p>
@@ -1705,7 +1766,8 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
                 <figure class="clip"><video src="media/hod-examine.mp4" poster="img/hod-examine.webp" muted loop playsinline preload="none" aria-label="The player's hand raises an item up close to the camera before the selection menu appears."></video><figcaption><b>The lift</b> The item comes up to your face first. The menu waits for it.</figcaption></figure>
               </div>
             </section>
-            <section class="chapter" id="hod-dose" aria-labelledby="hod-dose-h">
+            <section class="chapter" id="hod-dose" data-stage="observe" aria-labelledby="hod-dose-h">
+              <p class="stage" aria-hidden="true"><i></i>Observe</p>
               <h2 id="hod-dose-h">What a dose does</h2>
               <p>Each drug changes what you see and how you find the exit. The controls stay the same the whole time.</p>
               <div class="dcards reveal"><figure class="dc"><video src="media/hod-shrooms.mp4" poster="img/hod-shrooms.webp" muted loop playsinline preload="none" aria-label="A rainbow psychedelic tunnel with a floating eyeball enemy and large text asking a question."></video><figcaption><b>Mushrooms</b><span class="dc-dose">Dose not noted</span>A psychedelic dream state. Working servers light up and winged enemies show up to shoot. You follow glowing orbs to the exit, and aiming down sights pulls the view back into focus.</figcaption></figure><figure class="dc"><video src="media/hod-datamosh.mp4" poster="img/hod-datamosh.webp" muted loop playsinline preload="none" aria-label="A grey hallway smears and breaks into datamosh color as red text appears."></video><figcaption><b>Mixing pills</b><span class="dc-dose">Two at once</span>Your character falls into a depressive episode. The screen datamoshes, red text says you're going the wrong way and that they've stolen your future, and the level turns into a maze.</figcaption></figure><figure class="dc"><video src="media/hod-outline.mp4" poster="img/hod-outline.webp" muted loop playsinline preload="none" aria-label="The whole view turns red with cyan edge lines tracing the walls and furniture."></video><figcaption><b>Edges only</b><span class="dc-dose">Trigger unclear</span>The room flattens into red and cyan outlines. I'm not sure what set it off.</figcaption></figure><figure class="dc dc-text"><figcaption><b>Delirants</b><span class="dc-dose">A few bumps</span>The world drains to black and white, and a trail of blood on the floor leads you to the objective. That worked on me better than an arrow did.</figcaption></figure><figure class="dc dc-text"><figcaption><b>Party Powder</b><span class="dc-dose">Dose not noted</span>A huge floating arrow appears over your head and points down the right path.</figcaption></figure><figure class="dc dc-text"><figcaption><b>Overdose</b><span class="dc-dose">Too much of anything</span>The world pixelates until you can't read it.</figcaption></figure></div>
@@ -1723,13 +1785,15 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
                 <li><b>Blur</b>Vision blurs a lot, which made sniping hard. I'd rather the game pull focus. A focus shift feels like your body. A blur feels like a filter laid on top.</li>
               </ul>
             </section>
-            <section class="chapter" id="hod-hold" aria-labelledby="hod-hold-h">
+            <section class="chapter" id="hod-hold" data-stage="analyze" aria-labelledby="hod-hold-h">
+              <p class="stage" aria-hidden="true"><i></i>Analyze</p>
               <h2 id="hod-hold-h">Why it still holds together</h2>
               <p>Sometimes taking playability away expands an experience. This game goes further. It rug-pulls the game out from under you. Keeping the <em>control scheme</em> is the only way I can see to keep that cohesive. It's still the same game, with the same goals.</p>
               <p>The extremes only work because the base game is simple. That's not an excuse. The game chose it. The core systems run on simple heuristics, so the player has <strong>cognitive load</strong> to spare when the screen falls apart.</p>
               <p>And every effect makes sense in the story. Any game can take notes on building systems that are this <em>narratively understandable</em>. Even through obstacles that would normally be obtuse and frustrating, there's still a playable game underneath.</p>
             </section>
-            <section class="chapter" id="hod-gamified" aria-labelledby="hod-gamified-h">
+            <section class="chapter" id="hod-gamified" data-stage="analyze" aria-labelledby="hod-gamified-h">
+              <p class="stage" aria-hidden="true"><i></i>Analyze</p>
               <h2 id="hod-gamified-h">How it gamifies drug use</h2>
               <p>There's no buff bar or timer for a high. You feel it through your eyes, while the numbers move underneath. It plays a lot like real use, written as rules.</p>
               <ul class="pts">
@@ -1742,7 +1806,8 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
               </ul>
               <p>The game also asks before any of this hits the screen. A Standard or No Visuals choice comes right after the content warnings.</p>
             </section>
-            <section class="chapter" id="hod-take" aria-labelledby="hod-take-h">
+            <section class="chapter" id="hod-take" data-stage="takeaway" aria-labelledby="hod-take-h">
+              <p class="stage" aria-hidden="true"><i></i>Takeaway</p>
               <h2 id="hod-take-h">What I'd take and what I'd leave</h2>
               <p>What I'd take into my own work:</p>
               <ul class="contrib reveal">
@@ -1764,7 +1829,8 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
                 <li>Blur where a focus shift would say more.</li>
               </ul>
             </section>
-            <section class="chapter" id="hod-story" aria-labelledby="hod-story-h">
+            <section class="chapter" id="hod-story" data-stage="reflect" aria-labelledby="hod-story-h">
+              <p class="stage" aria-hidden="true"><i></i>Reflect</p>
               <h2 id="hod-story-h">My story</h2>
               <ol class="story reveal">
                 <li class="story-card"><b>What went well</b><p>Talking out loud while I played caught reactions I would have lost by writing afterward.</p></li>
@@ -1796,11 +1862,12 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
             <div><dt>Built</dt><dd>2 attack modes × 3 levels</dd></div>
           </dl>
         </header>
-        <div class="why-wrap"><dl class="why" aria-label="The reasoning"><div><dt>Goal</dt><dd>Make it feel like a finished game. Hit reactions, camera shake, VFX, sound and the HUD all had to feel shipped, across three levels of every attack and three levels of getting hit.</dd></div><div><dt>Pain points</dt><dd>Testers couldn't see through the crosshair to the target. The arrow count read like any shooter's ammo, and getting hit blended into the snow.</dd></div><div><dt>My role</dt><dd>Everything. Solo, in <strong>Unreal Engine 5</strong>.</dd></div><div><dt>Decision</dt><dd>I treated each level as its own feel pass, with its own hit reaction, camera shake, VFX and sound. Then I sorted testers' notes into what I could act on and what was too much for the time. The biggest change was the crosshair. The feather fan became the cooldown too, one plume per ability level. Sound got priority over polish.</dd></div><div><dt>Evidence</dt><dd><a href="#en-tests">Audience testing notes</a> · <a href="#en-hud">HUD wireframes with drawovers</a> · <a href="#en-feel">In-engine clips</a></dd></div><div><dt>Outcome</dt><dd>All three levels of both attacks worked, each with its own sound, VFX and art, and the TA called out the audio. The HUD's functionality came last and wasn't working in the graded build. That's the scope lesson.</dd></div></dl><nav class="proc" aria-label="Process"><a href="#en-flow"><b>Journey</b><span>How each HUD change plays out, in four beats</span></a><a href="#en-hud"><b>Wireframes</b><span>Bow mode and crow mode HUD</span></a><a href="#en-feel"><b>Prototype</b><span>Built and captured in Unreal Engine 5</span></a><a href="#en-tests"><b>Testing</b><span>Audience testing, then playtests</span></a></nav></div>
+        <div class="why-wrap"><dl class="why" aria-label="The reasoning"><div><dt>Goal</dt><dd>Make it feel like a finished game. Hit reactions, camera shake, VFX, sound and the HUD all had to feel shipped, across three levels of every attack and three levels of getting hit.</dd></div><div><dt>Problem</dt><dd>Testers couldn't see through the crosshair to the target. The arrow count read like any shooter's ammo, and getting hit blended into the snow.</dd></div><div><dt>My role</dt><dd>Everything. Solo, in <strong>Unreal Engine 5</strong>.</dd></div><div><dt>Decision</dt><dd>I treated each level as its own feel pass, with its own hit reaction, camera shake, VFX and sound. Then I sorted testers' notes into what I could act on and what was too much for the time. The biggest change was the crosshair. The feather fan became the cooldown too, one plume per ability level. Sound got priority over polish.</dd></div><div><dt>Evidence</dt><dd><a href="#en-tests">Audience testing notes</a> · <a href="#en-hud">HUD wireframes with drawovers</a> · <a href="#en-feel">In-engine clips</a></dd></div><div><dt>Outcome</dt><dd>All three levels of both attacks worked, each with its own sound, VFX and art, and the TA called out the audio. The HUD's functionality came last and wasn't working in the graded build. That's the scope lesson.</dd></div></dl><nav class="proc" aria-label="Process"><a href="#en-flow"><b>Journey</b><span>How each HUD change plays out, in four beats</span></a><a href="#en-hud"><b>Wireframes</b><span>Bow mode and crow mode HUD</span></a><a href="#en-feel"><b>Prototype</b><span>Built and captured in Unreal Engine 5</span></a><a href="#en-tests"><b>Testing</b><span>Audience testing, then playtests</span></a></nav></div>
         <div class="case-layout">
           <nav class="toc" aria-label="Enhshahtén:ti sections"><a href="#en-short">Sneak Peek</a><a href="#en-hud">The HUD</a><a href="#en-feel">Three levels</a><a href="#en-flow">How it updates</a><a href="#en-tests">Audience testing</a><a href="#en-part">My part</a><a href="#en-story">My story</a><a href="#en-boards">Research</a><a href="#en-color">Color</a><a href="#en-review">Review</a></nav>
           <div class="chapters">
-            <section class="chapter" id="en-short" aria-labelledby="en-short-h">
+            <section class="chapter" id="en-short" data-stage="overview" aria-labelledby="en-short-h">
+              <p class="stage" aria-hidden="true"><i></i>Overview</p>
               <h2 id="en-short-h">Sneak Peek</h2>
               <div class="tldr reveal">
                 <div class="tl"><span class="tl-k">What I built</span><p>Two attack modes, a bow and a murder of crows, with three levels each. Plus three levels of getting hit. Solo in Unreal Engine 5, from VFX and UI to animation, audio and code.</p><a href="#en-feel">See the levels ↓</a></div>
@@ -1808,7 +1875,8 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
                 <div class="tl tl-warn"><span class="tl-k">What went wrong</span><p>Scope. Everyone knew it was overscoped from the pitch, me included. It ended in a crunch, and the build crashed the morning of grading.</p><a href="#en-story">Read my story ↓</a></div>
               </div>
             </section>
-            <section class="chapter" id="en-hud" aria-labelledby="en-hud-h">
+            <section class="chapter" id="en-hud" data-stage="solution" aria-labelledby="en-hud-h">
+              <p class="stage" aria-hidden="true"><i></i>Solution</p>
               <h2 id="en-hud-h">Feather crosshair and HUD</h2>
               <p>You're stuck in a corporate fever dream, so the HUD is high contrast against the snow, with soft edges that blur clean information into something dreamlike. Feathers stand for the crows, flint heads stand for your arrows, and your health is a fluid trapped in a container.</p>
               <figure class="draw reveal en-xhair">
@@ -1840,7 +1908,8 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
               </figure>
             </section>
 
-            <section class="chapter" id="en-feel" aria-labelledby="en-feel-h">
+            <section class="chapter" id="en-feel" data-stage="build" aria-labelledby="en-feel-h">
+              <p class="stage" aria-hidden="true"><i></i>Build</p>
               <h2 id="en-feel-h">Three levels of attack and damage</h2>
               <p>There are two attack modes, and you switch between them like weapons. Each mode has a light, medium and heavy version, and each version had to look, sound and hit differently. The bow should feel heavy and lethal, like one shot is enough. The crows are a whistle and a point, then something brutal.</p>
               <div class="wt-tabs reveal" role="tablist" aria-label="Attack mode">
@@ -1867,13 +1936,15 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
               <p class="small">The three crow-special Niagara systems in Unreal's preview, light to large. In the build, the larger levels spawned too small and the on-hit call broke, so these show the VFX as designed.</p>
             </section>
 
-            <section class="chapter" id="en-flow" aria-labelledby="en-flow-h">
+            <section class="chapter" id="en-flow" data-stage="plan" aria-labelledby="en-flow-h">
+              <p class="stage" aria-hidden="true"><i></i>Plan</p>
               <h2 id="en-flow-h">HUD feedback in four beats</h2>
               <p>I planned each HUD element as four beats. Something grabs your attention, something signals the change, the change happens, and it settles.</p>
               <div class="fl-grid reveal"><div class="fl"><h3>Health</h3><p class="fl-sub">Soul fluid in a container, top left</p><ol class="fl-steps"><li><span class="fl-k">Attract</span>A splashy slash sound. Exposure jumps and a white vignette hits.</li><li><span class="fl-k">Signal</span>The fluid flashes with extra glow.</li><li><span class="fl-k">Update</span>The lost part greys out and wisps away like smoke.</li><li><span class="fl-k">Resolve</span>The fluid settles, sloshing in a smaller space.</li></ol></div><div class="fl"><h3>Enemy health</h3><p class="fl-sub">Drawn right on their body</p><ol class="fl-steps"><li><span class="fl-k">Attract</span>They grunt and react to the thunk of the arrow.</li><li><span class="fl-k">Signal</span>An outline appears on them.</li><li><span class="fl-k">Update</span>A glowing white overlay fills them as they get "consumed by damage."</li><li><span class="fl-k">Resolve</span>Below half, they switch to a damaged state.</li></ol></div><div class="fl"><h3>Arrows</h3><p class="fl-sub">Flint heads, bottom left</p><ol class="fl-steps"><li><span class="fl-k">Attract</span>The bow drops as the arrow leaves with its trail.</li><li><span class="fl-k">Signal</span>One glowing arrowhead leaves and the rest shift over.</li><li><span class="fl-k">Update</span>A reload "cathunk."</li><li><span class="fl-k">Resolve</span>The bow comes back up.</li></ol></div><div class="fl"><h3>Cooldown</h3><p class="fl-sub">The plumes on the crosshair</p><ol class="fl-steps"><li><span class="fl-k">Attract</span>The feathers glow for the level you picked and shake as the target gets marked.</li><li><span class="fl-k">Signal</span>Wisps escape the glow.</li><li><span class="fl-k">Update</span>The feathers go black and the glow drains into grey smoke.</li><li><span class="fl-k">Resolve</span>The smoke clears and the glow slowly charges back up.</li></ol><p class="fl-note">From Prof. Cagle: give it a signifier when it hits full power, like a sound or a flash.</p></div></div>
             </section>
 
-            <section class="chapter" id="en-tests" aria-labelledby="en-tests-h">
+            <section class="chapter" id="en-tests" data-stage="test" aria-labelledby="en-tests-h">
+              <p class="stage" aria-hidden="true"><i></i>Test</p>
               <h2 id="en-tests-h">Audience testing</h2>
               <p>Before and during early production I ran qualitative sessions, closer to the <strong>audience testing</strong> and polling studios do before they commit to a game. I presented the pitch and early builds to artists, level designers, UX designers and people who'd never played Assassin's Creed or Far Cry, and polled how it felt. More <strong>playtests</strong> came later, once there was more to play. The aesthetic landed early. Most of the notes were about the HUD.</p>
               <ul class="quotes reveal">
@@ -1895,7 +1966,8 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
               </ul>
             </section>
 
-            <section class="chapter" id="en-part" aria-labelledby="en-part-h">
+            <section class="chapter" id="en-part" data-stage="role" aria-labelledby="en-part-h">
+              <p class="stage" aria-hidden="true"><i></i>My role</p>
               <h2 id="en-part-h">My contributions</h2>
               <ul class="contrib reveal">
                 <li><a class="contrib-link" href="#en-boards"><span class="cl-t">Designed the game concept from scratch and pitched it, with the story and the feel plan for every attack and every level of damage.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
@@ -1908,12 +1980,13 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
               </ul>
             </section>
 
-            <section class="chapter" id="en-story" aria-labelledby="en-story-h">
+            <section class="chapter" id="en-story" data-stage="reflect" aria-labelledby="en-story-h">
+              <p class="stage" aria-hidden="true"><i></i>Reflect</p>
               <h2 id="en-story-h">My story</h2>
               <p>Enhshahtén:ti is a tribute. It leans a lot on Assassin's Creed III and Connor, Ratonhnhaké:ton, from years of watching my older cousins play it. A little Severance went in too, in the idea that it's all in your head and they're testing you. The bow comes from Far Cry Primal, because its draw felt so good.</p>
               <p>The feel comes from my own time outdoors. I've gone out alone or with the dogs and lived along a river for a few days. That feeling of knowing the land and moving on it like a predator is what I wanted to build, along with the quiet moments in stealth action games where you just take in the world.</p>
             </section>
-            <section class="chapter story-sec" id="en-well" aria-labelledby="en-well-h">
+            <section class="chapter story-sec" id="en-well" data-stage="research" aria-labelledby="en-well-h">
               <h3 id="en-well-h"><span class="story-n">01</span>What went well</h3>
               <p>The core design held up. From the first pitch to the final build I barely had to iterate on it. The look I was chasing landed too. People called it dreamy, cold and ethereal, which is exactly where I was aiming.</p>
               <p>All three levels of both attacks worked, each with its own custom sound, VFX and art. Damage reads on the enemy itself. As you hit them, their soul fills up and you take it. And watching a tester yell "He noticed me!" told me the enemy behavior was reading.</p>
@@ -1961,7 +2034,8 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
               </div>
             </section>
 
-            <section class="chapter" id="en-color" aria-labelledby="en-color-h">
+            <section class="chapter" id="en-color" data-stage="plan" aria-labelledby="en-color-h">
+              <p class="stage" aria-hidden="true"><i></i>Plan</p>
               <h2 id="en-color-h">HUD and world palettes</h2>
               <p>The HUD lives in strict blue greys. The greys in the middle are for near misses and hits. Grey fits a world where you're freezing and losing consciousness. The blues stand out against the reds, yellows and tans of the French soldiers, and against the deep cool tones of the winter forest.</p>
               <p class="pal-label">HUD</p>
@@ -1990,7 +2064,8 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
               </figure>
             </section>
 
-            <section class="chapter" id="en-review" aria-labelledby="en-review-h">
+            <section class="chapter" id="en-review" data-stage="result" aria-labelledby="en-review-h">
+              <p class="stage" aria-hidden="true"><i></i>Result</p>
               <h2 id="en-review-h">Faculty review</h2>
               <blockquote class="review reveal">
                 <p>"This is a really interesting theme that I want you to lean into as hard as possible. Good references. … Your HUD concepting is super solid and, honestly, makes this project one that I'm excited to see how it gets implemented."</p>
@@ -2026,7 +2101,8 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
         <div class="case-layout">
           <nav class="toc" aria-label="MC UI Redesign sections"><a href="#mc-part">My part</a><a href="#mc-why">The problem</a><a href="#mc-research">Research</a><a href="#mc-flat">Wireframe</a><a href="#mc-live">In the game</a><a href="#mc-next">Next</a></nav>
           <div class="chapters">
-            <section class="chapter" id="mc-part" aria-labelledby="mc-part-h">
+            <section class="chapter" id="mc-part" data-stage="role" aria-labelledby="mc-part-h">
+              <p class="stage" aria-hidden="true"><i></i>My role</p>
               <h2 id="mc-part-h">My contributions</h2>
               <ul class="contrib reveal">
                 <li><a class="contrib-link" href="#mc-research"><span class="cl-t">Read about 50 community posts from Reddit, the Minecraft Feedback site, mod pages and YouTube comments, and sorted them by hand into themes.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
@@ -2035,7 +2111,8 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
                 <li><a class="contrib-link" href="#mc-flat"><span class="cl-t">Wireframed the new inventory, then laid it over the live game to check it in context.</span><span class="cl-go" aria-hidden="true">See it →</span></a></li>
               </ul>
             </section>
-            <section class="chapter" id="mc-why" aria-labelledby="mc-why-h">
+            <section class="chapter" id="mc-why" data-stage="problem" aria-labelledby="mc-why-h">
+              <p class="stage" aria-hidden="true"><i></i>Problem</p>
               <h2 id="mc-why-h">The problem</h2>
               <p class="lede">Minecraft's UI isn't keeping up with how much happens in survival, or with how many blocks are in the game now.</p>
               <p>Players run out of room. When you're building, you're limited to what fits. In combat, you can't keep every tool you need at hand. My rule going in was to add function and keep the simplicity players already like about it.</p>
@@ -2044,7 +2121,8 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
                 <li><b>The Hardcore Survivalist</b>Plays for hard feats and clutches, and leans on mods because vanilla doesn't help enough. They want less time sorting and digging for gear mid-fight, and a way to dump junk without a trip back to the lava at base.</li>
               </ul>
             </section>
-            <section class="chapter" id="mc-research" aria-labelledby="mc-research-h">
+            <section class="chapter" id="mc-research" data-stage="research" aria-labelledby="mc-research-h">
+              <p class="stage" aria-hidden="true"><i></i>Research</p>
               <h2 id="mc-research-h">Research</h2>
               <p>I sorted about 50 posts by hand. It's a sample I coded myself, not a formal survey, but the themes were clear.</p>
               <figure class="reveal mc-chart">
@@ -2059,7 +2137,8 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
               </ul>
               <p>What I took from them: more quick-access slots, grouped tools and room to manage items, without the clutter or unlabeled icons.</p>
             </section>
-            <section class="chapter" id="mc-flat" aria-labelledby="mc-flat-h">
+            <section class="chapter" id="mc-flat" data-stage="plan" aria-labelledby="mc-flat-h">
+              <p class="stage" aria-hidden="true"><i></i>Plan</p>
               <h2 id="mc-flat-h">Flat wireframe</h2>
 <div style="max-width:720px">              <figure class="draw reveal">
                 <div class="draw-stage"><img src="img/mc-wireframe.webp" width="1100" height="1045" loading="lazy" alt="Greyscale inventory wireframe. Top left, a column of four armor slots beside a large dark character preview. Top right, a two by two crafting grid joined by a line to one output slot. Below, a row of four buttons: a blank slot, a green recipe book, an ABC text icon and a salmon colored square. Then three rows of ten storage slots, a row of nine, and a lighter bottom row of nine. Diamond markers on four slots in the third row connect by vertical lines to the first four slots of the bottom row. A small node icon sits at the bottom right."></div>
@@ -2072,7 +2151,8 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
                 <figcaption><span>The flat wireframe with my notes. The panel sits closer together, fits more slots and keeps the 1 to 9 hotbar the same size.</span><button class="draw-toggle" type="button" aria-pressed="true">Hide notes</button></figcaption>
               </figure></div>
             </section>
-            <section class="chapter" id="mc-live" aria-labelledby="mc-live-h">
+            <section class="chapter" id="mc-live" data-stage="test" aria-labelledby="mc-live-h">
+              <p class="stage" aria-hidden="true"><i></i>Test</p>
               <h2 id="mc-live-h">Wireframe over the live game</h2>
               <p>I turned down the opacity of the inventory and the HUD on purpose. You can still see the world while your menu is open, so a creeper can't sneak up on you while you sort. The look and sizing stay close to Minecraft's own assets, so it still reads as Minecraft.</p>
               <figure class="reveal">
@@ -2080,7 +2160,8 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
                 <figcaption>The wireframe as a see-through panel over the world.</figcaption>
               </figure>
             </section>
-            <section class="chapter" id="mc-next" aria-labelledby="mc-next-h">
+            <section class="chapter" id="mc-next" data-stage="iterate" aria-labelledby="mc-next-h">
+              <p class="stage" aria-hidden="true"><i></i>Iterate</p>
               <h2 id="mc-next-h">Next</h2>
               <ul class="pts">
                 <li><strong>Playtest</strong> new spots for the buttons, more inventory slots, and an even more compact version.</li>
