@@ -1142,6 +1142,17 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
 #case-enshahtenti .why-wrap{margin-bottom:3.5rem}
 #case-enshahtenti .fl{background-color:rgba(36,48,64,.92)!important;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);position:relative;z-index:1}
 #case-enshahtenti .board img{border-radius:clamp(18px,4.2vw,44px)}
+/* readable at every size: the whole type scale grows with the screen */
+html{font-size:clamp(100%,0.86rem + 0.42vw,125%)}
+:root{--tabs-h:clamp(58px,3.2vw + 30px,84px)}
+.tabs-inner{max-width:none!important;padding-inline:clamp(16px,3vw,56px);box-sizing:border-box;align-items:center!important;height:100%}
+.tab-name{font-size:clamp(1.15rem,0.9rem + 0.9vw,1.9rem)!important;letter-spacing:.06em}
+.tab-name small{font-size:.5em!important;margin-left:.6em}
+.nav{margin-left:auto}
+.nav .tab{font-size:clamp(.85rem,.7rem + .3vw,1.05rem)!important}
+.bar-status .now{font-size:clamp(.75rem,.65rem + .2vw,.95rem)}
+@media (max-width:560px){.tab-name{font-size:.95rem!important;letter-spacing:.03em}.nav .tab{font-size:.68rem!important;margin-inline:.3rem!important;letter-spacing:.04em!important}.tabs-inner{padding-inline:12px}}
+@media (max-width:380px){.tab-name{font-size:.82rem!important;letter-spacing:0}.nav .tab{margin-inline:.22rem!important}}
 /* paint drips on the rail: the last section's color runs down into the next one, just before its arrow */
 #case-nitro-guzzler .chapter.has-drip::before{top:-5.2rem}
 #case-nitro-guzzler .chapter.has-drip::after{content:"";position:absolute;z-index:1;left:1.84rem;width:.73rem;top:-5.2rem;height:3.2rem;background:var(--c-p);pointer-events:none;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H20V12C20 16 19 30 16.5 30S13 22 13 17 11 13 9 15 8 24 5.5 24 3 15 0 13Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H20V12C20 16 19 30 16.5 30S13 22 13 17 11 13 9 15 8 24 5.5 24 3 15 0 13Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat}
