@@ -1108,30 +1108,21 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
 .stat-row b{display:block;font-size:2rem;line-height:1;font-weight:800}
 .stat-row span{font-size:.95rem}
 /* problem-solving stages: every section says which step it is, and steps look different */
-.stage{margin:0 0 -.4rem;justify-self:start;display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-mono);font-size:.82rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:.3rem .75rem .3rem .55rem;border-radius:999px;border:1.5px solid currentColor;color:var(--accent)}
+.stage{margin:0 0 -.5rem;justify-self:start;display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-mono);font-size:.8rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:0;border:0;color:var(--accent);opacity:.85}
 .stage i{width:.62rem;height:.62rem;border-radius:2px;background:currentColor;display:inline-block}
 [data-stage="problem"] .stage i{transform:rotate(45deg)}
 [data-stage="research"] .stage i,[data-stage="observe"] .stage i{border-radius:50%}
 [data-stage="result"] .stage i,[data-stage="takeaway"] .stage i{clip-path:polygon(0 0,100% 50%,0 100%)}
 [data-stage="role"] .stage i,[data-stage="team"] .stage i,[data-stage="context"] .stage i,[data-stage="reflect"] .stage i{background:transparent;border:2px solid currentColor;border-radius:50%}
-.chapter[data-stage="problem"]{position:relative}
-.chapter[data-stage="problem"]::after{content:"";position:absolute;left:0;right:0;top:0;height:10px;border-radius:inherit;background:repeating-linear-gradient(-45deg,var(--accent) 0 12px,transparent 12px 24px);opacity:.85;pointer-events:none}
-.chapter[data-stage="research"],.chapter[data-stage="observe"]{background-image:radial-gradient(color-mix(in srgb,var(--accent) 30%,transparent) 1.2px,transparent 1.4px)!important;background-size:18px 18px!important}
-.chapter[data-stage="plan"],.chapter[data-stage="analyze"]{background-image:linear-gradient(color-mix(in srgb,var(--accent) 16%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--accent) 16%,transparent) 1px,transparent 1px)!important;background-size:24px 24px!important}
-.chapter[data-stage="test"],.chapter[data-stage="iterate"]{outline:2px dashed color-mix(in srgb,var(--accent) 60%,transparent);outline-offset:-10px}
-.chapter[data-stage="result"],.chapter[data-stage="takeaway"]{box-shadow:inset 0 0 0 3px color-mix(in srgb,var(--accent) 55%,transparent)}
-.chapter[data-stage="reflect"],.chapter[data-stage="context"]{background:transparent!important;border-color:transparent!important;box-shadow:none!important;backdrop-filter:none!important}
-.chapter[data-stage="reflect"]>h2,.chapter[data-stage="context"]>h2{font-size:clamp(1.6rem,3vw,2.2rem)}
+#case-nitro-guzzler .chapter[data-stage="problem"]{position:relative}
 /* Nitro Guzzler keeps its boxes; stages change the fill */
 #case-nitro-guzzler .stage{color:#0B0B0C;background:var(--c-r);border:2px solid #0B0B0C;margin-left:clamp(4.2rem,6vw,5.2rem)}
 @media (max-width:860px){#case-nitro-guzzler .stage{margin-left:0}}
-#case-nitro-guzzler .chapter[data-stage="problem"]::after{height:14px;background:repeating-linear-gradient(-45deg,#0B0B0C 0 12px,var(--c-r) 12px 24px);opacity:1;border-radius:0}
 #case-nitro-guzzler .chapter[data-stage="problem"]{background:#fff!important}
 #case-nitro-guzzler .chapter[data-stage="research"],#case-nitro-guzzler .chapter[data-stage="plan"]{background-color:color-mix(in srgb,var(--c-r) 10%,#fff)!important}
 #case-nitro-guzzler .chapter[data-stage="plan"]{background-image:linear-gradient(color-mix(in srgb,var(--c-r) 35%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--c-r) 35%,transparent) 1px,transparent 1px)!important}
 #case-nitro-guzzler .chapter[data-stage="build"]{background:#fff!important;background-image:linear-gradient(color-mix(in srgb,var(--c-r) 28%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--c-r) 28%,transparent) 1px,transparent 1px)!important;background-size:32px 32px!important}
 #case-nitro-guzzler .chapter[data-stage="result"]{background:#fff!important;box-shadow:10px 10px 0 #0B0B0C!important}
-#case-nitro-guzzler .chapter[data-stage="iterate"]{outline:3px dashed #0B0B0C;outline-offset:-12px}
 #case-nitro-guzzler .chapter[data-stage="context"],#case-nitro-guzzler .chapter[data-stage="team"]{background:color-mix(in srgb,var(--c-r) 6%,#fff)!important;border-width:2px!important;box-shadow:none!important}
 /* clean up stray edges: offset shadows only on the bottom-right, no peeking TV burst */
 #case-nitro-guzzler .chapter{box-shadow:6px 6px 0 var(--c-r),9px 9px 0 #0B0B0C!important}
@@ -1147,6 +1138,10 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
 #case-nitro-guzzler .dv-pair{grid-template-columns:minmax(0,1fr)!important;gap:1.2rem}
 .why-pts{margin:0;padding-left:1.1rem;display:grid;gap:.3rem}
 .why-pts li{list-style:disc}
+/* Enhshahtén:ti fixes */
+#case-enshahtenti .why-wrap{margin-bottom:3.5rem}
+#case-enshahtenti .fl{background-color:rgba(36,48,64,.92)!important;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);position:relative;z-index:1}
+#case-enshahtenti .board img{border-radius:clamp(18px,4.2vw,44px)}
 /* paint drips on the rail: the last section's color runs down into the next one, just before its arrow */
 #case-nitro-guzzler .chapter.has-drip::before{top:-5.2rem}
 #case-nitro-guzzler .chapter.has-drip::after{content:"";position:absolute;z-index:1;left:1.84rem;width:.73rem;top:-5.2rem;height:3.2rem;background:var(--c-p);pointer-events:none;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H20V12C20 16 19 30 16.5 30S13 22 13 17 11 13 9 15 8 24 5.5 24 3 15 0 13Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 40' preserveAspectRatio='none'%3E%3Cpath d='M0 0H20V12C20 16 19 30 16.5 30S13 22 13 17 11 13 9 15 8 24 5.5 24 3 15 0 13Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat}
@@ -2057,10 +2052,6 @@ article#case-nitro-guzzler .inner{max-width:min(1600px,100%)!important;width:100
                 <li><button class="swatch" type="button" data-hex="#475F81"><i style="background:#475F81"></i><span>#475F81</span></button></li>
                 <li><button class="swatch" type="button" data-hex="#1A1A22"><i style="background:#1A1A22"></i><span>#1A1A22</span></button></li>
               </ul>
-              <figure class="reveal">
-                <img src="img/en-health-tests.webp" width="1600" height="896" loading="lazy" alt="Health test sketch on black. Blue arrows point to four ideas: the top left screen edge, a small white winged emblem in the center, a cluster of white arrows with grey tips at the bottom left, and smudged white text at the bottom right beside a grey blade held in a hand.">
-                <figcaption>Early HUD ideas sketched over a greybox, before the wireframes.</figcaption>
-              </figure>
             </section>
 
             <section class="chapter" id="en-review" data-stage="result" aria-labelledby="en-review-h">
